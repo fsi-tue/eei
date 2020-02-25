@@ -1,0 +1,132 @@
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #202020;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+}
+#center {
+    width: 60%;
+    margin: 5% auto;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+input[type="submit"] {
+    padding: 8px 16px;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #999;
+    border: none transparent;
+    background-color: #000080;
+    text-decoration: none;
+    border-radius: 2px;
+    margin-top: 2px;
+    transition: all .3s ease-in-out;
+}
+input[type="submit"]:hover {
+    background-color: #2121b3;
+    transition: all .3s ease-in-out;
+}
+input[type="submit"]:disabled {
+    background-color: #cccccc;
+}
+.error {
+    color: red;
+    border: 1px solid red;
+    border-radius: 2px;
+    margin: 5px 0;
+    padding: 2px;
+}
+.info {
+    color:#003399;
+    border: 1px solid #003399;
+    border-radius: 2px;
+    margin: 5px auto;
+    width: 80%;
+}
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    color: black;
+}
+.block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free  */
+/* The BBQ-Grill Icon is made by Smashicons from www.flaticon.com */
+.icon.beer {
+    background-image: url("../icons/beer-solid.svg");
+}
+.icon.cap {
+    background-image: url("../icons/cap-solid.svg");
+}
+.icon.clock {
+    background-image: url("../icons/clock-regular.svg");
+}
+.icon.cocktail {
+    background-image: url("../icons/cocktail-solid.svg");
+}
+.icon.dice {
+    background-image: url("../icons/dice-solid.svg");
+}
+.icon.film {
+    background-image: url("../icons/film-solid.svg");
+}
+.icon.food {
+    background-image: url("../icons/food-solid.svg");
+}
+.icon.grill {
+    background-image: url("../icons/grill-solid.svg");
+}
+.icon.hiking {
+    background-image: url("../icons/hiking-solid.svg");
+}
+.icon.house {
+    background-image: url("../icons/home-solid.svg");
+}
+.icon.marker {
+    background-image: url("../icons/marker-solid.svg");
+}
+.icon.route {
+    background-image: url("../icons/route-solid.svg");
+}
+.description {
+    margin: 5px auto;
+    white-space: nowrap;
+    padding-left: 35px;
+    width: min-content;
+    background-repeat: no-repeat;
+	background-position: left center;
+	background-size: contain;
+}
+
+@media only screen and (max-device-width: 1200px) {
+    #center {
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 0px;
+        padding: 0px;
+        width: 95%;
+    }
+    .block {
+        width: 95%;
+    }
+}
+@media only screen and (max-device-width: 680px) {
+    #center {
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 0px;
+        padding: 0px;
+        width: 99%;
+    }
+    .block {
+        width: 100%;
+    }
+}

@@ -1,0 +1,29 @@
+table {
+    margin: 0 auto;
+    width: 55%;
+}
+.al {
+    text-align: left;
+}
+.ar {
+    text-align: right;
+}
+input {
+    height: 35px;
+    width: 100%;
+}
+select {
+    width: 105%;
+}
+
+
+@media only screen and (max-device-width: 680px) {
+    table {
+        width: 90%;
+    }
+    input {
+        width: 100%;
+    }
+}
+@media only screen and (max-device-width: 1200px) {
+}

@@ -1,0 +1,51 @@
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+a:link, a:visited, a:hover, a:active{
+    display: block;
+    color: black;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #cecece;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    transition: all .2s ease-in-out;
+}
+.box:hover {
+    background-color: #dddddd;
+    transition: all .2s ease-in-out;
+}
+p {
+    margin: 0;
+    width: 100;
+    overflow-wrap: break-word;
+}
+p.date {
+    font-size: 80%;
+    color: #353535;
+}
+.icon {
+    background-position: center 80%;
+    background-repeat: no-repeat;
+    background-size: 55% 55%;
+}
+
+@media only screen and (max-device-width: 1200px) {
+}
+@media only screen and (max-device-width: 680px) {
+    .box {
+        width: 150px;
+        height: 150px;
+        font-size: 150%;
+    }
+}
