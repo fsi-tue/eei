@@ -7,32 +7,32 @@ $fp = "../../../eei-registration/"; #File Prefix
 
 #Anfi WE
 $WE = ["name" => 'Anfi WE', "icon" => 'house', "active" => false, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
-       "uts" => mktime(18, 0, 0, 02, 14, 2020), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv"];
+       "uts" => mktime('18', '0', '0', '02', '14', '2020'), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv"];
 
 #Spieleabend NICHT Akademisch
 $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - A301', "date" => '30.03.20', 
-       "uts" => mktime(18, 0, 0, 03, 30, 2020), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv"];
+       "uts" => mktime('18', '0', '0', '03', '30', '2020'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv"];
 #Filmeabend
 $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.20', 
-       "uts" => mktime(18, 0, 0, 03, 31, 2020), "link" => 'film/', "path" => "{$fp}anfi-film.csv"];
+       "uts" => mktime('18', '0', '0', '03', '31', '2020'), "link" => 'film/', "path" => "{$fp}anfi-film.csv"];
 #Grillen
 $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '02.04.20', 
-       "uts" => mktime(16, 0, 0, 04, 02, 2020), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv"];
+       "uts" => mktime('16', '0', '0', '04', '02', '2020'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv"];
 #Wanderung
 $WA = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'TBA', "date" => '05.04.20', 
-       "uts" => mktime(8, 0, 0, 04, 05, 2020), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
+       "uts" => mktime('8', '0', '0', '04', '05', '2020'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
 #Stadtrallye
 $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '06.04.20', 
-       "uts" => mktime(15, 0, 0, 04, 06, 2020), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
+       "uts" => mktime('15', '0', '0', '04', '06', '2020'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
 #Kneipentour
 $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '09.04.20 15Uhr', 
-       "uts" => mktime(16, 0, 0, 04, 09, 2020), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
+       "uts" => mktime('16', '0', '0', '04', '09', '2020'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
 #Frühstück
 $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => true, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
-       "uts" => mktime(10, 0, 0, 04, 08, 2020), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruestueck.csv"];
+       "uts" => mktime('10', '0', '0', '04', '08', '2020'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruestueck.csv"];
 #Spieleabend Akademisch
 $SA = ["name" => 'Spieleabend', "icon" => 'cap', "active" => true, "location" => 'Sand 14 - A301', "date" => '16.04.20', 
-       "uts" => mktime(18, 0, 0, 04, 16, 2020), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
+       "uts" => mktime('18', '0', '0', '04', '16', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
 
 
 $events = ['SN' => $SN, 'FA' => $FA, 'GR' => $GR, 'WA' => $WA,
@@ -43,7 +43,7 @@ $events = ['SN' => $SN, 'FA' => $FA, 'GR' => $GR, 'WA' => $WA,
 #The oder in this array defines the shown order
 
 $dummy =  ["name" => '', "icon" => '', "active" => true, "location" => 'Test', "date" => 'DD.MM.YY HH', 
-"uts" => mktime(17, 59, 0, 12, 31, 2020), "link" => "subDir/", "path" => "{$fp}/filename.csv"];
+"uts" => mktime('17', '59', '0', '12', '31', '2020'), "link" => "subDir/", "path" => "{$fp}/filename.csv"];
 #name: Name of the event (string)
 #icon: Icon of the tile (string), see css/style.css for list of all icons (example: beer)
 #location: Location of the event (string)
