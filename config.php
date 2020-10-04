@@ -9,7 +9,7 @@ $fp = "../../../eei-registration/"; #File Prefix
 $WE = ["name" => 'Anfi WE', "icon" => 'house', "active" => false, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
        "uts" => mktime('18', '0', '0', '02', '14', '2020'), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv"];
 
-#Spieleabend NICHT Akademisch
+/* #Spieleabend NICHT Akademisch
 $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => false, "location" => 'Sand 14 - A301', "date" => '30.03.20', 
        "uts" => mktime('18', '0', '0', '03', '30', '2020'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv"];
 #Filmeabend
@@ -18,6 +18,7 @@ $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => false, "location" =
 #Grillen
 $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => false, "location" => 'Wiese - Sand 14', "date" => '02.04.20', 
        "uts" => mktime('16', '0', '0', '04', '02', '2020'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv"];
+*/
 #Wanderung
 $WA = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '25.10.20',
        "uts" => mktime('11', '0', '0', '10', '25', '2020'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
@@ -33,9 +34,10 @@ $RD = ["name" => 'Stadtrallye digital', "icon" => 'route', "active" => true, "lo
 #Kneipentour
 $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.20', 
        "uts" => mktime('19', '0', '0', '10', '30', '2020'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
-#Frühstück
+/* #Frühstück
 $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
        "uts" => mktime('10', '0', '0', '04', '08', '2020'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruestueck.csv"];
+*/
 #Spieleabend Akademisch
 $SA = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20', 
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
