@@ -22,7 +22,7 @@ $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => false, "location" => 
 $WA = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '25.10.20',
        "uts" => mktime('11', '0', '0', '10', '25', '2020'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
 #Wanderung 2
-$WA1 = ["name" => 'Wanderung #2', "icon" => 'hiking', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '08.11.20',
+$WA1 = ["name" => 'Wanderung #2', "icon" => 'hiking', "active" => true, "location" => 'OMV Tankstelle (WHO)', "date" => '08.11.20',
         "uts" => mktime('11', '0', '0', '11', '08', '2020'), "link" => 'wanderung2/', "path" => "{$fp}anfi-wanderung-2.csv"];
 #Stadtrallye
 $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '24.10.20',
@@ -37,12 +37,12 @@ $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" =
 $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
        "uts" => mktime('10', '0', '0', '04', '08', '2020'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruestueck.csv"];
 #Spieleabend Akademisch
-$SA = ["name" => 'Spieleabend', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20', 
+$SA = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20', 
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
 
 
-$events = ['RY' => $RY, 'WA' => $WA, 'KT' => $KT, 'RD' => $RD,
-           'SA' => $SA, 'WA1' => $WA1 ];  
+$events = ['RY' => $RY, 'WA' => $WA, 'KT' => $KT, 
+           'RD' => $RD, 'SA' => $SA, 'WA1' => $WA1 ];  
 
 #Each event is an array in the $events array
 #To add an event copy the dummy and modify the values. Then, append this event to the $events array
