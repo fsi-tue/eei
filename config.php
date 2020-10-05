@@ -43,7 +43,7 @@ $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
 */
 #Spieleabend digital
-$SA = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
+$SD = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-digital/', "path" => "{$fp}anfi-sp-digital.csv"];
 
 
