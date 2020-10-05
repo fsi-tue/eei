@@ -37,14 +37,18 @@ $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" =
 /* #Frühstück
 $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
        "uts" => mktime('10', '0', '0', '04', '08', '2020'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruestueck.csv"];
-*/
+
 #Spieleabend Akademisch
-$SA = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
+$SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
+*/
+#Spieleabend digital
+$SA = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
+       "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-digital/', "path" => "{$fp}anfi-sp-digital.csv"];
 
 
 $events = ['RY' => $RY, 'WA' => $WA, 'KT' => $KT, 
-           'RD' => $RD, 'SA' => $SA, 'WA1' => $WA1 ];  
+           'RD' => $RD, 'SD' => $SD, 'WA1' => $WA1 ];  
 
 #Each event is an array in the $events array
 #To add an event copy the dummy and modify the values. Then, append this event to the $events array
