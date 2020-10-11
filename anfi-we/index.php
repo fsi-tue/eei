@@ -2,6 +2,7 @@
 $short = 'WE'; #Kürzel des Events
 
 require_once('../config.php');
+require_once('../registration.php');
 $enabled = true;
 $info = $error = '';
 $E = $events[$short]; #select Event
