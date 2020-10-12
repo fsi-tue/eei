@@ -3,7 +3,7 @@ require_once('../config.php');
 require_once('../registration.php');
 $short = 'WA'; #Kürzel des Events
 $E = $events[$short]; #select Event
-$h = handel($E, $short);
+//$h = handel($E, $short);
 ?>
 
 <!DOCTYPE html>
