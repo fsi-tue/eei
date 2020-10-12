@@ -2,7 +2,7 @@
 
     // functions to use for registration
     
-    function registerForOfflineEvent($event, $postParams){
+    function registerForOfflineEvent($event){
         $phone = $postParams['phone'];
         $mail = $postParams['mail'];
         $name = $postParams['name'];
@@ -49,7 +49,7 @@
     }
 
 
-    function registerForOnlineEvent($event, $postParams){
+    function registerForOnlineEvent($event){
         $mail = $postParams['mail'];
         $studiengang = $postParams['studiengang'];
         $semester = $postParams['semester'];

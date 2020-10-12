@@ -40,7 +40,7 @@ $E = $events[$short]; #select Event
             </form>-->
             <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                    registerForOfflineEvent($E, $_POST);
+                    registerForOfflineEvent($E);
 
                 showOfflineRegistration();
             ?>
