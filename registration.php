@@ -50,28 +50,32 @@
     function showOfflineRegistration(){
         echo '
             <form method="post" action="#">
-                <input type="text" id="form-name" name="name" required minlength="4" maxlength="15" size="15">
-                <input type="text" id="form-phone" name="phone" required minlength="4" maxlength="15" size="15">
-                <input type="text" id="form-mail" name="mail" required size="20">
-                <input list="studiengang" id="form-studiengang" name="studiengang" required>
-                    <datalist id="form-studiengang">
-                        <option value="Informatik">
-                        <option value="Lehramt">
-                        <option value="Bioinformatik">
-                        <option value="Medizininformatik">
-                        <option value="Medieninformatik">
-                        <option value="Kognitionswissenschaft">
-                    </datalist>
-                <input type="text" id="form-abschluss" name="abschluss" required>
-                    <datalist id="form-abschluss">
-                        <option value="Bachelor">
-                        <option value="Master">
-                    </datalist>
-                <input type="text" id="form-semester" name="semester" required>
-                    <datalist id="form-semester">
-                        <option value="1">
-                        <option value="2">
-                    </datalist>
+                Dein Name: <br>
+                <input type="text" id="form-name" name="name" required minlength="4" maxlength="15" size="15"><br><br>
+
+                Telefonnummer:<br>
+                <input type="text" id="form-phone" name="phone" required minlength="4" maxlength="15" size="15"><br><br>
+
+                Mail-Adresse:<br>
+                <input type="text" id="form-mail" name="mail" required size="20"><br><br>
+                
+                Studiengang:<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft"> Kognitionswissenschaft<br><br>
+
+                Abschluss:<br>
+                <input type="radio" class="form-abschluss" name="abschluss" value="Bachelor" required> Bachelor<br>
+                <input type="radio" class="form-abschluss" name="abschluss" value="Master"> Master<br><br>
+
+                Semester:<br>
+                <input type="radio" class="form-semester" name="semester" value="1" required> 1<br>
+                <input type="radio" class="form-semester" name="semester" value="2"> 2<br>
+                <input type="radio" class="form-semester" name="semester" value="Viele"> Viele<br><br>
+
                 <input type="submit">
             </form>
         ';
@@ -80,26 +84,29 @@
     function showOnlineRegistration(){
         echo '
             <form method="post" action="#">
-                <input type="text" id="form-mail" name="mail" required size="20">
-                <input list="studiengang" id="form-studiengang" name="studiengang" required>
-                    <datalist id="form-studiengang">
-                        <option value="Informatik">
-                        <option value="Lehramt">
-                        <option value="Bioinformatik">
-                        <option value="Medizininformatik">
-                        <option value="Medieninformatik">
-                        <option value="Kognitionswissenschaft">
-                    </datalist>
-                <input type="text" id="form-abschluss" name="abschluss" required>
-                    <datalist id="form-abschluss">
-                        <option value="Bachelor">
-                        <option value="Master">
-                    </datalist>
-                <input type="text" id="form-semester" name="semester" required>
-                    <datalist id="form-semester">
-                        <option value="1">
-                        <option value="2">
-                    </datalist>
+                Dein Name: <br>
+                <input type="text" id="form-name" name="name" required minlength="4" maxlength="15" size="15"><br><br>
+
+                Mail-Adresse:<br>
+                <input type="text" id="form-mail" name="mail" required size="20"><br><br>
+                
+                Studiengang:<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft" Kognitionswissenschaft<br><br>
+
+                Abschluss:<br>
+                <input type="radio" class="form-abschluss" name="abschluss" value="Bachelor" required> Bachelor<br>
+                <input type="radio" class="form-abschluss" name="abschluss" value="Master"> Master<br><br>
+
+                Semester:<br>
+                <input type="radio" class="form-semester" name="semester" value="1" required> 1<br>
+                <input type="radio" class="form-semester" name="semester" value="2"> 2<br>
+                <input type="radio" class="form-semester" name="semester" value="Viele"> Viele<br><br>
+
                 <input type="submit">
             </form>
         ';
