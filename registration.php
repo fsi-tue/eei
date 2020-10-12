@@ -34,6 +34,11 @@
 
         $file = fopen($file, "a");
 
+        if($file === false){
+            echo "Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a>";
+            return;
+        }
+
         fputcsv($file, $data);
 
         fclose($file);
@@ -70,6 +75,11 @@
 
 
         $file = fopen($file, "a");
+
+        if($file === false){
+            echo "Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a>";
+            return;
+        }
 
         fputcsv($file, $data);
 
