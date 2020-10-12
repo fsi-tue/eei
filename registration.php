@@ -50,14 +50,14 @@
     function showOfflineRegistration(){
         echo '
             <form method="post" action="#">
-                Dein Name: <br>
+                Dein Name (Vor- und Nachname): <br>
                 <input type="text" id="form-name" name="name" required minlength="4" maxlength="15" size="15"><br><br>
 
                 Telefonnummer:<br>
-                <input type="text" id="form-phone" name="phone" required minlength="4" maxlength="15" size="15"><br><br>
+                <input type="tel" id="form-phone" name="phone" required minlength="4" maxlength="15" size="15"><br><br>
 
                 Mail-Adresse:<br>
-                <input type="text" id="form-mail" name="mail" required size="20"><br><br>
+                <input type="email" id="form-mail" name="mail" required size="20"><br><br>
                 
                 Studiengang:<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik<br>
@@ -84,11 +84,11 @@
     function showOnlineRegistration(){
         echo '
             <form method="post" action="#">
-                Dein Name: <br>
+                Dein Name (Vor- und Nachname): <br>
                 <input type="text" id="form-name" name="name" required minlength="4" maxlength="15" size="15"><br><br>
 
                 Mail-Adresse:<br>
-                <input type="text" id="form-mail" name="mail" required size="20"><br><br>
+                <input type="email" id="form-mail" name="mail" required size="20"><br><br>
                 
                 Studiengang:<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik<br>
