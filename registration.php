@@ -3,12 +3,12 @@
     // functions to use for registration
     
     function registerForOfflineEvent($event){
-        $phone = $postParams['phone'];
-        $mail = $postParams['mail'];
-        $name = $postParams['name'];
-        $studiengang = $postParams['studiengang'];
-        $semester = $postParams['semester'];
-        $abschluss = $postParams['abschluss'];
+        $phone = $_POST['phone'];
+        $mail = $_POST['mail'];
+        $name = $_POST['name'];
+        $studiengang = $_POST['studiengang'];
+        $semester = $_POST['semester'];
+        $abschluss = $_POST['abschluss'];
 
         if(empty($phone) || empty($mail) || empty($name) || empty($studiengang) || empty($semester) || empty($abschluss)){
             echo "<div class='block info'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
@@ -56,10 +56,10 @@
 
 
     function registerForOnlineEvent($event){
-        $mail = $postParams['mail'];
-        $studiengang = $postParams['studiengang'];
-        $semester = $postParams['semester'];
-        $abschluss = $postParams['abschluss'];
+        $mail = $_POST['mail'];
+        $studiengang = $_POST['studiengang'];
+        $semester = $_POST['semester'];
+        $abschluss = $_POST['abschluss'];
 
         if(empty($mail) || empty($studiengang) || empty($semester) || empty($abschluss)){
             echo "<div class='block info'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
