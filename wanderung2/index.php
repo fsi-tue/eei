@@ -32,9 +32,15 @@ $h = handel($E, $short);
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
         <div class="block>">
-            <form method="post" action="#">
+            <!--<form method="post" action="#">
                 <input type="submit" value="Anmelden" <?php echo $h['enabled'] ? '' : 'disabled' ?>></td></tr>
-            </form>
+            </form>-->
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                    registerForOfflineEvent($E);
+
+                showOfflineRegistration();
+            ?>
         </div>
     </div>
 </body>
