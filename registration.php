@@ -11,7 +11,8 @@
         $abschluss = $postParams['abschluss'];
 
         if(empty($phone) || empty($mail) || empty($name) || empty($studiengang) || empty($semester) || empty($abschluss)){
-            return "notAllOptions";
+            echo "<div class='block info'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
+            return;
         }
 
 
@@ -19,7 +20,8 @@
 
         // already registered
         if(strpos(file_get_contents($file), $mail) !== false || strpos(file_get_contents($file), $phone) !== false){
-            return "alreadyRegistered";
+            echo "<div class='block info'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
+            return;
         }
 
         $data = array();
@@ -35,7 +37,7 @@
         $file = fopen($file, "a");
 
         if($file === false){
-            echo "Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a>";
+            echo "<div class='block info'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
             return;
         }
 
@@ -43,7 +45,7 @@
 
         fclose($file);
 
-        return "ok";
+        echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
     }
 
 
@@ -54,7 +56,8 @@
         $abschluss = $postParams['abschluss'];
 
         if(empty($mail) || empty($studiengang) || empty($semester) || empty($abschluss)){
-            return "notAllOptions";
+            echo "<div class='block info'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
+            return;
         }
         
 
@@ -62,7 +65,8 @@
 
         // already registered
         if(strpos(file_get_contents($file), $mail) !== false){
-            return "alreadyRegistered";
+            echo "<div class='block info'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
+            return;
         }
 
         $data = array();
@@ -77,7 +81,7 @@
         $file = fopen($file, "a");
 
         if($file === false){
-            echo "Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a>";
+            echo "<div class='block info'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
             return;
         }
 
@@ -85,7 +89,7 @@
 
         fclose($file);
 
-        return "ok";
+        echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
     }
 
     function showOfflineRegistration(){
