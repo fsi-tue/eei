@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+require_once('../registration.php');
 $short = 'FR'; #Kürzel des Events
 $E = $events[$short]; #select Event
 $h = handel($E, $short);

@@ -28,6 +28,12 @@ require_once('config.php');
                 echo "</a>";
         }
 ?>
+            <br>
+            Bitte melde dich zu den Veranstaltungen einzeln an.<br>
+            Deine Daten werden wegen Coronaverordnungen gebraucht und bis 2 Wochen nach den Veranstaltungen gespeichert.<br>
+            Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br>
+            Du kannst diese Daten durch einen Klick aus deinem Browser löschen:<br>
+            <input type="submit" value="Löschen" onclick="localStorage.clear()">
         </div>
     </div>
 </body>
