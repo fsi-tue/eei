@@ -41,6 +41,12 @@
             return;
         }
 
+        // add CSV headers if file doesn't exist yet
+        if(!file_exists($file)){
+            $headers = array("name", "phone", "mail", "studiengang", "abschluss", "semester");
+            fputcsv($file, $headers);
+        }
+
         fputcsv($file, $data);
 
         fclose($file);
@@ -71,7 +77,6 @@
 
         $data = array();
 
-        array_push($data, $name);
         array_push($data, $mail);
         array_push($data, $studiengang);
         array_push($data, $abschluss);
@@ -83,6 +88,12 @@
         if($file === false){
             echo "<div class='block info'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
             return;
+        }
+
+        // add CSV headers if file doesn't exist yet
+        if(!file_exists($file)){
+            $headers = array("mail", "studiengang", "abschluss", "semester");
+            fputcsv($file, $headers);
         }
 
         fputcsv($file, $data);
