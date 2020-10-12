@@ -18,9 +18,25 @@
         $file = $event["path"];
 
         // already registered
-        if(strpos(file_get_contents($file), $mail) !== false){
+        if(strpos(file_get_contents($file), $mail) !== false || strpos(file_get_contents($file), $phone) !== false){
             return "alreadyRegistered";
         }
+
+        $data = array();
+
+        array_push($data, $name);
+        array_push($data, $phone);
+        array_push($data, $mail);
+        array_push($data, $studiengang);
+        array_push($data, $abschluss);
+        array_push($data, $semester);
+
+
+        $file = fopen($file, "a");
+
+        fputcsv($file, $data);
+
+        fclose($file);
 
         return "ok";
     }
@@ -42,7 +58,22 @@
         // already registered
         if(strpos(file_get_contents($file), $mail) !== false){
             return "alreadyRegistered";
-        }        
+        }
+
+        $data = array();
+
+        array_push($data, $name);
+        array_push($data, $mail);
+        array_push($data, $studiengang);
+        array_push($data, $abschluss);
+        array_push($data, $semester);
+
+
+        $file = fopen($file, "a");
+
+        fputcsv($file, $data);
+
+        fclose($file);
 
         return "ok";
     }

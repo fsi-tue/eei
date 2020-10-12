@@ -3,7 +3,7 @@ require_once('../config.php');
 require_once('../registration.php');
 $short = 'KT'; #Kürzel des Events
 $E = $events[$short]; #select Event
-$h = handel($E, $short);
+//$h = handel($E, $short);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,12 @@ $h = handel($E, $short);
             <!--<form method="post" action="#">
                 <input type="submit" value="Anmelden" <?php echo $h['enabled'] ? '' : 'disabled' ?>></td></tr>
             </form>-->
-            <?php showOfflineRegistration(); ?>
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                    registerForOfflineEvent($E, $_POST);
+
+                showOfflineRegistration();
+            ?>
         </div>
     </div>
 </body>
