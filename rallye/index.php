@@ -24,9 +24,9 @@ $E = $events[$short]; #select Event
             Bei der Stadtrallye lassen wir dich und deine Kommilitonen gegeneinander in Teams antreten. 
             Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, 
             dabei hoffentlich die Orientierung in eurer neuen Heimat etwas verbessern und Kontakte knüpfen.<br>
-            Um besser planen zu können bitten wir euch (unverbindlich) bescheid zu geben wenn ihr kommt. Hierfür reicht ein simpler klick auf den Button.<br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
-            Deine Stimme wird gespeichert, zusätzlich wird ein Cookie gesetzt um dich darauf hinzuweisen dass du dich schonmal angemeldet hast.<br><br>
+            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.
+            Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br>
+            Du brauchst keine Angst zu haben - wie werden die Gruppengröße so klein wie möglich halten.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");

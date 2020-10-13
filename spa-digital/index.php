@@ -23,9 +23,7 @@ $E = $events[$short]; #select Event
             Der digtale Anfi Spieleabend, dieses mal akademisch ;)<br>
             An diesem Nachmittag/Abend möchten wir dich zunächst auf Discord einladen,  
             um in gemütlicher Runde mit anderen Kommilitonen und Scribble.io, Fever.io, Among Us online zu spielen.
-            Um besser planen zu können bitten wir euch (unverbindlich) bescheid zu geben wenn ihr kommt. Hierfür reicht ein simpler klick auf den Button.<br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
-            Deine Stimme wird gespeichert, zusätzlich wird ein Cookie gesetzt um dich darauf hinzuweisen dass du dich schonmal angemeldet hast.<br><br>
+            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
@@ -34,9 +32,9 @@ $E = $events[$short]; #select Event
         <div class="block>">
             <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                    registerForOfflineEvent($E);
+                    registerForOnlineEvent($E);
 
-                showOfflineRegistration();
+                showOnlineRegistration();
             ?>
         </div>
     </div>

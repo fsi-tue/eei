@@ -25,10 +25,7 @@ $E = $events[$short]; #select Event
             Dabei werdet ihr online noch mehr interessante, schöne und verstörende Ecken Tübingens kennen lernen,
             dabei hoffentlich die Orientierung in eurer neuen Heimat weiter verbessern und Kontakte verbessern.<br>
             Der Link zur digitalen Stadtralley erhaltet ihr nach Anmeldung per Mail.<br>
-            Um besser planen zu können bitten wir euch (unverbindlich) bescheid zu geben wenn ihr kommt. Hierfür reicht ein simpler klick auf den Button.<br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
-            Deine Stimme wird gespeichert, zusätzlich wird ein Cookie gesetzt um dich darauf hinzuweisen dass du dich schonmal angemeldet hast.<br><br>
-        </div>
+            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br><br>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
@@ -36,9 +33,9 @@ $E = $events[$short]; #select Event
         <div class="block>">
             <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                    registerForOfflineEvent($E);
+                    registerForOnlineEvent($E);
 
-                showOfflineRegistration();
+                showOnlineRegistration();
             ?>
         </div>
     </div>
