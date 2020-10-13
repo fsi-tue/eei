@@ -1,5 +1,7 @@
 <?php
 
+    require_once('__DIR__/config.php');
+
     // functions to use for registration
     
     function registerForOfflineEvent($event){
