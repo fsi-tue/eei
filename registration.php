@@ -134,7 +134,7 @@
                 <input type="radio" class="form-semester" name="semester" value="2"> 2<br>
                 <input type="radio" class="form-semester" name="semester" value="Viele"> Viele<br><br>
 
-                <input type="submit" onclick="saveFormValues()">
+                <input type="submit" value="Senden" onclick="saveFormValues()">
             </form>
             <script type="text/javascript" src="../js/saveFormValues.js"></script>
         ';
@@ -166,7 +166,7 @@
                 <input type="radio" class="form-semester" name="semester" value="2"> 2<br>
                 <input type="radio" class="form-semester" name="semester" value="Viele"> Viele<br><br>
 
-                <input type="submit" onclick="saveFormValues()">
+                <input type="submit" value="Senden" onclick="saveFormValues()">
             </form>
             <script type="text/javascript" src="../js/saveFormValues.js"></script>
         ';
