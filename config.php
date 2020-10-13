@@ -4,7 +4,7 @@
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
 $CONFIG_TERM = 'WS 20/21'; # example: WS 19/20 or SS 20
 // see https://www.php.net/manual/en/language.constants.predefined.php
-$fp = "__DIR__/../eei-registration/"; #File Prefix
+$fp = __DIR__ . "/../eei-registration/"; #File Prefix
 
 #Anfi WE
 $WE = ["name" => 'Anfi WE', "icon" => 'house', "active" => false, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
