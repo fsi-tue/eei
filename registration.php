@@ -18,10 +18,10 @@
         }
 
 
-        $file = $event["path"];
+        $filepath = $event["path"];
 
         // already registered
-        if(strpos(file_get_contents($file), $mail) !== false || strpos(file_get_contents($file), $phone) !== false){
+        if(strpos(file_get_contents($filepath), $mail) !== false || strpos(file_get_contents($filepath), $phone) !== false){
             echo "<div class='block error'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
             return;
         }
@@ -36,7 +36,7 @@
         array_push($data, $semester);
 
 
-        $file = fopen($file, "a");
+        $file = fopen($filepath, "a");
 
         if($file === false){
             echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
@@ -44,7 +44,7 @@
         }
 
         // add CSV headers if file doesn't exist yet
-        if(!file_exists($file)){
+        if(!file_exists($filepath)){
             $headers = array("name", "phone", "mail", "studiengang", "abschluss", "semester");
             fputcsv($file, $headers);
         }
@@ -69,10 +69,10 @@
         }
         
 
-        $file = $event["path"];        
+        $filepath = $event["path"];        
 
         // already registered
-        if(strpos(file_get_contents($file), $mail) !== false){
+        if(strpos(file_get_contents($filepath), $mail) !== false){
             echo "<div class='block error'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
             return;
         }
@@ -85,7 +85,7 @@
         array_push($data, $semester);
 
 
-        $file = fopen($file, "a");
+        $file = fopen($filepath, "a");
 
         if($file === false){
             echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
@@ -93,7 +93,7 @@
         }
 
         // add CSV headers if file doesn't exist yet
-        if(!file_exists($file)){
+        if(!file_exists($filepath)){
             $headers = array("mail", "studiengang", "abschluss", "semester");
             fputcsv($file, $headers);
         }
