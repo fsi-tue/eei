@@ -13,7 +13,7 @@
         $abschluss = $_POST['abschluss'];
 
         if(empty($phone) || empty($mail) || empty($name) || empty($studiengang) || empty($semester) || empty($abschluss)){
-            echo "<div class='block info'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
+            echo "<div class='block error'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
             return;
         }
 
@@ -22,7 +22,7 @@
 
         // already registered
         if(strpos(file_get_contents($file), $mail) !== false || strpos(file_get_contents($file), $phone) !== false){
-            echo "<div class='block info'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
+            echo "<div class='block error'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
             return;
         }
 
@@ -39,7 +39,7 @@
         $file = fopen($file, "a");
 
         if($file === false){
-            echo "<div class='block info'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
+            echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
             return;
         }
 
@@ -64,7 +64,7 @@
         $abschluss = $_POST['abschluss'];
 
         if(empty($mail) || empty($studiengang) || empty($semester) || empty($abschluss)){
-            echo "<div class='block info'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
+            echo "<div class='block error'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
             return;
         }
         
@@ -73,7 +73,7 @@
 
         // already registered
         if(strpos(file_get_contents($file), $mail) !== false){
-            echo "<div class='block info'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
+            echo "<div class='block error'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
             return;
         }
 
@@ -88,7 +88,7 @@
         $file = fopen($file, "a");
 
         if($file === false){
-            echo "<div class='block info'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
+            echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
             return;
         }
 
