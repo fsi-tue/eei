@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ERROR);
+
 #General Informations
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
 $CONFIG_TERM = 'WS 20/21'; # example: WS 19/20 or SS 20
