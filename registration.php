@@ -44,7 +44,9 @@
         }
 
         // add CSV headers if file doesn't exist yet
-        if(!file_exists($filepath)){
+        // check if file is empty, because we can't check if it exists because it was opened with fopen()
+        clearstatcache();
+        if(!filesize($filepath)){
             $headers = array("name", "phone", "mail", "studiengang", "abschluss", "semester");
             fputcsv($file, $headers);
         }
@@ -93,7 +95,9 @@
         }
 
         // add CSV headers if file doesn't exist yet
-        if(!file_exists($filepath)){
+        // check if file is empty, because we can't check if it exists because it was opened with fopen()
+        clearstatcache();
+        if(!filesize($filepath)){
             $headers = array("mail", "studiengang", "abschluss", "semester");
             fputcsv($file, $headers);
         }
