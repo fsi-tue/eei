@@ -127,6 +127,7 @@
                 <input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Machine Learning"> Machine Learning<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft"> Kognitionswissenschaft<br><br>
 
                 Abschluss:<br>
@@ -159,6 +160,7 @@
                 <input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik<br>
+                <input type="radio" class="form-studiengang" name="studiengang" value="Machine Learning"> Machine Learning<br>
                 <input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft" Kognitionswissenschaft<br><br>
 
                 Abschluss:<br>
