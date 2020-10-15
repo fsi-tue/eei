@@ -2,7 +2,7 @@
 
 error_reporting(E_ERROR);
 
-$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master");
+$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", NULL, NULL, 0, 40);
 
 #General Informations
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
