@@ -2,6 +2,8 @@
 
 error_reporting(E_ERROR);
 
+$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master");
+
 #General Informations
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
 $CONFIG_TERM = 'WS 20/21'; # example: WS 19/20 or SS 20
