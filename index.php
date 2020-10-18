@@ -31,7 +31,8 @@ require_once('config.php');
             <br>
             <strong>Bitte beachtet, dass aufgrund der erhöhten Inzidenz die Veranstaltungen mit weniger Menschen durchgeführt werden müssen. 
             Aufgrund der hohen Nachfrage bitten wir euch, dass ihr euch nur für eine Veranstaltung anmeldet. 
-            (Darüber hinaus behalten wir es uns vor Personen von Veranstaltungen auszuschließen, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben.)</strong><br>
+            (Darüber hinaus behalten wir es uns vor Personen von Veranstaltungen auszuschließen, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben. 
+            Evtl. erhaltet ihr auch eine Absage am Tag der Veranstaltung per Email.)</strong><br>
             Deine Daten werden wegen Coronaverordnungen gebraucht und bis 2 Wochen nach den Veranstaltungen gespeichert.<br>
             Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br>
             Du kannst diese Daten durch einen Klick aus deinem Browser löschen:<br>
