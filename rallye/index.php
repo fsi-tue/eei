@@ -37,7 +37,7 @@ $E = $events[$short]; #select Event
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
                     registerForOfflineEvent($E);
 
-                showOfflineRegistration();
+                showOfflineRegistration($E);
             ?>
         </div>
     </div>
