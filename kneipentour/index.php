@@ -34,12 +34,8 @@ $E = $events[$short]; #select Event
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
         <div class="block>">
-            <?php
-                if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                    registerForOfflineEvent($E);
-
-                showOfflineRegistration();
-            ?>
+            Die Kneipentour fällt aufgrund der Sperrstunde ab 23 Uhr und der maximal zwei erlaubten Haushalte in einem Restaurant aus.<br>
+            Alle bisher Angemeldeten erhalten noch eine Mail dazu.
         </div>
     </div>
 </body>
