@@ -37,7 +37,7 @@ $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" 
 $RD = ["name" => 'Stadtrallye digital', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '01.11.20 15 Uhr',
        "uts" => mktime('15', '0', '0', '11', '01', '2020'), "link" => 'rallye-digital/', "path" => "{$fp}anfi-rallye-digital.csv"];
 #Kneipentour
-$KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.20 19 Uhr', 
+$KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => 'Fällt aus', 
        "uts" => mktime('19', '0', '0', '10', '30', '2020'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
 /* #Frühstück
 $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
