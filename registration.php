@@ -109,7 +109,14 @@
         echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
     }
 
-    function showOfflineRegistration(){
+    function showOfflineRegistration($event){
+        // return if the event is only 72 + 2 hours ahead, i.e. don't show the registration anymore
+        if((time() + (86400 * 3) + (3600 * 2)) >= $event["uts"]){
+            echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
+                  Du erhältst in Kürze eine Mail</div>";
+            return;
+        }
+
         echo '
             <form method="post" action="#">
                 Dein Name (Vor- und Nachname): <br>
@@ -145,7 +152,14 @@
         ';
     }
 
-    function showOnlineRegistration(){
+    function showOnlineRegistration($event){
+        // return if the event is only 72 + 2 hours ahead, i.e. don't show the registration anymore
+        if((time() + (86400 * 3) + (3600 * 2)) >= $event["uts"]){
+            echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
+                  Du erhältst in Kürze eine Mail</div>";
+            return;
+        }
+
         echo '
             <form method="post" action="#">
                 Dein Name (Vor- und Nachname): <br>
