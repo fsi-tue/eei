@@ -48,12 +48,15 @@ $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" 
 $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
 */
-#Spieleabend digital
-$SD = ["name" => 'Spieleabend digital', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
+#Spieleabend digital 1
+$SD = ["name" => 'Spieleabend digital 2', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr',
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-digital/', "path" => "{$fp}anfi-sp-digital.csv"];
 
+#Spieleabend digital 0
+$SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '30.10.20 19 Uhr',
+       "uts" => mktime('19', '0', '0', '10', '30', '2020'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv"];
 
-$events = ['RY' => $RY, 'WA' => $WA, 'KT' => $KT, 
+$events = ['RY' => $RY, 'WA' => $WA, 'SD0' => $SD0,
            'RD' => $RD, 'SD' => $SD, 'WA1' => $WA1 ];  
 
 #Each event is an array in the $events array
