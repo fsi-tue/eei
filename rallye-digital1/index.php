@@ -1,7 +1,7 @@
 <?php
 require_once('../config.php');
 require_once('../registration.php');
-$short = 'SD0'; #Kürzel des Events
+$short = 'RD1'; #Kürzel des Events
 $E = $events[$short]; #select Event
 ?>
 
@@ -20,11 +20,12 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
-            Der digitale Anfi Spieleabend, dieses mal akademisch ;)<br>
-            An diesem Nachmittag/Abend möchten wir dich zunächst auf Discord einladen,
-            um in gemütlicher Runde mit anderen Kommilitonen online zu spielen.
-            Beliebte Spiele sind skribbl.io, Curvefever, Among Us, Secret Hitler und Gartic Phone.
-            Melde dich mit deinen Daten unten an, um genaue Informationen zum Discord-Server zu bekommen.<br><br>
+            Die digitale Anfi Stadtrallye<br>
+            Bei der digitalen Stadtrallye lassen wir dich und deine Kommilitonen gegeneinander in Teams antreten.
+            Wir haben Videos zu Sehenswürdigkeiten in Tübingen aufgenommen und spannende Rätsel vorbereitet.
+            Dabei werdet ihr online noch mehr schöne und interessante Ecken Tübingens kennen lernen,
+            dabei hoffentlich die Orientierung in eurer neuen Heimat weiter verbessern und neue Kontakte knüpfen.<br>
+            Den Link zum Discord-Server, auf dem die digitale Stadtralley stattfindet und die Gruppenzuteilung erhaltet ihr nach Anmeldung per Mail.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");

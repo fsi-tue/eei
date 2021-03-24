@@ -18,14 +18,21 @@ require_once('config.php');
     <div id="center">
         <h1>Anfi-Veranstaltungen - <?php echo $CONFIG_TERM?></h1>
         <div class="container">
-        <?php 
+<?php
+        function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
+            return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
+        }
+
         foreach ($events as $e) {
-                echo "<a href='{$e['link']}'>";
-                echo "  <div class='box icon {$e['icon']}'>";
-                echo "     <p class='name'>{$e['name']}</p>";
-                echo "     <p class='date'>{$e['date']}</p>";
-                echo "  </div>";
-                echo "</a>";
+            // date in first line, time shall go in new line
+            $date = $e['date'];
+            $date = replaceFirstOccurence(" ", ",<br>", $date);
+            echo "<a href='{$e['link']}'>";
+            echo "  <div class='box icon {$e['icon']}'>";
+            echo "     <p class='name'>{$e['name']}</p>";
+            echo "     <p class='date'>{$date}</p>";
+            echo "  </div>";
+            echo "</a>";
         }
 ?>
             <br>
