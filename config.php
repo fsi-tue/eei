@@ -40,10 +40,6 @@ $WA1 = ["name" => 'Wanderung #2', "icon" => 'hiking', "active" => true, "locatio
 $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '24.10.20 ~16 Uhr',
        "uts" => mktime('16', '0', '0', '10', '24', '2020'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
 
-#Stadtrallye digital
-$RD0 = ["name" => 'Stadtrallye digital', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '01.11.20 15 Uhr',
-       "uts" => mktime('15', '0', '0', '11', '01', '2020'), "link" => 'rallye-digital/', "path" => "{$fp}anfi-rallye-digital.csv"];
-
 #Kneipentour
 $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => 'Fällt aus', 
        "uts" => mktime('19', '0', '0', '10', '30', '2020'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
