@@ -28,18 +28,6 @@ $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => false, "location" =
 $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => false, "location" => 'Wiese - Sand 14', "date" => '02.04.20', 
        "uts" => mktime('16', '0', '0', '04', '02', '2020'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv"];
 
-#Wanderung
-$WA = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '25.10.20 11 Uhr',
-       "uts" => mktime('11', '0', '0', '10', '25', '2020'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
-
-#Wanderung 2
-$WA1 = ["name" => 'Wanderung #2', "icon" => 'hiking', "active" => true, "location" => 'OMV Tankstelle (WHO)', "date" => '08.11.20 11 Uhr',
-        "uts" => mktime('11', '0', '0', '11', '08', '2020'), "link" => 'wanderung2/', "path" => "{$fp}anfi-wanderung-2.csv"];
-
-#Stadtrallye
-$RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '24.10.20 ~16 Uhr',
-       "uts" => mktime('16', '0', '0', '10', '24', '2020'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
-
 #Kneipentour
 $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => 'Fällt aus', 
        "uts" => mktime('19', '0', '0', '10', '30', '2020'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
@@ -57,24 +45,43 @@ $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "
 $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
        "uts" => mktime('19', '0', '0', '04', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv"];
 
-#Spieleabend digital 1
-$SD1 = ["name" => 'Spieleabend digital 2', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '24.04.2021 19:00 Uhr',
-       "uts" => mktime('19', '0', '0', '04', '24', '2021'), "link" => 'spa-digital1/', "path" => "{$fp}anfi-sp-digital-1.csv"];
-
-#Spieleabend digital 2
-$SD2 = ["name" => 'Spieleabend digital 3', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '30.04.2021 19:00 Uhr',
-       "uts" => mktime('19', '0', '0', '04', '30', '2021'), "link" => 'spa-digital2/', "path" => "{$fp}anfi-sp-digital-2.csv"];
+#Wanderung
+$WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '18.04.21 ~11 Uhr',
+       "uts" => mktime('11', '0', '0', '04', '18', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
 
 #Stadtrallye digital 0
-$RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '21.04.2021 17:00 Uhr',
+$RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '21.04.21 17:00 Uhr',
        "uts" => mktime('17', '0', '0', '04', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}anfi-rallye-digital-0.csv"];
 
+#Spieleabend digital 1
+$SD1 = ["name" => 'Spieleabend digital 2', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '24.04.21 19:00 Uhr',
+       "uts" => mktime('19', '0', '0', '04', '24', '2021'), "link" => 'spa-digital1/', "path" => "{$fp}anfi-sp-digital-1.csv"];
+
 #Stadtrallye digital 1
-$RD1 = ["name" => 'Stadtrallye digital 2', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '27.04.2021 17:00 Uhr',
+$RD1 = ["name" => 'Stadtrallye digital 2', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '27.04.21 17:00 Uhr',
        "uts" => mktime('17', '0', '0', '04', '27', '2021'), "link" => 'rallye-digital1/', "path" => "{$fp}anfi-rallye-digital-1.csv"];
 
-$events = ['SD0' => $SD0, 'SD1' => $SD1, /*'SD2' => $SD2,*/
-           'RD0' => $RD0, 'RD1' => $RD1 ];  
+#Spieleabend digital 2
+$SD2 = ["name" => 'Spieleabend digital 3', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '30.04.21 19:00 Uhr',
+       "uts" => mktime('19', '0', '0', '04', '30', '2021'), "link" => 'spa-digital2/', "path" => "{$fp}anfi-sp-digital-2.csv"];
+
+#Stadtrallye
+$RY0 = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '02.05.20 ~16 Uhr',
+       "uts" => mktime('16', '0', '0', '05', '02', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
+
+/*
+#Stadtrallye 2
+$RY1 = ["name" => 'Stadtrallye #2', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '24.10.20 ~16 Uhr',
+       "uts" => mktime('16', '0', '0', '10', '24', '2020'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
+*/
+$events = [   'SD0' => $SD0, 
+              'WA0' => $WA0,
+              'RD0' => $RD0,
+              'SD1' => $SD1, 
+              'RD1' => $RD1,
+              #'SD2' => $SD2,
+              'RY0' => $RY0
+       ];  
 
 #Each event is an array in the $events array
 #To add an event copy the dummy and modify the values. Then, append this event to the $events array

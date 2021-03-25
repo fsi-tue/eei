@@ -1,7 +1,7 @@
 <?php
 require_once('../config.php');
 require_once('../registration.php');
-$short = 'RY'; #Kürzel des Events
+$short = 'RY0'; #Kürzel des Events
 $E = $events[$short]; #select Event
 ?>
 
