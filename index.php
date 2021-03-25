@@ -43,7 +43,7 @@ require_once('config.php');
             Deine Daten werden wegen Coronaverordnungen gebraucht und bis 2 Wochen nach den Veranstaltungen gespeichert.<br>
             Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br>
             Du kannst diese Daten durch einen Klick aus deinem Browser löschen:<br>
-            <input type="submit" value="Löschen" onclick="localStorage.clear()">            
+            <input type="submit" value="Löschen" onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
         </div>
         <br><br>
         <a href="https://github.com/fsi-tue/eei">Source Code</a>
