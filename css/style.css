@@ -57,8 +57,9 @@ form {
     color: red;
     border: 1px solid red;
     border-radius: 2px;
-    margin: 5px 0;
+    margin: 5px auto;
     padding: 2px;
+    width: 80%;
 }
 .info {
     color:#003399;

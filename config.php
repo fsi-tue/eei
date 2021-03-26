@@ -46,7 +46,7 @@ $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "l
        "uts" => mktime('19', '0', '0', '04', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv"];
 
 #Wanderung
-$WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'vor dem Neckarmüller', "date" => '18.04.21 ~11 Uhr',
+$WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => false, "location" => 'vor dem Neckarmüller', "date" => '18.04.21 ~11 Uhr',
        "uts" => mktime('11', '0', '0', '04', '18', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
 
 #Stadtrallye digital 0
@@ -66,7 +66,7 @@ $SD2 = ["name" => 'Spieleabend digital 3', "icon" => 'cap', "active" => true, "l
        "uts" => mktime('19', '0', '0', '04', '30', '2021'), "link" => 'spa-digital2/', "path" => "{$fp}anfi-sp-digital-2.csv"];
 
 #Stadtrallye
-$RY0 = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '02.05.20 ~16 Uhr',
+$RY0 = ["name" => 'Stadtrallye', "icon" => 'route', "active" => false, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '02.05.20 ~16 Uhr',
        "uts" => mktime('16', '0', '0', '05', '02', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
 
 /*
@@ -90,6 +90,7 @@ $events = [   'SD0' => $SD0,
 $dummy =  ["name" => '', "icon" => '', "active" => true, "location" => 'Test', "date" => 'DD.MM.YY HH', 
 "uts" => mktime('17', '59', '0', '12', '31', '2020'), "link" => "subDir/", "path" => "{$fp}/filename.csv"];
 #name: Name of the event (string)
+#active: shows if event is actually to happen.
 #icon: Icon of the tile (string), see css/style.css for list of all icons (example: beer)
 #location: Location of the event (string)
 #date: Date and Time of the event (string) in a human readable format
