@@ -25,6 +25,15 @@ a:link, a:visited, a:hover, a:active{
     background-color: #dddddd;
     transition: all .2s ease-in-out;
 }
+.box.inactive {
+    background-color: lightgrey;
+    color: grey;
+}
+.box.inactive:hover {
+    background-color: #dddddd;
+    transition: all .2s ease-in-out;
+    color: grey;
+}
 p {
     margin: 0;
     width: 100%;
@@ -40,7 +49,6 @@ p.date {
     background-repeat: no-repeat;
     background-size: 30% 30%;
 }
-
 @media only screen and (max-device-width: 1200px) {
 }
 @media only screen and (max-device-width: 680px) {

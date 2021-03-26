@@ -1,5 +1,9 @@
 # eei - Erst Einführungs Interface
 
+## Testing
+* Requires `php` to be installed
+* Run a local test instance using `php -S localhost:8000`
+
 ## Adding an event:
 ### config.php
 To add an event copy the dummy event and modify the values. Then, append this event to the $events array
