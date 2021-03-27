@@ -7,6 +7,7 @@ body {
     font-size: 12pt;
     margin: 0;
     padding: 0;
+    text-align: justify;
 }
 #center {
     width: 60%;
@@ -14,8 +15,17 @@ body {
     background-color: #f5f5f5;
     border-radius: 5px;
     padding: 10px;
+    /*text-align: center;*/
+}
+
+h1 {
     text-align: center;
 }
+
+#btn-clr {
+    margin: 1em;
+}
+
 input[type="submit"] {
     padding: 8px 16px;
     width: 100px;
@@ -41,13 +51,15 @@ form {
     display: block;
     width: max-content;
     text-align: left;
+    
 }
 .error {
     color: red;
     border: 1px solid red;
     border-radius: 2px;
-    margin: 5px 0;
+    margin: 5px auto;
     padding: 2px;
+    width: 80%;
 }
 .info {
     color:#003399;
@@ -101,6 +113,9 @@ a:link, a:visited, a:hover, a:active{
 }
 .icon.route {
     background-image: url("../icons/route-solid.svg");
+}
+.icon.inactive {
+    opacity: 50%;
 }
 .description {
     margin: 5px auto;

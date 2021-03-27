@@ -20,9 +20,10 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <p class="error">Nach momentanen Stand lässt sich noch nicht sagen ob die Wanderung stattfindet! Sollte sie stattfinden verschwindet dieser Textblock und die Anmeldung wird freigeschalten.</p>
             Die Anfi Wanderung  <br>
             Eine Wanderung durch den Schönbuch und den umliegenden Wäldern Tübingens.<br>
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.
+            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>
             Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br>
             Du brauchst keine Angst zu haben - wie werden die Gruppengröße so klein wie möglich halten.<br><br>
         </div>
@@ -35,7 +36,7 @@ $E = $events[$short]; #select Event
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
                     registerForOfflineEvent($E);
 
-                showOfflineRegistration($E);
+                //showOfflineRegistration($E); //Please comment in if event will happen!
             ?>
         </div>
     </div>

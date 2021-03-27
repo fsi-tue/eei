@@ -20,6 +20,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <p class="error">Nach momentanen Stand lässt sich noch nicht sagen ob die Wanderung stattfindet! Sollte sie stattfinden verschwindet dieser Textblock und die Anmeldung wird freigeschalten.</p>
             Die Anfi Stadtrallye<br>
             Bei der Stadtrallye lassen wir dich und deine Kommilitonen gegeneinander in Teams antreten. 
             Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, 
@@ -37,7 +38,7 @@ $E = $events[$short]; #select Event
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
                     registerForOfflineEvent($E);
 
-                showOfflineRegistration($E);
+                //showOfflineRegistration($E); //Please comment in if event will happen!
             ?>
         </div>
     </div>
