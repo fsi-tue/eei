@@ -66,8 +66,8 @@ $SD2 = ["name" => 'Spieleabend digital 3', "icon" => 'cap', "active" => true, "l
        "uts" => mktime('19', '0', '0', '04', '30', '2021'), "link" => 'spa-digital2/', "path" => "{$fp}anfi-sp-digital-2.csv"];
 
 #Stadtrallye
-$RY0 = ["name" => 'Stadtrallye', "icon" => 'route', "active" => false, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '02.05.20 ~16 Uhr',
-       "uts" => mktime('16', '0', '0', '05', '02', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
+$RY0 = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '19.06.21 17 Uhr',
+       "uts" => mktime('17', '0', '0', '06', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
 
 /*
 #Stadtrallye 2
