@@ -39,16 +39,16 @@ $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" 
 #Spieleabend Akademisch
 $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
        "uts" => mktime('19', '0', '0', '11', '06', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
-*/
+
 
 #Spieleabend digital 0
 $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
        "uts" => mktime('19', '0', '0', '04', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv"];
-
+ */
 #Wanderung
-$WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => false, "location" => 'vor dem Neckarmüller', "date" => '18.04.21 ~11 Uhr',
-       "uts" => mktime('11', '0', '0', '04', '18', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
-
+$WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.06.21 ab 10 Uhr',
+       "uts" => mktime('10', '0', '0', '06', '27', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
+/*
 #Stadtrallye digital 0
 $RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '21.04.21 17:00 Uhr',
        "uts" => mktime('17', '0', '0', '04', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}anfi-rallye-digital-0.csv"];
@@ -64,7 +64,7 @@ $RD1 = ["name" => 'Stadtrallye digital 2', "icon" => 'route', "active" => true, 
 #Spieleabend digital 2
 $SD2 = ["name" => 'Spieleabend digital 3', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '30.04.21 19:00 Uhr',
        "uts" => mktime('19', '0', '0', '04', '30', '2021'), "link" => 'spa-digital2/', "path" => "{$fp}anfi-sp-digital-2.csv"];
-
+ */
 #Stadtrallye
 $RY0 = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '19.06.21 17 Uhr',
        "uts" => mktime('17', '0', '0', '06', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
