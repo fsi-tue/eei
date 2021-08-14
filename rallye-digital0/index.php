@@ -1,7 +1,8 @@
 <?php
 require_once('../config.php');
-require_once('../registration.php');
 $short = 'RD0'; #Kürzel des Events
+$meal = false;
+$info = $error = '';
 $E = $events[$short]; #select Event
 ?>
 
@@ -33,10 +34,9 @@ $E = $events[$short]; #select Event
         ?>
         <div class="block>">
             <?php
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    registerForOnlineEvent($E);
-                }
-                showOnlineRegistration($E);
+                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                    register($E, $short, $meal);
+                showRegistration($E, $meal);
             ?>
         </div>
     </div>

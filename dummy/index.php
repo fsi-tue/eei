@@ -1,9 +1,9 @@
 <?php
 require_once('../config.php');
-require_once('../registration.php');
 $short = 'RY'; #Kürzel des Events
+$meal = false; #do we provide food?
+$info = $error = '';
 $E = $events[$short]; #select Event
-$h = handel($E, $short);
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +34,11 @@ $h = handel($E, $short);
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
         <div class="block>">
-            <form method="post" action="#">
-                <input type="submit" value="Anmelden" <?php echo $h['enabled'] ? '' : 'disabled' ?>></td></tr>
-            </form>
+            <?php
+                if($_SERVER['REQUEST_METHOD'] === 'POST')
+                    register($E, $meal);
+                showRegistration($E, $meal);
+            ?>
         </div>
     </div>
 </body>

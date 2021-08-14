@@ -1,9 +1,9 @@
 <?php
 require_once('../config.php');
-require_once('../registration.php');
 $short = 'FR'; #Kürzel des Events
+$meal = true;
+$info = $error = '';
 $E = $events[$short]; #select Event
-$h = handel($E, $short);
 ?>
 
 <!DOCTYPE html>
@@ -22,20 +22,21 @@ $h = handel($E, $short);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
-            Dabei erfährst due iniges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch imGespräch mit älteren Studierenden. Außerdem wirst du durch Prof. Ostermann – er wird dieInformatik I Vorlesung halten – begrüßt. 
-            Danach machen wir eine Führung über die Morgenstelle,damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
-            Um besser planen zu können bitten wir euch (unverbindlich) bescheid zu geben wenn ihr kommt. Hierfür reicht ein simpler klick auf den Button.<br>
+            Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden. Außerdem wirst du durch Prof. Ostermann – er wird die Informatik I Vorlesung halten – begrüßt. 
+            Danach machen wir eine Führung über die Morgenstelle, damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
+            Um besser planen zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
             Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
-            Deine Stimme wird gespeichert, zusätzlich wird ein Cookie gesetzt um dich darauf hinzuweisen dass du dich schonmal angemeldet hast.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
         <div class="block>">
-            <form method="post" action="#">
-                <input type="submit" value="Anmelden" <?php echo $h['enabled'] ? '' : 'disabled' ?>></td></tr>
-            </form>
+            <?php
+                if($_SERVER['REQUEST_METHOD'] === 'POST')
+                    register($E, $meal);
+                showRegistration($E, $meal);
+            ?>
         </div>
     </div>
 </body>
