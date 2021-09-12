@@ -34,7 +34,7 @@ $E = $events[$short]; #select Event
             <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
                     register($E, $meal);
-                showRegistration($E, $meal);
+                showRegistration($E, $meal);                   
             ?>
         </div>
     </div>
