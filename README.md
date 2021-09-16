@@ -12,13 +12,15 @@ The oder in this array defines the shown order
 Example:
 ```php
 $SA = ["name" => 'Spieleabend', "icon" => 'cap', "active" => true, "location" => 'Sand 14 - A301', "date" => '16.04.20', 
-       "uts" => mktime(18, 0, 0, 04, 16, 2020), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
+       "online" => false, "cancelled" = false, "uts" => mktime('18', '0', '0', '04', '16', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
 ```
 Whereas: 
 - name: Name of the event (string)
 - icon: Icon of the tile (string), see css/style.css for list of all icons (example: beer)
 - location: Location of the event (string)
 - date: Date and Time of the event (string) in a human readable format
+- online: shows if the event is online
+- cancelled: shows if the evend is cancelled
 - uts: Unix Timestamp of the event (int), or mktime(hour, minute, second, MONTH, DAY, year)  (ATTENTION! American Time Format)
    - The cookie, that will be set after a registration, will expire at this time +24h
    - After reaching this timestamp no further registration will be possible  

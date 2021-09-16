@@ -1,8 +1,9 @@
 <?php
 require_once('../config.php');
 $short = 'GR'; #Kürzel des Events
+$meal = false;
+$info = $error = '';
 $E = $events[$short]; #select Event
-$h = handel($E, $short);
 ?>
 
 <!DOCTYPE html>
@@ -21,24 +22,24 @@ $h = handel($E, $short);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             Das Anfi Grillen  <br>
-            Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird dieFachschaft mit dir grillen. 
-            Bringt dazu mit, was auch immer du zum Grillen brauchst, Gas- undKohlegrill warten auf dich. 
+            Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen. 
+            Bringt dazu mit, was auch immer du zum Grillen brauchst, unser Gasgrill wartet auf dich. 
             Bring bitte auch dein Besteck und Geschirr selbst mit!
             Auf dem Sand ist es auch möglich, Volleyball, Fußball, usw. zu spielen. Wir freuen uns auf dich<br>
 
-
-            Um besser planen zu können bitten wir euch (unverbindlich) bescheid zu geben wenn ihr kommt. Hierfür reicht ein simpler klick auf den Button.<br>
+            Um besser planen zu können bitten wir euch Bescheid zu geben wenn ihr kommt. <br>
             Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
-            Deine Stimme wird gespeichert, zusätzlich wird ein Cookie gesetzt um dich darauf hinzuweisen dass du dich schonmal angemeldet hast.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
         <div class="block>">
-            <form method="post" action="#">
-                <input type="submit" value="Anmelden" <?php echo $h['enabled'] ? '' : 'disabled' ?>></td></tr>
-            </form>
+            <?php
+                if($_SERVER['REQUEST_METHOD'] === 'POST')
+                    register($E, $meal);
+                showRegistration($E, $meal);
+            ?>
         </div>
     </div>
 </body>

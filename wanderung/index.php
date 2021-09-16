@@ -1,7 +1,8 @@
 <?php
 require_once('../config.php');
-require_once('../registration.php');
 $short = 'WA0'; #Kürzel des Events
+$meal = false;
+$info = $error = '';
 $E = $events[$short]; #select Event
 ?>
 
@@ -32,9 +33,8 @@ $E = $events[$short]; #select Event
         <div class="block>">
             <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                    registerForOfflineEvent($E);
-
-                showOfflineRegistration($E); //Please comment in if event will happen!
+                    register($E, $meal);
+                showRegistration($E, $meal);                   
             ?>
         </div>
     </div>
