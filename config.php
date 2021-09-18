@@ -60,17 +60,17 @@
            "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '09', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
     
     $events = [   'SO' => $SO,
-                  'WE' => $WE,
+	          'SA' => $SA
+         	 /* 'WE' => $WE,
                   'FA' => $FA,
                   'SN' => $SN,
-                  'SA' => $SA,
                   'GR' => $GR,
                   'KT' => $KT,
                   'FR' => $FR,
                   'WA0' => $WA0,
                   'SD0' => $SD0,
                   'RD0' => $RD0,
-                  'RY' => $RY
+                  'RY' => $RY*/
            ];  
 
     #Each event is an array in the $events array

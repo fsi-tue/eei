@@ -22,8 +22,8 @@ $E = $events[$short]; #select Event
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             Das Sommerfest  <br>
-            Gemütliches Beisammensein mit Getränken, Pizza und Grillgut.<br>
-            Für vegetarische und vegane Optionen ist gesorgt. Aus logistischen Gründen können wir als vegane Option leider nur Pizza anbieten.<br>
+            Gemütliches Beisammensein mit Getränken und Grillgut.<br>
+            Für vegetarische (und/oder vegane) Optionen ist gesorgt.<br>
             Melde dich mit deinen Daten unten an, um am Sommerfest Einlass zu bekommen.<br>
             <b style='color:red !important;'>Ohne Anmeldung ist ein Einlass nicht möglich!</b><br>
             Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br><br>
