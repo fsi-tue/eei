@@ -12,16 +12,16 @@
     $fp = __DIR__ . "/../eei-registration/"; #File Prefix
 
     #Sommerfest
-    $SO = ["name" => 'Sommerfest', "icon" => 'grill', "active" => true, "location" => 'Terrasse Sand', "date" => '25.09.21 ab 14:00',
-           "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '09', '25', '2021'), "link" => 'sommerfest/', "path" => "{$fp}sommerfest.csv"]; 
+    $SO = ["name" => 'Sommerfest', "icon" => 'grill', "active" => true, "location" => 'Terrasse Sand', "date" => '25.09.21 ab 18:00',
+           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '25', '2021'), "link" => 'sommerfest/', "path" => "{$fp}sommerfest.csv"]; 
     
     #Anfi WE
     $WE = ["name" => 'Anfi WE', "icon" => 'house', "active" => true, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
            "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv"];
 
     #Spieleabend NICHT Akademisch
-    $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - A301', "date" => '30.09.21', 
-           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '30', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv"];
+    $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - A301', "date" => '22.10.21', 
+           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '22', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv"];
      
     #Filmeabend
     $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
@@ -60,7 +60,7 @@
            "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '09', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
     
     $events = [   'SO' => $SO,
-	          'SA' => $SA
+	          'SN' => $SN
          	 /* 'WE' => $WE,
                   'FA' => $FA,
                   'SN' => $SN,
