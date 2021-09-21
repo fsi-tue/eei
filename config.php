@@ -91,6 +91,7 @@
     #     After reaching this timestamp no further registration will be possible  
     #link: Link to the event (string), relativ path to sub-directory
     #path: Relativ path to CSV file (string), only necessary if used 
+    #max_participants: Maximum number of participants that are allowed to register before no further registrations will be possible
 
 
 
