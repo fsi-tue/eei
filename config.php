@@ -13,72 +13,85 @@
 
     #Sommerfest
     $SO = ["name" => 'Sommerfest', "icon" => 'grill', "active" => true, "location" => 'Terrasse Sand', "date" => '25.09.21 ab 18:00',
-           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '25', '2021'), "link" => 'sommerfest/', "path" => "{$fp}sommerfest.csv"]; 
-    
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '25', '2021'), "link" => 'sommerfest/', "path" => "{$fp}sommerfest.csv",
+    "max_participants" => 260 , "uts_override" => true, "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')];
+
     #Anfi WE
     $WE = ["name" => 'Anfi WE', "icon" => 'house', "active" => true, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
-           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv"];
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend NICHT Akademisch
     $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - A301', "date" => '22.10.21', 
-           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '22', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv"];
-     
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '22', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+
     #Filmeabend
     $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
-           "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '31', '2021'), "link" => 'film/', "path" => "{$fp}anfi-film.csv"];
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '31', '2021'), "link" => 'film/', "path" => "{$fp}anfi-film.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Grillen
     $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '02.04.20', 
-           "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '09', '02', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv"];
+    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '09', '02', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Kneipentour
     $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
-           "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '20', '2021'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv"];
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '20', '2021'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Frühstück
     $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
-           "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '09', '08', '2021'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruehstueck.csv"];
+    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '09', '08', '2021'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruehstueck.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend Akademisch
     $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
-           "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '11', '06', '2021'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '11', '06', '2021'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend digital 0
     $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
-           "online" => true, "cancelled" => false, "uts" => mktime('19', '0', '0', '09', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv"];
-      
+    "online" => true, "cancelled" => false, "uts" => mktime('19', '0', '0', '09', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+
     #Wanderung
     $WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.06.21 ab 10 Uhr',
-           "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '15', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv"];
-    
+    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '15', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+
     #Stadtrallye digital 0
     $RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '21.04.21 17:00 Uhr',
-           "online" => true, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}anfi-rallye-digital-0.csv"];
-    
+    "online" => true, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}anfi-rallye-digital-0.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+
     #Stadtrallye
     $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '19.06.21 17 Uhr',
-           "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '09', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv"];
-    
+    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '09', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+
     $events = [   'SO' => $SO,
-	          'SN' => $SN
-         	 /* 'WE' => $WE,
-                  'FA' => $FA,
-                  'SN' => $SN,
-                  'GR' => $GR,
-                  'KT' => $KT,
-                  'FR' => $FR,
-                  'WA0' => $WA0,
-                  'SD0' => $SD0,
-                  'RD0' => $RD0,
-                  'RY' => $RY*/
-           ];  
+    'SN' => $SN
+    /* 'WE' => $WE,
+        'FA' => $FA,
+        'SN' => $SN,
+        'GR' => $GR,
+        'KT' => $KT,
+        'FR' => $FR,
+        'WA0' => $WA0,
+        'SD0' => $SD0,
+        'RD0' => $RD0,
+        'RY' => $RY*/
+    ];  
 
     #Each event is an array in the $events array
     #To add an event copy the dummy and modify the values. Then, append this event to the $events array
     #The order in this array defines the shown order
 
     $dummy =  ["name" => '', "icon" => '', "active" => true, "location" => 'Test', "date" => 'DD.MM.YY HH', 
-    "online" => 'false', "cancelled" => false, "uts" => mktime('17', '59', '0', '12', '31', '2021'), "link" => "subDir/", "path" => "{$fp}/filename.csv"];
+    "online" => 'false', "cancelled" => false, "uts" => mktime('17', '59', '0', '12', '31', '2021'), "link" => "subDir/", "path" => "{$fp}/filename.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
     #name: Name of the event (string)
     #active: shows if event is actually to happen.
     #icon: Icon of the tile (string), see css/style.css for list of all icons (example: beer)
@@ -91,8 +104,9 @@
     #     After reaching this timestamp no further registration will be possible  
     #link: Link to the event (string), relativ path to sub-directory
     #path: Relativ path to CSV file (string), only necessary if used 
-
-
+    #max_participants: Maximum number of participants that are allowed to register before no further registrations will be possible
+    #uts_override: Override the default limit for registrations of 74 hours before the event
+    #end_of_registration: Custom date for end of registration, set to false otherwise
 
 
     #DO NOT TOUCH
@@ -221,12 +235,23 @@
 
     function showRegistration($E, $meal){
         global $CONFIG_CONTACT;
-        // return if the event is only 72 + 2 hours ahead, i.e. don't show the registration anymore
-        if((time() + (86400 * 3) + (3600 * 2)) >= $E["uts"]){
-            echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
-                  Du erhältst in Kürze eine Mail</div>";
-            return;
+        // override the 72 + 2 hour limit for certain events
+        if($E['uts_override']) {
+            if(time() >= $E['end_of_registration']) {
+                echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
+                Du erhältst in Kürze eine Mail</div>";
+                return;
+            }
         }
+        else {
+            // return if the event is only 72 + 2 hours ahead, i.e. don't show the registration anymore
+            if((time() + (86400 * 3) + (3600 * 2)) >= $E["uts"]){
+                echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
+                    Du erhältst in Kürze eine Mail</div>";
+                return;
+            }
+        }
+        
 
         if($E['cancelled']){
             echo "<div class = 'block error'> {$E['name']} fällt leider aus.<br>
@@ -235,6 +260,19 @@
         }
 
         if($E['active']){
+            // return if the maximum number of participants has been reached
+            if($E['max_participants']) {    
+                $filepath = $E['path'];
+                $HEADER_LINE_COUNT = 1;
+
+                $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
+                if( (count($file) - $HEADER_LINE_COUNT) >= $E['max_participants'] ) {
+                    echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
+                    return;
+                }
+            }
+
+            
             echo '
                 <form method = "post" action = "#">
                     Dein Name (Vor- und Nachname): <br>
