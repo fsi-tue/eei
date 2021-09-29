@@ -291,6 +291,11 @@
                         echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
                         return;
                     }
+
+                $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
+                if( (count($file) - $HEADER_LINE_COUNT) >= $E['max_participants'] ) {
+                    echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
+                    return;
                 }
             }
 
