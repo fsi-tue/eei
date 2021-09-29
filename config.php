@@ -291,7 +291,8 @@
                         echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
                         return;
                     }
-            }
+                }
+            }   
 
             
             echo '
