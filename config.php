@@ -71,7 +71,28 @@
     "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '09', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
-    $events = [   'SO' => $SO,
+    #Workshops während Vorkurs
+    #git
+    $WSGIT = ["name" => 'Workshop Git', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 10 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('11', '0', '0', '10', '14', '2021'), "link" => 'workshopgit/', "path" => "{$fp}workshop-git.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+    #bash
+    $WSBS = ["name" => 'Workshop bash', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt)', "date" => '14.10.2021 10 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('11', '0', '0', '10', '14', '2021'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+    #LaTeX
+    $WSLT = ["name" => 'Workshop LaTeX', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 14 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '14', '2021'), "link" => 'workshoplatex/', "path" => "{$fp}workshop-latex.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+    #Misc. Tools
+    $WSDIV = ["name" => 'Workshop Diverse Tools', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt)', "date" => '14.10.2021 14 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '14', '2021'), "link" => 'workshopdiv/', "path" => "{$fp}workshop-div.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    $events = [   'WSGIT' => $WSGIT,
+    'WSBS' => $WSBS,
+    'WSLT' => $WSLT,
+    'WSDIV' => $WSDIV,
     'SN' => $SN
     /* 'WE' => $WE,
         'FA' => $FA,
@@ -264,6 +285,12 @@
             if($E['max_participants']) {    
                 $filepath = $E['path'];
                 $HEADER_LINE_COUNT = 1;
+                if(file_exists($filepath)) {
+                    $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
+                    if( (count($file) - $HEADER_LINE_COUNT) >= $E['max_participants'] ) {
+                        echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
+                        return;
+                    }
 
                 $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
                 if( (count($file) - $HEADER_LINE_COUNT) >= $E['max_participants'] ) {
