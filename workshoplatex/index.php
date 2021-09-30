@@ -22,7 +22,9 @@ $E = $events[$short]; #select Event
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             Workshop LaTeX  <br>
-            Ob Übungsblatt oder Abschlussarbeit, oft werden diese in LaTeX erstellt. Ihr schnell elegante [...] <br>
+            Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen.
+            Mit LaTeX habt ihr die Möglichkeit diese schnell und professionell zu erstellen. 
+            Dieser Workshop ermöglicht einen einfachen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio.<br>
             Workshop von Studenten für Studenten. <br>
             Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
             <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
