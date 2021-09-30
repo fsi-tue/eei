@@ -22,7 +22,13 @@ $E = $events[$short]; #select Event
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             Workshop Git  <br>
-            In diesem Workshop geht um die Versionsverwaltung mit git (Github, Gitea, Gitlab, etc.). <br>
+            Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart.
+            In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.
+            Hierbei wird es keine Theorievorlesung sein, sondern wir werden schnell mit praktischen Übungen anfangen.
+            Der Workshop wird von Studierenden für Studierende durchgeführt.
+            Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
+            <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
+            Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br><br>
             Workshop von Studenten für Studenten. <br>
             Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
             <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
