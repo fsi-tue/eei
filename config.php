@@ -22,8 +22,8 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend NICHT Akademisch
-    $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - A301', "date" => '22.10.21', 
-    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '22', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
+    $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Filmeabend
@@ -67,18 +67,18 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '19.06.21 17 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '09', '19', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '15.10.21 16 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '10', '15', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
+    "max_participants" => 80, "uts_override" => false, "end_of_registration" => false];
 
     #Workshops während Vorkurs
     #git
     $WSGIT = ["name" => 'Workshop Git', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 10 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('11', '0', '0', '10', '14', '2021'), "link" => 'workshopgit/', "path" => "{$fp}workshop-git.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopgit/', "path" => "{$fp}workshop-git.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
     #bash
     $WSBS = ["name" => 'Workshop bash', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt)', "date" => '14.10.2021 10 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('11', '0', '0', '10', '14', '2021'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
     #LaTeX
     $WSLT = ["name" => 'Workshop LaTeX', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 14 Uhr',
@@ -93,7 +93,8 @@
     'WSBS' => $WSBS,
     'WSLT' => $WSLT,
     'WSDIV' => $WSDIV,
-    'SN' => $SN
+    'SN' => $SN,
+    'RY' => $RY
     /* 'WE' => $WE,
         'FA' => $FA,
         'SN' => $SN,
@@ -102,8 +103,7 @@
         'FR' => $FR,
         'WA0' => $WA0,
         'SD0' => $SD0,
-        'RD0' => $RD0,
-        'RY' => $RY*/
+        'RD0' => $RD0*/
     ];  
 
     #Each event is an array in the $events array
