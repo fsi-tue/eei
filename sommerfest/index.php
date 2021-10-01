@@ -4,6 +4,7 @@ $short = 'SO'; #Kürzel des Events
 $meal = true;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Das Sommerfest  <br>
             Gemütliches Beisammensein mit Getränken und Grillgut.<br>
             Für vegetarische (und/oder vegane) Optionen ist gesorgt.<br>

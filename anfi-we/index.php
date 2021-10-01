@@ -4,6 +4,7 @@ $short = 'WE'; #Kürzel des Events
 $meal = true;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +23,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?><?php echo $E['time'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Das Anfi WE <br>
             Bitte trage deine Daten ein damit wir besser planen können.<br>
             Deine Daten werden gespeichert, vom FSI-Orga Team ausgewertet und nach dem Anfi-WE gelöscht.<br>

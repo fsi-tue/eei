@@ -4,6 +4,7 @@ $short = 'FA'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Der Anfi Filmeabend  <br>
             Wir möchten dich zu einem gemütlichen Filmabend aufdem Sand einladen. 
             Hier hast du die Möglichkeit, bei einem Film zu entspannen, einige Fachschaftler, den Sand und eure zukünftigen Kommilitonen kennen zu lernen.
