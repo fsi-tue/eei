@@ -4,6 +4,7 @@ $short = 'WSGIT'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Workshop Git  <br>
             Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart.
             In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.

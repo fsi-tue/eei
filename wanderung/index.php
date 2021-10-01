@@ -4,6 +4,7 @@ $short = 'WA0'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Die Anfi Wanderung  <br>
             Eine Wanderung durch den Schönbuch und den umliegenden Wäldern Tübingens.<br>
             Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>

@@ -131,6 +131,21 @@
 
 
     #DO NOT TOUCH
+    function getNumberOfRemainingSpots($e) {
+        if($e['max_participants']) {    
+            $filepath = $e['path'];
+            $HEADER_LINE_COUNT = 1;
+            if(file_exists($filepath)) {
+                $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
+                return "<h2 class=\"description\">Verbleibende Plätze:".(string)($e['max_participants'] - (count($file) - $HEADER_LINE_COUNT))."</h2>";
+            } 
+            else 
+            {
+                return "<h2 class=\"description\">Verbleibende Plätze:".(string)$e['max_participants']."</h2>";
+            }
+        }
+    }
+
     function register($E, $meal){
         $subject = "Deine Registrierung zu {$E['name']}";
         $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";

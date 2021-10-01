@@ -4,6 +4,7 @@ $short = 'WSBS'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Workshop Bash<br>
             Der Gedanke an unixartige Systeme und die Kommandozeile bereitet dir Unbehagen? Das muss nicht sein! <br>
             In diesem Workshop lernst du am Beispiel der Bourne-again-Shell, dich in einer POSIX Shell zu bewegen und grundlegende Dateioperationen durchzuführen.<br>

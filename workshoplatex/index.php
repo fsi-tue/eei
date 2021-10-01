@@ -4,6 +4,7 @@ $short = 'WSLT'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
+$freeSpots = getNumberOfRemainingSpots($events[$short]);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ $E = $events[$short]; #select Event
             <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
+            <?php echo $freeSpots;?>
             Workshop LaTeX  <br>
             Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen.
             Mit LaTeX habt ihr die Möglichkeit diese schnell und professionell zu erstellen. 
