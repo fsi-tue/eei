@@ -30,6 +30,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             und der ganz schön alten davon kennen.<br>
             Von Bildmanipulation bis Taskmanager-Ersatz ist hier alles dabei! <br>
             Workshop von Studenten für Studenten. <br>
+            <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
             Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
             <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
             Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br><br>

@@ -28,6 +28,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.
             Hierbei wird es keine Theorievorlesung sein, sondern wir werden schnell mit praktischen Übungen anfangen.
             Der Workshop wird von Studierenden für Studierende durchgeführt.
+            <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
             Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
             <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
             Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br><br>

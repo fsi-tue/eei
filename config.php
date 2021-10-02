@@ -77,16 +77,16 @@
     "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopgit/', "path" => "{$fp}workshop-git.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
     #bash
-    $WSBS = ["name" => 'Workshop bash', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt)', "date" => '14.10.2021 10 Uhr',
+    $WSBS = ["name" => 'Workshop bash', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt) per Mail', "date" => '14.10.2021 10 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
     #LaTeX
     $WSLT = ["name" => 'Workshop LaTeX', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 14 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '14', '2021'), "link" => 'workshoplatex/', "path" => "{$fp}workshop-latex.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshoplatex/', "path" => "{$fp}workshop-latex.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
     #Misc. Tools
-    $WSDIV = ["name" => 'Workshop Diverse Tools', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt)', "date" => '14.10.2021 14 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '14', '2021'), "link" => 'workshopdiv/', "path" => "{$fp}workshop-div.csv",
+    $WSDIV = ["name" => 'Workshop Diverse Tools', "icon" => 'cap', "active" => true, "location" => 'MVL 6 (Raum folgt per Mail)', "date" => '14.10.2021 14 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshopdiv/', "path" => "{$fp}workshop-div.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
 
     $events = [   'WSGIT' => $WSGIT,
