@@ -7,7 +7,7 @@
 
     #General Informations
     $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
-    $CONFIG_TERM = 'SS 21'; # example: WS 19/20 or SS 20
+    $CONFIG_TERM = 'WS 21/22'; # example: WS 19/20 or SS 20
     // see https://www.php.net/manual/en/language.constants.predefined.php
     $fp = __DIR__ . "/../eei-registration/"; #File Prefix
 
@@ -22,7 +22,7 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend NICHT Akademisch
-    $SN = ["name" => 'Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
+    $SN = ["name" => 'Anfi-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
@@ -67,7 +67,7 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '15.10.21 16 Uhr',
+    $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '15.10.21 16 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '10', '15', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
     "max_participants" => 80, "uts_override" => false, "end_of_registration" => false];
 
