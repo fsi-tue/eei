@@ -57,8 +57,8 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Wanderung
-    $WA0 = ["name" => 'Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.06.21 ab 10 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '15', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv",
+    $WA0 = ["name" => 'Anfi-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '16.10.21 14 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '16', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye digital 0
@@ -94,6 +94,7 @@
     'WSLT' => $WSLT,
     'WSDIV' => $WSDIV,
     'SN' => $SN,
+    'WA0' => $WA0,
     'RY' => $RY
     /* 'WE' => $WE,
         'FA' => $FA,
