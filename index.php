@@ -10,13 +10,13 @@ require_once('config.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css<?php echo $FILE_REVISION; ?>">
     <link rel="stylesheet" href="css/index.css<?php echo $FILE_REVISION; ?>">
-    <title>Anfi Veranstaltungen</title>
+    <title>FSI Veranstaltungen</title>
 </head>
 <body>
     <!-- Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free -->
     <!-- The BBQ-Grill Icon is made by Smashicons from www.flaticon.com -->
     <div id="center">
-        <h1>Anfi-Veranstaltungen - <?php echo $CONFIG_TERM?></h1>
+        <h1>FSI-Veranstaltungen - <?php echo $CONFIG_TERM?></h1>
         <div class="container">
 <?php
         function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
