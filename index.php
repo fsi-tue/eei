@@ -43,7 +43,10 @@ require_once('config.php');
             <br>
             <strong>Aufgrund der Unvorhersehbarkeit der Corona Pandemie können wir noch nicht abschätzen wann und wie Präsenzveranstaltungen stattfinden können.
             Die Veranstaltungen, die es betrifft sind Wanderung und (reale) Stadtrally.<br>
-            (Für den Fall, dass Präsenzveranstaltungen stattfinden können behalten wir uns vor Personen höherer Semester, sowie Person, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben auszuschließen. Evtl. gibt es auch eine Absage am Tag der Veranstaltung)</strong>
+            (Für den Fall, dass Präsenzveranstaltungen stattfinden können behalten wir uns vor Personen höherer Semester, sowie Person, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben auszuschließen. Evtl. gibt es auch eine Absage am Tag der Veranstaltung)</strong><br>
+
+           <div class="error"><strong>Die Präsenzveranstaltungen finden mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+
             <!--<strong>Bitte beachtet, dass aufgrund der erhöhten Inzidenz die Veranstaltungen mit weniger Menschen durchgeführt werden müssen. 
             Aufgrund der hohen Nachfrage bitten wir euch, dass ihr euch nur für eine Veranstaltung anmeldet. 
             (Darüber hinaus behalten wir es uns vor Personen von Veranstaltungen auszuschließen, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben. 
