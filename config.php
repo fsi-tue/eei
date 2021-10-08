@@ -32,9 +32,9 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Grillen
-    $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '02.04.20', 
-    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '09', '02', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    $GR = ["name" => 'Anfi-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
+        "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
+        "max_participants" => 50, "uts_override" => false, "end_of_registration" => false];
 
     #Kneipentour
     $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
@@ -93,6 +93,7 @@
     'WSBS' => $WSBS,
     'WSLT' => $WSLT,
     'WSDIV' => $WSDIV,
+    'GR' => $GR,
     'SN' => $SN,
     'WA0' => $WA0,
     'RY' => $RY
