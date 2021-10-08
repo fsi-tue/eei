@@ -69,7 +69,7 @@
     #Stadtrallye
     $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '14.10.21 16 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '10', '14', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
-    "max_participants" => 80, "uts_override" => false, "end_of_registration" => false];
+    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #Workshops während Vorkurs
     #git
