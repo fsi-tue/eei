@@ -34,7 +34,7 @@
     #Grillen
     $GR = ["name" => 'Anfi-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
         "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
-        "max_participants" => 50, "uts_override" => false, "end_of_registration" => false];
+        "max_participants" => 50, "uts_override" => true, "end_of_registration" => mktime('17', '0', '0', '10', '11', '2021')];
 
     #Kneipentour
     $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
