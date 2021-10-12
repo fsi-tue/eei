@@ -24,7 +24,7 @@
     #Spieleabend NICHT Akademisch
     $SN = ["name" => 'Anfi-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #Filmeabend
     $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
