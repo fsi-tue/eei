@@ -139,7 +139,9 @@
             $HEADER_LINE_COUNT = 1;
             if(file_exists($filepath)) {
                 $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
-                return "<h2 class=\"description\">Verbleibende Plätze:".(string)($e['max_participants'] - (count($file) - $HEADER_LINE_COUNT))."</h2>";
+                $spots = $e['max_participants'] - (count($file) - $HEADER_LINE_COUNT);
+                if($spots <= 0) $spots = 0;
+                return "<h2 class=\"description\">Verbleibende Plätze:".(string)($spots)."</h2>";
             } 
             else 
             {
