@@ -24,7 +24,7 @@
     #Spieleabend NICHT Akademisch
     $SN = ["name" => 'Anfi-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #Filmeabend
     $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
@@ -32,9 +32,9 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Grillen
-    $GR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '02.04.20', 
-    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '09', '02', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    $GR = ["name" => 'Anfi-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
+        "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
+        "max_participants" => 50, "uts_override" => true, "end_of_registration" => mktime('17', '0', '0', '10', '11', '2021')];
 
     #Kneipentour
     $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
@@ -67,9 +67,9 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '15.10.21 16 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '10', '15', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
-    "max_participants" => 80, "uts_override" => false, "end_of_registration" => false];
+    $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '14.10.21 16 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '10', '14', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
+    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #BioInfo Grillen
     $BioInfoGR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '22.10.21', 
@@ -84,7 +84,7 @@
     #bash
     $WSBS = ["name" => 'Workshop bash', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt) per Mail', "date" => '14.10.2021 10 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash.csv",
-    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+    "max_participants" => 40, "uts_override" => true, "end_of_registration" => mktime('12', '30', '0', '10', '13', '2021')];
     #LaTeX
     $WSLT = ["name" => 'Workshop LaTeX', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 12:30 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshoplatex/', "path" => "{$fp}workshop-latex.csv",
@@ -92,7 +92,7 @@
     #Misc. Tools
     $WSDIV = ["name" => 'Workshop Diverse Tools', "icon" => 'cap', "active" => true, "location" => 'MVL 6 (Raum folgt per Mail)', "date" => '14.10.2021 12:30 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshopdiv/', "path" => "{$fp}workshop-div.csv",
-    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+    "max_participants" => 40, "uts_override" => true, "end_of_registration" => mktime('12', '30', '0', '10', '13', '2021')];
 
     $events = [
     'SN' => $SN,
@@ -130,7 +130,9 @@
             $HEADER_LINE_COUNT = 1;
             if(file_exists($filepath)) {
                 $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
-                return "<h2 class=\"description\">Verbleibende Plätze:".(string)($e['max_participants'] - (count($file) - $HEADER_LINE_COUNT))."</h2>";
+                $spots = $e['max_participants'] - (count($file) - $HEADER_LINE_COUNT);
+                if($spots <= 0) $spots = 0;
+                return "<h2 class=\"description\">Verbleibende Plätze:".(string)($spots)."</h2>";
             } 
             else 
             {

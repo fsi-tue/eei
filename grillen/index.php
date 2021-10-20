@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Anfi  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title> <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -27,15 +27,15 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen. 
             Bringt dazu mit, was auch immer du zum Grillen brauchst, unser Gasgrill wartet auf dich. 
             Bring bitte auch dein Besteck und Geschirr selbst mit!
-            Auf dem Sand ist es auch möglich, Volleyball, Fußball, usw. zu spielen. Wir freuen uns auf dich<br>
+            <!--Auf dem Sand ist es auch möglich, Volleyball, Fußball, usw. zu spielen. Wir freuen uns auf dich--><br>
 
-            Um besser planen zu können bitten wir euch Bescheid zu geben wenn ihr kommt. <br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
+            Um besser planen zu können ist eine Anmeldung verpflichtend. <br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
+        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
         <div class="block>">
             <?php
                 if($_SERVER['REQUEST_METHOD'] === 'POST')

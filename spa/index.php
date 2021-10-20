@@ -28,12 +28,14 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft. Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
             
             Um besser planen zu können bitten wir euch, Bescheid zu geben wenn ihr kommt.<br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt<br><br>
+            Bitte kommt aufgrund der aktuellen Situation NUR falls ihr euch angemeldet habt.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
+        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+        <br>
         <div class="block>">
             <?php
                 if($_SERVER['REQUEST_METHOD'] === 'POST')
