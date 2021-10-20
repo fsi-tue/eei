@@ -72,9 +72,9 @@
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #BioInfo Grillen
-    $BioInfoGR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '22.10.21', 
-    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '22', '10', '2021'), "link" => 'bioinfo-grillen/', "path" => "{$fp}bioinfo-grill.csv",
-    "max_participants" => 100, "uts_override" => true, "end_of_registration" => false];
+    $BioInfoGR = ["name" => 'BioInfo Stammtisch', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '22.10.21 19 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '22', '2021'), "link" => 'bioinfo-grillen/', "path" => "{$fp}bioinfo-grill.csv",
+    "max_participants" => 100, "uts_override" => true, "end_of_registration" => => mktime('17', '0', '0', '10', '22', '2021')];
 
     #Workshops während Vorkurs
     #git
