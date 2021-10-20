@@ -71,6 +71,11 @@
     "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '10', '14', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
+    #BioInfo Grillen
+    $BioInfoGR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '22.10.21', 
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '22', '10', '2021'), "link" => 'bioinfo-grillen/', "path" => "{$fp}bioinfo-grill.csv",
+    "max_participants" => 100, "uts_override" => true, "end_of_registration" => false];
+
     #Workshops während Vorkurs
     #git
     $WSGIT = ["name" => 'Workshop Git', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 10 Uhr',
@@ -89,24 +94,10 @@
     "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshopdiv/', "path" => "{$fp}workshop-div.csv",
     "max_participants" => 40, "uts_override" => true, "end_of_registration" => mktime('12', '30', '0', '10', '13', '2021')];
 
-    $events = [   'WSGIT' => $WSGIT,
-    'WSBS' => $WSBS,
-    'WSLT' => $WSLT,
-    'WSDIV' => $WSDIV,
-    'GR' => $GR,
+    $events = [
     'SN' => $SN,
-    'WA0' => $WA0,
-    'RY' => $RY
-    /* 'WE' => $WE,
-        'FA' => $FA,
-        'SN' => $SN,
-        'GR' => $GR,
-        'KT' => $KT,
-        'FR' => $FR,
-        'WA0' => $WA0,
-        'SD0' => $SD0,
-        'RD0' => $RD0*/
-    ];  
+    'BioInfoGR' => $BioInfoGR,
+    ];
 
     #Each event is an array in the $events array
     #To add an event copy the dummy and modify the values. Then, append this event to the $events array
