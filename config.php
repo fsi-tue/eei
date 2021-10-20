@@ -74,7 +74,7 @@
     #BioInfo Grillen
     $BioInfoGR = ["name" => 'Grillen', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '22.10.21', 
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '22', '10', '2021'), "link" => 'bioinfo-grillen/', "path" => "{$fp}bioinfo-grill.csv",
-    "max_participants" => 300, "uts_override" => true, "end_of_registration" => false];
+    "max_participants" => 100, "uts_override" => true, "end_of_registration" => false];
 
     #Workshops während Vorkurs
     #git
