@@ -23,13 +23,13 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Die Anfi Stadtrallye<br>
-            Bei der Stadtrallye lassen wir dich und deine Kommilitonen gegeneinander in Teams antreten. 
+            Die zweite Anfi Stadtrallye<br>
+            Diese wird identisch zur ersten Rallye sein. Wir lassen dich und deine Kommilitonen gegeneinander in Teams antreten. 
             Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, 
             dabei hoffentlich die Orientierung in eurer neuen Heimat etwas verbessern und Kontakte knüpfen.<br>
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.
-            Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br>
-            Du brauchst keine Angst zu haben - wir werden die Gruppengröße so klein wie möglich halten.<br><br>
+            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br><br>
+            Nach der Rallye ziehen wir gemeinsam durch die Kneipen dieser Stadt. 
+            <br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
