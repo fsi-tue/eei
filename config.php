@@ -67,8 +67,8 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '25.10.21 17 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '25', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye-2.csv",
+    $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.10.21 17 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '27', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye-2.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #BioInfo Grillen
