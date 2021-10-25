@@ -95,9 +95,7 @@
     "max_participants" => 40, "uts_override" => true, "end_of_registration" => mktime('12', '30', '0', '10', '13', '2021')];
 
     $events = [
-    'SN' => $SN,
-    'BioInfoGR' => $BioInfoGR,
-    'RY' => $RY,
+        'RY' => $RY,
     ];
 
     #Each event is an array in the $events array
