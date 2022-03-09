@@ -23,22 +23,18 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Workshop Git  <br>
+            Workshop Git Basics<br>
             Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart.
             In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.
-            Hierbei wird es keine Theorievorlesung sein, sondern wir werden schnell mit praktischen Übungen anfangen.
-            Der Workshop wird von Studierenden für Studierende durchgeführt.
+            Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben.<br>
+            Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
             <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
-            Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
-            <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
-            Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br><br>
-            Workshop von Studenten für Studenten. <br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php

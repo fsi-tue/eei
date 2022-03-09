@@ -77,25 +77,54 @@
     "max_participants" => 100, "uts_override" => true, "end_of_registration" => mktime('10', '0', '0', '10', '22', '2021')];
 
     #Workshops während Vorkurs
-    #git
-    $WSGIT = ["name" => 'Workshop Git', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 10 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopgit/', "path" => "{$fp}workshop-git.csv",
-    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
     #bash
-    $WSBS = ["name" => 'Workshop bash', "icon" => 'cap', "active" => true, "location" => 'MVL (Raum folgt) per Mail', "date" => '14.10.2021 10 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '10', '14', '2021'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash.csv",
-    "max_participants" => 40, "uts_override" => true, "end_of_registration" => mktime('12', '30', '0', '10', '13', '2021')];
-    #LaTeX
-    $WSLT = ["name" => 'Workshop LaTeX', "icon" => 'cap', "active" => true, "location" => 'Sand F119', "date" => '14.10.2021 12:30 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshoplatex/', "path" => "{$fp}workshop-latex.csv",
+    $WSBS = ["name" => 'Bash Basics', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '11.04.2022 9 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('9', '0', '0', '04', '11', '2022'), "link" => 'workshopbash/', "path" => "{$fp}workshop-bash1.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
-    #Misc. Tools
-    $WSDIV = ["name" => 'Workshop Diverse Tools', "icon" => 'cap', "active" => true, "location" => 'MVL 6 (Raum folgt per Mail)', "date" => '14.10.2021 12:30 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('12', '30', '0', '10', '14', '2021'), "link" => 'workshopdiv/', "path" => "{$fp}workshop-div.csv",
-    "max_participants" => 40, "uts_override" => true, "end_of_registration" => mktime('12', '30', '0', '10', '13', '2021')];
+
+    $WSBS2 = ["name" => 'Bash Advanced', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '11.04.2022 13 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('13', '0', '0', '04', '11', '2022'), "link" => 'workshopbash2/', "path" => "{$fp}workshop-bash2.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    #git
+    $WSGIT = ["name" => 'Git Basics', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '12.04.2022 9 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('9', '0', '0', '04', '12', '2022'), "link" => 'workshopgit/', "path" => "{$fp}workshop-git1.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    $WSGIT2 = ["name" => 'Git Advanced', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '12.04.2022 13 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '04', '12', '2022'), "link" => 'workshopgit2/', "path" => "{$fp}workshop-git2.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    #Python
+    $WSPY = ["name" => 'Python Basics', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '13.04.2022 9 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('9', '0', '0', '04', '13', '2022'), "link" => 'workshoppy/', "path" => "{$fp}workshop-python1.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    $WSPY2 = ["name" => 'Python First Project', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '13.04.2022 13 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('13', '0', '0', '04', '13', '2022'), "link" => 'workshoppy2/', "path" => "{$fp}workshop-python2.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    #LaTeX
+    $WSLT = ["name" => 'LaTeX Basics', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '14.04.2022 9 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('9', '0', '0', '04', '14', '2022'), "link" => 'workshoplatex/', "path" => "{$fp}workshop-latex1.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+
+    $WSLT2 = ["name" => 'LaTeX Advanced', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '14.04.2022 13 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('13', '0', '0', '04', '14', '2022'), "link" => 'workshoplatex2/', "path" => "{$fp}workshop-latex2.csv",
+    "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
+    
+
 
     $events = [
-        'RY' => $RY,
+        'WSBS' => $WSBS,
+        'WSBS2' => $WSBS2,
+        'WSGIT' => $WSGIT,
+        'WSGIT2' => $WSGIT2,
+        'WSPY' => $WSPY,
+        'WSPY2' => $WSPY2,
+        'WSLT' => $WSLT,
+        'WSLT2' => $WSLT2,
+
     ];
 
     #Each event is an array in the $events array

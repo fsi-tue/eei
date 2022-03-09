@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-$short = 'WSLT'; #Kürzel des Events
+$short = 'WSPY'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
@@ -23,13 +23,13 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Workshop LaTeX Basics<br>
-            Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen.
-            Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen.
-            Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio.<br>
+            Workshop Python Basics<br>
+            Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln?
+            Mit der vielseitigen und einfach zu erlernenden Programmiersprache "Python" lässt sich dies und vieles mehr erreichen.
+            In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben.
             Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
             <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
-        </div>
+            </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
