@@ -34,7 +34,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php
