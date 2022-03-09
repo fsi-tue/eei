@@ -97,11 +97,11 @@
 
     #Python
     $WSPY = ["name" => 'Python Basics', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '13.04.2022 9 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('9', '0', '0', '04', '13', '2022'), "link" => 'workshoppy/', "path" => "{$fp}workshop-python1.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('9', '0', '0', '04', '13', '2022'), "link" => 'workshoppython/', "path" => "{$fp}workshop-python1.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
 
     $WSPY2 = ["name" => 'Python First Project', "icon" => 'cap', "active" => true, "location" => 'Sand C118a', "date" => '13.04.2022 13 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('13', '0', '0', '04', '13', '2022'), "link" => 'workshoppy2/', "path" => "{$fp}workshop-python2.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('13', '0', '0', '04', '13', '2022'), "link" => 'workshoppython2/', "path" => "{$fp}workshop-python2.csv",
     "max_participants" => 40, "uts_override" => false, "end_of_registration" => false];
 
     #LaTeX
