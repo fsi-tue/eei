@@ -7,7 +7,7 @@
 
     #General Informations
     $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
-    $CONFIG_TERM = 'WS 21/22'; # example: WS 19/20 or SS 20
+    $CONFIG_TERM = 'SS 22'; # example: WS 19/20 or SS 20
     // see https://www.php.net/manual/en/language.constants.predefined.php
     $fp = __DIR__ . "/../eei-registration/"; #File Prefix
 
