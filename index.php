@@ -41,20 +41,14 @@ require_once('config.php');
         }
 ?>
             <br>
-            <strong>Aufgrund der Unvorhersehbarkeit der Corona Pandemie können wir noch nicht abschätzen wann und wie Präsenzveranstaltungen stattfinden können.
-            Die Veranstaltungen, die es betrifft sind Wanderung und (reale) Stadtrally.<br>
-            (Für den Fall, dass Präsenzveranstaltungen stattfinden können behalten wir uns vor Personen höherer Semester, sowie Person, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben auszuschließen. Evtl. gibt es auch eine Absage am Tag der Veranstaltung)</strong><br>
-
-           <div class="error"><strong>Die Präsenzveranstaltungen finden mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
-
-            <!--<strong>Bitte beachtet, dass aufgrund der erhöhten Inzidenz die Veranstaltungen mit weniger Menschen durchgeführt werden müssen. 
-            Aufgrund der hohen Nachfrage bitten wir euch, dass ihr euch nur für eine Veranstaltung anmeldet. 
-            (Darüber hinaus behalten wir es uns vor Personen von Veranstaltungen auszuschließen, die bereits an einer anderen Präsenzveranstaltung teilgenommen haben. 
-            Evtl. erhaltet ihr auch eine Absage am Tag der Veranstaltung per Email.)</strong>--><br>
-            Deine Daten werden wegen Coronaverordnungen gebraucht und bis 2 Wochen nach den Veranstaltungen gespeichert.<br>
+            <div class="info"><strong>Für die Präsenzveranstaltungen gilt 3G.</strong></div>
+            <br>
+            <div>
+            Deine Daten werden aufgrund der Coronaverordnungen gebraucht und bis 2 Wochen nach den Veranstaltungen gespeichert.
             Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br>
             Du kannst diese Daten durch einen Klick aus deinem Browser löschen:<br>
             <input id="btn-clr" type="submit" value="Löschen" onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
+    </div>
         </div>
         <br><br>
         <a href="https://github.com/fsi-tue/eei">Source Code</a>
