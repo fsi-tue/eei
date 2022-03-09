@@ -27,7 +27,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart.
             In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.
             Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben.<br>
-            Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
+            Es gibt einen weiteren Workshop, der fortgeschrittene Themen behandelt.<br> 
             
         </div>
         <?php

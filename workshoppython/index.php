@@ -27,7 +27,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln?
             Mit der vielseitigen und einfach zu erlernenden Programmiersprache "Python" lässt sich dies und vieles mehr erreichen.
             In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben.
-            Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
+            Es gibt einen weiteren Workshop, der fortgeschrittene Themen behandelt.<br> 
             
             </div>
         <?php

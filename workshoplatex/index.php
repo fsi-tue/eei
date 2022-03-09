@@ -27,7 +27,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen.
             Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen.
             Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio.<br>
-            Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
+            Es gibt einen weiteren Workshop, der fortgeschrittene Themen behandelt.<br> 
             
         </div>
         <?php

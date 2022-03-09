@@ -26,7 +26,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Workshop Bash Basics<br>
             Der Gedanke an unixartige Systeme und die Kommandozeile bereitet dir Unbehagen? Das muss nicht sein! <br>
             In diesem Workshop lernst du am Beispiel der Bourne-again-Shell, dich in einer POSIX Shell zu bewegen und grundlegende Dateioperationen durchzuführen.<br>
-            Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br>
+            Es gibt einen weiteren Workshop, der fortgeschrittene Themen behandelt.<br>
             
         </div>
         <?php
