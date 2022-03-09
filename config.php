@@ -16,59 +16,59 @@
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '25', '2021'), "link" => 'sommerfest/', "path" => "{$fp}sommerfest.csv",
     "max_participants" => 260 , "uts_override" => true, "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')];
 
-    #Anfi WE
-    $WE = ["name" => 'Anfi WE', "icon" => 'house', "active" => true, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
-    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'anfi-we/', "path" => "{$fp}anfi-we.csv",
+    #Ersti WE
+    $WE = ["name" => 'Ersti WE', "icon" => 'house', "active" => true, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'ersti-we/', "path" => "{$fp}ersti-we.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend NICHT Akademisch
-    $SN = ["name" => 'Anfi-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
-    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}anfi-sp.csv",
+    $SN = ["name" => 'Ersti-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}ersti-sp.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #Filmeabend
     $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
-    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '31', '2021'), "link" => 'film/', "path" => "{$fp}anfi-film.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '31', '2021'), "link" => 'film/', "path" => "{$fp}ersti-film.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Grillen
-    $GR = ["name" => 'Anfi-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
-        "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}anfi-grill.csv",
+    $GR = ["name" => 'Ersti-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
+        "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}ersti-grill.csv",
         "max_participants" => 50, "uts_override" => true, "end_of_registration" => mktime('17', '0', '0', '10', '11', '2021')];
 
     #Kneipentour
     $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
-    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '20', '2021'), "link" => 'kneipentour/', "path" => "{$fp}anfi-kneipentour.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '20', '2021'), "link" => 'kneipentour/', "path" => "{$fp}ersti-kneipentour.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Frühstück
     $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
-    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '09', '08', '2021'), "link" => 'fruehstueck/', "path" => "{$fp}anfi-fruehstueck.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '09', '08', '2021'), "link" => 'fruehstueck/', "path" => "{$fp}ersti-fruehstueck.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend Akademisch
     $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
-    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '11', '06', '2021'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv",
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '11', '06', '2021'), "link" => 'spa-akad/', "path" => "{$fp}ersti-sp-akad.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend digital 0
     $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
-    "online" => true, "cancelled" => false, "uts" => mktime('19', '0', '0', '09', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}anfi-sp-digital-0.csv",
+    "online" => true, "cancelled" => false, "uts" => mktime('19', '0', '0', '09', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}ersti-sp-digital-0.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Wanderung
-    $WA0 = ["name" => 'Anfi-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '16.10.21 14 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '16', '2021'), "link" => 'wanderung/', "path" => "{$fp}anfi-wanderung.csv",
+    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '16.10.21 14 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '16', '2021'), "link" => 'wanderung/', "path" => "{$fp}ersti-wanderung.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye digital 0
     $RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '21.04.21 17:00 Uhr',
-    "online" => true, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}anfi-rallye-digital-0.csv",
+    "online" => true, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}ersti-rallye-digital-0.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Anfi-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.10.21 17 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '27', '2021'), "link" => 'rallye/', "path" => "{$fp}anfi-rallye-2.csv",
+    $RY = ["name" => 'Ersti-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.10.21 17 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '27', '2021'), "link" => 'rallye/', "path" => "{$fp}ersti-rallye-2.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #BioInfo Grillen
@@ -155,7 +155,7 @@
             }
             if($meal)
                 $essen = $_POST['essen'];
-            if($E['name'] === "Anfi WE")
+            if($E['name'] === "Ersti WE")
                 $fruehstueck = $_POST['fruehstueck'];
 
             if(empty($phone) || empty($mail) || empty($name) || ($E['name'] !== 'Sommerfest' && (empty($studiengang) || empty($semester) || empty($abschluss)))){
@@ -183,7 +183,7 @@
             if($meal){
                 array_push($data, $essen);
             }
-            if($E['name'] === "Anfi WE")
+            if($E['name'] === "Ersti WE")
                 array_push($data, $fruehstueck);
 
             $file = fopen($filepath, "a");
@@ -203,7 +203,7 @@
                     $headers = array("name", "mail", "phone");
                 if($meal)
                     $headers[] = "essen";
-                if($E['name'] === "Anfi WE")
+                if($E['name'] === "Ersti WE")
                     $headers[] = "fruehstueck";
                 fputcsv($file, $headers);
             }
@@ -344,7 +344,7 @@
                     <input type="radio" class="form-essen" name="essen" value="Vegan"> Vegan <br>
                     <input type="radio" class="form-essen" name="essen" value="kein Schwein"> kein Schwein <br>'
             : '';
-            echo ($E['name'] === "Anfi WE") ?
+            echo ($E['name'] === "Ersti WE") ?
                     '<br>Frühstück:<br>
                     <input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen <br>
                     <input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß <br>

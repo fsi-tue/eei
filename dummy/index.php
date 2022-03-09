@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Anfi  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title>Ersti  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,7 +23,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Die Anfi Stadtrallye<br>
+            Die Ersti Stadtrallye<br>
             Bei der Stadtrallye lassen wir dich und deine Kommilitonen gegeneinander in Teams antreten. 
             Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, 
             dabei hoffentlich die Orientierung in eurer neuen Heimat etwas verbessern und Kontakte knüpfen.<br>

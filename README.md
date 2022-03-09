@@ -12,7 +12,7 @@ The oder in this array defines the shown order
 Example:
 ```php
 $SA = ["name" => 'Spieleabend', "icon" => 'cap', "active" => true, "location" => 'Sand 14 - A301', "date" => '16.04.20', 
-       "online" => false, "cancelled" = false, "uts" => mktime('18', '0', '0', '04', '16', '2020'), "link" => 'spa-akad/', "path" => "{$fp}anfi-sp-akad.csv"];
+       "online" => false, "cancelled" = false, "uts" => mktime('18', '0', '0', '04', '16', '2020'), "link" => 'spa-akad/', "path" => "{$fp}ersti-sp-akad.csv"];
 ```
 Whereas: 
 - name: Name of the event (string)

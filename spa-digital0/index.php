@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css<?php echo $FILE_REVISION; ?>">
-    <title>Anfi <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title>Ersti <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,7 +23,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Der digitale Anfi Spieleabend, dieses mal akademisch ;)<br>
+            Der digitale Ersti Spieleabend, dieses mal akademisch ;)<br>
             An diesem Nachmittag/Abend möchten wir dich zunächst auf Discord einladen,
             um in gemütlicher Runde mit anderen Kommilitonen online zu spielen.
             Beliebte Spiele sind skribbl.io, Curvefever, Among Us, Secret Hitler und Gartic Phone.
