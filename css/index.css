@@ -37,7 +37,7 @@ a:link, a:visited, a:hover, a:active{
 p {
     margin: 0;
     width: 100%;
-    font-size: 20pt;
+    font-size: 90%;
     overflow-wrap: break-word;
 }
 p.date {
@@ -55,6 +55,12 @@ p.date {
     .box {
         width: 150px;
         height: 150px;
-        font-size: 130%;
+    }
+    p.name {
+        font-size: 70%;
+    }
+
+    p.date {
+        font-size: 50%;
     }
 }
