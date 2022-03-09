@@ -28,13 +28,13 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Mit der vielseitigen und einfach zu erlernenden Programmiersprache "Python" lässt sich dies und vieles mehr erreichen.
             In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben.
             Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
-            <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
+            
             </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
+        <div class="info"><strong>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php

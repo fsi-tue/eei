@@ -28,13 +28,13 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.
             Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben.<br>
             Dies ist der Erste von zwei Teilen und behandelt die absoluten Grundlagen.<br> 
-            <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
+            
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
+        <div class="info"><strong>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php

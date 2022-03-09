@@ -27,13 +27,13 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             Der Gedanke an unixartige Systeme und die Kommandozeile bereitet dir Unbehagen? Das muss nicht sein! <br>
             In diesem Workshop lernst du am Beispiel der Bourne-again-Shell, dich in einer POSIX Shell zu bewegen und grundlegende Dateioperationen durchzuführen.<br>
             Dies ist der Zweite von zwei Teilen und behandelt fortgeschrittenere Themen.<br>
-            <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
+            
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
+        <div class="info"><strong>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php
