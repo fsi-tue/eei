@@ -363,6 +363,7 @@
                     Semester:<br>
                     <input type="radio" class="form-semester" name="semester" value="1" required> 1 <br>
                     <input type="radio" class="form-semester" name="semester" value="2"> 2 <br>
+                    <input type="radio" class="form-semester" name="semester" value="3"> 3 <br>
                     <input type="radio" class="form-semester" name="semester" value="viele"> viele <br>'
             : '';
             echo ($E['online'] === false && $meal === true) ?
