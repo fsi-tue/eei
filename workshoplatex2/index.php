@@ -34,7 +34,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
+        <div class="info"><strong>Dieser Workshop ist für Studierende im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php
