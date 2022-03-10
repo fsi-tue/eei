@@ -12,32 +12,32 @@
     $fp = __DIR__ . "/../eei-registration/"; #File Prefix
 
     #Sommerfest
-    $SO = ["name" => 'Sommerfest', "icon" => 'grill', "active" => true, "location" => 'Terrasse Sand', "date" => '25.09.21 ab 18:00',
+    $SO = ["name" => 'Sommerfest', "icon" => 'grill', "active" => false, "location" => 'Terrasse Sand', "date" => '25.09.21 ab 18:00',
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '25', '2021'), "link" => 'sommerfest/', "path" => "{$fp}sommerfest.csv",
     "max_participants" => 260 , "uts_override" => true, "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')];
 
     #Ersti WE
-    $WE = ["name" => 'Ersti WE', "icon" => 'house', "active" => true, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
+    $WE = ["name" => 'Ersti WE', "icon" => 'house', "active" => false, "location" => 'Irgendwo im Wald', "date" => '14 - 17.02.20', 
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'ersti-we/', "path" => "{$fp}ersti-we.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend NICHT Akademisch
-    $SN = ["name" => 'Ersti-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
+    $SN = ["name" => 'Ersti-Spieleabend', "icon" => 'dice', "active" => false, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}ersti-sp.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #Filmeabend
-    $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => true, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
+    $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => false, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '31', '2021'), "link" => 'film/', "path" => "{$fp}ersti-film.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Grillen
-    $GR = ["name" => 'Ersti-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
+    $GR = ["name" => 'Ersti-Grillen', "icon" => 'grill', "active" => false, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
         "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}ersti-grill.csv",
         "max_participants" => 50, "uts_override" => true, "end_of_registration" => mktime('17', '0', '0', '10', '11', '2021')];
 
     #Kneipentour
-    $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
+    $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => false, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '20', '2021'), "link" => 'kneipentour/', "path" => "{$fp}ersti-kneipentour.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
@@ -47,32 +47,32 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend Akademisch
-    $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
+    $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '11', '06', '2021'), "link" => 'spa-akad/', "path" => "{$fp}ersti-sp-akad.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Spieleabend digital 0
-    $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => true, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
+    $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
     "online" => true, "cancelled" => false, "uts" => mktime('19', '0', '0', '09', '16', '2021'), "link" => 'spa-digital0/', "path" => "{$fp}ersti-sp-digital-0.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Wanderung
-    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '16.10.21 14 Uhr',
+    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => false, "location" => 'Taubenhaus an der Neckarinsel', "date" => '16.10.21 14 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '16', '2021'), "link" => 'wanderung/', "path" => "{$fp}ersti-wanderung.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye digital 0
-    $RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => true, "location" => 'Discord', "date" => '21.04.21 17:00 Uhr',
+    $RD0 = ["name" => 'Stadtrallye digital 1', "icon" => 'route', "active" => false, "location" => 'Discord', "date" => '21.04.21 17:00 Uhr',
     "online" => true, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '21', '2021'), "link" => 'rallye-digital0/', "path" => "{$fp}ersti-rallye-digital-0.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Ersti-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.10.21 17 Uhr',
+    $RY = ["name" => 'Ersti-Stadtrallye', "icon" => 'route', "active" => false, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.10.21 17 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '27', '2021'), "link" => 'rallye/', "path" => "{$fp}ersti-rallye-2.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #BioInfo Grillen
-    $BioInfoGR = ["name" => 'BioInfo Stammtisch', "icon" => 'grill', "active" => true, "location" => 'Wiese - Sand 14', "date" => '22.10.21 19 Uhr', 
+    $BioInfoGR = ["name" => 'BioInfo Stammtisch', "icon" => 'grill', "active" => false, "location" => 'Wiese - Sand 14', "date" => '22.10.21 19 Uhr', 
     "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '22', '2021'), "link" => 'bioinfo-grillen/', "path" => "{$fp}bioinfo-grill.csv",
     "max_participants" => 100, "uts_override" => true, "end_of_registration" => mktime('10', '0', '0', '10', '22', '2021')];
 
@@ -130,7 +130,7 @@
     #To add an event copy the dummy and modify the values. Then, append this event to the $events array
     #The order in this array defines the shown order
 
-    $dummy =  ["name" => '', "icon" => '', "active" => true, "location" => 'Test', "date" => 'DD.MM.YY HH', 
+    $dummy =  ["name" => '', "icon" => '', "active" => false, "location" => 'Test', "date" => 'DD.MM.YY HH', 
     "online" => 'false', "cancelled" => false, "uts" => mktime('17', '59', '0', '12', '31', '2021'), "link" => "subDir/", "path" => "{$fp}/filename.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
     #name: Name of the event (string)
