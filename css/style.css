@@ -58,15 +58,16 @@ form {
     border: 1px solid red;
     border-radius: 2px;
     margin: 5px auto;
-    padding: 2px;
-    width: 80%;
+    
+    width: 60%;
 }
 .info {
     color:#003399;
     border: 1px solid #003399;
     border-radius: 2px;
     margin: 5px auto;
-    width: 80%;
+    padding: 2px;
+    width: 60%;
 }
 a:link, a:visited, a:hover, a:active{
     text-decoration: none;
@@ -75,6 +76,7 @@ a:link, a:visited, a:hover, a:active{
 .block {
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 0 20% 0 20%;
 }
 /* Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free  */
 /* The BBQ-Grill Icon is made by Smashicons from www.flaticon.com */
@@ -137,6 +139,7 @@ a:link, a:visited, a:hover, a:active{
     }
     .block {
         width: 95%;
+        padding: 0 10px 0 10px;
     }
 }
 @media only screen and (max-device-width: 680px) {
@@ -149,5 +152,9 @@ a:link, a:visited, a:hover, a:active{
     }
     .block {
         width: 100%;
+        padding: 0;
+    }
+    .info, .error {
+        width: 80%;
     }
 }

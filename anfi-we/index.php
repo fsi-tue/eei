@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-    <!--link rel="stylesheet" href="../css/anfi-we.css"-->
+    <!--link rel="stylesheet" href="../css/ersti-we.css"-->
     <title><?php echo "{$E['name']} -{$CONFIG_TERM}"; ?></title>
 </head>
 <body>
@@ -24,9 +24,9 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?><?php echo $E['time'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Das Anfi WE <br>
+            Das Ersti WE <br>
             Bitte trage deine Daten ein damit wir besser planen können.<br>
-            Deine Daten werden gespeichert, vom FSI-Orga Team ausgewertet und nach dem Anfi-WE gelöscht.<br>
+            Deine Daten werden gespeichert, vom FSI-Orga Team ausgewertet und nach dem Ersti-WE gelöscht.<br>
             Sie werden nicht an Dritte weitergegeben.<br>
         </div>
         <?php

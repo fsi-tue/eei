@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css<?php echo $FILE_REVISION; ?>">
-    <title>Anfi <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title>Ersti <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,7 +23,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Die digitale Anfi Stadtrallye<br>
+            Die digitale Ersti Stadtrallye<br>
             Bei der digitalen Stadtrallye lassen wir dich und deine Kommilitonen gegeneinander in Teams antreten.
             Wir haben Videos zu Sehenswürdigkeiten in Tübingen aufgenommen und spannende Rätsel vorbereitet.
             Dabei werdet ihr online noch mehr schöne und interessante Ecken Tübingens kennen lernen,

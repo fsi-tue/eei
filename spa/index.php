@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Anfi  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title>Ersti  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,7 +23,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Der Anfi Spieleabend  <br>
+            Der Ersti Spieleabend  <br>
             Wir möchten dich zu einem kleinen (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft. Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
             
@@ -34,7 +34,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php

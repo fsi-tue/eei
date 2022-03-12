@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-$short = 'WSDIV'; #Kürzel des Events
+$short = 'WSLT2'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
@@ -23,23 +23,18 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Workshop Verschiedene Tools  <br>
-            Die [posix] Shell kann mehr als nur das was einbaut ist. Es gibt
-            unzählige Programme mit denen man seinen Werkzeuggürtel erweitern
-            kann. In diesem Workshop lernt ihr ein paar der schönen, der alten,
-            und der ganz schön alten davon kennen.<br>
-            Von Bildmanipulation bis Taskmanager-Ersatz ist hier alles dabei! <br>
-            Workshop von Studenten für Studenten. <br>
-            <b style='color:red !important;'>Dieser Workshop ist für Studenten im 2. Semester oder höher gedacht!</b><br>
-            Melde dich mit deinen Daten unten an, um am Workshop teilzunehmen.<br>
-            <b style='color:red !important;'>Ohne Anmeldung ist eine Teilnahme nicht möglich!</b><br>
-            Diese Daten werden evtl. auch an das Gesundheitsamt weitergegeben. Solltest du damit nicht einverstanden sein oder falsche Daten angeben, kannst du nicht teilnehmen.<br><br>
-            </div>
+            Workshop LaTeX Advanced<br>
+            Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen.
+            Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen.
+            Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio.<br>
+            In diesem Workshop werden fortgeschrittene Themen behandelt. Für Einsteiger empfiehlt es sich zuvor den Latex Basic Kurs zu besuchen.
+            
+        </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+        <div class="info"><strong>Dieser Workshop ist für Studierende im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php

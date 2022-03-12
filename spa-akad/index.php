@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Anfi  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title>Ersti  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,7 +23,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Der zweite Anfi Spieleabend, dieses mal akademisch ;)<br>
+            Der zweite Ersti Spieleabend, dieses mal akademisch ;)<br>
             An diesem Nachmittag/Abend möchten wir dich zunächst auf den Sand einladen,  
             um in gemütlicher Runde mit anderen Kommilitonen und Fachschaftlern Brett- und Gesellschaftsspielezu spielen.
             Sobald die Zeit an diesem Abend ausreichend fortgeschritten ist, möchten wirvzusammen mit dir ein wenig die Kneipen der Altstadt unsicher machen.

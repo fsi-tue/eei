@@ -23,7 +23,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Das Anfi Grillen  <br>
+            Das Ersti Grillen  <br>
             Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen. 
             Bringt dazu mit, was auch immer du zum Grillen brauchst, unser Gasgrill wartet auf dich. 
             Bring bitte auch dein Besteck und Geschirr selbst mit!
@@ -35,7 +35,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Die Veranstaltung findet mittels 3G statt. Also Getestet, Geimpft, Genesen. Also bitte die Bescheinigungen bereithalten.</strong></div>
+        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
         <div class="block>">
             <?php
                 if($_SERVER['REQUEST_METHOD'] === 'POST')

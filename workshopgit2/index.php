@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-$short = 'RY'; #Kürzel des Events
+$short = 'WSGIT'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
@@ -14,7 +14,7 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css<?php echo $FILE_REVISION; ?>">
-    <title>Ersti  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <title><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,23 +23,22 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Die zweite Ersti Stadtrallye<br>
-            Diese wird identisch zur ersten Rallye sein. Wir lassen dich und deine Kommilitonen gegeneinander in Teams antreten. 
-            Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, 
-            dabei hoffentlich die Orientierung in eurer neuen Heimat etwas verbessern und Kontakte knüpfen.<br>
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br><br>
-            Nach der Rallye ziehen wir gemeinsam durch die Kneipen dieser Stadt. 
-            <br>
+            Workshop Git Advanced <br>
+            Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart.
+            In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt.
+            Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben.<br>
+            In diesem Workshop werden fortgeschrittene Themen behandelt. Für Einsteiger empfiehlt es sich zuvor den Git Basic Kurs zu besuchen<br>
+            
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
+        <div class="info"><strong>Dieser Workshop ist für Studierende im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php
-                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                if($_SERVER['REQUEST_METHOD'] === 'POST')
                     register($E, $meal);
                 showRegistration($E, $meal);
             ?>
