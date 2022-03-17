@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-$short = 'WSGIT'; #Kürzel des Events
+$short = 'WSGIT2'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
