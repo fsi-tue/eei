@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-$short = 'SN'; #Kürzel des Events
+$short = 'SN1'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
