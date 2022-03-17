@@ -380,7 +380,7 @@
                     <input type="radio" class="form"fruehstueck" name="fruehstueck" value="salzig"> salzig <br>'
             : '';
             echo '
-                    <input type="submit" value="Senden" onclick="saveFormValuesSommerfest()">
+                    <input type="submit" value="Senden" onclick="saveFormValues()">
                 </form>
                 <script type="text/javascript" src="../js/saveFormValues.js"></script>
             ';
