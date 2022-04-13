@@ -62,7 +62,7 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Wanderung
-    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'To be announced', "date" => '24.04.22 10:30 Uhr',
+    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Sand 14 Eingang vorne', "date" => '24.04.22 10:30 Uhr',
     "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '04', '24', '2022'), "link" => 'wanderung/', "path" => "{$fp}ersti-wanderung.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
