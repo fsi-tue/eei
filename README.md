@@ -1,41 +1,45 @@
 # eei - Erst Einführungs Interface
-
+This websites uses [PHPMailer](https://github.com/PHPMailer/PHPMailer).
 ## Testing
 * Requires `php` to be installed
 * Run a local test instance using `php -S localhost:8000`
 
-## Adding an event:
-### config.php
+## Adding/Updating an event:
+### event_data.php
 To add an event copy the dummy event and modify the values. Then, append this event to the $events array
 The oder in this array defines the shown order
 
 Example:
 ```php
-$SA = ["name" => 'Spieleabend', "icon" => 'cap', "active" => true, "location" => 'Sand 14 - A301', "date" => '16.04.20', 
-       "online" => false, "cancelled" = false, "uts" => mktime('18', '0', '0', '04', '16', '2020'), "link" => 'spa-akad/', "path" => "{$fp}ersti-sp-akad.csv"];
-```
-Whereas: 
-- name: Name of the event (string)
-- icon: Icon of the tile (string), see css/style.css for list of all icons (example: beer)
-- location: Location of the event (string)
-- date: Date and Time of the event (string) in a human readable format
-- online: shows if the event is online
-- cancelled: shows if the evend is cancelled
-- uts: Unix Timestamp of the event (int), or mktime(hour, minute, second, MONTH, DAY, year)  (ATTENTION! American Time Format)
-   - The cookie, that will be set after a registration, will expire at this time +24h
-   - After reaching this timestamp no further registration will be possible  
-- link: Link to the event (string), relativ path to sub-directory
-- path: Relativ path to CSV file (string), only necessary if used 
-
-After that add this event to the events array:
-
-Example:
-```php
-$events = ['RY' => $RY, 'KT' => $KT, 'FR' => $FR, 'SA' => $SA];
-```
-
-### Folder
-If it's desired to link a direkt overview page (with or without registration) of this event create a folder and copy the dummy/index.php into it.
-Don't forget to set the correct event key `$short = 'SA'; #Kürzel des Events` as it was set in the $events array.
-
-Now edit the (text) content as will
+        "SP1" => [
+         # Link MUST be the same as the key (top left)
+            "link" => 'SP1',
+            "name" => 'Ersti-Spieleabend',
+         # Is the event active? If not, this event won't be shown.
+            "active" => TRUE,
+            "cancelled" => FALSE,
+         # Studiengang
+            "course_required" => TRUE,
+         # Food preferences
+            "food" => FALSE,
+         # Breakfast preferences
+            "breakfast" => FALSE,
+         # Path to safe file: {fp}nameOfEvent.csv
+            "path" => "{$fp}spieleabend.csv",
+         # Icon to show: beer, cap, clock, cocktail, dice, film, food, grill, hiking, home, marker, route, sings
+            "icon" => 'dice',
+            "location" => 'Terrasse Sand',
+            "date" => '25.09.21 ab 18:00',
+         #   Time of event (hour, minute, second, MONTH, DAY, year)
+            "uts" => mktime('18', '0', '0', '09', '25', '2022'),
+            "max_participants" => 260 ,
+         # Override the default registration deadline? (74h)
+            "registration_override" => TRUE,
+         # If yes, set the deadline
+            "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
+         # Text (html) description of event
+            "text" => "Der Ersti Spieleabend<br>
+            LOREM IPSUM YOUR DESCRIPTION",
+         # Info Box to show.
+            "info" => "Für die Veranstaltung gilt 3G."
+        ],```
