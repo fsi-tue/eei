@@ -120,20 +120,10 @@
 
 
     $events = [
-        'SN0'    => $SN0,        # Ersti-Veranstaltungen
-        'GR'     => $GR,
         'RY'     => $RY,
         'KT'     => $KT,
         'WA0'    => $WA0,
         'SN1'    => $SN1,
-        'WSBS'   => $WSBS,      # Workshops
-        'WSBS2'  => $WSBS2,
-        'WSGIT'  => $WSGIT,
-        'WSGIT2' => $WSGIT2,
-        'WSPY'   => $WSPY,
-        'WSPY2'  => $WSPY2,
-        'WSLT'   => $WSLT,
-        'WSLT2'  => $WSLT2,
 
     ];
 
