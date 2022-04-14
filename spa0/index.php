@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-$short = 'WSLT2'; #Kürzel des Events
+$short = 'SN0'; #Kürzel des Events
 $meal = false;
 $info = $error = '';
 $E = $events[$short]; #select Event
@@ -13,8 +13,8 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/style.css<?php echo $FILE_REVISION; ?>">
-    <title><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Ersti  <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
 </head>
 <body>
     <div id="center">
@@ -23,18 +23,18 @@ $freeSpots = getNumberOfRemainingSpots($events[$short]);
             <h2 class="description icon clock"><?php echo $E['date'];?></h2>
             <h2 class="description icon marker"><?php echo $E['location'];?></h2>
             <?php echo $freeSpots;?>
-            Workshop LaTeX Advanced<br>
-            Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen.
-            Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen.
-            Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio.<br>
-            In diesem Workshop werden fortgeschrittene Themen behandelt. Für Einsteiger empfiehlt es sich zuvor den Latex Basic Kurs zu besuchen.<br>
-            Wir werden Befehle, Umgebungen, Schriftstile und Packages behandeln und erstellen.
+            Der Ersti Spieleabend  <br>
+            Wir möchten dich zu einem kleinen (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
+            Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft. Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
+            
+            Um besser planen zu können bitten wir euch, Bescheid zu geben wenn ihr kommt.<br>
+            Bitte kommt aufgrund der aktuellen Situation NUR falls ihr euch angemeldet habt.<br><br>
         </div>
         <?php
             echo ($h['info'] == '' ? '' : "<div class='block info'>{$h['info']}</div>");
             echo ($h['error'] == '' ? '' : "<div class='block info'>{$h['error']}</div>");
         ?>
-        <div class="info"><strong>Dieser Workshop ist für Studierende im 2. Semester oder höher gedacht!<br><br>Für die Veranstaltung gilt 3G</strong></div>
+        <div class="info"><strong>Für die Veranstaltung gilt 3G</strong></div>
         <br>
         <div class="block>">
             <?php

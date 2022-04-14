@@ -21,35 +21,40 @@
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '09', '14', '2021'), "link" => 'ersti-we/', "path" => "{$fp}ersti-we.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
-    #Spieleabend NICHT Akademisch
-    $SN = ["name" => 'Ersti-Spieleabend', "icon" => 'dice', "active" => false, "location" => 'Sand 14 - verschiedene Räume', "date" => '23.10.21 19 Uhr', 
-    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '23', '2021'), "link" => 'spa/', "path" => "{$fp}ersti-sp.csv",
-    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
-
     #Filmeabend
     $FA = ["name" => 'Filmeabend', "icon" => 'film', "active" => false, "location" => 'Sand 14 - A301', "date" => '31.03.21', 
     "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '10', '31', '2021'), "link" => 'film/', "path" => "{$fp}ersti-film.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Grillen
-    $GR = ["name" => 'Ersti-Grillen', "icon" => 'grill', "active" => false, "location" => 'Terrasse - Sand 14', "date" => '12.10.21 17 Uhr', 
-        "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '12', '2021'), "link" => 'grillen/', "path" => "{$fp}ersti-grill.csv",
-        "max_participants" => 50, "uts_override" => true, "end_of_registration" => mktime('17', '0', '0', '10', '11', '2021')];
+    $GR = ["name" => 'Ersti-Grillen', "icon" => 'grill', "active" => true, "location" => 'Terrasse - Sand 14', "date" => '13.04.22 18 Uhr', 
+        "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '04', '13', '2022'), "link" => 'grillen/', "path" => "{$fp}ersti-grill.csv",
+        "max_participants" => 50, "uts_override" => false, "end_of_registration" => true];
 
     #Kneipentour
-    $KT = ["name" => 'Kneipentour', "icon" => 'beer', "active" => false, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '30.10.21', 
-    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '10', '20', '2021'), "link" => 'kneipentour/', "path" => "{$fp}ersti-kneipentour.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    $KT = ["name" => 'Ersti-Kneipentour', "icon" => 'beer', "active" => true, "location" => 'wird nach Anmeldung mitgeteilt', "date" => '20.04.22 18 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('18', '0', '0', '04', '20', '2022'), "link" => 'kneipentour/', "path" => "{$fp}ersti-kneipentour.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => mktime('18', '0', '0', '04', '20', '2022')];
 
     #Frühstück
     $FR = ["name" => 'Frühstück', "icon" => 'food', "active" => false, "location" => 'Mensa Morgenstelle', "date" => '09.04.20', 
     "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '09', '08', '2021'), "link" => 'fruehstueck/', "path" => "{$fp}ersti-fruehstueck.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
+    #Spieleabend NICHT Akademisch
+    $SN0 = ["name" => 'Ersti-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'TBA', "date" => '12.04.22 19 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '04', '12', '2022'), "link" => 'spa0/', "path" => "{$fp}ersti-sp1.csv",
+    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
+
+    #Spieleabend II
+    $SN1 = ["name" => 'Ersti-Spieleabend', "icon" => 'dice', "active" => true, "location" => 'TBA', "date" => '28.04.22 19 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '04', '28', '2022'), "link" => 'spa1/', "path" => "{$fp}ersti-sp2.csv",
+    "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
+
     #Spieleabend Akademisch
-    $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '06.11.20 19 Uhr', 
-    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '11', '06', '2021'), "link" => 'spa-akad/', "path" => "{$fp}ersti-sp-akad.csv",
-    "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
+    $SA = ["name" => 'Spieleabend akademisch', "icon" => 'cap', "active" => false, "location" => 'TBA', "date" => '28.04.22 19 Uhr', 
+    "online" => false, "cancelled" => false, "uts" => mktime('19', '0', '0', '04', '28', '2022'), "link" => 'spa-akad/', "path" => "{$fp}ersti-sp-akad.csv",
+    "max_participants" => false, "uts_override" => false, "end_of_registration" => mktime('19', '0', '0', '04', '27', '2022')];
 
     #Spieleabend digital 0
     $SD0 = ["name" => 'Spieleabend digital 1', "icon" => 'cap', "active" => false, "location" => 'Discord', "date" => '16.04.2021 19:00 Uhr',
@@ -57,8 +62,8 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Wanderung
-    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => false, "location" => 'Taubenhaus an der Neckarinsel', "date" => '16.10.21 14 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('14', '0', '0', '10', '16', '2021'), "link" => 'wanderung/', "path" => "{$fp}ersti-wanderung.csv",
+    $WA0 = ["name" => 'Ersti-Wanderung', "icon" => 'hiking', "active" => true, "location" => 'Sand 14 Eingang vorne', "date" => '24.04.22 10:30 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('10', '0', '0', '04', '24', '2022'), "link" => 'wanderung/', "path" => "{$fp}ersti-wanderung.csv",
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye digital 0
@@ -67,8 +72,8 @@
     "max_participants" => false, "uts_override" => false, "end_of_registration" => false];
 
     #Stadtrallye
-    $RY = ["name" => 'Ersti-Stadtrallye', "icon" => 'route', "active" => false, "location" => 'Taubenhaus an der Neckarinsel', "date" => '27.10.21 17 Uhr',
-    "online" => false, "cancelled" => false, "uts" => mktime('17', '0', '0', '10', '27', '2021'), "link" => 'rallye/', "path" => "{$fp}ersti-rallye-2.csv",
+    $RY = ["name" => 'Ersti-Stadtrallye', "icon" => 'route', "active" => true, "location" => 'Taubenhaus an der Neckarinsel', "date" => '20.04.22 16 Uhr',
+    "online" => false, "cancelled" => false, "uts" => mktime('16', '0', '0', '04', '20', '2022'), "link" => 'rallye/', "path" => "{$fp}ersti-rallye.csv",
     "max_participants" => 120, "uts_override" => false, "end_of_registration" => false];
 
     #BioInfo Grillen
@@ -115,7 +120,13 @@
 
 
     $events = [
-        'WSBS'   => $WSBS,
+        'SN0'    => $SN0,        # Ersti-Veranstaltungen
+        'GR'     => $GR,
+        'RY'     => $RY,
+        'KT'     => $KT,
+        'WA0'    => $WA0,
+        'SN1'    => $SN1,
+        'WSBS'   => $WSBS,      # Workshops
         'WSBS2'  => $WSBS2,
         'WSGIT'  => $WSGIT,
         'WSGIT2' => $WSGIT2,
