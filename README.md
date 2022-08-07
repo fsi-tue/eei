@@ -1,5 +1,5 @@
 # eei - Erst Einführungs Interface
-This websites uses [PHPMailer](https://github.com/PHPMailer/PHPMailer).
+
 ## Testing
 * Requires `php` to be installed
 * Run a local test instance using `php -S localhost:8000`

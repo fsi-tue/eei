@@ -47,28 +47,8 @@ function sendMail($recipient, $E) {
     $subject = "Deine Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
 
-    $mailer = new PHPMailer();
-    //Tell PHPMailer to use SMTP
-    $mailer->isSMTP();
-
-    $mailer->Host = $SMTP_HOST;
-    $mailer->Port = $SMTP_PORT;
-    $mailer->SMTPAuth = true;
-    $mailer->Username = $SMTP_USER;
-    //Password to use for SMTP authentication
-    $mailer->Password = $SMTP_PASS;
-    //Set who the message is to be sent from
-    $mailer->setFrom($SMTP_SENDER_EMAIL, $SMTP_SENDER_NAME);
-    //Set who the message is to be sent to
-    $mailer->addAddress($recipient, $recipient);
-    //Set the subject and body
-    $mailer->Subject = $subject;
-    $mailer->Body = $msg;
-    //send the message, check for errors
-    var_dump($mailer->send());
-    if (!$mailer->send()) {
-        echo 'Du bist angemeldet, die Bestätigungsemail konnte jedoch nicht verschickt werden: ' . $mailer->ErrorInfo;
-    }
+    $headers = "From:" . $CONTACT_EMAIL;
+    mail($recipient,$subject,$msg,$headers);
 }
 
 # Processes a registration
