@@ -1,10 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
         return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
 }
@@ -47,7 +41,7 @@ function sendMail($recipient, $E) {
     $subject = "Deine Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
 
-    $headers = "From:" . $CONTACT_EMAIL;
+    $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
     mail($recipient,$subject,$msg,$headers);
 }
 
