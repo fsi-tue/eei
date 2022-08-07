@@ -149,37 +149,37 @@ function showRegistration($E){
 
         echo $E['course_required']?
                 'Studiengang:<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Machine Learning"> Machine Learning<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft"> Kognitionswissenschaft<br>
-                <input type="radio" class="form-studiengang" name="studiengang" value="Nebenfach" required> Nebenfach<br><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Machine Learning"> Machine Learning</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft"> Kognitionswissenschaft</label><br>
+                <label><input type="radio" class="form-studiengang" name="studiengang" value="Nebenfach" required> Nebenfach<br></label><br>
 
                 Abschluss:<br>
-                <input type="radio" class="form-abschluss" name="abschluss" value="Bachelor" required> Bachelor<br>
-                <input type="radio" class="form-abschluss" name="abschluss" value="Master"> Master<br><br>
+                <label><input type="radio" class="form-abschluss" name="abschluss" value="Bachelor" required> Bachelor</label><br>
+                <label><input type="radio" class="form-abschluss" name="abschluss" value="Master"> Master</label><br><br>
 
                 Semester:<br>
-                <input type="radio" class="form-semester" name="semester" value="1" required> 1 <br>
-                <input type="radio" class="form-semester" name="semester" value="2"> 2 <br>
-                <input type="radio" class="form-semester" name="semester" value="3"> 3 <br>
-                <input type="radio" class="form-semester" name="semester" value="viele"> viele <br>'
+                <label><input type="radio" class="form-semester" name="semester" value="1" required> 1</label> <br>
+                <label><input type="radio" class="form-semester" name="semester" value="2"> 2</label> <br>
+                <label><input type="radio" class="form-semester" name="semester" value="3"> 3</label> <br>
+                <label><input type="radio" class="form-semester" name="semester" value="viele"> viele <label/><br>'
         : '';
         echo ($E['food']) ?
                 '<br>Essen:<br>
-                <input type="radio" class="form-essen" name="essen" value="keine Präferenzen" required> keine Präferenzen <br>
-                <input type="radio" class="form-essen" name="essen" value="Vegetarisch"> Vegetarisch <br>
-                <input type="radio" class="form-essen" name="essen" value="Vegan"> Vegan <br>
-                <input type="radio" class="form-essen" name="essen" value="kein Schwein"> kein Schwein <br>'
+                <label><input type="radio" class="form-essen" name="essen" value="keine Präferenzen" required> keine Präferenzen</label><br>
+                <label><input type="radio" class="form-essen" name="essen" value="Vegetarisch"> Vegetarisch</label><br>
+                <label><input type="radio" class="form-essen" name="essen" value="Vegan"> Vegan</label><br>
+                <label><input type="radio" class="form-essen" name="essen" value="kein Schwein"> kein Schwein</label><br>'
         : '';
         echo ($E['breakfast']) ?
                 '<br>Frühstück:<br>
-                <input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen <br>
-                <input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß <br>
-                <input type="radio" class="form"fruehstueck" name="fruehstueck" value="salzig"> salzig <br>'
+                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen</label> <br>
+                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß</label><br>
+                <label><input type="radio" class="form"fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
         : '';
         echo '
                 <input type="submit" value="Senden" onclick="saveFormValues()">
