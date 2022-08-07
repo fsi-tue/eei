@@ -38,14 +38,10 @@ require_once('event_data.php')
 ?>
     </div>
             <br>
-            <div class="info">
-                <strong>Für die Präsenzveranstaltungen gilt 3G.</strong>
-            </div>
-            <br>
             <div>
             Deine Daten werden zur Planung benutzt und bis 2 Wochen nach den Veranstaltungen gespeichert.
             Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br>
-            Du kannst diese Daten durch einen Klick aus deinem Browser löschen:<br>
+            Du kannst die in Browser gespeicherten Daten durch einen Klick aus deinem Browser löschen:<br>
             <input id="btn-clr" type="submit" value="Löschen" onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
     </div>
         </div>
