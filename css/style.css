@@ -107,7 +107,7 @@ a:link, a:visited, a:hover, a:active{
 .icon.hiking {
     background-image: url("../icons/hiking-solid.svg");
 }
-.icon.house {
+.icon.home {
     background-image: url("../icons/home-solid.svg");
 }
 .icon.marker {
