@@ -1,4 +1,6 @@
 <?php
+require_once('config.php');
+
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
         return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
 }
@@ -37,17 +39,15 @@ function writeHeader($file, $E) {
     }
 }
 
-function sendMail($recipient, $E) {
-    $subject = "Deine Registrierung zu {$E['name']}";
+function sendMail($recipient, $E) { 
+    $subject = "Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
-
     $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
-    mail($recipient,$subject,$msg,$headers);
+    mail($recipient, $subject, $msg, $headers);
 }
 
 # Processes a registration
 function register($E){
-
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
     
@@ -119,7 +119,7 @@ function showRegistration($E){
         // return if the event is only 72 + 2 hours ahead, i.e. don't show the registration anymore
         if((time() + (86400 * 3) + (3600 * 2)) >= $E["uts"]){
             echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
-                Du erhältst in Kürze eine Mail</div>";
+            Du erhältst in Kürze eine Mail</div>";
             return;
         }
     }
