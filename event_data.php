@@ -247,7 +247,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dies ist der Grundlagenkurs.",
-            "info" => "",
+            "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         # Workshop Git Advanced
         "ws-git-advanced" => [
@@ -267,7 +267,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dieser Kurs baut auf Git Basic auf.",
-            "info" => "",
+            "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         # Workshop Python Basics
         "ws-python-basic" => [
@@ -287,7 +287,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln? Mit der vielseitigen und einfach zu erlernenden Programmiersprache “Python” lässt sich dies und vieles mehr erreichen. In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben. Nachmittags werden am Beispiel von einer Datenquelle im Netz tiefer gehende Konzepte eingeführt.",
-            "info" => "",
+            "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         # Workshop Python Basics
         "ws-python-training" => [
@@ -307,7 +307,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Du beherrscht die Grundlagen in Python? Hast ggf. den Workshop Phyhon Basics gehört? Dann können wir hier weiterführende Themen behandeln der Python Entwicklung behandeln. ",
-            "info" => "",
+            "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         
         # Workshop Latex Basic
@@ -328,7 +328,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Könnt ihr dies schon, gibt es am Nachmittag fortgeschrittene Themen.",
-            "info" => "",
+            "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         # Workshop Latex Basic
         "ws-latex-advanced" => [
@@ -348,7 +348,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Dieser Kurs setzt gewisse Latex Grundkentnisse die ihr im Workshop Latex Basics erwerben kann.",
-            "info" => "",
+            "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
     ];
 ?>
