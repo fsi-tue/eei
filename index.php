@@ -1,5 +1,7 @@
 <?php
 require_once('config.php');
+require_once('utils.php');
+require_once('event_data.php')
 ?>
 
 <!DOCTYPE html>
@@ -19,34 +21,27 @@ require_once('config.php');
         <h1>FSI-Veranstaltungen - <?php echo $CONFIG_TERM?></h1>
         <div class="container">
 <?php
-        function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
-            return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
-        }
-
         foreach ($events as $e) {
-            // date in first line, time shall go in new line
-            $date = $e['date'];
-            $date = replaceFirstOccurence(" ", ",<br>", $date);
-            if ($e['active'] == false) {
-                echo "<a class='inactive' href='{$e['link']}'>";
-                echo "  <div class='box inactive icon {$e['icon']}'>";
-            } else {
-                echo "<a href='{$e['link']}'>";
+            if ($e['active']) {
+                // date in first line, time shall go in new line
+                $date = $e['date'];
+                $date = replaceFirstOccurence(" ", ",<br>", $date);
+
+                echo "<a href='event.php?e={$e['link']}'>";
                 echo "  <div class='box icon {$e['icon']}'>";
+                echo "     <p class='name'>{$e['name']}</p>";
+                echo "     <p class='date'>{$date}</p>";
+                echo "  </div>";
+                echo "</a>";
             }
-            echo "     <p class='name'>{$e['name']}</p>";
-            echo "     <p class='date'>{$date}</p>";
-            echo "  </div>";
-            echo "</a>";
         }
 ?>
-            <br>
-            <div class="info"><strong>Für die Präsenzveranstaltungen gilt 3G.</strong></div>
+    </div>
             <br>
             <div>
-            Deine Daten werden aufgrund der Coronaverordnungen gebraucht und bis 2 Wochen nach den Veranstaltungen gespeichert.
+            Deine Daten werden zur Planung benutzt und bis 2 Wochen nach den Veranstaltungen gespeichert.
             Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br>
-            Du kannst diese Daten durch einen Klick aus deinem Browser löschen:<br>
+            Du kannst die in Browser gespeicherten Daten durch einen Klick aus deinem Browser löschen:<br>
             <input id="btn-clr" type="submit" value="Löschen" onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
     </div>
         </div>
