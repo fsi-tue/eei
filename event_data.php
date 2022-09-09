@@ -44,8 +44,9 @@ $events = [
             "info" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe 
             treffen und uns dort in 2 und 3er Gruppen aufteilen. Keine Angst wenn du noch keinen kennst, dort sind genug Leute die
             neu in Tübingen sind. Im Rewe werden wir uns einen Kasten Bier bzw. Limo kaufen je nach dem was euch lieber ist. Hälfte-Hälfte
-            geht auch. Die kosten sind selbst zu tragen. Wenn sich alle dann bereit sind wird zusammen eine Strecke abgelaufen. Wer nun zuerst im
-            Ziel angelangt ist und den Kasten leer getrunken hat, hat gewonnen. Es gibt auch einen Preis. Denkt bitte daran Wasser mitzubringen.
+            geht auch. Die kosten sind selbst zu tragen. Wenn alle dann bereit sind, wird eine Strecke abgelaufen. Wer nun zuerst im
+            Ziel angelangt ist und den Kasten leer getrunken hat, hat gewonnen. Es gibt auch einen Preis. Denkt bitte daran Wasser mitzubringen,
+            die Strecke ist ein ganzes Stück und zum Ausgleich auch nicht schlecht.
             <ul>
             <li> 4.8km Strecke
             <li> 2er Gruppe 0.3Liter, 3er Gruppe 0.5Liter
