@@ -30,18 +30,28 @@ $events = [
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
-            "food" => TRUE,
-            "breakfast" => TRUE,
-            "path" => "{$fp}ersti-huette.csv",
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}kastenlauf.csv",
             "icon" => "beer",
-            "location" => 'TBA',
-            "date" => '07.10.22 17:00',
+            "location" => 'Rewe Weststadt <br> Schleifmühlenweg 36',
+            "date" => '07.10.22 14:30',
             "uts" => mktime('18', '0', '0', '10', '07', '2022'),
             "max_participants" => 60,
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Kastenlauf",
-            "info" => "",
+            "info" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe 
+            treffen und uns dort in 2 und 3er Gruppen aufteilen. Keine Angst wenn du noch keinen kennst, dort sind genug Leute die
+            neu in Tübingen sind. Im Rewe werden wir uns einen Kasten Bier bzw. Limo kaufen je nach dem was euch lieber ist. Hälfte-Hälfte
+            geht auch. Die kosten sind selbst zu tragen. Wenn alle dann bereit sind, wird eine Strecke abgelaufen. Wer nun zuerst im
+            Ziel angelangt ist und den Kasten leer getrunken hat, hat gewonnen. Es gibt auch einen Preis. Denkt bitte daran Wasser mitzubringen,
+            die Strecke ist ein ganzes Stück und zum Ausgleich auch nicht schlecht.
+            <ul>
+            <li> 4.8km Strecke
+            <li> 2er Gruppe 0.3Liter, 3er Gruppe 0.5Liter
+            <li> Preis für den Sieger
+            </ul>",
         ],
         # Spieleabend
         "SP1" => [
@@ -105,7 +115,7 @@ $events = [
             "path" => "{$fp}ersti-wanderung.csv",
             "icon" => "route",
             "location" => 'Neckarmüller',
-            "date" => '15.10.22 17:00',
+            "date" => '15.10.22 10:00',
             "uts" => mktime('17', '0', '0', '10', '15', '2022'),
             "max_participants" => 120,
             "registration_override" => TRUE,
