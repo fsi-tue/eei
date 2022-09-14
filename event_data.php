@@ -36,7 +36,7 @@ $events = [
             "icon" => "beer",
             "location" => 'Rewe Weststadt <br> Schleifmühlenweg 36',
             "date" => '07.10.22 14:30',
-            "uts" => mktime('18', '0', '0', '10', '07', '2022'),
+            "uts" => mktime('14', '30', '0', '10', '07', '2022'),
             "max_participants" => 60,
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
@@ -90,17 +90,17 @@ $events = [
             "path" => "{$fp}ersti-fruestueck.csv",
             "icon" => "food",
             "location" => 'Mensa Morgenstelle',
-            "date" => '14.10.22 17:00',
-            "uts" => mktime('17', '0', '0', '10', '14', '2022'),
+            "date" => '14.10.22 9:00',
+            "uts" => mktime('9', '0', '0', '10', '14', '2022'),
             "max_participants" => 220,
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Das Frühsück und Führung der Morgenstelle<br>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
-            Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden. Außerdem wirst du durch Prof. Ostermann – er wird die Informatik I Vorlesung halten – begrüßt. 
+            Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden. 
             Danach machen wir eine Führung über die Morgenstelle, damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
-            Um besser planen zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt",
+            Um besser planen und Plätze reservieren zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
+            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt.",
             "info" => "",
         ],
          # Wanderung
