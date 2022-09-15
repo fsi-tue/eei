@@ -1,4 +1,4 @@
-# eei - Erst Einführungs Interface
+# eei - Ersti Einführungs Interface
 
 ## Testing
 * Requires `php` to be installed
