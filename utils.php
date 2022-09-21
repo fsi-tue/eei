@@ -166,7 +166,7 @@ function showRegistration($E){
                 <label><input type="radio" class="form-semester" name="semester" value="1" required> 1</label> <br>
                 <label><input type="radio" class="form-semester" name="semester" value="2"> 2</label> <br>
                 <label><input type="radio" class="form-semester" name="semester" value="3"> 3</label> <br>
-                <label><input type="radio" class="form-semester" name="semester" value="viele"> viele <label/><br>'
+                <label><input type="radio" class="form-semester" name="semester" value="0"> viele <label/><br>'
         : '';
         echo ($E['food']) ?
                 '<br>Essen:<br>
