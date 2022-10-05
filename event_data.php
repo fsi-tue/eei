@@ -41,7 +41,7 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Kastenlauf",
-            "info" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe 
+            "info" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe
             treffen und uns dort in 2 und 3er Gruppen aufteilen. Keine Angst wenn du noch keinen kennst, dort sind genug Leute die
             neu in Tübingen sind. Im Rewe werden wir uns einen Kasten Bier bzw. Limo kaufen je nach dem was euch lieber ist. Hälfte-Hälfte
             geht auch. Die kosten sind selbst zu tragen. Wenn alle dann bereit sind, wird eine Strecke abgelaufen. Wer nun zuerst im
@@ -97,7 +97,7 @@ $events = [
             "end_of_registration" => FALSE,
             "text" => "Das Frühsück und Führung der Morgenstelle<br>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
-            Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden. 
+            Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden.
             Danach machen wir eine Führung über die Morgenstelle, damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
             Um besser planen und Plätze reservieren zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
             Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt.",
@@ -189,8 +189,8 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Das Ersti Grillen<br>
-            Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen. 
-            Bringt dazu mit, was auch immer du zum Grillen brauchst, unser Gasgrill wartet auf dich. 
+            Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen.
+            Bringt dazu mit, was auch immer du zum Grillen brauchst, unser Gasgrill wartet auf dich.
             Bring bitte auch dein Besteck und Geschirr selbst mit!",
             "info" => ""
         ],
@@ -250,7 +250,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}workshop-git-basic.csv",
             "icon" => "cap",
-            "location" => 'Clubhaus',
+            "location" => 'Sand Poolraum (Keller)',
             "date" => '10.10.22 9-12',
             "uts" => mktime('9', '0', '0', '10', '10', '2022'),
             "max_participants" => 25,
@@ -270,7 +270,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}workshop-git-advanced.csv",
             "icon" => "cap",
-            "location" => 'Clubhaus',
+            "location" => 'Sand Poolraum (Keller)',
             "date" => '10.10.22 13-16',
             "uts" => mktime('13', '0', '0', '10', '10', '2022'),
             "max_participants" => 25,
@@ -290,7 +290,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}workshop-python-basic.csv",
             "icon" => "cap",
-            "location" => '?? - TBA',
+            "location" => 'Sand Poolraum (Keller)',
             "date" => '11.10.22 9-16',
             "uts" => mktime('9', '0', '0', '10', '11', '2022'),
             "max_participants" => 25,
@@ -310,7 +310,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}workshop-python-training.csv",
             "icon" => "cap",
-            "location" => 'Clubahaus',
+            "location" => 'Sand Poolraum (Keller)',
             "date" => '12.10.22 9-16',
             "uts" => mktime('9', '0', '0', '10', '12', '2022'),
             "max_participants" => 25,
@@ -319,7 +319,7 @@ $events = [
             "text" => "Du beherrscht die Grundlagen in Python? Hast ggf. den Workshop Phyhon Basics gehört? Dann können wir hier weiterführende Themen behandeln der Python Entwicklung behandeln. ",
             "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
-        
+
         # Workshop Latex Basic
         "ws-latex-basic" => [
             "link" => "ws-latex-basic",
@@ -331,7 +331,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}workshop-latex-basic.csv",
             "icon" => "cap",
-            "location" => 'Clubhaus',
+            "location" => 'Sand Poolraum (Keller)',
             "date" => '13.10.22 9-12',
             "uts" => mktime('9', '0', '0', '10', '13', '2022'),
             "max_participants" => 25,
@@ -351,7 +351,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}workshop-latex-advanced.csv",
             "icon" => "cap",
-            "location" => 'Clubhaus',
+            "location" => 'Sand Poolraum (Keller)',
             "date" => '13.10.22 13-15',
             "uts" => mktime('13', '0', '0', '10', '13', '2022'),
             "max_participants" => 25,
