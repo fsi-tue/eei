@@ -98,7 +98,7 @@ $events = [
             "text" => "Das Frühsück und Führung der Morgenstelle<br>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
             Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden.
-            Danach machen wir eine Führung über die Morgenstelle, damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
+            Direkt im Anschluss kannst du dann noch zur offizielle Erstsemesterbegrüßung des Fachbereichs Informatik. Wir haben extra genug Zeit eingeplant. <br>
             Um besser planen und Plätze reservieren zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
             Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt.",
             "info" => "",
