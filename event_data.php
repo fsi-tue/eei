@@ -65,11 +65,11 @@ $events = [
             "path" => "{$fp}ersti-spieleabend1.csv",
             "icon" => 'dice',
             "location" => 'Sand 14',
-            "date" => '13.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '10', '13', '2022'),
+            "date" => '13.10.22 ab 19:00',
+            "uts" => mktime('19', '0', '0', '10', '13', '2022'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('18', '0', '0', '10', '12', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '10', '12', '2022'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
@@ -206,11 +206,11 @@ $events = [
             "path" => "{$fp}ersti-spieleabend2.csv",
             "icon" => 'dice',
             "location" => 'Sand 14',
-            "date" => '27.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '10', '27', '2022'),
+            "date" => '27.10.22 ab 19:00',
+            "uts" => mktime('19', '0', '0', '10', '27', '2022'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('18', '0', '0', '10', '26', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '10', '26', '2022'),
             "text" => "Der 2te Ersti Spieleabend<br>
             Wir möchten dich zu dem zweiten (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
