@@ -40,8 +40,7 @@ $events = [
             "max_participants" => 60,
             "registration_override" => FALSE,
             "end_of_registration" => FALSE,
-            "text" => "Kastenlauf",
-            "info" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe
+            "text" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe
             treffen und uns dort in 2 und 3er Gruppen aufteilen. Keine Angst wenn du noch keinen kennst, dort sind genug Leute die
             neu in Tübingen sind. Im Rewe werden wir uns einen Kasten Bier bzw. Limo kaufen je nach dem was euch lieber ist. Hälfte-Hälfte
             geht auch. Die kosten sind selbst zu tragen. Wenn alle dann bereit sind, wird eine Strecke abgelaufen. Wer nun zuerst im
@@ -52,6 +51,7 @@ $events = [
             <li> 2er Gruppe 0.3Liter, 3er Gruppe 0.5Liter
             <li> Preis für den Sieger
             </ul>",
+            "info" => "",
         ],
         # Spieleabend
         "SP1" => [
@@ -65,11 +65,11 @@ $events = [
             "path" => "{$fp}ersti-spieleabend1.csv",
             "icon" => 'dice',
             "location" => 'Sand 14',
-            "date" => '13.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '10', '13', '2022'),
+            "date" => '13.10.22 ab 19:00',
+            "uts" => mktime('19', '0', '0', '10', '13', '2022'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('18', '0', '0', '10', '12', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '10', '12', '2022'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
@@ -98,7 +98,7 @@ $events = [
             "text" => "Das Frühsück und Führung der Morgenstelle<br>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
             Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden.
-            Danach machen wir eine Führung über die Morgenstelle, damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
+            Direkt im Anschluss kannst du dann noch zur offizielle Erstsemesterbegrüßung des Fachbereichs Informatik. Wir haben extra genug Zeit eingeplant. <br>
             Um besser planen und Plätze reservieren zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
             Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt.",
             "info" => "",
@@ -206,11 +206,11 @@ $events = [
             "path" => "{$fp}ersti-spieleabend2.csv",
             "icon" => 'dice',
             "location" => 'Sand 14',
-            "date" => '27.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '10', '27', '2022'),
+            "date" => '27.10.22 ab 19:00',
+            "uts" => mktime('19', '0', '0', '10', '27', '2022'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('18', '0', '0', '10', '26', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '10', '26', '2022'),
             "text" => "Der 2te Ersti Spieleabend<br>
             Wir möchten dich zu dem zweiten (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
