@@ -146,7 +146,7 @@ $events = [
             Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. 
             Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren.
             Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können.
-            Um eine Idee von der Sportart zu bekommen findet ihr [hier](https://www.youtube.com/watch?v=-EVhMVWmdUw) ein Beispielvideo.<br>
+            Um eine Idee von der Sportart zu bekommen findet ihr <a href='https://www.youtube.com/watch?v=-EVhMVWmdUw'>hier [YouTube]</a> ein Beispielvideo.<br>
             Für den Workshop sind Studierende aus allen Semestern willkommen. 
             Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen.
             Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit.",
