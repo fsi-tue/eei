@@ -125,6 +125,33 @@ $events = [
             Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.",
             "info" => "",
         ],
+         # Jugger Workshop
+         "JUGGER" => [
+            "link" => "JUGGER",
+            "name" => 'Jugger Workshop',
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}workshop-jugger.csv",
+            "icon" => "marker",
+            "location" => 'Terasse Sand',
+            "date" => '17.10.22 17:00',
+            "uts" => mktime('17', '0', '0', '10', '17', '2022'),
+            "max_participants" => 18,
+            "registration_override" => TRUE,
+            "end_of_registration" => mktime('24', '0', '0', '10', '14', '2022'),
+            "text" => "Jugger-Workshop<br>
+            Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. 
+            Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren.
+            Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können.
+            Um eine Idee von der Sportart zu bekommen findet ihr <a href='https://www.youtube.com/watch?v=-EVhMVWmdUw'>hier [YouTube]</a> ein Beispielvideo.<br>
+            Für den Workshop sind Studierende aus allen Semestern willkommen. 
+            Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen.
+            Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit.",
+            "info" => "",
+        ],    
         # Stadtrallye
         "RY" => [
             "link" => "RY",
