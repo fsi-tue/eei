@@ -141,7 +141,7 @@ $events = [
             "uts" => mktime('17', '0', '0', '10', '17', '2022'),
             "max_participants" => 18,
             "registration_override" => TRUE,
-            "end_of_registration" => mktime('24', '0', '0', '11', '14', '2022'),
+            "end_of_registration" => mktime('24', '0', '0', '10', '14', '2022'),
             "text" => "Jugger-Workshop<br>
             Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. 
             Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren.
