@@ -116,10 +116,10 @@ $events = [
             "icon" => "route",
             "location" => 'Taubenhaus Neckarinsel (Ostende)',
             "date" => '15.10.22 10:00',
-            "uts" => mktime('17', '0', '0', '10', '15', '2022'),
+            "uts" => mktime('10', '0', '0', '10', '15', '2022'),
             "max_participants" => 120,
             "registration_override" => TRUE,
-            "end_of_registration" => mktime('17', '0', '0', '10', '14', '2022'),
+            "end_of_registration" => mktime('10', '0', '0', '10', '14', '2022'),
             "text" => "Die Ersti Wanderung<br>
             Eine Wanderung durch den Schönbuch und den umliegenden Wäldern Tübingens.
             Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.",
