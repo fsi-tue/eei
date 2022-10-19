@@ -65,11 +65,11 @@ $events = [
             "path" => "{$fp}ersti-spieleabend1.csv",
             "icon" => 'dice',
             "location" => 'Sand 14',
-            "date" => '13.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '10', '13', '2022'),
+            "date" => '13.10.22 ab 19:00',
+            "uts" => mktime('19', '0', '0', '10', '13', '2022'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('18', '0', '0', '10', '12', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '10', '12', '2022'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
@@ -98,7 +98,7 @@ $events = [
             "text" => "Das Frühsück und Führung der Morgenstelle<br>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
             Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden.
-            Danach machen wir eine Führung über die Morgenstelle, damit du die wichtigsten Räume und Hörsäle kennen lernst. <br>
+            Direkt im Anschluss kannst du dann noch zur offizielle Erstsemesterbegrüßung des Fachbereichs Informatik. Wir haben extra genug Zeit eingeplant. <br>
             Um besser planen und Plätze reservieren zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
             Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt.",
             "info" => "",
@@ -125,6 +125,33 @@ $events = [
             Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.",
             "info" => "",
         ],
+         # Jugger Workshop
+         "JUGGER" => [
+            "link" => "JUGGER",
+            "name" => 'Jugger Workshop',
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}workshop-jugger.csv",
+            "icon" => "marker",
+            "location" => 'Terasse Sand',
+            "date" => '17.10.22 17:00',
+            "uts" => mktime('17', '0', '0', '10', '17', '2022'),
+            "max_participants" => 18,
+            "registration_override" => TRUE,
+            "end_of_registration" => mktime('24', '0', '0', '10', '14', '2022'),
+            "text" => "Jugger-Workshop<br>
+            Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. 
+            Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren.
+            Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können.
+            Um eine Idee von der Sportart zu bekommen findet ihr <a href='https://www.youtube.com/watch?v=-EVhMVWmdUw'>hier [YouTube]</a> ein Beispielvideo.<br>
+            Für den Workshop sind Studierende aus allen Semestern willkommen. 
+            Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen.
+            Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit.",
+            "info" => "",
+        ],    
         # Stadtrallye
         "RY" => [
             "link" => "RY",
@@ -206,11 +233,11 @@ $events = [
             "path" => "{$fp}ersti-spieleabend2.csv",
             "icon" => 'dice',
             "location" => 'Sand 14',
-            "date" => '27.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '10', '27', '2022'),
+            "date" => '27.10.22 ab 19:00',
+            "uts" => mktime('19', '0', '0', '10', '27', '2022'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('18', '0', '0', '10', '26', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '10', '26', '2022'),
             "text" => "Der 2te Ersti Spieleabend<br>
             Wir möchten dich zu dem zweiten (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
