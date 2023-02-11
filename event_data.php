@@ -1,9 +1,32 @@
 <?php
 require_once("config.php");
 
-#Sommerfest
 $events = [
-    /*
+        # Spieleabend
+        "SP1" => [
+            "link" => 'SP1',
+            "name" => 'Spieleabend',
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}ersti-spieleabend1.csv",
+            "icon" => 'dice',
+            "location" => 'Sand 14, A104',
+            "date" => '19.04.23 ab 19:00',
+            "uts" => mktime('19', '0', '0', '4', '19', '2023'),
+            "max_participants" => 200 ,
+            "registration_override" => true,
+            "end_of_registration" => mktime('19', '0', '0', '4', '19', '2022'),
+            "text" => "Der Ersti Spieleabend<br>
+            Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
+            Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
+            Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
+            Um besser planen zu können und euch eine kleine Errinerungsmail zu schicken, bitten wir euch sich anzumelden.",
+            "info" => ""
+        ],
+        /*
         # Sommerfest
         "SO" => [
             "link" => 'SO',
@@ -22,7 +45,6 @@ $events = [
             "registration_override" => FALSE,
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')
         ],
-        */
         # Kastenlauf
         "KASTEN" => [
             "link" => "KASTEN",
@@ -52,31 +74,6 @@ $events = [
             <li> Preis für den Sieger
             </ul>",
             "info" => "",
-        ],
-        # Spieleabend
-        "SP1" => [
-            "link" => 'SP1',
-            "name" => 'Spieleabend',
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => TRUE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}ersti-spieleabend1.csv",
-            "icon" => 'dice',
-            "location" => 'Sand 14',
-            "date" => '13.10.22 ab 19:00',
-            "uts" => mktime('19', '0', '0', '10', '13', '2022'),
-            "max_participants" => 200 ,
-            "registration_override" => true,
-            "end_of_registration" => mktime('19', '0', '0', '10', '12', '2022'),
-            "text" => "Der Ersti Spieleabend<br>
-            Wir möchten dich zu einem (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
-            Für einige Spiele sowie Getränke und Knabberkram (gegeneinen kleinen Obolus) sorgt die Fachschaft.
-            Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
-            Um besser planen zu können bitten wir euch, Bescheid zu geben wenn ihr kommt.
-            Bitte kommt aufgrund der aktuellen Situation NUR falls ihr euch angemeldet habt.",
-            "info" => ""
         ],
         # Frühstück
         "FRUEH" => [
@@ -387,5 +384,6 @@ $events = [
             "text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Dieser Kurs setzt gewisse Latex Grundkentnisse die ihr im Workshop Latex Basics erwerben kann.",
             "info" => "Dieser Workshop richtet sich NICHT an Bacherlor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
+        */
     ];
 ?>
