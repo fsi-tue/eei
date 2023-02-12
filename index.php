@@ -45,8 +45,7 @@ require_once('event_data.php')
             <input id="btn-clr" type="submit" value="Löschen" onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
     </div>
         </div>
-        <br><br>
-        <a href="https://github.com/fsi-tue/eei">Source Code</a>
+        <a style="text-align: center" href="https://github.com/fsi-tue/eei">Source Code</a>
     </div>
 </body>
 </html>
