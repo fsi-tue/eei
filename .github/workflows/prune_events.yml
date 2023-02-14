@@ -2,6 +2,7 @@ name: Remove old participant data
 on:
   schedule:
     - cron: '30 3 * * 2'
+  workflow_dispatch:
 jobs:
   deployment:
     runs-on: ubuntu-latest
