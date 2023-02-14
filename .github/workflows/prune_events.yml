@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Remove old participant data
+      id: removal
       uses: fjogeleit/http-request-action@v1.13.0
       with:
         url: https://eei.fsi.uni-tuebingen.de/prune_events.php
         method: 'GET'
-        run: |
-          echo ${{ steps.myRequest.outputs.response }}
+    - name: Show Response
+      run: |
+        echo ${{ steps.removal.outputs.response }}
