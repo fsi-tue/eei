@@ -54,7 +54,7 @@ function register($E){
     if($E['course_required']){
         $studiengang = filter_input(INPUT_POST, 'studiengang', FILTER_SANITIZE_ENCODED);
         $abschluss = filter_input(INPUT_POST, 'abschluss', FILTER_SANITIZE_ENCODED);
-        $semester =filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_NUMBER_INT);
+        $semester =filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_ENCODED);
     }
     if($E['food'])
         $essen = filter_input(INPUT_POST, 'essen', FILTER_SANITIZE_ENCODED);
@@ -166,7 +166,7 @@ function showRegistration($E){
                 <label><input type="radio" class="form-semester" name="semester" value="1" required> 1</label> <br>
                 <label><input type="radio" class="form-semester" name="semester" value="2"> 2</label> <br>
                 <label><input type="radio" class="form-semester" name="semester" value="3"> 3</label> <br>
-                <label><input type="radio" class="form-semester" name="semester" value="0"> viele <label/><br>'
+                <label><input type="radio" class="form-semester" name="semester" value="viele"> viele <label/><br>'
         : '';
         echo ($E['food']) ?
                 '<br>Essen:<br>
