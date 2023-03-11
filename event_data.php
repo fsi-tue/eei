@@ -18,7 +18,7 @@ $events = [
             "uts" => mktime('19', '0', '0', '4', '19', '2023'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('19', '0', '0', '4', '19', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '4', '19', '2023'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
@@ -163,7 +163,7 @@ $events = [
             "uts" => mktime('19', '0', '0', '05', '02', '2023'),
             "max_participants" => 200 ,
             "registration_override" => true,
-            "end_of_registration" => mktime('19', '0', '0', '05', '02', '2022'),
+            "end_of_registration" => mktime('19', '0', '0', '05', '02', '2023'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
