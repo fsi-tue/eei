@@ -50,7 +50,7 @@ function sendMail($recipient, $E) {
 function register($E){
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
-    
+
     if($E['course_required']){
         $studiengang = filter_input(INPUT_POST, 'studiengang', FILTER_SANITIZE_ENCODED);
         $abschluss = filter_input(INPUT_POST, 'abschluss', FILTER_SANITIZE_ENCODED);
@@ -89,7 +89,7 @@ function register($E){
         array_push($data, $fruehstueck);
 
     $file = fopen($E['path'], "a");
-    
+
     if($file === false){
         echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
         return;
@@ -107,23 +107,17 @@ function register($E){
 
 function showRegistration($E){
     global $CONFIG_CONTACT;
-    // override the 72 + 2 hour limit for certain events
-    if($E['registration_override']) {
-        if(time() >= $E['end_of_registration']) {
-            echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
-            Du erhältst in Kürze eine Mail</div>";
-            return;
-        }
+    if(time() < $E['start_of_registration']) {
+        echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung hat noch nicht angefangen.</div>";
+        return;
     }
-    else {
-        // return if the event is only 72 + 2 hours ahead, i.e. don't show the registration anymore
-        if((time() + (86400 * 3) + (3600 * 2)) >= $E["uts"]){
-            echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
-            Du erhältst in Kürze eine Mail</div>";
-            return;
-        }
+
+    if(time() >= $E['end_of_registration']) {
+        echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
+        Du erhältst in Kürze eine Mail</div>";
+        return;
     }
-    
+
 
     if($E['cancelled']){
         echo "<div class = 'block error'> {$E['name']} fällt leider aus.<br>
@@ -133,8 +127,8 @@ function showRegistration($E){
 
     if($E['active']){
         // return if the maximum number of participants has been reached
-        
-        if(getNumberOfRemainingSpots($E) == 0) {    
+
+        if(getNumberOfRemainingSpots($E) == 0) {
             echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
             return;
         }
