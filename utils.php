@@ -7,7 +7,7 @@ function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
 
 # Echos the number of remaining spots for a event e
 function getNumberOfRemainingSpots($E) {
-    if($E['max_participants']) {    
+    if($E['max_participants']) {
         $filepath = $E['path'];
         $HEADER_LINE_COUNT = 1;
         if(file_exists($filepath)) {
@@ -39,7 +39,7 @@ function writeHeader($file, $E) {
     }
 }
 
-function sendMail($recipient, $E) { 
+function sendMail($recipient, $E) {
     $subject = "Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
     $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
