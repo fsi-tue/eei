@@ -139,7 +139,7 @@ $events = [
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         # Spieleabend #2
-        "SP2" => [
+         "SP2" => [
             "link" => 'SP2',
             "name" => 'Spieleabend',
             "active" => TRUE,
@@ -152,7 +152,6 @@ $events = [
             "location" => 'Sand 14, A104',
             "date" => '02.05.23 ab 19:00',
             "max_participants" => 200 ,
-            "registration_override" => true,
             "start_of_registration" => mktime('0', '0', '0', '04', '25', '2023'),
             "end_of_registration" => mktime('19', '0', '0', '05', '02', '2023'),
             "text" => "Der Ersti Spieleabend<br>
