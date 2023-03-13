@@ -1,6 +1,5 @@
 <?php
 require_once("config.php");
-
 $events = [
         # Spieleabend
         "SP1" => [
@@ -15,10 +14,9 @@ $events = [
             "icon" => 'dice',
             "location" => 'Sand 14, A104',
             "date" => '19.04.23 ab 19:00',
-            "uts" => mktime('19', '0', '0', '4', '19', '2023'),
             "max_participants" => 200 ,
-            "registration_override" => true,
-            "end_of_registration" => mktime('19', '0', '0', '4', '19', '2022'),
+            "start_of_registration" => mktime('0', '0', '0', '4', '12', '2023'),
+            "end_of_registration" => mktime('19', '0', '0', '4', '19', '2023'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
@@ -39,9 +37,8 @@ $events = [
             "icon" => "cap",
             "location" => 'Sand A301',
             "date" => '05.04.23 9-12',
-            "uts" => mktime('9', '0', '0', '04', '05', '2023'),
             "max_participants" => 25,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dies ist der Grundlagenkurs.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
@@ -59,9 +56,8 @@ $events = [
             "icon" => "cap",
             "location" => 'Sand A301',
             "date" => '05.04.23 14-17',
-            "uts" => mktime('14', '0', '0', '04', '05', '2023'),
             "max_participants" => 25,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dieser Kurs baut auf Git Basic auf.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
@@ -79,9 +75,8 @@ $events = [
             "icon" => "cap",
             "location" => 'Sand A301',
             "date" => '03.04.23 9-16',
-            "uts" => mktime('9', '0', '0', '04', '03', '2023'),
             "max_participants" => 25,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln? Mit der vielseitigen und einfach zu erlernenden Programmiersprache “Python” lässt sich dies und vieles mehr erreichen. In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben. Nachmittags werden am Beispiel von einer Datenquelle im Netz tiefer gehende Konzepte eingeführt.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
@@ -99,14 +94,12 @@ $events = [
             "icon" => "cap",
             "location" => 'Sand A301',
             "date" => '03.04.23 14-17',
-            "uts" => mktime('14', '0', '0', '04', '03', '2023'),
             "max_participants" => 25,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Du beherrscht die Grundlagen in Python? Hast ggf. den Workshop Phyhon Basics gehört? Dann können wir hier weiterführende Themen behandeln der Python Entwicklung behandeln. ",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
-
         # Workshop Latex Basic
         "ws-latex-basic" => [
             "link" => "ws-latex-basic",
@@ -120,9 +113,8 @@ $events = [
             "icon" => "cap",
             "location" => 'Sand A301',
             "date" => '04.04.23 9-12',
-            "uts" => mktime('9', '0', '0', '04', '04', '2023'),
             "max_participants" => 25,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Könnt ihr dies schon, gibt es am Nachmittag fortgeschrittene Themen.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
@@ -140,15 +132,14 @@ $events = [
             "icon" => "cap",
             "location" => 'Sand A301',
             "date" => '04.04.23 14-17',
-            "uts" => mktime('14', '0', '0', '04', '04', '2023'),
             "max_participants" => 25,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Dieser Kurs setzt gewisse Latex Grundkentnisse die ihr im Workshop Latex Basics erwerben kann.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         # Spieleabend #2
-        "SP2" => [
+         "SP2" => [
             "link" => 'SP2',
             "name" => 'Spieleabend',
             "active" => TRUE,
@@ -156,14 +147,13 @@ $events = [
             "course_required" => TRUE,
             "food" => FALSE,
             "breakfast" => FALSE,
-            "path" => "{$fp}ersti-spieleabend1.csv",
+            "path" => "{$fp}ersti-spieleabend2.csv",
             "icon" => 'dice',
             "location" => 'Sand 14, A104',
             "date" => '02.05.23 ab 19:00',
-            "uts" => mktime('19', '0', '0', '05', '02', '2023'),
             "max_participants" => 200 ,
-            "registration_override" => true,
-            "end_of_registration" => mktime('19', '0', '0', '05', '02', '2022'),
+            "start_of_registration" => mktime('0', '0', '0', '04', '25', '2023'),
+            "end_of_registration" => mktime('19', '0', '0', '05', '02', '2023'),
             "text" => "Der Ersti Spieleabend<br>
             Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
             Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
@@ -185,9 +175,8 @@ $events = [
             "icon" => 'grill',
             "location" => 'Terrasse Sand',
             "date" => '25.09.21 ab 18:00',
-            "uts" => mktime('18', '0', '0', '09', '25', '2022'),
             "max_participants" => 260 ,
-            "registration_override" => FALSE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')
         ],
         # Kastenlauf
@@ -203,9 +192,8 @@ $events = [
             "icon" => "beer",
             "location" => 'Rewe Weststadt <br> Schleifmühlenweg 36',
             "date" => '07.10.22 14:30',
-            "uts" => mktime('14', '30', '0', '10', '07', '2022'),
             "max_participants" => 60,
-            "registration_override" => FALSE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe
             treffen und uns dort in 2 und 3er Gruppen aufteilen. Keine Angst wenn du noch keinen kennst, dort sind genug Leute die
@@ -233,9 +221,8 @@ $events = [
             "icon" => "food",
             "location" => 'Mensa Morgenstelle',
             "date" => '14.10.22 9:00',
-            "uts" => mktime('9', '0', '0', '10', '14', '2022'),
             "max_participants" => 220,
-            "registration_override" => FALSE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Das Frühsück und Führung der Morgenstelle<br>
             Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
@@ -258,9 +245,8 @@ $events = [
             "icon" => "route",
             "location" => 'Taubenhaus Neckarinsel (Ostende)',
             "date" => '15.10.22 10:00',
-            "uts" => mktime('17', '0', '0', '10', '15', '2022'),
             "max_participants" => 120,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('17', '0', '0', '10', '14', '2022'),
             "text" => "Die Ersti Wanderung<br>
             Eine Wanderung durch den Schönbuch und den umliegenden Wäldern Tübingens.
@@ -280,12 +266,11 @@ $events = [
             "icon" => "marker",
             "location" => 'Terasse Sand',
             "date" => '17.10.22 17:00',
-            "uts" => mktime('17', '0', '0', '10', '17', '2022'),
             "max_participants" => 18,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('24', '0', '0', '10', '14', '2022'),
             "text" => "Jugger-Workshop<br>
-            Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. 
+            Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht.
             Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren.
             Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können.
             Um eine Idee von der Sportart zu bekommen findet ihr <a href='https://www.youtube.com/watch?v=-EVhMVWmdUw'>hier [YouTube]</a> ein Beispielvideo.<br>
@@ -293,7 +278,7 @@ $events = [
             Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen.
             Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit.",
             "info" => "",
-        ],    
+        ],
         # Stadtrallye
         "RY" => [
             "link" => "RY",
@@ -307,9 +292,8 @@ $events = [
             "icon" => "route",
             "location" => 'Taubenhaus an der Neckarinsel',
             "date" => '18.10.22 17:00',
-            "uts" => mktime('17', '0', '0', '10', '18', '2022'),
             "max_participants" => 120,
-            "registration_override" => FALSE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Die Ersti Stadtrallye<br>
             Wir lassen dich und deine Kommilitonen gegeneinander in Teams antreten. Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, dabei hoffentlich die Orientierung in eurer neuen Heimat etwas verbessern und Kontakte knüpfen.
@@ -331,9 +315,8 @@ $events = [
             "icon" => "beer",
             "location" => 'Neckarmüller',
             "date" => '19.10.22 18:30',
-            "uts" => mktime('17', '0', '0', '10', '19', '2022'),
             "max_participants" => 120,
-            "registration_override" => FALSE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Die Ersti - Kneipentour<br>
             Tübingen ist übersät mit kleinen Kneipen und Bars, die das Nachtleben maßgeblich beeinflussen. Um den Stress des informationsgefüllten Tages etwas sacken zu lassen, laden wir dich zu einer ausgiebigen Kneipentour ein, bei der wir in Kleingruppen die verschiedenen Lokalitäten der tübinger Altstadt besuchen. Bitte bringe genügend Bargeld mit, da man in wenigen tübinger Bars mit EC-Karte zahlen kann! – Volksbanken und Sparkassen finden sich bei Bedarf in der Stadt.
@@ -353,9 +336,8 @@ $events = [
             "icon" => 'grill',
             "location" => 'Terrasse Sand',
             "date" => '22.10.22 ab 18:00',
-            "uts" => mktime('18', '0', '0', '20', '22', '2022'),
             "max_participants" => 150 ,
-            "registration_override" => FALSE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => FALSE,
             "text" => "Das Ersti Grillen<br>
             Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen.
@@ -376,9 +358,8 @@ $events = [
             "icon" => 'dice',
             "location" => 'Sand 14',
             "date" => '27.10.22 ab 19:00',
-            "uts" => mktime('19', '0', '0', '10', '27', '2022'),
             "max_participants" => 200 ,
-            "registration_override" => true,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('19', '0', '0', '10', '26', '2022'),
             "text" => "Der 2te Ersti Spieleabend<br>
             Wir möchten dich zu dem zweiten (analog-) Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
@@ -401,9 +382,8 @@ $events = [
             "icon" => "home",
             "location" => 'TBA',
             "date" => '25.11.22 - 27.11.22',
-            "uts" => mktime('12', '0', '0', '11', '25', '2022'),
             "max_participants" => 40,
-            "registration_override" => TRUE,
+            "start_of_registration" => FALSE,
             "end_of_registration" => mktime('12', '0', '0', '11', '10', '2022'),
             "text" => "Was gibt es besseres als eine Wochenende mit deinen Kommiliton:innen auf einer Hütte zu verbringen?",
             "info" => "",

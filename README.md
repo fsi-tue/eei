@@ -30,12 +30,10 @@ Example:
             "icon" => 'dice',
             "location" => 'Terrasse Sand',
             "date" => '25.09.21 ab 18:00',
-         #   Time of event (hour, minute, second, MONTH, DAY, year)
-            "uts" => mktime('18', '0', '0', '09', '25', '2022'),
             "max_participants" => 260 ,
-         # Override the default registration deadline? (74h prior the event)
-            "registration_override" => TRUE,
-         # If registration_override=TRUE, set the deadline to:
+         # time frame for registration:
+            "start_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
+            # set start_of_registration to FALSE to open registration for immediately
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
          # Text (html) description of event
             "text" => "Der Ersti Spieleabend<br>
