@@ -1,25 +1,6 @@
 <?php
 require_once("config.php");
 $events = [
-        # Workshop Python Basics
-            "ws-python-basic" => [
-            "link" => "ws-python-basic",
-            "name" => 'Python Basic',
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => TRUE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}workshop-python-basic-ss23.csv",
-            "icon" => "cap",
-            "location" => 'Sand A301',
-            "date" => '03.04.23 9-16',
-            "max_participants" => 25,
-            "start_of_registration" => FALSE,
-            "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
-            "text" => "Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln? Mit der vielseitigen und einfach zu erlernenden Programmiersprache “Python” lässt sich dies und vieles mehr erreichen. In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben. Nachmittags werden am Beispiel von einer Datenquelle im Netz tiefer gehende Konzepte eingeführt.",
-            "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
-        ],
         # Kneipentour
         "KT" => [
             "link" => "KT",
@@ -389,6 +370,25 @@ $events = [
             "start_of_registration" => FALSE,
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dieser Kurs baut auf Git Basic auf.",
+            "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+        ],
+        # Workshop Python Basics
+            "ws-python-basic" => [
+            "link" => "ws-python-basic",
+            "name" => 'Python Basic',
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}workshop-python-basic-ss23.csv",
+            "icon" => "cap",
+            "location" => 'Sand A301',
+            "date" => '03.04.23 9-16',
+            "max_participants" => 25,
+            "start_of_registration" => FALSE,
+            "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
+            "text" => "Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln? Mit der vielseitigen und einfach zu erlernenden Programmiersprache “Python” lässt sich dies und vieles mehr erreichen. In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben. Nachmittags werden am Beispiel von einer Datenquelle im Netz tiefer gehende Konzepte eingeführt.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
         ],
         */
