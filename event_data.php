@@ -170,12 +170,11 @@ $events = [
             Bring bitte auch dein Besteck und Geschirr selbst mit!",
             "info" => ""
         ],
-        /*
         # Wochenende/Hütte
         "HUETTE" => [
             "link" => "HUETTE",
-            "name" => 'Hütte',
-            "uts" => mktime('18', '0', '0', '06', '20', '2023'),
+            "name" => 'Erstsemesterhütte',
+            "uts" => mktime('15', '30', '0', '04', '28', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -184,13 +183,16 @@ $events = [
             "path" => "{$fp}ersti-huette.csv",
             "icon" => "home",
             "location" => 'Kalkweil',
-            "date" => '28.04.23 - 30.04.23',
+            "date" => '28.04.23 (15:30 Uhr) - 30.04.23 (10-11 Uhr)',
             "max_participants" => 40,
-            "start_of_registration" => mktime('0', '0', '0', '04', '14', '2023'),
-            "end_of_registration" => mktime('23', '59', '59', '04', '27', '2023'),
-            "text" => "Was gibt es besseres als eine Wochenende mit deinen Kommiliton:innen auf einer Hütte zu verbringen?<br>",
+            "start_of_registration" => mktime('10', '0', '0', '04', '17', '2023'),
+            "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
+            "text" => "Was gibt es besseres als eine Wochenende mit deinen Kommiliton:innen auf einer Hütte zu verbringen?<br>
+            Dieses Mal geht es ins Haus Kalkweil in Rottenburg am Neckar.<br>
+            Die Anmeldephase startet am 17.04.2023 um 10 Uhr und endet am 21.04.2023 um 23:59 Uhr.<br>
+            Die Informationen für alle erfolgreich angemeldeten Teilnehmer folgen dann am 22.04 im Verlauf des Tages.",
             "info" => "",
-        ],*/
+        ],
         # Spieleabend #2
         "SP2" => [
             "link" => 'SP2',
