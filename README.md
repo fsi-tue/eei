@@ -15,6 +15,9 @@ Example:
          # Link MUST be the same as the key (top left)
             "link" => 'SP1',
             "name" => 'Ersti-Spieleabend',
+         #   Time of event (hour, minute, second, MONTH, DAY, year)
+         #   This timestamp is used by prune_events.php, so make sure it is set correctly, otherwise the registrations will be deleted automatically!
+            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
          # Is the event active? If not, this event won't be shown.
             "active" => TRUE,
             "cancelled" => FALSE,

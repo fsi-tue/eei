@@ -41,7 +41,7 @@ if ($ALL_FILES != $event_filepaths) {
 
 foreach ($events as &$event_id) {
     // delete list of participants if event was more than two weeks ago
-    if (file_exists($event_id['path']) && (time() + (86400 * 14)) >= $event_id["uts"]) {
+    if (file_exists($event_id['path']) && time() >= ($event_id["uts"] + (86400 * 14))) {
         if (unlink($event_id["path"])) {
             echo ("deleted " . $event_id['path'] . PHP_EOL);
             array_push($deleted_events, $event_id['path']);
