@@ -17,7 +17,7 @@ $events = [
             "date" => '11.04.23 18:30',
             "max_participants" => 84,
             "start_of_registration" => mktime('0', '0', '0', '04', '02', '2023'),
-            "end_of_registration" => mktime('11', '59', '59', '04', '09', '2023'),
+            "end_of_registration" => mktime('17', '59', '59', '04', '10', '2023'),
             "text" => "Die Ersti-Kneipentour<br>
             Tübingen ist übersät mit kleinen Kneipen und Bars, die das Nachtleben maßgeblich beeinflussen. Um den Stress des informationsgefüllten Tages etwas sacken zu lassen, laden wir dich zu einer ausgiebigen Kneipentour ein, bei der wir in Kleingruppen die verschiedenen Lokalitäten der tübinger Altstadt besuchen. Bitte bringe genügend Bargeld mit, da man in wenigen tübinger Bars mit EC-Karte zahlen kann! – Volksbanken und Sparkassen finden sich bei Bedarf in der Stadt.
             Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>",
