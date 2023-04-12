@@ -96,6 +96,14 @@ function deleteRegistration($registration_id, $E) {
     }
 }
 
+function showDeleteRegistration($registration_id, $E) {
+    echo '<form action="event.php?e=' . $E['link'] . '&r=' . $registration_id . '" method="post">
+        <div>Von der Veranstaltung ' . $E['name'] .  ' abmelden</div>
+        <input type="hidden" name="registration_id" value="' . $registration_id . '">
+        <input type="submit" name="delete_registration" value="Abmelden">';
+    echo '</form>';
+}
+
 # Processes a registration
 function register($E){
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
