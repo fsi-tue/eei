@@ -39,11 +39,61 @@ function writeHeader($file, $E) {
     }
 }
 
-function sendMail($recipient, $E) {
+function sendRegistrationMail($recipient, $registration_id, $E) {
     $subject = "Registrierung zu {$E['name']}";
-    $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
+    $deleteRegistrationLink = "https://eei.fsi.uni-tuebingen.de/event.php?e={$E['link']}&r={$registration_id}";
+    $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\nWenn du dich abmelden möchtest, klicke bitte auf den folgenden Link: {$deleteRegistrationLink}\n\nViele Grüße,\n{$SENDER_NAME}";
     $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
     mail($recipient, $subject, $msg, $headers);
+}
+
+function sendRegistrationDeletedMail($recipient, $E) {
+    $subject = "Abmeldung zu {$E['name']}";
+    $msg = "Du hast dich erfolgreich von {$E['name']} abgemeldet.\n\nViele Grüße,\n{$SENDER_NAME}";
+    $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
+    mail($recipient, $subject, $msg, $headers);
+}
+
+# Generates a hash for a given string
+# It can be used to identify the registration
+function generateRegistrationHashFromData($data, $E) {
+    // Use only "static" values from the event
+    return hash('sha256', implode("", [...$data, $E["link"], $E["path"], $E["active"]]));
+}
+
+# Deletes a registration
+function deleteRegistration($registration_id, $E) {
+    $filepath = $E["path"];
+    $file = fopen($filepath, "r");
+    $data = array();
+    $success = false;
+    
+    while (($line = fgetcsv($file)) !== false) {
+        // if the registration hash matches the one we're looking for, skip it
+        if (generateRegistrationHashFromData($line, $E) !== $registration_id) {
+            // if it's not, add it to the new data array
+            $data[] = $line;
+        } else {
+            $success = true;
+        }
+    }
+
+    // close the file and open it for writing
+    fclose($file);
+    $file = fopen($filepath, 'w');
+
+    // loop through the modified data array and write each line to the file
+    foreach ($data as $line) {
+        fputcsv($file, $line);
+    }
+    fclose($file);
+    
+    if ($success) {
+        echo "<div class='block success'>Du hast dich erfolgreich abgemeldet.</div>";
+        sendRegistrationDeletedMail($line[1], $E);
+    } else {
+        echo "<div class='block error'>Die Abmeldung war nicht erfolgreich. Bitte melde dich an {$CONFIG_CONTACT}.</div>";
+    }
 }
 
 # Processes a registration
@@ -98,11 +148,17 @@ function register($E){
     // add CSV headers if file doesn't exist yet
     // check if file is empty, because we can't check if it exists because it was opened with fopen()
     writeHeader($file, $E);
-    fputcsv($file, $data);
+    // use fputcsvRetVal to check if the write was successful
+    $fputcsvRetVal = fputcsv($file, $data);
     fclose($file);
-    sendMail($mail, $E);
-
-    echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
+    
+    if ($fputcsvRetVal !== false) {
+        echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
+        // Generate registration hash and send mail
+        sendRegistrationMail($mail, generateRegistrationHashFromData($data, $E), $E);
+    } else {
+        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere {$CONFIG_CONTACT}.</div>";
+    }
 }
 
 function showRegistration($E){

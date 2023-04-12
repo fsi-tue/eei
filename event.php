@@ -42,7 +42,12 @@ echo ($E['info'] == '' ? '' : "<div class='block info'>{$E['info']}</div>");
 echo '<div class="block>">';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    register($E);
+    if (isset($_GET["r"])) {
+        $registration_id = filter_input(INPUT_GET, "r", FILTER_SANITIZE_ENCODED);
+        deleteRegistration($registration_id, $E);
+    } else {
+        register($E);
+    }
 }
 else {
     showRegistration($E);
