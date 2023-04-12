@@ -54,9 +54,9 @@ function sendRegistrationDeletedMail($recipient, $E) {
     mail($recipient, $subject, $msg, $headers);
 }
 
-# Generates a hash for a given string
-# It can be used to identify the registration
-function generateRegistrationHashFromData($data, $E) {
+# Generates an ID
+# It is used to identify the registration
+function generateRegistrationIDFromData($data, $E) {
     // Use only "static" values from the event
     return hash('sha256', implode("", [...$data, $E["link"], $E["path"], $E["active"]]));
 }
@@ -70,7 +70,7 @@ function deleteRegistration($registration_id, $E) {
     
     while (($line = fgetcsv($file)) !== false) {
         // if the registration hash matches the one we're looking for, skip it
-        if (generateRegistrationHashFromData($line, $E) !== $registration_id) {
+        if (generateRegistrationIDFromData($line, $E) !== $registration_id) {
             // if it's not, add it to the new data array
             $data[] = $line;
         } else {
@@ -163,7 +163,7 @@ function register($E){
     if ($fputcsvRetVal !== false) {
         echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
         // Generate registration hash and send mail
-        sendRegistrationMail($mail, generateRegistrationHashFromData($data, $E), $E);
+        sendRegistrationMail($mail, generateRegistrationIDFromData($data, $E), $E);
     } else {
         echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere {$CONFIG_CONTACT}.</div>";
     }
