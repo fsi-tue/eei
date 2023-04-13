@@ -1,7 +1,10 @@
 <?php
 require_once('config.php');
 require_once('utils.php');
-require_once('event_data.php')
+require_once('event_data.php');
+
+// Loads the environment variables from the .env file
+loadEnv('.env');
 ?>
 
 <!DOCTYPE html>
