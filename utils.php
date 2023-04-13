@@ -1,6 +1,41 @@
 <?php
 require_once('config.php');
 
+# Loads the environment variables from the .env file
+# https://dev.to/fadymr/php-create-your-own-php-dotenv-3k2i
+function loadEnv($path) {
+    // Path is not readable
+    if (!is_readable($path)) {
+        return;
+    }
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+
+        // Skip comments
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+
+        // Parse the line
+        list($key, $value) = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+
+        if (!array_key_exists($key, $_SERVER) && !array_key_exists($key, $_ENV)) {
+            putenv(sprintf('%s=%s', $key, $value));
+            $_ENV[$key] = $value;
+            $_SERVER[$key] = $value;
+        }
+    }
+}
+
+# Returns the value of an environment variable
+function getEnvVar($key, $default = null) {
+    // use getenv() if possible
+    return getenv($key) ?: $default;
+}
+
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
         return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
 }
@@ -42,7 +77,7 @@ function writeHeader($file, $E) {
 function sendMail($recipient, $E) {
     $subject = "Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
-    $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
+    $headers = "From:" . getEnvVar('SENDER_NAME') . " <" . getEnvVar('SENDER_EMAIL') . ">";
     mail($recipient, $subject, $msg, $headers);
 }
 
@@ -121,7 +156,7 @@ function showRegistration($E){
 
     if($E['cancelled']){
         echo "<div class = 'block error'> {$E['name']} fällt leider aus.<br>
-            Die Gründe sind entweder offensichtlich oder bei der Fachschaft unter <a href='mailto:{$CONFIG_CONTACT}'> {$CONFIG_CONTACT}</a> zu erfragen.</div>";
+            Die Gründe sind entweder offensichtlich oder bei der Fachschaft unter <a href='mailto:${CONFIG_CONTACT}'> {$CONFIG_CONTACT}</a> zu erfragen.</div>";
         return;
     }
 
