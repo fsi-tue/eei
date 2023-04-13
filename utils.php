@@ -47,7 +47,7 @@ function sendMail($recipient, $E) {
 }
 
 # Sends a mail using PHPMailer
-function sendMailUsingPHPMailer($recipient, $subject, $msg, $headers) {
+function sendMailUsingPHPMailer($recipient, $subject, $msg) {
     $mail = new PHPMailer(TRUE);
     try {
         /* $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
@@ -75,7 +75,7 @@ function sendMailUsingPHPMailer($recipient, $subject, $msg, $headers) {
 
         $mail->setFrom($SENDER_EMAIL, $SENDER_NAME);
         $mail->addAddress($recipient);
-
+        
         $mail->isHTML(TRUE);
         $mail->Subject = $subject;
         $mail->Body = $msg;
