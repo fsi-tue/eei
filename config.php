@@ -12,5 +12,7 @@
     $fp = realpath(__DIR__ . "/../eei-registration/") . "/"; #File Prefix
 
     $SENDER_EMAIL = "fsi@fsi.uni-tuebingen.de";
-    $SENDER_NAME  = "EEI - Fachschaft Informatik"
+    $SENDER_NAME  = "EEI - Fachschaft Informatik";
+    $SENDER_HOST = "smtpserv.uni-tuebingen.de";
+    $SENDER_PORT = 587;
 ?>

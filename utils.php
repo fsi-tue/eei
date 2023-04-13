@@ -46,6 +46,47 @@ function sendMail($recipient, $E) {
     mail($recipient, $subject, $msg, $headers);
 }
 
+# Sends a mail using PHPMailer
+function sendMailUsingPHPMailer($recipient, $subject, $msg, $headers) {
+    $mail = new PHPMailer(TRUE);
+    try {
+        /* $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
+        $mail->isSMTP();
+
+        /* https://stackoverflow.com/questions/2491475/phpmailer-character-encoding-issues */
+        $mail->Encoding = 'base64';
+        $mail->CharSet = 'UTF-8';
+
+        $mail->SMTPAuth = TRUE;
+        $mail->SMTPKeepAlive = TRUE;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE
+            ]
+        ];
+        $mail->Host = $SENDER_HOST;
+        $mail->Port = $SENDER_PORT;
+        // TODO: Use environment variables
+        $mail->Username = ""; // get_env('SENDER_USERNAME');
+        $mail->Password = ""; // get_env('SENDER_PASSWORD');
+
+        $mail->setFrom($SENDER_EMAIL, $SENDER_NAME);
+        $mail->addAddress($recipient);
+
+        $mail->isHTML(TRUE);
+        $mail->Subject = $subject;
+        $mail->Body = $msg;
+
+        $mail->send();
+        return TRUE;
+    } catch (Exception $exception) {
+        return FALSE;
+    }
+}
+
 # Processes a registration
 function register($E){
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
