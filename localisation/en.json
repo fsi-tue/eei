@@ -1,12 +1,17 @@
 {
   "title": "FSI Events",
   "delete": "Delete",
-  "yourName": "Your name (first and last name):",
+  "send": "Send",
+  "yourName": "Your name (first and last name)",
   "email": "Mail address",
   "remaining": "Remaining",
-  "start_of_registration": "The registration phase for this event has not yet started..",
+  "missing_data": "Error. You have not entered all the required data.",
+  "already_registered": "You have already registered for this event.",
+  "start_of_registration": "The registration phase for this event has not yet started.",
   "end_of_registration": "The registration period for this event is over.<br>  You will receive an email shortly",
   "event_cancelled": "{EVENT_NAME} is unfortunately cancelled.<br> The reasons are either obvious or can be obtained from the student council at <a href='mailto:{EMAIL_CONTACT}'>{EMAIL_CONTACT}</a>",
+  "event_full": "All places for this event are already taken.",
+  "study_programme": "Study programme",
   "index_savedDataDisclaimer": "Your data will be used for planning and stored until 2 weeks after the events.<br>  It will also be stored locally in your browser, should you have registered once, so that you can register more quickly for further events.<br>  You can delete the data stored in browser by clicking from your browser:",
   "index_deletedData": "Data successfully deleted from browser",
   "kt_name": "Pub crawl",
@@ -28,5 +33,5 @@
   "sp2_name": "Games night",
   "sp2_text": "The first-year games night<br> We would like to invite you to a games evening with good company and a relaxed atmosphere on the sand. The student council will provide some games and drinks (for a small fee). Of course, we would be very happy if you bring your own games, although our collection is already considerable! In order to be able to plan better and to send you a small reminder email, we ask you to register.",
   "wd2_name": "Hike",
-  "wd2_text": "The first-year hike<br> A hike through the Schönbuch and the surrounding forests of Tübingen. Register with your details below to get exact information about the meeting point and your group. Please bring enough food and drink.<br> Please bring enough food and drink..<br>"
+  "wd2_text": "The first-year hike<br> A hike through the Schönbuch and the surrounding forests of Tübingen. Register with your details below to get exact information about the meeting point and your group. Please bring enough food and drink.<br> Please bring enough food and drink.<br>"
 }

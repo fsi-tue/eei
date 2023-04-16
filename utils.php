@@ -42,6 +42,7 @@ function writeHeader($file, $E) {
 }
 
 function sendMail($recipient, $E) {
+    global $SENDER_NAME, $SENDER_EMAIL;
     $subject = "Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
     $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
@@ -50,6 +51,8 @@ function sendMail($recipient, $E) {
 
 # Processes a registration
 function register($E){
+    global $localizer;
+
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
 
@@ -64,13 +67,13 @@ function register($E){
         $fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
 
     if(empty($mail) || empty($name) || ($E['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))){
-        echo "<div class='block error'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
+        echo "<div class='block error'>{$localizer['missing_data']}</div>";
         return;
     }
 
     // already registered
     if(strpos(file_get_contents($E['path']), $mail) !== false){
-        echo "<div class='block error'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
+        echo "<div class='block error'>{$localizer['already_registered']}</div>";
         return;
     }
 
@@ -129,20 +132,20 @@ function showRegistration($E){
         // return if the maximum number of participants has been reached
 
         if(getNumberOfRemainingSpots($E) == 0) {
-            echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
+            echo "<div class = 'block error'>{$localizer['event_full']}</div>";
             return;
         }
         echo '
             <form method = "post" action = "#">
-                Dein Name (Vor- und Nachname): <br>
+                ' . $localizer['yourName'] . ': <br>
                 <input type="text" id="form-name" name="name" required size="30"><br><br>
 
-                Mail-Adresse:<br>
+                ' . $localizer['email'] . ':<br>
                 <input type="email" id="form-mail" name="mail" required size="30"><br><br>
         ';
 
         echo $E['course_required']?
-                'Studiengang:<br>
+                $localizer['study_programme'] . ':<br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik</label><br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt</label><br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik</label><br>
@@ -176,7 +179,7 @@ function showRegistration($E){
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
         : '';
         echo '
-                <input type="submit" value="Senden" onclick="saveFormValues()">
+                <input type="submit" value="' . $localizer['send'] .'" onclick="saveFormValues()">
             </form>
             <script type="text/javascript" src="../js/saveFormValues.js"></script>
         ';
