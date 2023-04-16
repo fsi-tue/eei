@@ -20,12 +20,22 @@ global $CONFIG_TERM, $FILE_REVISION, $events;
     <title><?= $localizer['title'] ?></title>
 </head>
 <body>
-    <!-- Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free -->
-    <!-- The BBQ-Grill Icon is made by Smashicons from www.flaticon.com -->
-    <div id="center">
-        <h1><?= $localizer['title'] ?> - <?= $CONFIG_TERM?></h1>
-        <div class="container">
-<?php
+<!-- Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free -->
+<!-- The BBQ-Grill Icon is made by Smashicons from www.flaticon.com -->
+<div id="center">
+    <h1><?= $localizer['title'] ?> - <?= $CONFIG_TERM ?></h1>
+
+    <div class="container">
+        <label>
+            <select id="lang-selection">
+                <option value='de' <?= $localizer->getLang() === 'de' ? 'selected' : '' ?>>Deutsch</option>
+                <option value="en" <?= $localizer->getLang() === 'en' ? 'selected' : '' ?>>English</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="container">
+        <?php
         foreach ($events as $e) {
             if ($e['active']) {
                 // date in first line, time shall go in new line
@@ -40,18 +50,24 @@ global $CONFIG_TERM, $FILE_REVISION, $events;
                 echo "</a>";
             }
         }
-?>
-    </div>
-            <br>
-            <div>
-                <?php echo $localizer['index_savedDataDisclaimer']; ?><br>
-            <input id="btn-clr" type="submit" value="<?= $localizer['delete']?>" onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
-    </div>
-        </div>
-        <a style="text-align: center" href="https://github.com/fsi-tue/eei">Source Code</a>
-        <?php
-
         ?>
     </div>
+    <br>
+    <div>
+        <?php
+        echo $localizer['index_savedDataDisclaimer']; ?><br>
+        <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>"
+               onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
+    </div>
+    <a style="text-align: center" href="https://github.com/fsi-tue/eei">Source Code</a>
+</div>
+
+<script>
+    // change language
+    const langSelection = document.getElementById('lang-selection')
+    langSelection.addEventListener('change', () => {
+        this.location.href = `index.php?lang=${langSelection.value}`
+    })
+</script>
 </body>
 </html>
