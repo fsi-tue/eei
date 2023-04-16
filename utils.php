@@ -110,6 +110,66 @@ function register($E){
     echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
 }
 
+/**
+ * Build a date and time string for the given start and end date.
+ * @param $startUTS - unix timestamp
+ * @param $endUTS - unix timestamp
+ * @param $options - array of options
+ *                 <ul>
+ *                  <li>onTime: show time if start and end time are the same</li>
+ *                  <li>compact: show date in compact mode</li>
+ *                 </ul>
+ *
+ * @return string
+ */
+function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
+    global $localizer;
+
+    $onTime = isset($options['onTime']) ? $options['onTime'] : true;
+    $compact = isset($options['compact']) ? $options['compact'] : false;
+
+    if ($compact) {
+        // compact mode
+        // 1.1.2017
+        // 1.1.2017 - 2.1.2017
+        // 1.1.2017 ab 12:00 Uhr
+
+        $hasEndDate = $endUTS && $endUTS != $startUTS;
+
+        $dateAndTime = $localizer->getLang() == 'de' ? date('d.m.y', $startUTS) : date('y-m-d', $startUTS);
+        if ($hasEndDate) {
+            $dateAndTime = $dateAndTime . ' - ' . ($localizer->getLang() == 'de' ? date('d.m.y', $endUTS) : date('y-m-d', $endUTS));
+        } else {
+            $dateAndTime = $dateAndTime . '<br>'. date('H:i', $startUTS);
+        }
+    } else {
+        // full date and time
+        // 1.1.2017 um 12:00 Uhr
+        // 1.1.2017 ab 12:00 Uhr
+        // 1.1.2017 um 12:00 Uhr - 2.1.2017 um 12:00 Uhr
+
+        if ($localizer->getLang() == 'de') {
+            $dateAndTime = date('d.m.Y', $startUTS);
+            $dateAndTime = $dateAndTime . ($onTime ? ' um ' : ' ab ') . date('H:i', $startUTS) . ' Uhr';
+        } else {
+            $dateAndTime = date('Y-m-d', $startUTS);
+            $dateAndTime = $dateAndTime . ($onTime ? ' at ' : ' from ') . date('H:i', $startUTS);
+        }
+
+        $dateAndTime = $endUTS !== NULL ? $dateAndTime . ' - ' : $dateAndTime;
+
+        if ($endUTS !== NULL) {
+            if ($localizer->getLang() == 'de') {
+                $dateAndTime = $dateAndTime . date('d.m.Y', $endUTS) . ' um ' . date('H:i', $endUTS) . ' Uhr';
+            } else {
+                $dateAndTime = $dateAndTime . date('Y-m-d', $endUTS) . ' at ' . date('H:i', $endUTS);
+            }
+        }
+    }
+
+    return $dateAndTime;
+}
+
 function showRegistration($E){
     global $CONFIG_CONTACT, $localizer;
 

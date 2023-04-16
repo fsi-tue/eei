@@ -38,7 +38,7 @@ $E = $events[$event_id];
     <div id="center">
         <div class="block">
             <h1><?= "{$E['name']} - $CONFIG_TERM"; ?></h1>
-            <h2 class="description icon clock"><?= $E['date'];?></h2>
+            <h2 class="description icon clock"><?= showDateAndTime($E['startUTS'], $E['endUTS'], array('onTime' => $E['onTime'])) ?></h2>
             <h2 class="description icon marker"><?= $E['location'];?></h2>
             <h2 class="description"><?= $localizer['remaining'] . ": " . getNumberOfRemainingSpots($E) ?></h2>
             <?php
