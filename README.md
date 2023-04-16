@@ -18,7 +18,8 @@ Example:
          #   Time of event (hour, minute, second, MONTH, DAY, year)
          #   This timestamp is used by prune_events.php, so make sure it is set correctly, otherwise the registrations will be deleted automatically!
             "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
-         #   Time of event (hour, minute, second, MONTH, DAY, year)
+         #   Date of event (hour, minute, second, MONTH, DAY, year)
+         #   Time is ignored, only date is used 
             "endUTS" => mktime('23', '0', '0', '04', '20', '2023'),
          # Has the event a strict time frame?
             "onTime" => FALSE,
