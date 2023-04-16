@@ -1,5 +1,7 @@
 <?php
 require_once('config.php');
+require_once('localisation/localizer.php');
+$localizer = new Localizer();
 
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
         return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
@@ -106,15 +108,15 @@ function register($E){
 }
 
 function showRegistration($E){
-    global $CONFIG_CONTACT;
+    global $CONFIG_CONTACT, $localizer;
+
     if(time() < $E['start_of_registration']) {
         echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung hat noch nicht angefangen.</div>";
         return;
     }
 
     if(time() >= $E['end_of_registration']) {
-        echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
-        Du erhältst in Kürze eine Mail</div>";
+        echo "<div class='block error'>{$localizer['end_of_registration']}</div>";
         return;
     }
 
@@ -173,7 +175,7 @@ function showRegistration($E){
                 '<br>Frühstück:<br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen</label> <br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß</label><br>
-                <label><input type="radio" class="form"fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
+                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
         : '';
         echo '
                 <input type="submit" value="Senden" onclick="saveFormValues()">
