@@ -111,7 +111,7 @@ function showRegistration($E){
     global $CONFIG_CONTACT, $localizer;
 
     if(time() < $E['start_of_registration']) {
-        echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung hat noch nicht angefangen.</div>";
+        echo "<div class='block error'>{$localizer['start_of_registration']}</div>";
         return;
     }
 
@@ -121,11 +121,7 @@ function showRegistration($E){
     }
 
 
-    if($E['cancelled']){
-        echo "<div class = 'block error'> {$E['name']} fällt leider aus.<br>
-            Die Gründe sind entweder offensichtlich oder bei der Fachschaft unter <a href='mailto:{$CONFIG_CONTACT}'> {$CONFIG_CONTACT}</a> zu erfragen.</div>";
-        return;
-    }
+    echo "<div class = 'block error'>{$localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT))}</div>";
 
     if($E['active']){
         // return if the maximum number of participants has been reached
