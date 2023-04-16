@@ -28,8 +28,8 @@ global $CONFIG_TERM, $FILE_REVISION, $events;
     <div class="container">
         <label>
             <select id="lang-selection">
-                <option value='de' <?= $localizer->getLang() === 'de' ? 'selected' : '' ?>>Deutsch</option>
-                <option value="en" <?= $localizer->getLang() === 'en' ? 'selected' : '' ?>>English</option>
+                <option value='de' <?= $localizer->getLang() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
+                <option value="en" <?= $localizer->getLang() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
             </select>
         </label>
     </div>
