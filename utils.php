@@ -121,7 +121,9 @@ function showRegistration($E){
     }
 
 
-    echo "<div class = 'block error'>{$localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT))}</div>";
+    if($E['cancelled']) {
+        echo "<div class = 'block error'>{$localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT))}</div>";
+    }
 
     if($E['active']){
         // return if the maximum number of participants has been reached
