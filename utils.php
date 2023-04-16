@@ -51,7 +51,7 @@ function sendMail($recipient, $E) {
 
 # Processes a registration
 function register($E){
-    global $localizer;
+    global $localizer, $CONFIG_CONTACT;
 
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
@@ -127,14 +127,13 @@ function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
 
     $onTime = isset($options['onTime']) ? $options['onTime'] : true;
     $compact = isset($options['compact']) && $options['compact'];
+    $hasEndDate = $endUTS && $endUTS != $startUTS;
 
     if ($compact) {
         // compact mode
         // 1.1.2017
         // 1.1.2017 - 2.1.2017
         // 1.1.2017 ab 12:00 Uhr
-
-        $hasEndDate = $endUTS && $endUTS != $startUTS;
 
         $dateAndTime = $localizer->getLang() == 'de' ? date('d.m.y', $startUTS) : date('y-m-d', $startUTS);
         if ($hasEndDate) {
@@ -156,14 +155,9 @@ function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
             $dateAndTime = $dateAndTime . ($onTime ? ' at ' : ' from ') . date('H:i', $startUTS);
         }
 
-        $dateAndTime = $endUTS !== NULL ? $dateAndTime . ' - ' : $dateAndTime;
-
-        if ($endUTS !== NULL) {
-            if ($localizer->getLang() == 'de') {
-                $dateAndTime = $dateAndTime . date('d.m.Y', $endUTS) . ' um ' . date('H:i', $endUTS) . ' Uhr';
-            } else {
-                $dateAndTime = $dateAndTime . date('Y-m-d', $endUTS) . ' at ' . date('H:i', $endUTS);
-            }
+        if ($hasEndDate) {
+            $dateAndTime = $dateAndTime . ' - ';
+            $dateAndTime = $localizer->getLang() == 'de' ? $dateAndTime . date('d.m.Y', $endUTS) : $dateAndTime . date('Y-m-d', $endUTS);
         }
     }
 

@@ -3,6 +3,8 @@ require_once('localisation/localizer.php');
 $localizer = new Localizer();
 require_once("config.php");
 
+global $fp;
+
 $events = [
         # Kneipentour
         "KT" => [
@@ -156,7 +158,8 @@ $events = [
             "link" => "HUETTE",
             "name" => $localizer['huette_name'],
             "startUTS" => mktime('15', '30', '0', '04', '28', '2023'),
-            "endUTS" => mktime('17', '30', '0', '04', '30', '2023'),
+            // Time is ignored
+            "endUTS" => mktime('0', '0', '0', '04', '30', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
