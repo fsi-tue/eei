@@ -126,7 +126,7 @@ function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
     global $localizer;
 
     $onTime = isset($options['onTime']) ? $options['onTime'] : true;
-    $compact = isset($options['compact']) ? $options['compact'] : false;
+    $compact = isset($options['compact']) && $options['compact'];
 
     if ($compact) {
         // compact mode
