@@ -7,6 +7,9 @@ $localizer = new Localizer();
 require_once('event_data.php');
 
 global $CONFIG_TERM, $FILE_REVISION, $events;
+
+// Loads the environment variables from the .env file
+loadEnv('.env');
 ?>
 
 <!DOCTYPE html>

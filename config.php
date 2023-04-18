@@ -10,7 +10,3 @@
     $CONFIG_TERM = 'SS 23'; # example: WS 19/20 or SS 20
     // see https://www.php.net/manual/en/language.constants.predefined.php
     $fp = realpath(__DIR__ . "/../eei-registration/") . "/"; #File Prefix
-
-    $SENDER_EMAIL = "fsi@fsi.uni-tuebingen.de";
-    $SENDER_NAME  = "EEI - Fachschaft Informatik"
-?>
