@@ -1,5 +1,42 @@
 <?php
 require_once('config.php');
+require_once('localisation/localizer.php');
+$localizer = new Localizer();
+
+# Loads the environment variables from the .env file
+# https://dev.to/fadymr/php-create-your-own-php-dotenv-3k2i
+function loadEnv($path) {
+    // Path is not readable
+    if (!is_readable($path)) {
+        return;
+    }
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+
+        // Skip comments
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+
+        // Parse the line
+        list($key, $value) = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+
+        if (!array_key_exists($key, $_SERVER) && !array_key_exists($key, $_ENV)) {
+            putenv(sprintf('%s=%s', $key, $value));
+            $_ENV[$key] = $value;
+            $_SERVER[$key] = $value;
+        }
+    }
+}
+
+# Returns the value of an environment variable
+function getEnvVar($key, $default = null) {
+    // use getenv() if possible
+    return getenv($key) ?: $default;
+}
 
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
         return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
@@ -40,9 +77,10 @@ function writeHeader($file, $E) {
 }
 
 function sendMail($recipient, $E) {
+    global $SENDER_NAME, $SENDER_EMAIL;
     $subject = "Registrierung zu {$E['name']}";
     $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
-    $headers = "From:" . $SENDER_NAME . " <" . $SENDER_EMAIL . ">";
+    $headers = "From:" . getEnvVar('SENDER_NAME') . " <" . getEnvVar('SENDER_EMAIL') . ">";
     mail($recipient, $subject, $msg, $headers);
 }
 
@@ -89,6 +127,8 @@ function sendMailUsingPHPMailer($recipient, $subject, $msg) {
 
 # Processes a registration
 function register($E){
+    global $localizer, $CONFIG_CONTACT;
+
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
 
@@ -103,13 +143,13 @@ function register($E){
         $fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
 
     if(empty($mail) || empty($name) || ($E['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))){
-        echo "<div class='block error'>Fehler. Du hast nicht alle erforderlichen Daten angegeben.</div>";
+        echo "<div class='block error'>{$localizer['missing_data']}</div>";
         return;
     }
 
     // already registered
     if(strpos(file_get_contents($E['path']), $mail) !== false){
-        echo "<div class='block error'>Du bist zu dieser Veranstaltung bereits angemeldet.</div>";
+        echo "<div class='block error'>{$localizer['already_registered']}</div>";
         return;
     }
 
@@ -146,44 +186,96 @@ function register($E){
     echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
 }
 
+/**
+ * Build a date and time string for the given start and end date.
+ * @param $startUTS - unix timestamp
+ * @param $endUTS - unix timestamp
+ * @param $options - array of options
+ *                 <ul>
+ *                  <li>onTime: show time if start and end time are the same</li>
+ *                  <li>compact: show date in compact mode</li>
+ *                 </ul>
+ *
+ * @return string
+ */
+function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
+    global $localizer;
+
+    $onTime = isset($options['onTime']) ? $options['onTime'] : true;
+    $compact = isset($options['compact']) && $options['compact'];
+    $hasEndDate = $endUTS && $endUTS != $startUTS;
+
+    if ($compact) {
+        // compact mode
+        // 1.1.2017
+        // 1.1.2017 - 2.1.2017
+        // 1.1.2017 ab 12:00 Uhr
+
+        $dateAndTime = $localizer->getLang() == 'de' ? date('d.m.y', $startUTS) : date('y-m-d', $startUTS);
+        if ($hasEndDate) {
+            $dateAndTime = $dateAndTime . ' - ' . ($localizer->getLang() == 'de' ? date('d.m.y', $endUTS) : date('y-m-d', $endUTS));
+        } else {
+            $dateAndTime = $dateAndTime . '<br>'. date('H:i', $startUTS);
+        }
+    } else {
+        // full date and time
+        // 1.1.2017 um 12:00 Uhr
+        // 1.1.2017 ab 12:00 Uhr
+        // 1.1.2017 um 12:00 Uhr - 2.1.2017 um 12:00 Uhr
+
+        if ($localizer->getLang() == 'de') {
+            $dateAndTime = date('d.m.Y', $startUTS);
+            $dateAndTime = $dateAndTime . ($onTime ? ' um ' : ' ab ') . date('H:i', $startUTS) . ' Uhr';
+        } else {
+            $dateAndTime = date('Y-m-d', $startUTS);
+            $dateAndTime = $dateAndTime . ($onTime ? ' at ' : ' from ') . date('H:i', $startUTS);
+        }
+
+        if ($hasEndDate) {
+            $dateAndTime = $dateAndTime . ' - ';
+            $dateAndTime = $localizer->getLang() == 'de' ? $dateAndTime . date('d.m.Y', $endUTS) : $dateAndTime . date('Y-m-d', $endUTS);
+        }
+    }
+
+    return $dateAndTime;
+}
+
 function showRegistration($E){
-    global $CONFIG_CONTACT;
+    global $CONFIG_CONTACT, $localizer;
+
     if(time() < $E['start_of_registration']) {
-        echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung hat noch nicht angefangen.</div>";
+        echo "<div class='block error'>{$localizer['start_of_registration']}</div>";
         return;
     }
 
     if(time() >= $E['end_of_registration']) {
-        echo "<div class='block error'>Die Anmeldephase für diese Veranstaltung ist vorüber.<br>
-        Du erhältst in Kürze eine Mail</div>";
+        echo "<div class='block error'>{$localizer['end_of_registration']}</div>";
         return;
     }
 
 
-    if($E['cancelled']){
-        echo "<div class = 'block error'> {$E['name']} fällt leider aus.<br>
-            Die Gründe sind entweder offensichtlich oder bei der Fachschaft unter <a href='mailto:{$CONFIG_CONTACT}'> {$CONFIG_CONTACT}</a> zu erfragen.</div>";
-        return;
+    if($E['cancelled']) {
+        echo "<div class = 'block error'>{$localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT))}</div>";
     }
 
     if($E['active']){
         // return if the maximum number of participants has been reached
 
         if(getNumberOfRemainingSpots($E) == 0) {
-            echo "<div class = 'block error'>Für diese Veranstaltung sind bereits alle Plätze vergeben.</div>";
+            echo "<div class = 'block error'>{$localizer['event_full']}</div>";
             return;
         }
         echo '
             <form method = "post" action = "#">
-                Dein Name (Vor- und Nachname): <br>
+                ' . $localizer['yourName'] . ': <br>
                 <input type="text" id="form-name" name="name" required size="30"><br><br>
 
-                Mail-Adresse:<br>
+                ' . $localizer['email'] . ':<br>
                 <input type="email" id="form-mail" name="mail" required size="30"><br><br>
         ';
 
         echo $E['course_required']?
-                'Studiengang:<br>
+                $localizer['study_programme'] . ':<br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik</label><br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt</label><br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik</label><br>
@@ -214,10 +306,10 @@ function showRegistration($E){
                 '<br>Frühstück:<br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen</label> <br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß</label><br>
-                <label><input type="radio" class="form"fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
+                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
         : '';
         echo '
-                <input type="submit" value="Senden" onclick="saveFormValues()">
+                <input type="submit" value="' . $localizer['send'] .'" onclick="saveFormValues()">
             </form>
             <script type="text/javascript" src="../js/saveFormValues.js"></script>
         ';

@@ -1,11 +1,17 @@
 <?php
+require_once('localisation/localizer.php');
+$localizer = new Localizer();
 require_once("config.php");
+
+global $fp;
+
 $events = [
         # Kneipentour
         "KT" => [
             "link" => "KT",
-            "name" => 'Kneipentour',
-            "uts" => mktime('18', '30', '0', '04', '11', '2023'),
+            "name" => $localizer['kt_name'],
+            "startUTS" => mktime('18', '30', '0', '04', '11', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -18,16 +24,15 @@ $events = [
             "max_participants" => 84,
             "start_of_registration" => mktime('0', '0', '0', '04', '02', '2023'),
             "end_of_registration" => mktime('17', '59', '59', '04', '10', '2023'),
-            "text" => "Die Ersti-Kneipentour<br>
-            Tübingen ist übersät mit kleinen Kneipen und Bars, die das Nachtleben maßgeblich beeinflussen. Um den Stress des informationsgefüllten Tages etwas sacken zu lassen, laden wir dich zu einer ausgiebigen Kneipentour ein, bei der wir in Kleingruppen die verschiedenen Lokalitäten der tübinger Altstadt besuchen. Bitte bringe genügend Bargeld mit, da man in wenigen tübinger Bars mit EC-Karte zahlen kann! – Volksbanken und Sparkassen finden sich bei Bedarf in der Stadt.
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>",
+            "text" => $localizer['kt_text'],
             "info" => "",
         ],
         # Stadtrallye
         "RY" => [
             "link" => "RY",
-            "name" => 'Stadtrallye',
-            "uts" => mktime('18', '30', '0', '04', '12', '2023'),
+            "name" => $localizer['ry_name'],
+            "startUTS" => mktime('18', '30', '0', '04', '12', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -40,17 +45,16 @@ $events = [
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '04', '05', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '11', '2023'),
-            "text" => "Die Ersti-Stadtrallye<br>
-            Wir lassen dich und deine Kommilitonen gegeneinander in Teams antreten. Dabei werdet ihr interessante, schöne und verstörende Ecken Tübingens kennen lernen, dabei hoffentlich die Orientierung in eurer neuen Heimat etwas verbessern und Kontakte knüpfen.
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>",
+            "text" => $localizer['ry_text'],
             # <br> Nach der Rallye ziehen wir gemeinsam durch die Kneipen dieser Stadt.",
             "info" => "",
         ],
         # Kastenlauf
         "KASTEN" => [
             "link" => "KASTEN",
-            "name" => 'Kastenlauf',
-            "uts" => mktime('18', '0', '0', '04', '14', '2023'),
+            "name" => $localizer['kasten_name'],
+            "startUTS" => mktime('18', '0', '0', '04', '14', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -63,25 +67,15 @@ $events = [
             "max_participants" => 60,
             "start_of_registration" => mktime('0', '0', '0', '04', '07', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '13', '2023'),
-            "text" => "Der Ersti-Kastenlauf<br>
-            Beim Kastenlauf geht es darum zusammen zu laufen, trinken und Spaß zu haben. Wir werden uns beim Rewe
-            treffen und uns dort in 3er und 4er Gruppen aufteilen. Keine Angst wenn du noch keinen kennst, dort sind genug Leute die
-            neu in Tübingen sind. Im Rewe werden wir uns einen Kasten Bier bzw. Limo kaufen, je nach dem was euch lieber ist. Hälfte-Hälfte
-            geht auch. Die kosten sind selbst zu tragen. Wenn alle dann bereit sind, wird eine Strecke abgelaufen. Wer nun zuerst im
-            Ziel angelangt ist und den Kasten leer getrunken hat, hat gewonnen. Es gibt auch einen Preis. Denkt bitte daran Wasser mitzubringen,
-            die Strecke ist ein ganzes Stück und zum Ausgleich auch nicht schlecht.
-            <ul>
-            <li> 4.8km Strecke
-            <li> 3er Gruppe 0.3Liter, 4er Gruppe 0.5Liter
-            <li> Preis für den Sieger
-            </ul>",
+            "text" => $localizer['kasten_text'],
             "info" => "",
         ],
         # Wanderung 1
         "WD1" => [
             "link" => "WD1",
-            "name" => 'Wanderung',
-            "uts" => mktime('11', '0', '0', '04', '15', '2023'),
+            "name" => $localizer['wd1_name'],
+            "startUTS" => mktime('11', '0', '0', '04', '15', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -94,16 +88,14 @@ $events = [
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '04', '08', '2023'),
             "end_of_registration" => mktime('11', '0', '0', '04', '15', '2023'),
-            "text" => "Die Ersti-Wanderung<br>
-            Eine Wanderung durch den Schönbuch und den umliegenden Wäldern Tübingens.
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>
-            Bitte bring genug Essen und Trinken mit.<br>",
+            "text" => $localizer['wd1_text'],
             "info" => "",
         ],
         "FILM" => [
             "link" => 'FILM',
-            "name" => 'Ersti-Filmeabend',
-            "uts" => mktime('19', '30', '0', '04', '17', '2023'),
+            "name" => $localizer['film_name'],
+            "startUTS" => mktime('19', '30', '0', '04', '17', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => FALSE,
@@ -116,18 +108,15 @@ $events = [
             "max_participants" => 50 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '10', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '16', '2023'),
-            "text" => "Der Ersti-Filmeabend<br>
-            Am Abend des ersten Vorlesungstages veranstalten wir unseren Filmeabend und wir laden euch herzlich dazu ein!<br>
-            Schaut mit uns einen Film an und entspannt euch nach eurem ersten Tag im Studileben.
-            Bringt eure neuen Freund:innen und eure Lieblingssnacks mit und los geht's!<br>
-            Für Getränke ist gegen eine kleine Spende gesorgt.<br>",
+            "text" => $localizer['film_text'],
             "info" => ""
         ],
         # Spieleabend
         "SP1" => [
             "link" => 'SP1',
-            "name" => 'Spieleabend',
-            "uts" => mktime('19', '0', '0', '04', '19', '2023'),
+            "name" => $localizer['sp1_name'],
+            "startUTS" => mktime('19', '0', '0', '04', '19', '2023'),
+            "onTime" => FALSE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -140,18 +129,15 @@ $events = [
             "max_participants" => 200 ,
             "start_of_registration" => mktime('0', '0', '0', '4', '12', '2023'),
             "end_of_registration" => mktime('19', '0', '0', '4', '19', '2023'),
-            "text" => "Der Ersti-Spieleabend<br>
-            Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
-            Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
-            Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
-            Um besser planen zu können und euch eine kleine Errinerungsmail zu schicken, bitten wir euch sich anzumelden.",
+            "text" => $localizer['sp1_text'],
             "info" => ""
         ],
         # Grillen
         "GR" => [
             "link" => 'GR',
-            "name" => 'Grillen',
-            "uts" => mktime('17', '0', '0', '04', '22', '2023'),
+            "name" => $localizer['gr_name'],
+            "startUTS" => mktime('17', '0', '0', '04', '22', '2023'),
+            'onTime' => FALSE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -164,17 +150,17 @@ $events = [
             "max_participants" => 150 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '15', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
-            "text" => "Das Ersti-Grillen<br>
-            Du hast keinen Bock auf Kochen? Dann bist du hier genau richtig! In geselliger Runde wird die Fachschaft mit dir grillen.
-            Bringt dazu mit, was auch immer du zum Grillen brauchst, unser Gasgrill wartet auf dich.
-            Bring bitte auch dein Besteck und Geschirr selbst mit!",
+            "text" => $localizer['gr_text'],
             "info" => ""
         ],
         # Wochenende/Hütte
         "HUETTE" => [
             "link" => "HUETTE",
-            "name" => 'Erstsemesterhütte',
-            "uts" => mktime('15', '30', '0', '04', '28', '2023'),
+            "name" => $localizer['huette_name'],
+            "startUTS" => mktime('15', '30', '0', '04', '28', '2023'),
+            // Time is ignored
+            "endUTS" => mktime('0', '0', '0', '04', '30', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -187,17 +173,15 @@ $events = [
             "max_participants" => 40,
             "start_of_registration" => mktime('10', '0', '0', '04', '17', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
-            "text" => "Was gibt es besseres als eine Wochenende mit deinen Kommiliton:innen auf einer Hütte zu verbringen?<br>
-            Dieses Mal geht es ins Haus Kalkweil in Rottenburg am Neckar.<br>
-            Die Anmeldephase startet am 17.04.2023 um 10 Uhr und endet am 21.04.2023 um 23:59 Uhr.<br>
-            Die Informationen für alle erfolgreich angemeldeten Teilnehmer folgen dann am 22.04 im Verlauf des Tages.",
+            "text" => $localizer['huette_text'],
             "info" => "",
         ],
         # Spieleabend #2
         "SP2" => [
             "link" => 'SP2',
-            "name" => 'Spieleabend',
-            "uts" => mktime('19', '0', '0', '05', '02', '2023'),
+            "name" => $localizer['sp2_name'],
+            "startUTS" => mktime('19', '0', '0', '05', '02', '2023'),
+            'onTime' => FALSE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -210,18 +194,15 @@ $events = [
             "max_participants" => 200 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '25', '2023'),
             "end_of_registration" => mktime('19', '0', '0', '05', '02', '2023'),
-            "text" => "Der Ersti-Spieleabend<br>
-            Wir möchten dich zu einem Spieleabend mit guter Gesellschaft und entspannter Atmosphäre auf dem Sand einladen.
-            Für einige Spiele sowie Getränke (gegen einen kleinen Obolus) sorgt die Fachschaft.
-            Wir freuen uns natürlich sehr, wenn du auch eigene Spiele mitbringst, obwohl unsere Sammlung schon beachtlich ist!
-            Um besser planen zu können und euch eine kleine Errinerungsmail zu schicken, bitten wir euch sich anzumelden.",
+            "text" => $localizer['sp2_text'],
             "info" => ""
         ],
         # Wanderung 2
         "WD2" => [
             "link" => "WD2",
-            "name" => 'Wanderung',
-            "uts" => mktime('11', '0', '0', '05', '06', '2023'),
+            "name" => $localizer['wd2_name'],
+            "startUTS" => mktime('11', '0', '0', '05', '06', '2023'),
+            'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -234,10 +215,7 @@ $events = [
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '04', '29', '2023'),
             "end_of_registration" => mktime('11', '0', '0', '05', '06', '2023'),
-            "text" => "Die Ersti-Wanderung<br>
-            Eine Wanderung durch den Schönbuch und den umliegenden Wäldern Tübingens.
-            Melde dich mit deinen Daten unten an, um genaue Informationen zu Treffpunkt und deiner Gruppe zu bekommen.<br>
-            Bitte bring genug Essen und Trinken mit.<br>",
+            "text" => $localizer['wd2_text'],
             "info" => "",
         ],
         /*
@@ -245,7 +223,7 @@ $events = [
         "SO" => [
             "link" => 'SO',
             "name" => 'Sommerfest',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => FALSE,
@@ -263,7 +241,7 @@ $events = [
         "FRUEH" => [
             "link" => "FRUEH",
             "name" => 'Frühstück & Uni-Führung',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -288,7 +266,7 @@ $events = [
         "JUGGER" => [
             "link" => "JUGGER",
             "name" => 'Jugger Workshop',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -315,7 +293,7 @@ $events = [
         "ws-latex-basic" => [
             "link" => "ws-latex-basic",
             "name" => 'Latex Basic',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -335,7 +313,7 @@ $events = [
         "ws-latex-advanced" => [
             "link" => "ws-latex-advanced",
             "name" => 'Latex Advanced',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -355,7 +333,7 @@ $events = [
         "ws-git-basic" => [
             "link" => "ws-git-basic",
             "name" => 'GIT Basic',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -375,7 +353,7 @@ $events = [
         "ws-git-advanced" => [
             "link" => "ws-git-advanced",
             "name" => 'GIT Advanced',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -395,7 +373,7 @@ $events = [
             "ws-python-basic" => [
             "link" => "ws-python-basic",
             "name" => 'Python Basic',
-            "uts" => mktime('18', '0', '0', '04', '20', '2023'),
+            "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
