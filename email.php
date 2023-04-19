@@ -33,21 +33,15 @@ function sendMailViaPHPMailer($recipient, $subject, $body): bool
         $mail->Encoding = 'base64';
         $mail->CharSet = 'UTF-8';
 
-        $mail->SMTPAuth = TRUE;
+        $mail->SMTPAuth = FALSE;
         $mail->SMTPKeepAlive = TRUE;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->SMTPOptions = [
-            'ssl' => [
-                'verify_peer' => FALSE,
-                'verify_peer_name' => FALSE,
-                'allow_self_signed' => TRUE
-            ]
-        ];
-        $mail->Host = getEnvVar('EMAIL_HOST');
+	$mail->SMTPSecure = FALSE;
+	$mail->SMTPAutoTLS = FALSE;
+	
+	$mail->Host = getEnvVar('EMAIL_HOST');
         $mail->Port = getEnvVar('EMAIL_PORT');
-        $mail->Password = getEnvVar('SENDER_PASSWORD');
-        $mail->Username = getEnvVar('SENDER_USERNAME');
-        $mail->setFrom(getEnvVar('SENDER_EMAIL'), getEnvVar('SENDER_NAME'));
+	
+	$mail->setFrom(getEnvVar('SENDER_EMAIL'), getEnvVar('SENDER_NAME'));
         $mail->addAddress($recipient);
 
         $mail->isHTML();
