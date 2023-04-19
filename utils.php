@@ -20,7 +20,7 @@ function loadEnv($path): void
     foreach ($lines as $line) {
 
         // Skip special lines
-        if (empty($line) || strpos($line, '=') === FALSE || strpos(trim($line), '#') === 0) {
+        if (empty($line) || !str_contains($line, '=') || str_starts_with(trim($line), '#')) {
             continue;
         }
 
@@ -49,8 +49,8 @@ function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr)
     return (FALSE !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
 }
 
-# Echos the number of remaining spots for a event e
-function getNumberOfRemainingSpots($E)
+# Echos the number of remaining spots for an event e
+function getNumberOfRemainingSpots($E): int
 {
     if ($E['max_participants']) {
         $filepath = $E['path'];
@@ -66,9 +66,10 @@ function getNumberOfRemainingSpots($E)
             return $E['max_participants'];
         }
     }
+    return 0;
 }
 
-function writeHeader($file, $E)
+function writeHeader($file, $E): void
 {
     clearstatcache();
     if (!filesize($E['path'])) {
@@ -196,31 +197,31 @@ function register($E): void
     }
 
     // already registered
-    if (strpos(file_get_contents($E['path']), $mail) !== FALSE) {
+    if (str_contains(file_get_contents($E['path']), $mail)) {
         echo "<div class='block error'>{$localizer['already_registered']}</div>";
         return;
     }
 
     $data = array();
 
-    array_push($data, $name);
-    array_push($data, $mail);
+    $data[] = $name;
+    $data[] = $mail;
 
     if ($E['course_required']) {
-        array_push($data, $studiengang);
-        array_push($data, $abschluss);
-        array_push($data, $semester);
+        $data[] = $studiengang;
+        $data[] = $abschluss;
+        $data[] = $semester;
     }
     if ($E['food']) {
-        array_push($data, $essen);
+        $data[] = $essen;
     }
     if ($E['name'] === "Ersti WE")
-        array_push($data, $fruehstueck);
+        $data[] = $fruehstueck;
 
     $file = fopen($E['path'], "a");
 
     if ($file === FALSE) {
-        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
+        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere <a href='mailto:$CONFIG_CONTACT'>$CONFIG_CONTACT</a></div>";
         return;
     }
 
@@ -236,16 +237,16 @@ function register($E): void
         // Generate registration hash and send mail
         sendRegistrationMail($mail, generateRegistrationIDFromData($data, $E), $E);
     } else {
-        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere {$CONFIG_CONTACT}.</div>";
+        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere $CONFIG_CONTACT.</div>";
     }
 }
 
 /**
  * Build a date and time string for the given start and end date.
  *
- * @param $startUTS - unix timestamp
- * @param $endUTS   - unix timestamp
- * @param $options  - array of options
+ * @param $startUTS      - unix timestamp
+ * @param $endUTS        - unix timestamp
+ * @param array $options - array of options
  *                  <ul>
  *                  <li>onTime: show time if start and end time are the same</li>
  *                  <li>compact: show date in compact mode</li>
@@ -253,11 +254,11 @@ function register($E): void
  *
  * @return string
  */
-function showDateAndTime($startUTS, $endUTS = NULL, $options = array())
+function showDateAndTime($startUTS, $endUTS = NULL, array $options = array()): string
 {
     global $localizer;
 
-    $onTime = isset($options['onTime']) ? $options['onTime'] : TRUE;
+    $onTime = $options['onTime'] ?? TRUE;
     $compact = isset($options['compact']) && $options['compact'];
     $hasEndDate = $endUTS && $endUTS != $startUTS;
 
@@ -296,7 +297,7 @@ function showDateAndTime($startUTS, $endUTS = NULL, $options = array())
     return $dateAndTime;
 }
 
-function showRegistration($E)
+function showRegistration($E): void
 {
     global $CONFIG_CONTACT, $localizer;
 

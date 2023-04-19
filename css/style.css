@@ -162,8 +162,8 @@ a:link, a:visited, a:hover, a:active {
     #center {
         margin: 0 auto;
         background-color: #ffffff;
-        border-radius: 0px;
-        padding: 0px;
+        border-radius: 0;
+        padding: 0;
         width: 95%;
     }
 
@@ -177,8 +177,8 @@ a:link, a:visited, a:hover, a:active {
     #center {
         margin: 0 auto;
         background-color: #ffffff;
-        border-radius: 0px;
-        padding: 0px;
+        border-radius: 0;
+        padding: 0;
         width: 99%;
     }
 

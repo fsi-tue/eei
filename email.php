@@ -15,13 +15,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 /**
  * Sends an email to a given address.
  *
- * @param        $recipient
+ * @param string $recipient
  * @param string $subject
  * @param string $body
  *
  * @return bool
  */
-function sendMailViaPHPMailer($recipient, $subject, $body): bool
+function sendMailViaPHPMailer(string $recipient, string $subject, string $body): bool
 {
     $mail = new PHPMailer(TRUE);
     try {
@@ -49,7 +49,7 @@ function sendMailViaPHPMailer($recipient, $subject, $body): bool
 
         $mail->send();
         return TRUE;
-    } catch (Exception $exception) {
+    } catch (Exception) {
         return FALSE;
     }
 }
