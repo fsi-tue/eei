@@ -26,7 +26,7 @@ function sendMailViaPHPMailer($recipient, $subject, $body): bool
 {
     $mail = new PHPMailer(TRUE);
     try {
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
         $mail->isSMTP();
 
         /* https://stackoverflow.com/questions/2491475/phpmailer-character-encoding-issues */
