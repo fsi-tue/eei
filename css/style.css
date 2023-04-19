@@ -18,6 +18,13 @@ body {
     /*text-align: center;*/
 }
 
+.center {
+    margin: 0 auto;
+    display: block;
+    width: max-content;
+    text-align: left;
+}
+
 h1 {
     text-align: center;
 }

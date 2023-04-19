@@ -1,7 +1,13 @@
 <?php
 require_once('config.php');
 require_once('utils.php');
+require_once('localisation/localizer.php');
+$localizer = new Localizer();
+// import event_data after localizer, because event_data uses $localizer
 require_once('event_data.php');
+
+// global variables
+global $events, $CONFIG_TERM;
 
 # If event id is not set, redirect to main page.
 if (!isset($_GET["e"])) {
@@ -25,17 +31,17 @@ $E = $events[$event_id];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/style.css">
-    <title> <?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></title>
+    <link rel="stylesheet" href="css/style.css">
+    <title> <?php echo "{$E['name']} - $CONFIG_TERM"; ?></title>
 </head>
 <body>
     <div id="center">
         <div class="block">
-            <h1><?php echo "{$E['name']} - {$CONFIG_TERM}"; ?></h1>
-            <h2 class="description icon clock"><?php echo $E['date'];?></h2>
-            <h2 class="description icon marker"><?php echo $E['location'];?></h2>
-<?php 
-echo "<h2 class=\"description\">Verbleibende Plätze:".(string)(getNumberOfRemainingSpots($E))."</h2>";
+            <h1><?= "{$E['name']} - $CONFIG_TERM"; ?></h1>
+            <h2 class="description icon clock"><?= showDateAndTime($E['startUTS'], $E['endUTS'], array('onTime' => $E['onTime'])) ?></h2>
+            <h2 class="description icon marker"><?= $E['location'];?></h2>
+            <h2 class="description"><?= $localizer['remaining'] . ": " . getNumberOfRemainingSpots($E) ?></h2>
+            <?php
 echo $E["text"];
 echo "<br>";
 echo ($E['info'] == '' ? '' : "<div class='block info'>{$E['info']}</div>");
