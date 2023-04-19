@@ -9,6 +9,7 @@
 ```dotenv
 # Example Configuration
 SENDER_EMAIL=foobaz@uni-tuebingen.de
+SENDER_USERNAME=foobaz
 SENDER_NAME=foo
 SENDER_PASSWORD=bar
 EMAIL_HOST=smtpserv.uni-tuebingen.de
