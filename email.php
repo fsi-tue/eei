@@ -1,5 +1,9 @@
 <?php
 
+require __DIR__ . '/phpmailer/src/Exception.php';
+require __DIR__ . '/phpmailer/src/PHPMailer.php';
+require __DIR__ . '/phpmailer/src/SMTP.php';
+
 // Loads the environment variables from the .env file
 loadEnv('.env');
 
@@ -7,10 +11,6 @@ loadEnv('.env');
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
-// Load Composer's autoloader
-require 'vendor/autoload.php';
 
 /**
  * Sends an email to a given address.

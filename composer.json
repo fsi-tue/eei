@@ -1,8 +1,0 @@
-{
-    "name": "fsi-tue/eei",
-    "type": "project",
-    "require": {
-        "phpmailer/phpmailer": "^6.8"
-    },
-    "license": "AGPLv3"
-}
