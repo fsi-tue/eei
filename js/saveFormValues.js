@@ -1,72 +1,49 @@
+function saveMultiValue(elementName, localStorage) {
+    const list = document.getElementsByName(elementName);
+
+    if (list) {
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].checked) {
+                localStorage.setItem(elementName, list[i].value);
+            }
+        }
+    }
+}
+
 function saveFormValues() {
-    ls = localStorage;
-
-    studiengang = document.getElementsByName("studiengang");
-
-    if (studiengang) {
-        for (i = 0; i < studiengang.length; i++) {
-            if (studiengang[i].checked)
-                ls.setItem("studiengang", studiengang[i].value);
-        }
-    }
-    abschluss = document.getElementsByName("abschluss");
-
-    if (abschluss) {
-        for (i = 0; i < abschluss.length; i++) {
-            if (abschluss[i].checked)
-                ls.setItem("abschluss", abschluss[i].value);
-        }
-    }
-
-    semester = document.getElementsByName("semester");
-
-    if (semester) {
-        for (i = 0; i < semester.length; i++) {
-            if (semester[i].checked)
-                ls.setItem("semester", semester[i].value);
-        }
-    }
-    essen = document.getElementsByName("essen");
-
-    if (essen) {
-        for (i = 0; i < essen.length; i++) {
-            if (essen[i].checked)
-                ls.setItem("essen", essen[i].value);
-        }
-    }
+    const ls = localStorage;
+    saveMultiValue("studiengang", ls);
+    saveMultiValue("abschluss", ls);
+    saveMultiValue("semester", ls);
+    saveMultiValue("essen", ls);
 
     ls.setItem("mail", document.getElementById("form-mail").value);
     ls.setItem("name", document.getElementById("form-name").value);
 }
 
+function popMultiValue(elementName, localStorage) {
+    const item = localStorage.getItem(elementName);
+
+    // localStorage does not contain the element
+    if (!item) {
+        return;
+    }
+
+    const list = document.getElementsByName(elementName);
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].value === item) {
+            list[i].checked = true;
+        }
+    }
+}
+
 function popFormValues() {
-    ls = localStorage;
+    const ls = localStorage;
 
-
-    if (ls.getItem("studiengang")) {
-        for (i = 0; i < studiengang.length; i++) {
-            if (studiengang[i].value == ls.getItem("studiengang"))
-                studiengang[i].checked = true;
-        }
-    }
-
-    abschluss = document.getElementsByName("abschluss");
-
-    if (abschluss) {
-        for (i = 0; i < abschluss.length; i++) {
-            if (abschluss[i].value == ls.getItem("abschluss"))
-                abschluss[i].checked = true;
-        }
-    }
-
-    semester = document.getElementsByName("semester");
-
-    if (semester) {
-        for (i = 0; i < semester.length; i++) {
-            if (semester[i].value == ls.getItem("semester"))
-                semester[i].checked = true;
-        }
-    }
+    popMultiValue("studiengang", ls);
+    popMultiValue("abschluss", ls);
+    popMultiValue("semester", ls);
+    popMultiValue("essen", ls);
 
     document.getElementById("form-mail").value = ls.getItem("mail");
     document.getElementById("form-name").value = ls.getItem("name");
