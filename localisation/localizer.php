@@ -33,9 +33,11 @@ class Localizer implements ArrayAccess
 
     /**
      * Translates a string
-     * @param $key string key of the string to translate
-     * @param $insertVariables array replace variables in the string with the values in this array
-     *                               <code>Example: $localizer->translate('hello', array('name' => 'John')) will return 'Hello John'</code>
+     *
+     * @param $key                   string key of the string to translate
+     * @param $insertVariables       array replace variables in the string with the values in this array
+     *                               <code>Example: $localizer->translate('hello', array('name' => 'John')) will return
+     *                               'Hello John'</code>
      *
      * @return array|mixed|string|string[]
      */

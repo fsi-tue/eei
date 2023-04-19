@@ -20,7 +20,7 @@ function loadEnv($path): void
     foreach ($lines as $line) {
 
         // Skip special lines
-        if (empty($line) || strpos($line, '=') === false || strpos(trim($line), '#') === 0) {
+        if (empty($line) || strpos($line, '=') === FALSE || strpos(trim($line), '#') === 0) {
             continue;
         }
 
@@ -38,45 +38,47 @@ function loadEnv($path): void
 }
 
 # Returns the value of an environment variable
-function getEnvVar($key, $default = null): mixed
+function getEnvVar($key, $default = NULL): mixed
 {
     // use getenv() if possible
     return getenv($key) ?: $default;
 }
 
-function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr) {
-        return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
+function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr)
+{
+    return (FALSE !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
 }
 
 # Echos the number of remaining spots for a event e
-function getNumberOfRemainingSpots($E) {
-    if($E['max_participants']) {
+function getNumberOfRemainingSpots($E)
+{
+    if ($E['max_participants']) {
         $filepath = $E['path'];
         $HEADER_LINE_COUNT = 1;
-        if(file_exists($filepath)) {
-            $file = file( $filepath, FILE_SKIP_EMPTY_LINES);
+        if (file_exists($filepath)) {
+            $file = file($filepath, FILE_SKIP_EMPTY_LINES);
             $spots = $E['max_participants'] - (count($file) - $HEADER_LINE_COUNT);
-            if($spots <= 0) {
+            if ($spots <= 0) {
                 $spots = 0;
             }
             return $spots;
-        }
-        else {
+        } else {
             return $E['max_participants'];
         }
     }
 }
 
-function writeHeader($file, $E) {
+function writeHeader($file, $E)
+{
     clearstatcache();
-    if(!filesize($E['path'])){
-        if($E['course_required'])
+    if (!filesize($E['path'])) {
+        if ($E['course_required'])
             $headers = array("name", "mail", "studiengang", "abschluss", "semester");
         else
             $headers = array("name", "mail");
-        if($E['food'])
+        if ($E['food'])
             $headers[] = "essen";
-        if($E['name'] === "Ersti WE")
+        if ($E['name'] === "Ersti WE")
             $headers[] = "fruehstueck";
         fputcsv($file, $headers);
     }
@@ -124,17 +126,17 @@ function deleteRegistration($registration_id, $E): void
     $filepath = $E["path"];
     $file = fopen($filepath, "r");
     $data = array();
-    $success = false;
-    $deletedLine = null;
+    $success = FALSE;
+    $deletedLine = NULL;
 
-    while (($line = fgetcsv($file)) !== false) {
+    while (($line = fgetcsv($file)) !== FALSE) {
         // if the registration hash matches the one we're looking for, skip it
         if (generateRegistrationIDFromData($line, $E) !== $registration_id) {
             // if it's not, add it to the new data array
             $data[] = $line;
         } else {
             $deletedLine = $line;
-            $success = true;
+            $success = TRUE;
         }
     }
 
@@ -161,11 +163,12 @@ function showDeleteRegistration($registration_id, $E): void
 {
     global $localizer;
     ?>
-        <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $localizer->getLang() ?>" method="post">
-            <div><?= $localizer->translate('unsubscribe_text')?></div>
-            <input type="hidden" name="registration_id" value="<?= $registration_id ?>">
-            <input type="submit" name="delete_registration" value="<?= $localizer->translate('unsubscribe')?>">
-        </form>
+    <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $localizer->getLang() ?>"
+          method="post">
+        <div><?= $localizer->translate('unsubscribe_text') ?></div>
+        <input type="hidden" name="registration_id" value="<?= $registration_id ?>">
+        <input type="submit" name="delete_registration" value="<?= $localizer->translate('unsubscribe') ?>">
+    </form>
     <?php
 }
 
@@ -177,23 +180,23 @@ function register($E): void
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
 
-    if($E['course_required']){
+    if ($E['course_required']) {
         $studiengang = filter_input(INPUT_POST, 'studiengang', FILTER_SANITIZE_ENCODED);
         $abschluss = filter_input(INPUT_POST, 'abschluss', FILTER_SANITIZE_ENCODED);
-        $semester =filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_ENCODED);
+        $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_ENCODED);
     }
-    if($E['food'])
+    if ($E['food'])
         $essen = filter_input(INPUT_POST, 'essen', FILTER_SANITIZE_ENCODED);
-    if($E['name'] === "Ersti WE")
+    if ($E['name'] === "Ersti WE")
         $fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
 
-    if(empty($mail) || empty($name) || ($E['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))){
+    if (empty($mail) || empty($name) || ($E['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))) {
         echo "<div class='block error'>{$localizer['missing_data']}</div>";
         return;
     }
 
     // already registered
-    if(strpos(file_get_contents($E['path']), $mail) !== false){
+    if (strpos(file_get_contents($E['path']), $mail) !== FALSE) {
         echo "<div class='block error'>{$localizer['already_registered']}</div>";
         return;
     }
@@ -203,20 +206,20 @@ function register($E): void
     array_push($data, $name);
     array_push($data, $mail);
 
-    if($E['course_required']){
+    if ($E['course_required']) {
         array_push($data, $studiengang);
         array_push($data, $abschluss);
         array_push($data, $semester);
     }
-    if($E['food']){
+    if ($E['food']) {
         array_push($data, $essen);
     }
-    if($E['name'] === "Ersti WE")
+    if ($E['name'] === "Ersti WE")
         array_push($data, $fruehstueck);
 
     $file = fopen($E['path'], "a");
 
-    if($file === false){
+    if ($file === FALSE) {
         echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
         return;
     }
@@ -228,7 +231,7 @@ function register($E): void
     $fputcsvRetVal = fputcsv($file, $data);
     fclose($file);
 
-    if ($fputcsvRetVal !== false) {
+    if ($fputcsvRetVal !== FALSE) {
         echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
         // Generate registration hash and send mail
         sendRegistrationMail($mail, generateRegistrationIDFromData($data, $E), $E);
@@ -239,20 +242,22 @@ function register($E): void
 
 /**
  * Build a date and time string for the given start and end date.
+ *
  * @param $startUTS - unix timestamp
- * @param $endUTS - unix timestamp
- * @param $options - array of options
- *                 <ul>
+ * @param $endUTS   - unix timestamp
+ * @param $options  - array of options
+ *                  <ul>
  *                  <li>onTime: show time if start and end time are the same</li>
  *                  <li>compact: show date in compact mode</li>
- *                 </ul>
+ *                  </ul>
  *
  * @return string
  */
-function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
+function showDateAndTime($startUTS, $endUTS = NULL, $options = array())
+{
     global $localizer;
 
-    $onTime = isset($options['onTime']) ? $options['onTime'] : true;
+    $onTime = isset($options['onTime']) ? $options['onTime'] : TRUE;
     $compact = isset($options['compact']) && $options['compact'];
     $hasEndDate = $endUTS && $endUTS != $startUTS;
 
@@ -266,7 +271,7 @@ function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
         if ($hasEndDate) {
             $dateAndTime = $dateAndTime . ' - ' . ($localizer->getLang() == 'de' ? date('d.m.y', $endUTS) : date('y-m-d', $endUTS));
         } else {
-            $dateAndTime = $dateAndTime . '<br>'. date('H:i', $startUTS);
+            $dateAndTime = $dateAndTime . '<br>' . date('H:i', $startUTS);
         }
     } else {
         // full date and time
@@ -291,28 +296,29 @@ function showDateAndTime($startUTS, $endUTS = NULL, $options = array()) {
     return $dateAndTime;
 }
 
-function showRegistration($E){
+function showRegistration($E)
+{
     global $CONFIG_CONTACT, $localizer;
 
-    if(time() < $E['start_of_registration']) {
+    if (time() < $E['start_of_registration']) {
         echo "<div class='block error'>{$localizer['start_of_registration']}</div>";
         return;
     }
 
-    if(time() >= $E['end_of_registration']) {
+    if (time() >= $E['end_of_registration']) {
         echo "<div class='block error'>{$localizer['end_of_registration']}</div>";
         return;
     }
 
 
-    if($E['cancelled']) {
+    if ($E['cancelled']) {
         echo "<div class = 'block error'>{$localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT))}</div>";
     }
 
-    if($E['active']){
+    if ($E['active']) {
         // return if the maximum number of participants has been reached
 
-        if(getNumberOfRemainingSpots($E) == 0) {
+        if (getNumberOfRemainingSpots($E) == 0) {
             echo "<div class = 'block error'>{$localizer['event_full']}</div>";
             return;
         }
@@ -325,8 +331,8 @@ function showRegistration($E){
                 <input type="email" id="form-mail" name="mail" required size="30"><br><br>
         ';
 
-        echo $E['course_required']?
-                $localizer['study_programme'] . ':<br>
+        echo $E['course_required'] ?
+            $localizer['study_programme'] . ':<br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik</label><br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt</label><br>
                 <label><input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik</label><br>
@@ -345,25 +351,26 @@ function showRegistration($E){
                 <label><input type="radio" class="form-semester" name="semester" value="2"> 2</label> <br>
                 <label><input type="radio" class="form-semester" name="semester" value="3"> 3</label> <br>
                 <label><input type="radio" class="form-semester" name="semester" value="viele"> viele <label/><br>'
-        : '';
+            : '';
         echo ($E['food']) ?
-                '<br>Essen:<br>
+            '<br>Essen:<br>
                 <label><input type="radio" class="form-essen" name="essen" value="keine Präferenzen" required> keine Präferenzen</label><br>
                 <label><input type="radio" class="form-essen" name="essen" value="Vegetarisch"> Vegetarisch</label><br>
                 <label><input type="radio" class="form-essen" name="essen" value="Vegan"> Vegan</label><br>
                 <label><input type="radio" class="form-essen" name="essen" value="kein Schwein"> kein Schwein</label><br>'
-        : '';
+            : '';
         echo ($E['breakfast']) ?
-                '<br>Frühstück:<br>
+            '<br>Frühstück:<br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen</label> <br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß</label><br>
                 <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
-        : '';
+            : '';
         echo '
-                <input type="submit" value="' . $localizer['send'] .'" onclick="saveFormValues()">
+                <input type="submit" value="' . $localizer['send'] . '" onclick="saveFormValues()">
             </form>
             <script type="text/javascript" src="../js/saveFormValues.js"></script>
         ';
     }
 }
+
 ?>

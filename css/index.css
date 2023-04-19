@@ -5,10 +5,12 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-a:link, a:visited, a:hover, a:active{
+
+a:link, a:visited, a:hover, a:active {
     display: block;
     color: black;
 }
+
 .box {
     width: 200px;
     height: 200px;
@@ -21,41 +23,50 @@ a:link, a:visited, a:hover, a:active{
     font-size: 200%;
     transition: all .2s ease-in-out;
 }
+
 .box:hover {
     background-color: #dddddd;
     transition: all .2s ease-in-out;
 }
+
 .box.inactive {
     background-color: lightgrey;
     color: grey;
 }
+
 .box.inactive:hover {
     background-color: #dddddd;
     transition: all .2s ease-in-out;
     color: grey;
 }
+
 p {
     margin: 0;
     width: 100%;
     font-size: 90%;
     overflow-wrap: break-word;
 }
+
 p.date {
     font-size: 60%;
     color: #353535;
 }
+
 .icon {
     background-position: center 90%;
     background-repeat: no-repeat;
     background-size: 30% 30%;
 }
+
 @media only screen and (max-device-width: 1200px) {
 }
+
 @media only screen and (max-device-width: 680px) {
     .box {
         width: 150px;
         height: 150px;
     }
+
     p.name {
         font-size: 70%;
     }

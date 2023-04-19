@@ -9,6 +9,7 @@ body {
     padding: 0;
     text-align: justify;
 }
+
 #center {
     width: 60%;
     margin: 5% auto;
@@ -46,94 +47,115 @@ input[type="submit"] {
     margin-top: 2px;
     transition: all .3s ease-in-out;
 }
+
 input[type="submit"]:hover {
     background-color: #2121b3;
     transition: all .3s ease-in-out;
 }
+
 input[type="submit"]:disabled {
     background-color: #cccccc;
 }
+
 form {
     margin: 0 auto;
     display: block;
     width: max-content;
     text-align: left;
-    
+
 }
+
 .error {
     color: red;
     border: 1px solid red;
     border-radius: 2px;
     margin: 5px auto;
-    
+
     width: 60%;
 }
+
 .info {
-    color:#003399;
+    color: #003399;
     border: 1px solid #003399;
     border-radius: 2px;
     margin: 5px auto;
     padding: 2px;
     width: 60%;
 }
-a:link, a:visited, a:hover, a:active{
+
+a:link, a:visited, a:hover, a:active {
     text-decoration: none;
     color: black;
 }
+
 .block {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 0 20% 0 20%;
 }
+
 /* Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free  */
 /* The BBQ-Grill Icon is made by Smashicons from www.flaticon.com */
 .icon.beer {
     background-image: url("../icons/beer-solid.svg");
 }
+
 .icon.cap {
     background-image: url("../icons/cap-solid.svg");
 }
+
 .icon.clock {
     background-image: url("../icons/clock-regular.svg");
 }
+
 .icon.cocktail {
     background-image: url("../icons/cocktail-solid.svg");
 }
+
 .icon.dice {
     background-image: url("../icons/dice-solid.svg");
 }
+
 .icon.film {
     background-image: url("../icons/film-solid.svg");
 }
+
 .icon.food {
     background-image: url("../icons/food-solid.svg");
 }
+
 .icon.grill {
     background-image: url("../icons/grill-solid.svg");
 }
+
 .icon.hiking {
     background-image: url("../icons/hiking-solid.svg");
 }
+
 .icon.home {
     background-image: url("../icons/home-solid.svg");
 }
+
 .icon.marker {
     background-image: url("../icons/marker-solid.svg");
 }
+
 .icon.route {
     background-image: url("../icons/route-solid.svg");
 }
+
 .icon.inactive {
     opacity: 50%;
 }
+
 .description {
     margin: 5px auto;
     white-space: nowrap;
     padding-left: 35px;
     width: min-content;
     background-repeat: no-repeat;
-	background-position: left center;
-	background-size: contain;
+    background-position: left center;
+    background-size: contain;
 }
 
 @media only screen and (max-device-width: 1200px) {
@@ -144,11 +166,13 @@ a:link, a:visited, a:hover, a:active{
         padding: 0px;
         width: 95%;
     }
+
     .block {
         width: 95%;
         padding: 0 10px 0 10px;
     }
 }
+
 @media only screen and (max-device-width: 680px) {
     #center {
         margin: 0 auto;
@@ -157,10 +181,12 @@ a:link, a:visited, a:hover, a:active{
         padding: 0px;
         width: 99%;
     }
+
     .block {
         width: 100%;
         padding: 0;
     }
+
     .info, .error {
         width: 80%;
     }

@@ -30,7 +30,7 @@ if ($ALL_FILES != $event_filepaths) {
     $orphans = array_diff(array_merge($ALL_FILES, $event_filepaths), $event_filepaths);
     foreach ($orphans as $file) {
         if (unlink($file)) {
-            echo ("deleted orphan " . $file . PHP_EOL);
+            echo("deleted orphan " . $file . PHP_EOL);
             array_push($deleted_events, $file);
         } else {
             http_response_code(500);
@@ -43,7 +43,7 @@ foreach ($events as &$event_id) {
     // delete list of participants if event was more than two weeks ago
     if (file_exists($event_id['path']) && time() >= ($event_id["startUTS"] + (86400 * 14))) {
         if (unlink($event_id["path"])) {
-            echo ("deleted " . $event_id['path'] . PHP_EOL);
+            echo("deleted " . $event_id['path'] . PHP_EOL);
             array_push($deleted_events, $event_id['path']);
         } else {
             http_response_code(500);
