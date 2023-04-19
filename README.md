@@ -1,5 +1,21 @@
 # eei - Ersti Einführungs Interface
 
+## Setup
+* Requires `php` to be installed
+* Requires `composer` to be installed
+* Run `composer install` to install dependencies
+* Create a `.env` file in the root directory and add the following variables:
+
+```dotenv
+# Example Configuration
+SENDER_EMAIL=foobaz@uni-tuebingen.de
+SENDER_USERNAME=foobaz
+SENDER_NAME=foo
+SENDER_PASSWORD=bar
+EMAIL_HOST=smtpserv.uni-tuebingen.de
+EMAIL_PORT=587
+```
+
 ## Testing
 * Requires `php` to be installed
 * Run a local test instance using `php -S localhost:8000`

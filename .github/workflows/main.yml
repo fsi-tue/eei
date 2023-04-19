@@ -8,13 +8,13 @@ jobs:
     name: Update EEI repository on trinity after push to master
     runs-on: ubuntu-latest
     steps:
-    - name: Execute remote ssh commands using ssh key
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: trinity.fsi.uni-tuebingen.de
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        # stored in secrets because it's easier to change this instead of updating this script
-        # i.e. when switching from RSA host key to ED25519
-        fingerprint: ${{ secrets.SSH_FINGERPRINT }}
-        script: sudo -u www-data /usr/bin/git -C /srv/data/eei/git/ pull origin master
+      - name: Execute remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: trinity.fsi.uni-tuebingen.de
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          # stored in secrets because it's easier to change this instead of updating this script
+          # i.e. when switching from RSA host key to ED25519
+          fingerprint: ${{ secrets.SSH_FINGERPRINT }}
+          script: sudo -u www-data /usr/bin/git -C /srv/data/eei/git/ pull origin master && composer install --no-dev --working-dir=/srv/data/eei/git/ && sudo -u www-data cp /srv/data/eei/config/.env /srv/data/eei/git/

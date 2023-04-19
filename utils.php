@@ -2,10 +2,15 @@
 require_once('config.php');
 require_once('localisation/localizer.php');
 $localizer = new Localizer();
+require_once('email.php');
 
 # Loads the environment variables from the .env file
+# This is a modified version of the function from:
 # https://dev.to/fadymr/php-create-your-own-php-dotenv-3k2i
-function loadEnv($path) {
+#
+# It does not support every feature, but it is sufficient for our needs.
+function loadEnv($path): void
+{
     // Path is not readable
     if (!is_readable($path)) {
         return;
@@ -14,8 +19,8 @@ function loadEnv($path) {
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
 
-        // Skip comments
-        if (strpos(trim($line), '#') === 0) {
+        // Skip special lines
+        if (empty($line) || strpos($line, '=') === false || strpos(trim($line), '#') === 0) {
             continue;
         }
 
@@ -33,7 +38,8 @@ function loadEnv($path) {
 }
 
 # Returns the value of an environment variable
-function getEnvVar($key, $default = null) {
+function getEnvVar($key, $default = null): mixed
+{
     // use getenv() if possible
     return getenv($key) ?: $default;
 }
@@ -76,34 +82,50 @@ function writeHeader($file, $E) {
     }
 }
 
-function sendRegistrationMail($recipient, $registration_id, $E) {
-    $subject = "Registrierung zu {$E['name']}";
-    $deleteRegistrationLink = "https://eei.fsi.uni-tuebingen.de/event.php?e={$E['link']}&r={$registration_id}";
-    $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\nWenn du dich abmelden möchtest, klicke bitte auf den folgenden Link: {$deleteRegistrationLink}\n\nViele Grüße,\n{$SENDER_NAME}";
-    $headers = "From:" . getEnvVar('SENDER_NAME') . " <" . getEnvVar('SENDER_EMAIL') . ">";
-    mail($recipient, $subject, $msg, $headers);
+# Get the address of the server
+function getAddress(): string
+{
+    return (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]";
 }
 
-function sendRegistrationDeletedMail($recipient, $E) {
-    $subject = "Abmeldung zu {$E['name']}";
-    $msg = "Du hast dich erfolgreich von {$E['name']} abgemeldet.\n\nViele Grüße,\n{$SENDER_NAME}";
-    $headers = "From:" . getEnvVar('SENDER_NAME') . " <" . getEnvVar('SENDER_EMAIL') . ">";
-    mail($recipient, $subject, $msg, $headers);
+# Sends a registration mail via PHPMailer
+function sendRegistrationMail(string $recipient, string $registration_id, array $E): void
+{
+    global $localizer;
+    $subject = $localizer->translate('email_registration_subject', array('EVENT_NAME' => $E['name']));
+    $deleteRegistrationLink = getAddress() . "/event.php?e={$E['link']}&r=$registration_id&lang={$localizer->getLang()}";
+    $deleteRegistrationHTML = "<a href='$deleteRegistrationLink'>{$localizer->translate('unsubscribe')}</a>";
+    $msg = $localizer->translate('email_registration_body', array('EVENT_NAME' => $E['name'], 'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML, 'SENDER_NAME' => getEnvVar('SENDER_NAME')));
+    sendMailViaPHPMailer($recipient, $subject, $msg);
 }
+
+# Sends a registration deleted mail via PHPMailer
+function sendRegistrationDeletedMail($recipient, $E): void
+{
+    global $localizer;
+    $subject = $localizer->translate('email_unsubscribe_subject', array('EVENT_NAME' => $E['name']));
+    $msg = $localizer->translate('email_unsubscribe_body', array('EVENT_NAME' => $E['name'], 'SENDER_NAME' => getEnvVar('SENDER_NAME')));
+    sendMailViaPHPMailer($recipient, $subject, $msg);
+}
+
 
 # Generates an ID
 # It is used to identify the registration
-function generateRegistrationIDFromData($data, $E) {
-    // Use only "static" values from the event
+function generateRegistrationIDFromData($data, $E): string
+{
+    // Use only “static” values from the event
     return hash('sha256', implode("", [...$data, $E["link"], $E["path"], $E["active"]]));
 }
 
 # Deletes a registration
-function deleteRegistration($registration_id, $E) {
+function deleteRegistration($registration_id, $E): void
+{
+    global $localizer;
     $filepath = $E["path"];
     $file = fopen($filepath, "r");
     $data = array();
     $success = false;
+    $deletedLine = null;
 
     while (($line = fgetcsv($file)) !== false) {
         // if the registration hash matches the one we're looking for, skip it
@@ -111,6 +133,7 @@ function deleteRegistration($registration_id, $E) {
             // if it's not, add it to the new data array
             $data[] = $line;
         } else {
+            $deletedLine = $line;
             $success = true;
         }
     }
@@ -126,23 +149,29 @@ function deleteRegistration($registration_id, $E) {
     fclose($file);
 
     if ($success) {
-        echo "<div class='block success'>Du hast dich erfolgreich abgemeldet.</div>";
-        sendRegistrationDeletedMail($line[1], $E);
+        echo "<div class='block success'>{$localizer->translate('unsubscribed_success')}</div>";
+        sendRegistrationDeletedMail($deletedLine[1], $E);
     } else {
-        echo "<div class='block error'>Die Abmeldung war nicht erfolgreich. Bitte melde dich an {$CONFIG_CONTACT}.</div>";
+        echo "<div class='block error'>{$localizer->translate('unsubscribed_error')}</div>";
     }
 }
 
-function showDeleteRegistration($registration_id, $E) {
-    echo '<form action="event.php?e=' . $E['link'] . '&r=' . $registration_id . '" method="post">
-        <div>Von der Veranstaltung ' . $E['name'] .  ' abmelden</div>
-        <input type="hidden" name="registration_id" value="' . $registration_id . '">
-        <input type="submit" name="delete_registration" value="Abmelden">';
-    echo '</form>';
+# Shows the form to delete a registration
+function showDeleteRegistration($registration_id, $E): void
+{
+    global $localizer;
+    ?>
+        <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $localizer->getLang() ?>" method="post">
+            <div><?= $localizer->translate('unsubscribe_text')?></div>
+            <input type="hidden" name="registration_id" value="<?= $registration_id ?>">
+            <input type="submit" name="delete_registration" value="<?= $localizer->translate('unsubscribe')?>">
+        </form>
+    <?php
 }
 
 # Processes a registration
-function register($E){
+function register($E): void
+{
     global $localizer, $CONFIG_CONTACT;
 
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
