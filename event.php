@@ -47,11 +47,24 @@ echo "<br>";
 echo ($E['info'] == '' ? '' : "<div class='block info'>{$E['info']}</div>");
 echo '<div class="block>">';
 
+# If registration id is set, the user can delete his registration.
+if (isset($_GET["r"])) {
+    $registration_id = filter_input(INPUT_GET, "r", FILTER_SANITIZE_ENCODED);
+}
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    register($E);
+    if (isset($registration_id)) {
+        deleteRegistration($registration_id, $E);
+    } else {
+        register($E);
+    }
 }
 else {
-    showRegistration($E);
+    if (isset($registration_id)) {
+        showDeleteRegistration($registration_id, $E);
+    } else {
+        showRegistration($E);
+    }
 }
 ?>
 

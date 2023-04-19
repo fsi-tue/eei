@@ -11,6 +11,7 @@ loadEnv('.env');
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 /**
  * Sends an email to a given address.
@@ -21,7 +22,7 @@ use PHPMailer\PHPMailer\Exception;
  *
  * @return bool
  */
-function sendMailViaPHPMailer($recipient, $subject, $body)
+function sendMailViaPHPMailer($recipient, $subject, $body): bool
 {
     $mail = new PHPMailer(TRUE);
     try {
