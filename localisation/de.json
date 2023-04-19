@@ -4,6 +4,8 @@
   "send": "Senden",
   "yourName": "Dein Name (Vor- und Nachname)",
   "email": "Mail-Adresse",
+  "registered_success": "Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! <br> Du erhältst einige Tage vor dem Event eine Mail.",
+  "registered_error": "Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere {CONFIG_CONTACT}.",
   "email_registration_subject": "Anmeldung für {EVENT_NAME}",
   "email_registration_body": "Hallo,<br> Du hast dich erfolgreich zu <strong>{EVENT_NAME}</strong> angemeldet.<br> Wenn du dich abmelden möchtest, klicke bitte auf den folgenden Link: {DELETE_REGISTRATION_LINK}<br> Wir freuen uns auf dich!<br> Viele Grüße,<br>{SENDER_NAME}",
   "unsubscribe": "Abmelden",

@@ -217,7 +217,7 @@ function register($E): void
     $file = fopen($E['path'], "a");
 
     if($file === false){
-        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere <a href='mailto:{$CONFIG_CONTACT}'>{$CONFIG_CONTACT}</a></div>";
+        echo "<div class='block error'>{$localizer->translate('registered_error', array('CONFIG_CONTACT' => $CONFIG_CONTACT))}</div>";
         return;
     }
 
@@ -229,11 +229,11 @@ function register($E): void
     fclose($file);
 
     if ($fputcsvRetVal !== false) {
-        echo "<div class='block info'>Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.</div>";
+        echo "<div class='block info'>{$localizer->translate('registered_success')}</div>";
         // Generate registration hash and send mail
         sendRegistrationMail($mail, generateRegistrationIDFromData($data, $E), $E);
     } else {
-        echo "<div class='block error'>Fehler beim Schreiben der Daten<br>Bitte probiere es noch einmal oder kontaktiere {$CONFIG_CONTACT}.</div>";
+        echo "<div class='block error'>{$localizer->translate('registered_error', array('CONFIG_CONTACT' => $CONFIG_CONTACT))}</div>";
     }
 }
 

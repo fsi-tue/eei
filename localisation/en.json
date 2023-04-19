@@ -4,6 +4,8 @@
   "send": "Send",
   "yourName": "Your name (first and last name)",
   "email": "Mail address",
+  "registered_success": "You have successfully registered for the event! <br> You will receive an email a few days before the event.",
+  "registered_error": "An error occurred while registering for the event.<br> Please try again or contact {CONFIG_CONTACT}.",
   "email_registration_subject": "Registration for {EVENT_NAME}",
   "email_registration_body": "Hello,<br> you have successfully registered for <strong>{EVENT_NAME}</strong>.<br> If you want to unsubscribe, please click on the following link: {DELETE_REGISTRATION_LINK}<br>We look forward to seeing you!<br> Best regards,<br> The student council",
   "unsubscribe": "Unsubscribe",
