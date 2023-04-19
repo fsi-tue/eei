@@ -40,19 +40,19 @@ loadEnv('.env');
     <div class="container">
         <?php
         foreach ($events as $e) {
-        if ($e['active']) {
-        // date in first line, time shall go in new line
-        $date = $e['date'];
-        $date = replaceFirstOccurence(" ", ",<br>", $date);
-        ?>
-        <a href='event.php?e=<?= $e['link'] ?>&lang=<?= $localizer->getLang() ?>'>
-            <div class='box icon <?= $e['icon'] ?>'>
-                <p class='name'><?= $e['name'] ?></p>
-                <p class='date'><?= showDateAndTime($e['startUTS'], $e['endUTS'], array('compact' => true)) ?></p>
-            </div>
-        </a>
-        <?php
-        }
+            if ($e['active']) {
+                // date in first line, time shall go in new line
+                $date = $e['date'];
+                $date = replaceFirstOccurence(" ", ",<br>", $date);
+                ?>
+                <a href='event.php?e=<?= $e['link'] ?>&lang=<?= $localizer->getLang() ?>'>
+                    <div class='box icon <?= $e['icon'] ?>'>
+                        <p class='name'><?= $e['name'] ?></p>
+                        <p class='date'><?= showDateAndTime($e['startUTS'], $e['endUTS'], array('compact' => TRUE)) ?></p>
+                    </div>
+                </a>
+                <?php
+            }
         }
         ?>
     </div>

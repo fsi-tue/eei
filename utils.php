@@ -2,9 +2,13 @@
 require_once('config.php');
 require_once('localisation/localizer.php');
 $localizer = new Localizer();
+require_once('email.php');
 
 # Loads the environment variables from the .env file
+# This is a modified version of the function from:
 # https://dev.to/fadymr/php-create-your-own-php-dotenv-3k2i
+#
+# It does not support every feature, but it is sufficient for our needs.
 function loadEnv($path) {
     // Path is not readable
     if (!is_readable($path)) {
@@ -14,8 +18,8 @@ function loadEnv($path) {
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
 
-        // Skip comments
-        if (strpos(trim($line), '#') === 0) {
+        // Skip special lines
+        if (empty($line) || strpos($line, '=') === false || strpos(trim($line), '#') === 0) {
             continue;
         }
 
@@ -76,12 +80,12 @@ function writeHeader($file, $E) {
     }
 }
 
+# Sends a mail via PHPMailer
 function sendMail($recipient, $E) {
-    global $SENDER_NAME, $SENDER_EMAIL;
-    $subject = "Registrierung zu {$E['name']}";
-    $msg = "Du hast dich erfolgreich zu {$E['name']} angemeldet.\n";
-    $headers = "From:" . getEnvVar('SENDER_NAME') . " <" . getEnvVar('SENDER_EMAIL') . ">";
-    mail($recipient, $subject, $msg, $headers);
+    global $localizer;
+    $subject = $localizer->translate('email_registration_subject', array('EVENT_NAME' => $E['name']));
+    $msg = $localizer->translate('email_registration_body', array('EVENT_NAME' => $E['name']));
+    return sendMailViaPHPMailer($recipient, $subject, $msg);
 }
 
 # Processes a registration

@@ -4,6 +4,8 @@
   "send": "Senden",
   "yourName": "Dein Name (Vor- und Nachname)",
   "email": "Mail-Adresse",
+  "email_registration_subject": "Anmeldung für {EVENT_NAME}",
+  "email_registration_body": "Hallo,<br> vielen Dank für deine Anmeldung für {EVENT_NAME}.<br> Wir freuen uns auf dich!<br> Deine Fachschaft Informatik",
   "remaining": "Verbleibende Plätze",
   "missing_data": "Fehler. Du hast nicht alle erforderlichen Daten angegeben.",
   "already_registered": "Du bist bereits für diese Veranstaltung angemeldet.",

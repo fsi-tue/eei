@@ -4,6 +4,8 @@
   "send": "Send",
   "yourName": "Your name (first and last name)",
   "email": "Mail address",
+  "email_registration_subject": "Registration for {EVENT_NAME}",
+  "email_registration_body": "Hi,<br>  you have successfully registered for {EVENT_NAME}.<br>  We look forward to seeing you!<br>  Your student council",
   "remaining": "Remaining",
   "missing_data": "Error. You have not entered all the required data.",
   "already_registered": "You have already registered for this event.",
