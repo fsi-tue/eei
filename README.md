@@ -2,8 +2,6 @@
 
 ## Setup
 * Requires `php` to be installed
-* Requires `composer` to be installed
-* Run `composer install` to install dependencies
 * Create a `.env` file in the root directory and add the following variables:
 
 ```dotenv
