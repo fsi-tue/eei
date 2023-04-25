@@ -14,7 +14,8 @@ class Localizer implements ArrayAccess
 
     public function __construct()
     {
-        $url = $_SERVER['QUERY_STRING'];
+        // check if query string is set
+        $url = $_SERVER['QUERY_STRING'] ?? '';
         parse_str($url, $query);
         // set default language to german
         $lang = $query['lang'] ?? 'de';
