@@ -29,7 +29,7 @@ loadEnv('.env');
 
     <div class="container">
         <label>
-            <select id="lang-selection">
+            <select id="lang-selection" aria-description="Select language">
                 <option value='de' <?= $localizer->getLang() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
                 <option value="en" <?= $localizer->getLang() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
             </select>
@@ -38,16 +38,16 @@ loadEnv('.env');
 
     <div class="container">
         <?php
-        foreach ($events as $e) {
-            if ($e['active']) {
+        foreach ($events as $E) {
+            if ($E['active']) {
                 // date in first line, time shall go in new line
-                $date = $e['date'];
+                $date = $E['date'];
                 $date = replaceFirstOccurence(" ", ",<br>", $date);
                 ?>
-                <a href="event.php?e=<?= $e['link'] ?>&lang=<?= $localizer->getLang() ?>">
-                    <div class="box icon <?= $e['icon'] ?>">
-                        <p class="name"><?= $e['name'] ?></p>
-                        <p class="date"><?= showDateAndTime($e['startUTS'], $e['endUTS'], array('compact' => TRUE)) ?></p>
+                <a href="event.php?e=<?= $E['link'] ?>&lang=<?= $localizer->getLang() ?>">
+                    <div class="box icon <?= $E['icon'] ?>">
+                        <p class="name"><?= $E['name'] ?></p>
+                        <p class="date"><?= showDateAndTime($E, array('compact' => TRUE)) ?></p>
                     </div>
                 </a>
                 <?php
