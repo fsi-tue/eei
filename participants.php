@@ -21,17 +21,16 @@ global $FILE_REVISION, $events;
  */
 function sendParticipantListMail(array $E): bool
 {
-    $recipient = $E["responsible"];
-    if (empty($recipient)) {
-        return FALSE;
-    }
+    global $CONFIG_CONTACT;
+    // set recipient to event responsible if set, otherwise to contact address
+    $recipient = $E["responsible"] ?? $CONFIG_CONTACT;
 
+    $subject = "Teilnehmerliste für {$E["name"]} am " . showDateAndTime($E["startUTS"], $E["endUTS"], array("onTime" => $E["onTime"]));
+    // build message
+    $msg = "$subject:<br><br>";
     $participants = getParticipants($E);
-    $subject = "Teilnehmerliste für {$E["name"]}";
-    $msg = "Teilnehmerliste für {$E["name"]}:\n\n";
-
     foreach ($participants as $participant) {
-        $msg .= "{$participant["name"]} ({$participant["mail"]}) {$participants["misc"]}\n";
+        $msg .= "{$participant["name"]} (<a href='mailto:{$participant["mail"]}'>{$participant["mail"]}</a>) {$participant["misc"]}<br>";
     }
 
     return sendMailViaPHPMailer($recipient, $subject, $msg);
