@@ -62,6 +62,7 @@ loadEnv('.env');
         <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>"
                onclick="!localStorage.clear() && alert('<?= $localizer['index_deletedData'] ?>')">
     </div>
+    <a style="text-align: center" href="calender.php?lang=<?= $localizer->getLang() ?>"><?= $localizer['calender_subscribe'] ?></a>
     <a style="text-align: center" href="https://github.com/fsi-tue/eei">Source Code</a>
 </div>
 

@@ -2,6 +2,8 @@
   "title": "FSI-Veranstaltungen",
   "delete": "Löschen",
   "send": "Senden",
+  "calender_download": "Kalender herunterladen",
+  "calender_subscribe": "Kalender abonnieren",
   "form_yourName": "Dein Name (Vor- und Nachname)",
   "form_email": "Mail-Adresse",
   "form_study_programme": "Studiengang",
