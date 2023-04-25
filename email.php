@@ -11,6 +11,7 @@ loadEnv('.env');
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 /**
  * Sends an email to a given address.
@@ -25,22 +26,38 @@ function sendMailViaPHPMailer(string $recipient, string $subject, string $body):
 {
     $mail = new PHPMailer(TRUE);
     try {
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
         $mail->isSMTP();
 
         /* https://stackoverflow.com/questions/2491475/phpmailer-character-encoding-issues */
         $mail->Encoding = 'base64';
         $mail->CharSet = 'UTF-8';
 
-        $mail->SMTPAuth = FALSE;
+        if (isLocalhost()) {
+            // If the server is localhost, use SMTP authentication
+            $mail->SMTPAuth = TRUE;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer' => FALSE,
+                    'verify_peer_name' => FALSE,
+                    'allow_self_signed' => TRUE
+                ]
+            ];
+            $mail->Password = getEnvVar('SENDER_PASSWORD');
+            $mail->Username = getEnvVar('SENDER_USERNAME');
+        } else {
+            // Otherwise, use no authentication
+            $mail->SMTPAuth = FALSE;
+            $mail->SMTPSecure = FALSE;
+            $mail->SMTPAutoTLS = FALSE;
+        }
         $mail->SMTPKeepAlive = TRUE;
-	$mail->SMTPSecure = FALSE;
-	$mail->SMTPAutoTLS = FALSE;
-	
-	$mail->Host = getEnvVar('EMAIL_HOST');
+
+        $mail->Host = getEnvVar('EMAIL_HOST');
         $mail->Port = getEnvVar('EMAIL_PORT');
-	
-	$mail->setFrom(getEnvVar('SENDER_EMAIL'), getEnvVar('SENDER_NAME'));
+
+        $mail->setFrom(getEnvVar('SENDER_EMAIL'), getEnvVar('SENDER_NAME'));
         $mail->addAddress($recipient);
 
         $mail->isHTML();

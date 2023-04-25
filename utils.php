@@ -44,6 +44,12 @@ function getEnvVar($key, $default = NULL): mixed
     return getenv($key) ?: $default;
 }
 
+# Checks if the environment is a local environment
+function isLocalhost($whitelist = ['127.0.0.1', '::1']): bool
+{
+    return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+}
+
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr)
 {
     return (FALSE !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
