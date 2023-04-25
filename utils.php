@@ -244,13 +244,13 @@ function register($E): void
 /**
  * Build a date and time string for the given start and end date.
  *
- * @param $startUTS      - unix timestamp
- * @param $endUTS        - unix timestamp
- * @param array $options - array of options
- *                  <ul>
- *                  <li>onTime: show time if start and end time are the same</li>
- *                  <li>compact: show date in compact mode</li>
- *                  </ul>
+ * @param       $startUTS - unix timestamp
+ * @param       $endUTS   - unix timestamp
+ * @param array $options  - array of options
+ *                        <ul>
+ *                        <li>onTime: show time if start and end time are the same</li>
+ *                        <li>compact: show date in compact mode</li>
+ *                        </ul>
  *
  * @return string
  */
@@ -302,76 +302,161 @@ function showRegistration($E): void
     global $CONFIG_CONTACT, $localizer;
 
     if (time() < $E['start_of_registration']) {
-        echo "<div class='block error'>{$localizer['start_of_registration']}</div>";
+        ?>
+        <div class='block error'><?= $localizer['start_of_registration'] ?></div>
+        <?php
         return;
     }
 
     if (time() >= $E['end_of_registration']) {
-        echo "<div class='block error'>{$localizer['end_of_registration']}</div>";
+        ?>
+        <div class='block error'><?= $localizer['end_of_registration'] ?></div>
+        <?php
         return;
     }
 
 
     if ($E['cancelled']) {
-        echo "<div class = 'block error'>{$localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT))}</div>";
+        ?>
+        <div class="block error">
+            <?= $localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT)) ?>
+        </div>
+        <?php
     }
 
-    if ($E['active']) {
+    if (!$E['active']) {
         // return if the maximum number of participants has been reached
-
-        if (getNumberOfRemainingSpots($E) == 0) {
-            echo "<div class = 'block error'>{$localizer['event_full']}</div>";
-            return;
-        }
-        echo '
-            <form method = "post" action = "#">
-                ' . $localizer['yourName'] . ': <br>
-                <input type="text" id="form-name" name="name" required size="30"><br><br>
-
-                ' . $localizer['email'] . ':<br>
-                <input type="email" id="form-mail" name="mail" required size="30"><br><br>
-        ';
-
-        echo $E['course_required'] ?
-            $localizer['study_programme'] . ':<br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Informatik" required> Informatik</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Lehramt"> Lehramt</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Bioinformatik"> Bioinformatik</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Medizininformatik"> Medizininformatik</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Medieninformatik"> Medieninformatik</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Machine Learning"> Machine Learning</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Kognitionswissenschaft"> Kognitionswissenschaft</label><br>
-                <label><input type="radio" class="form-studiengang" name="studiengang" value="Nebenfach" required> Nebenfach<br></label><br>
-
-                Abschluss:<br>
-                <label><input type="radio" class="form-abschluss" name="abschluss" value="Bachelor" required> Bachelor</label><br>
-                <label><input type="radio" class="form-abschluss" name="abschluss" value="Master"> Master</label><br><br>
-
-                Semester:<br>
-                <label><input type="radio" class="form-semester" name="semester" value="1" required> 1</label> <br>
-                <label><input type="radio" class="form-semester" name="semester" value="2"> 2</label> <br>
-                <label><input type="radio" class="form-semester" name="semester" value="3"> 3</label> <br>
-                <label><input type="radio" class="form-semester" name="semester" value="viele"> viele <label/><br>'
-            : '';
-        echo ($E['food']) ?
-            '<br>Essen:<br>
-                <label><input type="radio" class="form-essen" name="essen" value="keine Präferenzen" required> keine Präferenzen</label><br>
-                <label><input type="radio" class="form-essen" name="essen" value="Vegetarisch"> Vegetarisch</label><br>
-                <label><input type="radio" class="form-essen" name="essen" value="Vegan"> Vegan</label><br>
-                <label><input type="radio" class="form-essen" name="essen" value="kein Schwein"> kein Schwein</label><br>'
-            : '';
-        echo ($E['breakfast']) ?
-            '<br>Frühstück:<br>
-                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="keine Präferenzen" required> keine Präferenzen</label> <br>
-                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="süß"> süß</label><br>
-                <label><input type="radio" class="form-fruehstueck" name="fruehstueck" value="salzig"> salzig<label/><br>'
-            : '';
-        echo '
-                <input type="submit" value="' . $localizer['send'] . '" onclick="saveFormValues()">
-            </form>
-            <script type="text/javascript" src="../js/saveFormValues.js"></script>
-        ';
+        return;
     }
-}
 
-?>
+    if (getNumberOfRemainingSpots($E) == 0) {
+        ?>
+        <div class="block error">
+            <?= $localizer['event_full'] ?>
+        </div>
+        <?php
+        return;
+    }
+    ?>
+
+    <form method="post" action="#">
+        <label for="form-name">
+            <?= $localizer['form_yourName'] ?>:<br>
+            <input type="text" id="form-name" name="name" required size="30">
+        </label>
+        <br><br>
+
+        <label for="form-mail">
+            <?= $localizer['form_email'] ?>:<br>
+            <input type="email" id="form-mail" name="mail" required size="30">
+        </label>
+        <br><br>
+        <?php
+
+        // Courses
+        if ($E['course_required']) {
+            echo $localizer['form_study_programme'] . ':<br>';
+            $courses = [
+                ['Informatik', 'form_cs'],
+                ['Lehramt', 'form_cs_ed'],
+                ['Bioinformatik', 'form_cs_bio'],
+                ['Medizininformatik', 'form_cs_med'],
+                ['Medieninformatik', 'form_cs_media'],
+                ['Maschinelles Lernen', 'form_ml'],
+                ['Kognitive Informatik', 'form_cog'],
+                ['Nebenfach', 'form_subsidiary']
+            ];
+            foreach ($courses as $course) {
+                ?>
+                <label>
+                    <input type="radio" class="form-studiengang" name="studiengang" value="<?= $course[0] ?>" required>
+                    <?= $localizer[$course[1]] ?>
+                </label>
+                <br>
+                <?php
+            }
+            ?>
+            <br>
+
+            <?php
+            // Degree
+            echo $localizer['form_degree'] . ':<br>';
+            $degrees = ['Bachelor', 'Master'];
+            foreach ($degrees as $degree) {
+                ?>
+                <label>
+                    <input type="radio" class="form-abschluss" name="abschluss" value="<?= $degree ?>" required>
+                    <?= $degree ?>
+                </label>
+                <br>
+                <?php
+            }
+            ?>
+            <br>
+
+            <?php
+            // Semester
+            echo 'Semester: <br>';
+            $semesters = ['1', '2', '3', $localizer['form_many']];
+            foreach ($semesters as $semester) {
+                ?>
+                <label>
+                    <input type="radio" class="form-semester" name="semester" value="<?= $semester ?>" required>
+                    <?= $semester ?>
+                </label>
+                <br>
+                <?php
+            }
+            ?>
+            <br>
+
+            <?php
+        }
+
+        // Food
+        if ($E['food']) {
+            echo $localizer['form_food'] . ':<br>';
+            $food_preferences = [
+                $localizer['form_food_no_preference'],
+                $localizer['form_food_vegetarian'],
+                $localizer['form_food_vegan'],
+                $localizer['form_food_no_pork']
+            ];
+            foreach ($food_preferences as $preference) {
+                ?>
+                <label>
+                    <input type="radio" class="form-essen" name="essen" value="<?= $preference ?>" required>
+                    <?= $preference ?>
+                </label>
+                <br>
+                <?php
+            }
+        }
+        ?>
+        <br>
+
+        <?php
+        // Breakfast
+        if ($E['breakfast']) {
+            echo $localizer['form_breakfast'] . ':<br>';
+            $food_preferences = [
+                $localizer['form_food_no_preference'],
+                $localizer['form_food_sweet'],
+                $localizer['form_food_salty'],
+            ];
+            foreach ($food_preferences as $preference) {
+                ?>
+                <label>
+                    <input type="radio" class="form-fruehstueck" name="fruestueck" value="<?= $preference ?>" required>
+                    <?= $preference ?>
+                </label>
+                <br>
+                <?php
+            }
+        }
+        ?>
+        <input type="submit" value="<?= $localizer['send'] ?>" onclick="saveFormValues()">
+    </form>
+    <script type="text/javascript" src="js/saveFormValues.js"></script>
+    <?php
+}
