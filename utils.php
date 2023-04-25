@@ -108,6 +108,43 @@ function sendRegistrationDeletedMail($recipient, $E): void
     sendMailViaPHPMailer($recipient, $subject, $msg);
 }
 
+# Sends a participant list mail via PHPMailer
+function sendParticipantListMail($recipient, $E): void
+{
+    $participants = getParticipants($E);
+    $subject = "Teilnehmerliste für {$E['name']}";
+    $msg = "Teilnehmerliste für {$E['name']}:\n\n";
+
+    foreach ($participants as $participant) {
+        $msg .= "{$participant['name']} ({$participant["mail"]})\n";
+    }
+
+    sendMailViaPHPMailer($recipient, $subject, $msg);
+}
+
+# Returns the participants of an event
+function getParticipants($E): array
+{
+    $filepath = $E['path'];
+    $file = fopen($filepath, 'r');
+    $participants = array();
+
+    while (($line = fgetcsv($file)) !== false) {
+        $participants[] = $line;
+    }
+
+    fclose($file);
+
+    array_map(function($participant) use ($E) {
+        $mappedParticipant = array();
+        $mappedParticipant['name'] = $participant[0];
+        $mappedParticipant['mail'] = $participant[1];
+        return $mappedParticipant;
+    }, $participants);
+
+    return $participants;
+}
+
 
 # Generates an ID
 # It is used to identify the registration
