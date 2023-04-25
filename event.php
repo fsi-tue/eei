@@ -26,48 +26,50 @@ if (!array_key_exists($event_id, $events)) {
 $E = $events[$event_id];
 ?>
 <!DOCTYPE html>
-<html lang="de">
+<html lang="<?= $localizer->getLang() ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title> <?php echo "{$E['name']} - $CONFIG_TERM"; ?></title>
+    <title> <?= "{$E['name']} - $CONFIG_TERM"; ?></title>
 </head>
 <body>
-    <div id="center">
-        <div class="block">
-            <h1><?= "{$E['name']} - $CONFIG_TERM"; ?></h1>
-            <h2 class="description icon clock"><?= showDateAndTime($E['startUTS'], $E['endUTS'], array('onTime' => $E['onTime'])) ?></h2>
-            <h2 class="description icon marker"><?= $E['location'];?></h2>
-            <h2 class="description"><?= $localizer['remaining'] . ": " . getNumberOfRemainingSpots($E) ?></h2>
+<div id="center">
+    <div class="block">
+        <h1><?= "{$E['name']} - $CONFIG_TERM"; ?></h1>
+        <h2 class="description icon clock"><?= showDateAndTime($E['startUTS'], $E['endUTS'], array('onTime' => $E['onTime'])) ?></h2>
+        <h2 class="description icon marker"><?= $E['location']; ?></h2>
+        <h2 class="description"><?= $localizer['remaining'] . ": " . getNumberOfRemainingSpots($E) ?></h2>
+        <?= $E["text"] ?>
+        <br>
+        <?php
+        if ($E['info'] != '') {
+            ?>
+            <div class='block info'><?= $E['info'] ?></div>
             <?php
-echo $E["text"];
-echo "<br>";
-echo ($E['info'] == '' ? '' : "<div class='block info'>{$E['info']}</div>");
-echo '<div class="block>">';
+        } ?>
+        <div class="block>">
+            <?php
+            # If registration id is set, the user can delete his registration.
+            if (isset($_GET["r"])) {
+                $registration_id = filter_input(INPUT_GET, "r", FILTER_SANITIZE_ENCODED);
+            }
 
-# If registration id is set, the user can delete his registration.
-if (isset($_GET["r"])) {
-    $registration_id = filter_input(INPUT_GET, "r", FILTER_SANITIZE_ENCODED);
-}
-
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($registration_id)) {
-        deleteRegistration($registration_id, $E);
-    } else {
-        register($E);
-    }
-}
-else {
-    if (isset($registration_id)) {
-        showDeleteRegistration($registration_id, $E);
-    } else {
-        showRegistration($E);
-    }
-}
-?>
-
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($registration_id)) {
+                    deleteRegistration($registration_id, $E);
+                } else {
+                    register($E);
+                }
+            } else {
+                if (isset($registration_id)) {
+                    showDeleteRegistration($registration_id, $E);
+                } else {
+                    showRegistration($E);
+                }
+            }
+            ?>
         </div>
     </div>
 </body>

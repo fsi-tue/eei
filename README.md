@@ -1,6 +1,7 @@
 # eei - Ersti Einführungs Interface
 
 ## Setup
+
 * Requires `php` to be installed
 * Create a `.env` file in the root directory and add the following variables:
 
@@ -15,15 +16,19 @@ EMAIL_PORT=587
 ```
 
 ## Testing
+
 * Requires `php` to be installed
 * Run a local test instance using `php -S localhost:8000`
 
 ## Adding/Updating an event:
+
 ### event_data.php
+
 To add an event copy the dummy event and modify the values. Then, append this event to the $events array
 The oder in this array defines the shown order
 
 Example:
+
 ```php
         "SP1" => [
          # Link MUST be the same as the key (top left)
