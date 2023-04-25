@@ -1,10 +1,9 @@
 <?php
 require_once('config.php');
 require_once('utils.php');
+require_once('event_data.php');
 require_once('localisation/localizer.php');
 $localizer = new Localizer();
-// import event_data after localizer, because event_data uses $localizer
-require_once('event_data.php');
 
 global $CONFIG_TERM, $FILE_REVISION, $events;
 
@@ -13,7 +12,7 @@ loadEnv('.env');
 ?>
 
 <!DOCTYPE html>
-<html lang="de">
+<html lang="<?= $localizer->getLang() ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,10 +44,10 @@ loadEnv('.env');
                 $date = $e['date'];
                 $date = replaceFirstOccurence(" ", ",<br>", $date);
                 ?>
-                <a href='event.php?e=<?= $e['link'] ?>&lang=<?= $localizer->getLang() ?>'>
-                    <div class='box icon <?= $e['icon'] ?>'>
-                        <p class='name'><?= $e['name'] ?></p>
-                        <p class='date'><?= showDateAndTime($e['startUTS'], $e['endUTS'], array('compact' => TRUE)) ?></p>
+                <a href="event.php?e=<?= $e['link'] ?>&lang=<?= $localizer->getLang() ?>">
+                    <div class="box icon <?= $e['icon'] ?>">
+                        <p class="name"><?= $e['name'] ?></p>
+                        <p class="date"><?= showDateAndTime($e['startUTS'], $e['endUTS'], array('compact' => TRUE)) ?></p>
                     </div>
                 </a>
                 <?php
@@ -61,7 +60,7 @@ loadEnv('.env');
         <?php
         echo $localizer['index_savedDataDisclaimer']; ?><br>
         <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>"
-               onclick="!localStorage.clear() && alert('Daten erfolgreich aus dem Browser gelöscht.')">
+               onclick="!localStorage.clear() && alert('<?= $localizer['index_deletedData'] ?>')">
     </div>
     <a style="text-align: center" href="https://github.com/fsi-tue/eei">Source Code</a>
 </div>

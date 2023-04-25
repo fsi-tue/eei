@@ -6,18 +6,18 @@ class Localizer implements ArrayAccess
     /**
      * @var string
      */
-    private $localizationObject;
+    private mixed $localizationObject;
     /**
      * @var mixed
      */
-    private $lang;
+    private string $lang;
 
     public function __construct()
     {
         $url = $_SERVER['QUERY_STRING'];
         parse_str($url, $query);
         // set default language to german
-        $lang = isset($query['lang']) ? $query['lang'] : 'de';
+        $lang = $query['lang'] ?? 'de';
         // sanitize language
         $lang = preg_replace('/[^a-z]/', '', $lang);
 
@@ -33,13 +33,15 @@ class Localizer implements ArrayAccess
 
     /**
      * Translates a string
-     * @param $key string key of the string to translate
-     * @param $insertVariables array replace variables in the string with the values in this array
-     *                               <code>Example: $localizer->translate('hello', array('name' => 'John')) will return 'Hello John'</code>
      *
-     * @return array|mixed|string|string[]
+     * @param $key                   string key of the string to translate
+     * @param $insertVariables       array replace variables in the string with the values in this array
+     *                               <code>Example: $localizer->translate('hello', array('name' => 'John')) will return
+     *                               'Hello John'</code>
+     *
+     * @return string
      */
-    function translate($key, $insertVariables = array())
+    function translate(string $key, array $insertVariables = array()): string
     {
         $translatedString = $this->localizationObject[$key];
         foreach ($insertVariables as $key => $value) {
@@ -53,21 +55,21 @@ class Localizer implements ArrayAccess
         return $this->lang;
     }
 
-    public function offsetExists($offset)
+    #[ReturnTypeWillChange] public function offsetExists($offset): bool
     {
         return isset($this->localizationObject[$offset]);
     }
 
-    public function offsetGet($offset)
+    #[ReturnTypeWillChange] public function offsetGet($offset)
     {
-        return isset($this->localizationObject[$offset]) ? $this->localizationObject[$offset] : NULL;
+        return $this->localizationObject[$offset] ?? NULL;
     }
 
-    public function offsetSet($offset, $value)
+    #[ReturnTypeWillChange] public function offsetSet($offset, $value)
     {
     }
 
-    public function offsetUnset($offset)
+    #[ReturnTypeWillChange] public function offsetUnset($offset)
     {
     }
 }
