@@ -193,7 +193,7 @@ $events = [
             "date" => '02.05.23 ab 19:00',
             "max_participants" => 200 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '25', '2023'),
-            "end_of_registration" => mktime('19', '0', '0', '05', '02', '2023'),
+            "end_of_registration" => mktime('19', '0', '0', '05', '01', '2023'),
             "text" => $localizer['sp2_text'],
             "info" => ""
         ],
