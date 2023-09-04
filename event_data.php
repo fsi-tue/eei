@@ -9,7 +9,7 @@ $events = [
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
-            "name" => $localizer['kt_name'],
+            "name" => $localizer['kt1_name'],
             "startUTS" => mktime('18', '30', '0', '10', '10', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
@@ -30,7 +30,7 @@ $events = [
         # Kneipentour II
         "KT2" => [
             "link" => "KT2",
-            "name" => $localizer['kt_name'],
+            "name" => $localizer['kt2_name'],
             "startUTS" => mktime('18', '30', '0', '10', '19', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
