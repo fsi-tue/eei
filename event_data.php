@@ -24,7 +24,7 @@ $events = [
             "max_participants" => 84,
             "start_of_registration" => mktime('0', '0', '0', '04', '02', '2023'),
             "end_of_registration" => mktime('17', '59', '59', '04', '10', '2023'),
-            "text" => $localizer['kt_text'],
+            "text" => $localizer['kt1_text'],
             "info" => "",
         ],
         # Kneipentour II
@@ -45,7 +45,7 @@ $events = [
             "max_participants" => 84,
             "start_of_registration" => mktime('0', '0', '0', '04', '02', '2023'),
             "end_of_registration" => mktime('17', '59', '59', '04', '10', '2023'),
-            "text" => $localizer['kt_text'],
+            "text" => $localizer['kt2_text'],
             "info" => "",
         ],
         # Stadtrallye
@@ -130,7 +130,7 @@ $events = [
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '04', '08', '2023'),
             "end_of_registration" => mktime('11', '0', '0', '04', '15', '2023'),
-            "text" => $localizer['wd1_text'],
+            "text" => $localizer['wd2_text'],
             "info" => "",
         ],
         # Wanderung III
@@ -151,7 +151,7 @@ $events = [
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '04', '08', '2023'),
             "end_of_registration" => mktime('11', '0', '0', '04', '15', '2023'),
-            "text" => $localizer['wd1_text'],
+            "text" => $localizer['wd3_text'],
             "info" => "",
         ],
         "FILM" => [
@@ -213,7 +213,7 @@ $events = [
             "max_participants" => 200 ,
             "start_of_registration" => mktime('0', '0', '0', '4', '12', '2023'),
             "end_of_registration" => mktime('19', '0', '0', '4', '19', '2023'),
-            "text" => $localizer['sp1_text'],
+            "text" => $localizer['sp2_text'],
             "info" => ""
         ],
         # Grillen 1
@@ -234,7 +234,7 @@ $events = [
             "max_participants" => 150 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '15', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
-            "text" => $localizer['gr_text'],
+            "text" => $localizer['gr1_text'],
             "info" => ""
         ],
         # Grillen 2
@@ -255,7 +255,7 @@ $events = [
             "max_participants" => 150 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '15', '2023'),
             "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
-            "text" => $localizer['gr_text'],
+            "text" => $localizer['gr2_text'],
             "info" => ""
         ],
         # Wochenende/Hütte
