@@ -8,7 +8,7 @@ $localizer = new Localizer();
 global $CONFIG_TERM, $FILE_REVISION, $events;
 
 // Loads the environment variables from the .env file
-loadEnv('.env');
+//loadEnv('.env');
 ?>
 
 <!DOCTYPE html>
