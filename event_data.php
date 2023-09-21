@@ -304,8 +304,8 @@ $events = [
         # Frühstück
         "FRUEH" => [
             "link" => "FRUEH",
-            "name" => 'Frühstück & Uni-Führung',
-            "startUTS" => mktime('9', '0', '0', '10', '13', '2023'),
+            "name" => $localizer['frueh_name'],
+            "startUTS" => mktime('10', '0', '0', '10', '13', '2023'),
             "active" => TRUE,
             "cancelled" => FALSE,
             "course_required" => TRUE,
@@ -314,16 +314,11 @@ $events = [
             "path" => "{$fp}ersti-fruestueck.csv",
             "icon" => "food",
             "location" => 'Mensa Morgenstelle',
-            "date" => '13.10.23 9:00',
-            "max_participants" => 220,
-            "start_of_registration" => FALSE,
-            "end_of_registration" => FALSE,
-            "text" => "Das Frühsück und Führung der Morgenstelle<br>
-            Wir laden dich an diesem Morgen zu einem gemütlichen Frühstück ein!
-            Dabei erfährst du einiges über die Uni, die Fachschaft und was dich in den nächsten Monaten erwartet – auch im Gespräch mit älteren Studierenden.
-            Direkt im Anschluss kannst du dann noch zur offizielle Erstsemesterbegrüßung des Fachbereichs Informatik. Wir haben extra genug Zeit eingeplant. <br>
-            Um besser planen und Plätze reservieren zu können, bitten wir euch Bescheid zu geben, wenn ihr kommt. <br>
-            Es ist auch kein Problem mitzukommen falls ihr euch nicht angemeldet habt.",
+            "date" => '13.10.23 10:00',
+            "max_participants" => 120,
+            "start_of_registration" => mktime('0', '0', '0', '10', '01', '2023'),
+            "end_of_registration" => mktime('17', '0', '0', '10', '08', '2023'),
+            "text" => $localizer['frueh_text'],
             "info" => "",
         ],
         # Capture the Flag
