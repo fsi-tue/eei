@@ -9,6 +9,13 @@ global $CONFIG_TERM, $FILE_REVISION, $events;
 
 // Loads the environment variables from the .env file
 loadEnv('.env');
+function sortByDate($a, $b) {
+    return ($a['startUTS'] > $b['startUTS']);
+}
+
+// Sort the data using the custom comparison function
+usort($events, 'sortByDate');
+
 ?>
 
 <!DOCTYPE html>

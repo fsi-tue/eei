@@ -24,8 +24,9 @@ EMAIL_PORT=587
 
 ### event_data.php
 
-To add an event copy the dummy event and modify the values. Then, append this event to the $events array
-The oder in this array defines the shown order
+To add / edit an event, copy / edit the dummy event and modify the values.
+Then, append this event to the $events array.
+Then, add / change the german / english version inside localisation / en.json / de.json
 
 Example:
 
@@ -33,12 +34,12 @@ Example:
         "SP1" => [
          # Link MUST be the same as the key (top left)
             "link" => 'SP1',
-            "name" => 'Ersti-Spieleabend',
+            "name" => $localizer['sp1_name'],
          #   Time of event (hour, minute, second, MONTH, DAY, year)
          #   This timestamp is used by prune_events.php, so make sure it is set correctly, otherwise the registrations will be deleted automatically!
             "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
          #   Date of event (hour, minute, second, MONTH, DAY, year)
-         #   Time is ignored, only date is used 
+         #   Time is ignored, only date is used
             "endUTS" => mktime('23', '0', '0', '04', '20', '2023'),
          # Has the event a strict time frame?
             "onTime" => FALSE,
@@ -63,8 +64,7 @@ Example:
             # set start_of_registration to FALSE to open registration for immediately
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
          # Text (html) description of event
-            "text" => "Der Ersti Spieleabend<br>
-            LOREM IPSUM YOUR DESCRIPTION",
+            "text" => $localizer['sp1_text'],
          # Info Box to show.
             "info" => "Für die Veranstaltung gilt 3G."
             # Empty string to hide infobox
