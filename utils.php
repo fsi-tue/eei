@@ -244,21 +244,21 @@ function register($E): void
 /**
  * Build a date and time string for the given start and end date.
  *
- * @param       $startUTS - unix timestamp
- * @param       $endUTS   - unix timestamp
+ * @param array $E        - event
  * @param array $options  - array of options
  *                        <ul>
- *                        <li>onTime: show time if start and end time are the same</li>
  *                        <li>compact: show date in compact mode</li>
  *                        </ul>
  *
  * @return string
  */
-function showDateAndTime($startUTS, $endUTS = NULL, array $options = array()): string
+function showDateAndTime(array $E, array $options = array()): string
 {
     global $localizer;
 
-    $onTime = $options['onTime'] ?? TRUE;
+    $startUTS = $E['startUTS'];
+    $endUTS = $E['endUTS'] ?? NULL;
+    $onTime = $E['onTime'] ?? TRUE;
     $compact = isset($options['compact']) && $options['compact'];
     $hasEndDate = $endUTS && $endUTS != $startUTS;
 
