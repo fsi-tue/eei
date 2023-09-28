@@ -77,7 +77,7 @@ $E = $events[$event_id];
             </a>
         </div>
         <div class="block center">
-            <a href="calender.php?e=<?= $event_id ?>&lang=<?= $localizer->getLang() ?>"><?= $localizer['calender_download'] ?></a>
+            <a href="calender.php?e=<?= $event_id ?>&lang=<?= $localizer->getLang() ?>&ics"><?= $localizer['calender_download'] ?></a>
         </div>
     </div>
 </div>
