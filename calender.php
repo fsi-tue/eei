@@ -15,47 +15,66 @@ PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 ";
 const iCalenderFooter = "END:VCALENDAR";
 
-function getICalEvent($E): string
-{
-    // Format date and time according to RFC 5545.
-    $dtStart = date('Ymd\THis\Z', $E['startUTS']);
-    // If end time is not set, use start time + 1 hour.
-    $dtEnd = date('Ymd\THis\Z', $E['endUTS'] ?? $E['startUTS'] + 3600);
-    // Strip HTML tags from summary, description and location.
-    $summary = strip_tags($E['name']);
-    $description = strip_tags($E['text']);
-    $location = strip_tags($E['location']);
+const FSI_ICAL_CLOUD_URL = 'https://www.fsi.uni-tuebingen.de/__calendarHelper/';
 
-    return "
-    BEGIN:VEVENT
-UID:" . $E['link'] . "
-DTSTAMP:" . $dtStart . "
-DTSTART:" . $dtStart . "
-DTEND:" . $dtEnd . "
-SUMMARY:" . $summary . "
-DESCRIPTION:" . $description . "
-LOCATION:" . $location . "
-END:VEVENT
-";
-}
-
-function getICalenderFromEvent($E): string
+# Downloads the ICS file from the FSI cloud and saves it to the file system.
+function downloadAndSaveFSICloudICS(): bool
 {
-    return iCalenderHeader . getICalEvent($E) . iCalenderFooter;
-}
-
-function getAllICalenders(): string
-{
-    global $events;
-    $iCalenders = iCalenderHeader;
-    foreach ($events as $E) {
-        $iCalenders .= getICalEvent($E);
+    // Download the ICS file from the FSI cloud.
+    $content = file_get_contents(FSI_ICAL_CLOUD_URL);
+    if ($content === FALSE) {
+        return FALSE;
     }
-    return $iCalenders . iCalenderFooter;
+
+    // Save the ICS file to the file system.
+    global $fp;
+    $filename = "{$fp}fsi.ics";
+    $file = fopen($filename, 'w');
+    if ($file === FALSE) {
+        return FALSE;
+    }
+    fwrite($file, $content);
+    fclose($file);
+    return TRUE;
 }
 
-# If event id is not set, redirect to main page.
-if (isset($_GET['e'])) {
+# Returns the ICS file for the given event.
+function getICSForEvent($E): string
+{
+    // Check if the ICS file for the event exists.
+    global $fp;
+    $filename = "{$fp}fsi.ics";
+    if (!file_exists($filename)) {
+        // If not, download it from the FSI cloud.
+        if (!downloadAndSaveFSICloudICS()) {
+            // If download fails, return empty string.
+            return '';
+        }
+    }
+
+    // Read the ICS file.
+    $content = file_get_contents($filename);
+    if ($content === FALSE) {
+        return '';
+    }
+
+    // Split the ICS file into events.
+    $events = explode('BEGIN:VEVENT', $content);
+
+    // Search in the event DESCRIPTION for the event with the given event id
+    // and return it.
+    foreach ($events as $event) {
+        if (strpos($event, $E['link']) !== FALSE) {
+            return iCalenderHeader . "BEGIN:VEVENT" . $event . iCalenderFooter;
+        }
+    }
+
+    // If the event was not found, return empty string.
+    return '';
+}
+
+# If event id and "ics" are not set, redirect to main page.
+if (isset($_GET['e']) && isset($_GET['ics'])) {
     $event_id = filter_input(INPUT_GET, 'e', FILTER_SANITIZE_ENCODED);
     # If event id is unknown, redirect to main page.
     if (!array_key_exists($event_id, $events)) {
@@ -64,11 +83,14 @@ if (isset($_GET['e'])) {
     }
 
     $E = $events[$event_id];
-    header('Content-Type: ' . ICS_MIME_TYPE);
-    header('Content-Disposition: attachment; filename="' . $E['name'] . '.ics"');
-    echo getICalenderFromEvent($E);
+    $ics = getICSForEvent($E);
+
+    if ($ics !== '') {
+        header('Content-Type: ' . ICS_MIME_TYPE);
+        header('Content-Disposition: attachment; filename="' . $E['name'] . '.ics"');
+        echo $ics;
+    }
 } else {
-    header('Content-Type: ' . ICS_MIME_TYPE);
-    header('Content-Disposition: attachment; filename="all.ics"');
-    echo getAllICalenders();
+    header('Location:/');
+    die();
 }
