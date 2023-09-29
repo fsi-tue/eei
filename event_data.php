@@ -10,7 +10,7 @@ $events = [
         "KT1" => [
             "link" => "KT1",
             "name" => $localizer['kt1_name'],
-            "startUTS" => mktime('18', '30', '0', '10', '10', '2023'),
+            "startUTS" => mktime('19', '00', '0', '10', '10', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -20,7 +20,7 @@ $events = [
             "path" => "{$fp}ersti-kneipentour1.csv",
             "icon" => "beer",
             "location" => '',
-            "date" => '10.10.23 18:30',
+            "date" => '10.10.23 19:00',
             "max_participants" => 84,
             "start_of_registration" => mktime('0', '0', '0', '10', '03', '2023'),
             "end_of_registration" => mktime('11', '59', '59', '10', '08', '2023'),
@@ -31,7 +31,7 @@ $events = [
         "KT2" => [
             "link" => "KT2",
             "name" => $localizer['kt2_name'],
-            "startUTS" => mktime('18', '30', '0', '10', '19', '2023'),
+            "startUTS" => mktime('19', '00', '0', '10', '19', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -41,8 +41,8 @@ $events = [
             "path" => "{$fp}ersti-kneipentour2.csv",
             "icon" => "beer",
             "location" => '',
-            "date" => '19.10.23 18:30',
-            "max_participants" => 84,
+            "date" => '19.10.23 19:00',
+            "max_participants" => 72,
             "start_of_registration" => mktime('0', '0', '0', '10', '12', '2023'),
             "end_of_registration" => mktime('11', '59', '59', '10', '17', '2023'),
             "text" => $localizer['kt2_text'],
@@ -208,7 +208,7 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}ersti-spieleabend2.csv",
             "icon" => 'dice',
-            "location" => 'Sand 14, A104',
+            "location" => 'Sand 14, A301',
             "date" => '18.10.23 ab 19:00',
             "max_participants" => 200 ,
             "start_of_registration" => mktime('0', '0', '0', '10', '11', '2023'),
@@ -341,6 +341,29 @@ $events = [
             "text" => "Capture the Flag (Real Life)",
             "info" => "",
         ],
+
+# Flunkyball Turnier
+        "FB" => [
+            "link" => "FB",
+            "name" => 'Flunkyball Turnier',
+            "startUTS" => mktime('19', '00', '0', '10', '05', '2023'),
+            'onTime' => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}flunkyball_turnier.csv",
+            "icon" => "beer",
+            "location" => 'Sand',
+            "date" => '10.10.23 19:00',
+            "max_participants" => 200,
+            "start_of_registration" => mktime('0', '0', '0', '01', '01', '2023'),
+            "end_of_registration" => mktime('11', '59', '59', '10', '3', '2023'),
+            "text" => $localizer['fb_text'],
+            "info" => "",
+        ],
+        
         /*
         # Jugger Workshop
         "JUGGER" => [
