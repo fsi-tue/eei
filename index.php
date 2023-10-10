@@ -63,14 +63,15 @@ usort($events, 'sortByDate');
         ?>
     </div>
     <br>
-    <div>
-        <?php
-        echo $localizer['index_savedDataDisclaimer']; ?><br>
-        <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>"
-               onclick="!localStorage.clear() && alert('<?= $localizer['index_deletedData'] ?>')">
+    <div class="footnotes">
+        <p>
+        <?php echo $localizer['index_savedDataDisclaimer'];?></p><br>
+        <div class="clear-btn">
+            <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>"
+                onclick="!localStorage.clear() && alert('<?= $localizer['index_deletedData'] ?>')">
+        </div>
     </div>
-    <a style="text-align: center" href="calender.php?lang=<?= $localizer->getLang() ?>"><?= $localizer['calender_subscribe'] ?></a>
-    <a style="text-align: center" href="https://github.com/fsi-tue/eei">Source Code</a>
+    <a style="text-align: center;" href="https://github.com/fsi-tue/eei">Source Code</a>
 </div>
 
 <script>
