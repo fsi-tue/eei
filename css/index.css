@@ -43,6 +43,11 @@ a:link, a:visited, a:hover, a:active {
     color: grey;
 }
 
+.box.past {
+    background-color: #565656;
+    color: #dddddd;
+}
+
 p {
     margin: 0;
     width: 100%;
