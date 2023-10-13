@@ -244,6 +244,15 @@ function register($E): void
     }
 }
 
+function markPastEvent(array $E) :string 
+{
+    if (time() > $E['startUTS']) {
+        return " past ";
+    } else {
+        return "";
+    }
+}
+
 /**
  * Build a date and time string for the given start and end date.
  *

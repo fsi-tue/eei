@@ -52,7 +52,7 @@ usort($events, 'sortByDate');
                 $date = replaceFirstOccurence(" ", ",<br>", $date);
                 ?>
                 <a href="event.php?e=<?= $E['link'] ?>&lang=<?= $localizer->getLang() ?>">
-                    <div class="box icon <?= $E['icon'] ?>">
+                    <div class="box icon <?= $E['icon'] ?> <?= markPastEvent($E)?>">
                         <p class="name"><?= $E['name'] ?></p>
                         <p class="date"><?= showDateAndTime($E, array('compact' => TRUE)) ?></p>
                     </div>
@@ -70,8 +70,9 @@ usort($events, 'sortByDate');
             <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>"
                 onclick="!localStorage.clear() && alert('<?= $localizer['index_deletedData'] ?>')">
         </div>
+        <a href="https://github.com/fsi-tue/eei">Source Code auf Github</a>
     </div>
-    <a style="text-align: center;" href="https://github.com/fsi-tue/eei">Source Code</a>
+    
 </div>
 
 <script>
