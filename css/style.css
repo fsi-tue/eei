@@ -48,6 +48,45 @@ input[type="submit"] {
     transition: all .3s ease-in-out;
 }
 
+
+.box.icon.arrow-left p.name {
+    text-align: center;
+    padding: 8px 16px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #999;
+    border: none transparent;
+    background-color: #000080;
+    text-decoration: none;
+    border-radius: 2px;
+    margin-top: 1.3em;
+    transition: all .3s ease-in-out;
+}
+
+.footnotes a {
+    text-align: center;
+    padding: 8px 16px;
+    color: white !important;
+    cursor: pointer;
+    border: 1px solid #999;
+    border: none transparent;
+    background-color: #000080;
+    text-decoration: none;
+    border-radius: 2px;
+    margin-top: 1.3em;
+    transition: all .3s ease-in-out;
+}
+
+.footnotes a:hover {
+    color: #ccc !important;
+    transition: all .3s ease-in-out;
+}
+
+footnotes a:visited {
+    color: #999 !important;
+    transition: all .3s ease-in-out;
+}
+
 input[type="submit"]:hover {
     background-color: #2121b3;
     transition: all .3s ease-in-out;
