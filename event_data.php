@@ -52,7 +52,7 @@ $events = [
         "RY" => [
             "link" => "RY",
             "name" => $localizer['ry_name'],
-            "startUTS" => mktime('18', '30', '0', '10', '20', '2023'),
+            "startUTS" => mktime('16', '30', '0', '10', '20', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -65,7 +65,7 @@ $events = [
             "date" => '20.10.23 16:00',
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '10', '13', '2023'),
-            "end_of_registration" => mktime('11', '59', '59', '10', '18', '2023'),
+            "end_of_registration" => mktime('11', '59', '59', '10', '19', '2023'),
             "text" => $localizer['ry_text'],
             # <br> Nach der Rallye ziehen wir gemeinsam durch die Kneipen dieser Stadt.",
             "info" => "",
