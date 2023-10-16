@@ -44,12 +44,9 @@ function getICSForEvent($E): string
     // Check if the ICS file for the event exists.
     global $fp;
     $filename = "{$fp}fsi.ics";
-    if (!file_exists($filename)) {
-        // If not, download it from the FSI cloud.
-        if (!downloadAndSaveFSICloudICS()) {
-            // If download fails, return empty string.
-            return '';
-        }
+    if (!file_exists($filename) && !downloadAndSaveFSICloudICS()) {
+        // If download fails, return empty string.
+        return '';
     }
 
     // Read the ICS file.
@@ -64,7 +61,10 @@ function getICSForEvent($E): string
     // Search in the event DESCRIPTION for the event with the given event id
     // and return it.
     foreach ($events as $event) {
-        if (strpos($event, $E['link']) !== FALSE) {
+        // Find Event ID in the event and return the event
+        // It does not matter where it is, but for the sake of cleanliness
+        // it could be put in the description of the event
+        if (str_contains($event, $E['link'])) {
             return iCalenderHeader . "BEGIN:VEVENT" . $event . iCalenderFooter;
         }
     }
@@ -90,7 +90,4 @@ if (isset($_GET['e']) && isset($_GET['ics'])) {
         header('Content-Disposition: attachment; filename="' . $E['name'] . '.ics"');
         echo $ics;
     }
-} else {
-    header('Location:/');
-    die();
 }
