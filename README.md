@@ -65,6 +65,11 @@ Example:
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
          # Text (html) description of event
             "text" => $localizer['sp1_text'],
+         # Metas for the event
+            "responsible" => [
+                "your.email@student.uni-tuebingen.de",
+                "another.email@student.uni-tuebingen.de"
+            ],
          # Info Box to show.
             "info" => "Für die Veranstaltung gilt 3G."
             # Empty string to hide infobox
