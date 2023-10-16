@@ -73,8 +73,4 @@ Example:
          # Info Box to show.
             "info" => "Für die Veranstaltung gilt 3G."
             # Empty string to hide infobox
-         # Specify the responsible person for this event
-         # The list with all participants will be sent to this email address
-         # If empty, the list will be sent to the fsi email address
-            "responsible" => "foo.bar@student.uni-tuebingen.de"
         ],```
