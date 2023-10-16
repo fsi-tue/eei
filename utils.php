@@ -3,6 +3,7 @@ require_once('config.php');
 require_once('localisation/localizer.php');
 $localizer = new Localizer();
 require_once('email.php');
+require_once('calender.php');
 
 # Loads the environment variables from the .env file
 # This is a modified version of the function from:
@@ -99,7 +100,8 @@ function sendRegistrationMail(string $recipient, string $registration_id, array 
     $deleteRegistrationLink = getAddress() . "/event.php?e={$E['link']}&r=$registration_id&lang={$localizer->getLang()}";
     $deleteRegistrationHTML = "<a href='$deleteRegistrationLink'>{$localizer->translate('unsubscribe')}</a>";
     $msg = $localizer->translate('email_registration_body', array('EVENT_NAME' => $E['name'], 'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML, 'SENDER_NAME' => getEnvVar('SENDER_NAME')));
-    sendMailViaPHPMailer($recipient, $subject, $msg);
+    $ics = getICSForEvent($E);
+    sendMailViaPHPMailer($recipient, $subject, $msg, $ics, 'event.ics');
 }
 
 # Sends a registration deleted mail via PHPMailer
@@ -164,9 +166,10 @@ function showDeleteRegistration($registration_id, $E): void
 {
     global $localizer;
     ?>
-    <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $localizer->getLang() ?>"
-          method="post">
-        <div><?= $localizer->translate('unsubscribe_text') ?></div>
+    <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $localizer->getLang() ?>" method="post">
+        <div>
+            <?= $localizer->translate('unsubscribe_text') ?>
+        </div>
         <input type="hidden" name="registration_id" value="<?= $registration_id ?>">
         <input type="submit" name="delete_registration" value="<?= $localizer->translate('unsubscribe') ?>">
     </form>
@@ -312,14 +315,18 @@ function showRegistration($E): void
 
     if (time() < $E['start_of_registration']) {
         ?>
-        <div class='block error'><?= $localizer['start_of_registration'] ?></div>
+        <div class='block error'>
+            <?= $localizer['start_of_registration'] ?>
+        </div>
         <?php
         return;
     }
 
     if (time() >= $E['end_of_registration']) {
         ?>
-        <div class='block error'><?= $localizer['end_of_registration'] ?></div>
+        <div class='block error'>
+            <?= $localizer['end_of_registration'] ?>
+        </div>
         <?php
         return;
     }
