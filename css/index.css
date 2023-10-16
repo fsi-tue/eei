@@ -22,10 +22,13 @@ a:link, a:visited, a:hover, a:active {
     font-weight: bold;
     font-size: 200%;
     transition: all .2s ease-in-out;
+    border:0.01em solid #cecece;
 }
 
 .box:hover {
     background-color: #dddddd;
+    color: #000080;
+    border:0.01em solid #000080;
     transition: all .2s ease-in-out;
 }
 
@@ -40,6 +43,11 @@ a:link, a:visited, a:hover, a:active {
     color: grey;
 }
 
+.box.past {
+    background-color: #565656;
+    color: #dddddd;
+}
+
 p {
     margin: 0;
     width: 100%;
@@ -52,10 +60,22 @@ p.date {
     color: #353535;
 }
 
+.box:hover p.date {
+    color :#000080;
+}
+
 .icon {
     background-position: center 90%;
     background-repeat: no-repeat;
     background-size: 30% 30%;
+}
+
+.footnotes p {
+    text-align: justify;
+}
+
+.footnotes .clear-btn{
+    text-align: center;
 }
 
 @media only screen and (max-device-width: 1200px) {
