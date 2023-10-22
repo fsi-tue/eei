@@ -2,6 +2,7 @@
 
 if (php_sapi_name() !== 'cli') {
     echo('This script can only be run from the command line.');
+    http_response_code(400);
     exit(1);
 }
 
