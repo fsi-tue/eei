@@ -27,9 +27,9 @@ function sendParticipantListMail(array $E): bool
         return false;
     }
 
-    // set recipient to event responsible
-    $recipients = $E["responsible"];
-    if (!$recipients) {
+    // get email addresses for event
+    $metas_email_addresses = $E["metas"];
+    if (!$metas_email_addresses) {
         return false;
     }
 
@@ -41,14 +41,14 @@ function sendParticipantListMail(array $E): bool
         $msg .= "{$participant["name"]} (<a href='mailto:{$participant["mail"]}'>{$participant["mail"]}</a>) {$participant["misc"]}<br>";
     }
 
-    foreach ($recipients as $recipient) {
-        if (!sendMailViaPHPMailer($recipient, $subject, $msg)) {
+    foreach ($metas_email_addresses as $meta_email) {
+        if (!validateEmail($meta_email) || !sendMailViaPHPMailer($meta_email, $subject, $msg)) {
             return false;
         }
     }
 
     // log the sending of the participant list mail
-    logToAvoidEmailSpam($E, $recipients);
+    logToAvoidEmailSpam($E, $metas_email_addresses);
 
     return true;
 }

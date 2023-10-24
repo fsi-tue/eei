@@ -97,6 +97,12 @@ function getAddress(): string
     return (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]";
 }
 
+# Checks if the given email is a valid UT email address
+function validateEmail($email): bool
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL) && str_ends_with($email, '.uni-tuebingen.de');
+}
+
 # Sends a registration mail via PHPMailer
 function sendRegistrationMail(string $recipient, string $registration_id, array $E): void
 {

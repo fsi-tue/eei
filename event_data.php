@@ -1,8 +1,11 @@
 <?php
+
 require_once('localisation/localizer.php');
 $localizer = new Localizer();
 require_once("config.php");
+require_once "metas.php";
 
+global $JOSEF;
 global $fp;
 
 $events = [
@@ -26,6 +29,7 @@ $events = [
             "end_of_registration" => mktime('11', '59', '59', '10', '08', '2023'),
             "text" => $localizer['kt1_text'],
             "info" => "",
+            "metas" => []
         ],
         # Kneipentour II
         "KT2" => [
@@ -47,6 +51,7 @@ $events = [
             "end_of_registration" => mktime('11', '59', '59', '10', '17', '2023'),
             "text" => $localizer['kt2_text'],
             "info" => "",
+            "metas" => []
         ],
         # Stadtrallye
         "RY" => [
@@ -69,6 +74,7 @@ $events = [
             "text" => $localizer['ry_text'],
             # <br> Nach der Rallye ziehen wir gemeinsam durch die Kneipen dieser Stadt.",
             "info" => "",
+            "metas" => []
         ],
         # Kastenlauf
         #"KASTEN" => [
@@ -111,6 +117,7 @@ $events = [
             "end_of_registration" => mktime('11', '0', '0', '10', '14', '2023'),
             "text" => $localizer['wd1_text'],
             "info" => "",
+            "metas" => []
         ],
         # Wanderung II
         "WD2" => [
@@ -132,6 +139,7 @@ $events = [
             "end_of_registration" => mktime('11', '0', '0', '10', '28', '2023'),
             "text" => $localizer['wd2_text'],
             "info" => "",
+            "metas" => []
         ],
         # Wanderung III
         "WD3" => [
@@ -153,6 +161,7 @@ $events = [
             "end_of_registration" => mktime('11', '0', '0', '11', '18', '2023'),
             "text" => $localizer['wd3_text'],
             "info" => "",
+            "metas" => []
         ],
         "FILM" => [
             "link" => 'FILM',
@@ -172,7 +181,8 @@ $events = [
             "start_of_registration" => mktime('0', '0', '0', '10', '17', '2023'),
             "end_of_registration" => mktime('18', '30', '00', '10', '24', '2023'),
             "text" => $localizer['film_text'],
-            "info" => ""
+            "info" => "",
+            "metas" => []
         ],
         # Spieleabend I
         "SP1" => [
@@ -193,7 +203,8 @@ $events = [
             "start_of_registration" => mktime('0', '0', '0', '9', '27', '2023'),
             "end_of_registration" => mktime('19', '0', '0', '10', '04', '2023'),
             "text" => $localizer['sp1_text'],
-            "info" => ""
+            "info" => "",
+            "metas" => []
         ],
         # Spieleabend II
         "SP2" => [
@@ -214,7 +225,8 @@ $events = [
             "start_of_registration" => mktime('0', '0', '0', '10', '11', '2023'),
             "end_of_registration" => mktime('19', '0', '0', '10', '18', '2023'),
             "text" => $localizer['sp2_text'],
-            "info" => ""
+            "info" => "",
+            "metas" => []
         ],
         # Grillen 1
         "GR1" => [
@@ -235,7 +247,8 @@ $events = [
             "start_of_registration" => mktime('0', '0', '0', '09', '29', '2023'),
             "end_of_registration" => mktime('17', '0', '0', '10', '06', '2023'),
             "text" => $localizer['gr1_text'],
-            "info" => ""
+            "info" => "",
+            "metas" => []
         ],
         # Grillen 2
         "GR2" => [
@@ -256,7 +269,8 @@ $events = [
             "start_of_registration" => mktime('0', '0', '0', '10', '18', '2023'),
             "end_of_registration" => mktime('17', '0', '0', '10', '25', '2023'),
             "text" => $localizer['gr2_text'],
-            "info" => ""
+            "info" => "",
+            "metas" => []
         ],
         # Wochenende/Hütte
         #"HUETTE" => [
@@ -320,6 +334,7 @@ $events = [
             "end_of_registration" => mktime('17', '0', '0', '10', '08', '2023'),
             "text" => $localizer['frueh_text'],
             "info" => "",
+            "metas" => []
         ],
         # Capture the Flag
         "CTF" => [
@@ -340,6 +355,7 @@ $events = [
             "end_of_registration" => mktime('23', '59', '59', '10', '14', '2023'),
             "text" => "Capture the Flag (Real Life)",
             "info" => "",
+            "metas" => []
         ],
 
 # Flunkyball Turnier
@@ -362,8 +378,9 @@ $events = [
             "end_of_registration" => mktime('11', '59', '59', '10', '3', '2023'),
             "text" => $localizer['fb_text'],
             "info" => "",
+            "metas" => []
         ],
-        
+
         /*
         # Jugger Workshop
         "JUGGER" => [
@@ -391,6 +408,7 @@ $events = [
             Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen.
             Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit.",
             "info" => "",
+            "metas" => []
         ],
         # Workshop Latex Basic
         "ws-latex-basic" => [
