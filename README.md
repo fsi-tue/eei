@@ -86,8 +86,9 @@ line in `metas.php`:
 
 ```php
 <?php
+# valid UT email address
 $EXAMPLE_META = "engaged-fsi@student.uni-tuebingen.de";
-...
+# add more metas here
 ```
 
 The variable must be imported as global variable in `event_data.php`:
@@ -95,14 +96,4 @@ The variable must be imported as global variable in `event_data.php`:
 ```php
 <?php
 global $EXAMPLE_META;
-...
 ```
-
----
-IMPORTANT:
-
-DO NOT COMMIT CHANGES IN `metas.php` TO GIT!
-
----
-
-It must be a valid UT email address.

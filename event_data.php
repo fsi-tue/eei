@@ -4,12 +4,10 @@ require_once('localisation/localizer.php');
 $localizer = new Localizer();
 require_once("config.php");
 
-# metas.php is empty by default.
-# In a production environment, it should be filled with the following content:
-# <?php
-# $EXAMPLE_META = "meta@student.uni-tuebingen.de"
-# ...
-require_once "metas.php";
+# Metas contains email addresses of people who should be notified when someone registers for an event
+if (file_exists("metas.php")) {
+    include_once "metas.php";
+}
 
 global $fp;
 
