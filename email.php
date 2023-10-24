@@ -19,14 +19,14 @@ use PHPMailer\PHPMailer\SMTP;
  * @param string $recipient
  * @param string $subject
  * @param string $body
- *
+ * @param string $attachment
+ * @param string $attachment_name
  * @return bool
  */
-function sendMailViaPHPMailer(string $recipient, string $subject, string $body): bool
+function sendMailViaPHPMailer(string $recipient, string $subject, string $body, string $attachment = '', string $attachment_name = ''): bool
 {
     $mail = new PHPMailer(TRUE);
     try {
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output. */
         $mail->isSMTP();
 
         /* https://stackoverflow.com/questions/2491475/phpmailer-character-encoding-issues */
@@ -63,6 +63,11 @@ function sendMailViaPHPMailer(string $recipient, string $subject, string $body):
         $mail->isHTML();
         $mail->Subject = $subject;
         $mail->Body = $body;
+
+        // If an attachment is given, add it to the email. 
+        if ($attachment !== '') {
+            $mail->addStringAttachment($attachment, $attachment_name);
+        }
 
         $mail->send();
         return TRUE;
