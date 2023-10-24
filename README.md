@@ -90,6 +90,14 @@ $EXAMPLE_META = "engaged-fsi@student.uni-tuebingen.de";
 ...
 ```
 
+The variable must be imported as global variable in `event_data.php`:
+
+```php
+<?php
+global $EXAMPLE_META;
+...
+```
+
 ---
 IMPORTANT:
 
