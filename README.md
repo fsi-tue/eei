@@ -93,7 +93,6 @@ $mail_handles = [
 	"handle"	          => "valid.adress@student.uni-tuebingen.de",
    "another_handle"	 => "valid.adress47@student.uni-tuebingen.de",
 ];
-
+```
 
 The variable $mail_handles is imported as global in `event_data.php` if the file `metas.php` exists.
-```
