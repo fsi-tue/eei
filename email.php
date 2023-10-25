@@ -11,6 +11,7 @@ loadEnv('.env');
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 /**
  * Sends an email to a given address.
@@ -32,14 +33,8 @@ function sendMailViaPHPMailer(string $recipient, string $subject, string $body, 
         $mail->Encoding = 'base64';
         $mail->CharSet = 'UTF-8';
 
-        $mail->SMTPAuth = FALSE;
-        $mail->SMTPKeepAlive = TRUE;
-        $mail->SMTPSecure = FALSE;
-        $mail->SMTPAutoTLS = FALSE;
-
-        // Set variables for local development
-        if (getEnvVar('LOCAL') === 'true') {
-            $mail->SMTPDebug = 1;
+        if (isLocalhost()) {
+            // If the server is localhost, use SMTP authentication
             $mail->SMTPAuth = TRUE;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->SMTPOptions = [
@@ -51,7 +46,13 @@ function sendMailViaPHPMailer(string $recipient, string $subject, string $body, 
             ];
             $mail->Password = getEnvVar('SENDER_PASSWORD');
             $mail->Username = getEnvVar('SENDER_USERNAME');
+        } else {
+            // Otherwise, use no authentication
+            $mail->SMTPAuth = FALSE;
+            $mail->SMTPSecure = FALSE;
+            $mail->SMTPAutoTLS = FALSE;
         }
+        $mail->SMTPKeepAlive = TRUE;
 
         $mail->Host = getEnvVar('EMAIL_HOST');
         $mail->Port = getEnvVar('EMAIL_PORT');

@@ -22,11 +22,12 @@ EMAIL_PORT=587
 
 ## Adding/Updating an event:
 
-### event_data.php
+### [`event_data.php`](event_data.php)
 
-To add / edit an event, copy / edit the dummy event and modify the values.
-Then, append this event to the $events array.
-Then, add / change the german / english version inside localisation / en.json / de.json
+To add / edit an event
+1. copy / edit the dummy event and modify the values.
+2. append this event to the $events array.
+3. add / change the german / english version inside `localisation/en.json` / `localisation/de.json`
 
 Example:
 
@@ -65,7 +66,34 @@ Example:
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
          # Text (html) description of event
             "text" => $localizer['sp1_text'],
+         # Metas for the event
+            "metas" => [
+                # Email address to send registration to
+                # This has to be modified in metas.php
+                $EXAMPLE_META
+            ],
          # Info Box to show.
             "info" => "Für die Veranstaltung gilt 3G."
             # Empty string to hide infobox
-        ],```
+        ],
+```
+
+### `metas.php`
+
+Since the email address is not supposed to be public, it is stored in a separate file
+that is not tracked by git. To add / edit an email address, add / edit the following
+line in `metas.php`:
+
+```php
+<?php
+# valid UT email address
+$EXAMPLE_META = "engaged-fsi@student.uni-tuebingen.de";
+# add more metas here
+```
+
+The variable must be imported as global variable in `event_data.php`:
+
+```php
+<?php
+global $EXAMPLE_META;
+```
