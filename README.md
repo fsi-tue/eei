@@ -95,4 +95,4 @@ $mail_handles = [
 ];
 ```
 
-The variable $mail_handles is imported as global in `event_data.php` if the file `metas.php` exists.
+The variable `$mail_handles` is imported as global in `event_data.php` if the file `metas.php` exists.
