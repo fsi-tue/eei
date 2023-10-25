@@ -2,8 +2,8 @@
 
 ## Setup
 
-* Requires `php` to be installed
-* Create a `.env` file in the root directory and add the following variables:
+- Requires `php` to be installed
+- Create a `.env` file in the root directory and add the following variables:
 
 ```dotenv
 # Example Configuration
@@ -17,14 +17,15 @@ EMAIL_PORT=587
 
 ## Testing
 
-* Requires `php` to be installed
-* Run a local test instance using `php -S localhost:8000`
+- Requires `php` to be installed
+- Run a local test instance using `php -S localhost:8000`
 
 ## Adding/Updating an event:
 
 ### [`event_data.php`](event_data.php)
 
 To add / edit an event
+
 1. copy / edit the dummy event and modify the values.
 2. append this event to the $events array.
 3. add / change the german / english version inside `localisation/en.json` / `localisation/de.json`
@@ -86,14 +87,13 @@ line in `metas.php`:
 
 ```php
 <?php
-# valid UT email address
-$EXAMPLE_META = "engaged-fsi@student.uni-tuebingen.de";
-# add more metas here
-```
+# add mails by adding "handle" => "...@student.uni-tuebingen.de" at the bottom
 
-The variable must be imported as global variable in `event_data.php`:
+$mail_handles = [
+	"handle"	          => "valid.adress@student.uni-tuebingen.de",
+   "another_handle"	 => "valid.adress47@student.uni-tuebingen.de",
+];
 
-```php
-<?php
-global $EXAMPLE_META;
+
+The variable $mail_handles is imported as global in `event_data.php` if the file `metas.php` exists.
 ```

@@ -7,6 +7,8 @@ require_once("config.php");
 # Metas contains email addresses of people who should be notified when someone registers for an event
 if (file_exists("metas.php")) {
     include_once "metas.php";
+    # import the variable mail_handles from metas.php if existant
+    global $mail_handles;
 }
 
 global $fp;
@@ -142,7 +144,7 @@ $events = [
             "end_of_registration" => mktime('11', '0', '0', '10', '28', '2023'),
             "text" => $localizer['wd2_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['kaip']]
         ],
         # Wanderung III
         "WD3" => [
@@ -164,7 +166,7 @@ $events = [
             "end_of_registration" => mktime('11', '0', '0', '11', '18', '2023'),
             "text" => $localizer['wd3_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['kaip']]
         ],
         "FILM" => [
             "link" => 'FILM',
@@ -273,7 +275,7 @@ $events = [
             "end_of_registration" => mktime('17', '0', '0', '10', '25', '2023'),
             "text" => $localizer['gr2_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['olli']]
         ],
         # Wochenende/Hütte
         #"HUETTE" => [
