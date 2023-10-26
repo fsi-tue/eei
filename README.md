@@ -69,9 +69,11 @@ Example:
             "text" => $localizer['sp1_text'],
          # Metas for the event
             "metas" => [
-                # Email address to send registration to
-                # This has to be modified in metas.php
-                $EXAMPLE_META
+              # Email addresses to send registration to
+              # The mail_handles has to be modified in metas.php
+              # More information about this found in chapter "metas.php" down below
+		$mail_handles['handle'],
+		$mail_handles['another_handle']
             ],
          # Info Box to show.
             "info" => "Für die Veranstaltung gilt 3G."
@@ -91,7 +93,7 @@ line in `metas.php`:
 
 $mail_handles = [
 	"handle"	          => "valid.adress@student.uni-tuebingen.de",
-   "another_handle"	 => "valid.adress47@student.uni-tuebingen.de",
+	"another_handle"	 => "valid.adress47@student.uni-tuebingen.de",
 ];
 ```
 
