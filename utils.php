@@ -350,6 +350,7 @@ function showRegistration($E): void
             <?= $localizer->translate('event_cancelled', array('EVENT_NAME' => $E['name'], 'EMAIL_CONTACT' => $CONFIG_CONTACT)) ?>
         </div>
         <?php
+        return;
     }
 
     if (!$E['active']) {
