@@ -64,6 +64,9 @@ function getParticipants(array $E): array
 {
     $filepath = $E["path"];
     $file = fopen($filepath, "r");
+    if (!$file) {
+        return array();
+    }
     $participants = array();
 
     while (($line = fgetcsv($file)) !== FALSE) {
