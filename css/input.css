@@ -1,0 +1,46 @@
+/* Input Styles */
+/* Base style for input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+}
+
+/* Style for input fields on focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+/* Style for disabled input fields */
+input[type="text"]:disabled,
+input[type="email"]:disabled,
+input[type="password"]:disabled {
+    background-color: var(--background-color-light);
+    cursor: not-allowed;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Media Query for Mobile Screens */
+@media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 200px;
+    }
+}

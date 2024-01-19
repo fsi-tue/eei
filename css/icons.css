@@ -1,0 +1,53 @@
+/* Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free  */
+/* The BBQ-Grill Icon is made by Smashicons from www.flaticon.com */
+.icon.beer {
+    background-image: url("../icons/beer-solid.svg");
+}
+
+.icon.cap {
+    background-image: url("../icons/cap-solid.svg");
+}
+
+.icon.clock {
+    background-image: url("../icons/clock-regular.svg");
+}
+
+.icon.cocktail {
+    background-image: url("../icons/cocktail-solid.svg");
+}
+
+.icon.dice {
+    background-image: url("../icons/dice-solid.svg");
+}
+
+.icon.film {
+    background-image: url("../icons/film-solid.svg");
+}
+
+.icon.food {
+    background-image: url("../icons/food-solid.svg");
+}
+
+.icon.grill {
+    background-image: url("../icons/grill-solid.svg");
+}
+
+.icon.hiking {
+    background-image: url("../icons/hiking-solid.svg");
+}
+
+.icon.home {
+    background-image: url("../icons/home-solid.svg");
+}
+
+.icon.marker {
+    background-image: url("../icons/marker-solid.svg");
+}
+
+.icon.route {
+    background-image: url("../icons/route-solid.svg");
+}
+
+.icon.inactive {
+    opacity: 50%;
+}
