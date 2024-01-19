@@ -14,6 +14,29 @@ if (file_exists("metas.php")) {
 global $fp;
 
 $events = [
+        # offene Weihnachtsfeier
+        "WF" => [
+            "link" => "WF",
+            "name" => $localizer['wf_name'],
+            "startUTS" => mktime('17', '00', '0', '12', '15', '2023'),
+            'onTime' => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => FALSE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}weihnachtsfeier.csv",
+            "icon" => "marker",
+            "location" => 'Sand A104',
+            "date" => '15.12.23 17:00',
+            "max_participants" => 300,
+            "start_of_registration" => mktime('0', '0', '0', '11', '24', '2023'),
+            "end_of_registration" => mktime('23', '59', '59', '12', '14', '2023'),
+            "text" => $localizer['wf_text'],
+            "info" => "",
+            "metas" => [$mail_handles['drei']]
+        ],
+        /*
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
@@ -82,26 +105,26 @@ $events = [
             "metas" => []
         ],
         # Kastenlauf
-        #"KASTEN" => [
-        #    "link" => "KASTEN",
-        #    "name" => $localizer['kasten_name'],
-        #    "startUTS" => mktime('18', '0', '0', '04', '14', '2023'),
-        #    'onTime' => TRUE,
-        #    "active" => TRUE,
-        #    "cancelled" => FALSE,
-        #    "course_required" => TRUE,
-        #    "food" => FALSE,
-        #    "breakfast" => FALSE,
-        #    "path" => "{$fp}kastenlauf.csv",
-        #    "icon" => "beer",
-        #    "location" => 'Rewe Weststadt <br> Schleifmühlenweg 36',
-        #    "date" => '14.04.23 18:00',
-        #    "max_participants" => 60,
-        #    "start_of_registration" => mktime('0', '0', '0', '04', '07', '2023'),
-        #    "end_of_registration" => mktime('23', '59', '59', '04', '13', '2023'),
-        #    "text" => $localizer['kasten_text'],
-        #    "info" => "",
-        #],
+        "KASTEN" => [
+            "link" => "KASTEN",
+            "name" => $localizer['kasten_name'],
+            "startUTS" => mktime('18', '0', '0', '04', '14', '2023'),
+            'onTime' => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}kastenlauf.csv",
+            "icon" => "beer",
+            "location" => 'Rewe Weststadt <br> Schleifmühlenweg 36',
+            "date" => '14.04.23 18:00',
+            "max_participants" => 60,
+            "start_of_registration" => mktime('0', '0', '0', '04', '07', '2023'),
+            "end_of_registration" => mktime('23', '59', '59', '04', '13', '2023'),
+            "text" => $localizer['kasten_text'],
+            "info" => "",
+        ],
         # Wanderung I
         "WD1" => [
             "link" => "WD1",
@@ -153,7 +176,7 @@ $events = [
             "startUTS" => mktime('11', '0', '0', '11', '18', '2023'),
             'onTime' => TRUE,
             "active" => TRUE,
-            "cancelled" => FALSE,
+            "cancelled" => TRUE,
             "course_required" => TRUE,
             "food" => FALSE,
             "breakfast" => FALSE,
@@ -239,7 +262,7 @@ $events = [
             "name" => $localizer['gr1_name'],
             "startUTS" => mktime('17', '0', '0', '10', '06', '2023'),
             'onTime' => FALSE,
-            "active" => TRUE,
+            "active" => TRUE,/*
             "cancelled" => FALSE,
             "course_required" => TRUE,
             "food" => FALSE,
@@ -278,29 +301,28 @@ $events = [
             "metas" => [$mail_handles['olli']]
         ],
         # Wochenende/Hütte
-        #"HUETTE" => [
-        #    "link" => "HUETTE",
-        #    "name" => $localizer['huette_name'],
-        #    "startUTS" => mktime('15', '30', '0', '04', '28', '2023'),
-        #    // Time is ignored
-        #    "endUTS" => mktime('0', '0', '0', '04', '30', '2023'),
-        #    'onTime' => TRUE,
-        #    "active" => TRUE,
-        #    "cancelled" => FALSE,
-        #    "course_required" => TRUE,
-        #    "food" => TRUE,
-        #    "breakfast" => TRUE,
-        #    "path" => "{$fp}ersti-huette.csv",
-        #    "icon" => "home",
-        #    "location" => 'Kalkweil',
-        #    "date" => '28.04.23 - 30.04.23',
-        #    "max_participants" => 35,
-        #    "start_of_registration" => mktime('10', '0', '0', '04', '17', '2023'),
-        #    "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
-        #    "text" => $localizer['huette_text'],
-        #    "info" => "",
-        #],
-        /*
+        "HUETTE" => [
+            "link" => "HUETTE",
+            "name" => $localizer['huette_name'],
+            "startUTS" => mktime('15', '30', '0', '04', '28', '2023'),
+            // Time is ignored
+            "endUTS" => mktime('0', '0', '0', '04', '30', '2023'),
+            'onTime' => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => TRUE,
+            "breakfast" => TRUE,
+            "path" => "{$fp}ersti-huette.csv",
+            "icon" => "home",
+            "location" => 'Kalkweil',
+            "date" => '28.04.23 - 30.04.23',
+            "max_participants" => 35,
+            "start_of_registration" => mktime('10', '0', '0', '04', '17', '2023'),
+            "end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
+            "text" => $localizer['huette_text'],
+            "info" => "",
+        ],
         # Sommerfest
         "SO" => [
             "link" => 'SO',
@@ -319,7 +341,6 @@ $events = [
             "start_of_registration" => FALSE,
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')
         ],
-        */
         # Frühstück
         "FRUEH" => [
             "link" => "FRUEH",
@@ -362,8 +383,7 @@ $events = [
             "info" => "",
             "metas" => []
         ],
-
-# Flunkyball Turnier
+        # Flunkyball Turnier
         "FB" => [
             "link" => "FB",
             "name" => 'Flunkyball Turnier',
@@ -385,8 +405,6 @@ $events = [
             "info" => "",
             "metas" => []
         ],
-
-        /*
         # Jugger Workshop
         "JUGGER" => [
             "link" => "JUGGER",
