@@ -42,7 +42,7 @@ body {
     /* Colors */
     background-color: var(--background-color);
     color: var(--text-color);
-    
+
     /* Margin + Padding */
     margin: 0;
     padding: 0;
@@ -204,7 +204,8 @@ input[type="submit"] {
     text-decoration: none;
     margin-top: 2px;
     transition: var(--transition);
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
     font-size: 100%;
     box-shadow: var(--box-shadow);
 }
@@ -227,7 +228,14 @@ form {
     text-align: left;
 }
 
-/* Block and Error and Info Message Styles */
+form input[type="submit"], form .block {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+/* Block */
 .block {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -236,6 +244,7 @@ form {
     width: fit-content;
 }
 
+/* Error and Info Message Styles */
 .block.error,
 .block.info {
     border-radius: var(--border-radius);
