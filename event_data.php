@@ -14,6 +14,7 @@ if (file_exists("metas.php")) {
 global $fp;
 
 $events = [
+        /*
         # offene Weihnachtsfeier
         "WF" => [
             "link" => "WF",
@@ -36,7 +37,6 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['drei']]
         ],
-        /*
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
