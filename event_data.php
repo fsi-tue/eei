@@ -14,6 +14,45 @@ if (file_exists("metas.php")) {
 global $fp;
 
 $events = [
+            # SE Workshop
+            "ws-software-engineering" => [
+                "link" => "ws-software-engineering",
+                "name" => 'Software Engineering Workshop (Crashkurs für Informatik Teamprojekte)',
+                "startUTS" => mktime('9', '0', '0', '04', '20', '2024'),
+                "active" => TRUE,
+                "cancelled" => FALSE,
+                "course_required" => TRUE,
+                "food" => FALSE,
+                "breakfast" => FALSE,
+                "path" => "{$fp}workshop-python-basic-ss23.csv",
+                "icon" => "cap",
+                "location" => 'Sand A301',
+                "date" => '20./21.04.2024 9-17',
+                "max_participants" => 25,
+                "start_of_registration" => FALSE,
+                "end_of_registration" => mktime('23', '59', '59', '04', '19', '2024'),
+                "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet an zwei Tagen von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
+                "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015).Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024.",
+            ],
+            "ws-software-engineering2" => [
+                "link" => "ws-software-engineering2",
+                "name" => 'Software Engineering Workshop (Crashkurs für Informatik Teamprojekte)',
+                "startUTS" => mktime('9', '0', '0', '05', '04', '2024'),
+                "active" => TRUE,
+                "cancelled" => FALSE,
+                "course_required" => TRUE,
+                "food" => FALSE,
+                "breakfast" => FALSE,
+                "path" => "{$fp}workshop-python-basic-ss23.csv",
+                "icon" => "cap",
+                "location" => 'Sand A301',
+                "date" => '04./05.05.2024 9-17',
+                "max_participants" => 25,
+                "start_of_registration" => FALSE,
+                "end_of_registration" => mktime('23', '59', '59', '05', '03', '2024'),
+                "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet an zwei Tagen von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
+                "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
+            ]
         /*
         # offene Weihnachtsfeier
         "WF" => [
