@@ -17,7 +17,7 @@ $events = [
             # SE Workshop
             "ws-software-engineering" => [
                 "link" => "ws-software-engineering",
-                "name" => 'Software Engineering Workshop (Crashkurs für Informatik Teamprojekte)',
+                "name" => 'Software Engineering Workshop',
                 "startUTS" => mktime('9', '0', '0', '04', '20', '2024'),
                 "active" => TRUE,
                 "cancelled" => FALSE,
@@ -37,7 +37,7 @@ $events = [
             ],
             "ws-software-engineering2" => [
                 "link" => "ws-software-engineering2",
-                "name" => 'Software Engineering Workshop (Crashkurs für Informatik Teamprojekte)',
+                "name" => 'Software Engineering Workshop',
                 "startUTS" => mktime('9', '0', '0', '05', '04', '2024'),
                 "active" => TRUE,
                 "cancelled" => FALSE,
