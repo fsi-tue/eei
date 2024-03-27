@@ -56,28 +56,6 @@ $events = [
                 "metas" => [$mail_handles['linus']]
             ]
         /*
-        # offene Weihnachtsfeier
-        "WF" => [
-            "link" => "WF",
-            "name" => $localizer['wf_name'],
-            "startUTS" => mktime('17', '00', '0', '12', '15', '2023'),
-            'onTime' => TRUE,
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => FALSE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}weihnachtsfeier.csv",
-            "icon" => "marker",
-            "location" => 'Sand A104',
-            "date" => '15.12.23 17:00',
-            "max_participants" => 300,
-            "start_of_registration" => mktime('0', '0', '0', '11', '24', '2023'),
-            "end_of_registration" => mktime('23', '59', '59', '12', '14', '2023'),
-            "text" => $localizer['wf_text'],
-            "info" => "",
-            "metas" => [$mail_handles['drei']]
-        ],
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
@@ -573,6 +551,28 @@ $events = [
             "end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
             "text" => "Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln? Mit der vielseitigen und einfach zu erlernenden Programmiersprache “Python” lässt sich dies und vieles mehr erreichen. In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben. Nachmittags werden am Beispiel von einer Datenquelle im Netz tiefer gehende Konzepte eingeführt.",
             "info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+        ],
+        # offene Weihnachtsfeier
+        "WF" => [
+            "link" => "WF",
+            "name" => $localizer['wf_name'],
+            "startUTS" => mktime('17', '00', '0', '12', '15', '2023'),
+            'onTime' => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => FALSE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}weihnachtsfeier.csv",
+            "icon" => "marker",
+            "location" => 'Sand A104',
+            "date" => '15.12.23 17:00',
+            "max_participants" => 300,
+            "start_of_registration" => mktime('0', '0', '0', '11', '24', '2023'),
+            "end_of_registration" => mktime('23', '59', '59', '12', '14', '2023'),
+            "text" => $localizer['wf_text'],
+            "info" => "",
+            "metas" => [$mail_handles['drei']]
         ],
         */
     ];
