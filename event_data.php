@@ -55,12 +55,11 @@ $events = [
                 "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
                 "metas" => [$mail_handles['linus']]
             ]
-        /*
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
             "name" => $localizer['kt1_name'],
-            "startUTS" => mktime('19', '00', '0', '01', '19', '2024'),
+            "startUTS" => mktime('19', '00', '0', '04', '12', '2024'),
             'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -70,36 +69,37 @@ $events = [
             "path" => "{$fp}ersti-kneipentour1.csv",
             "icon" => "beer",
             "location" => '',
-            "date" => '10.10.23 19:00',
+            "date" => '12.04.24 19:00',
             "max_participants" => 84,
-            "start_of_registration" => mktime('0', '0', '0', '01', '11', '2024'),
-            "end_of_registration" => mktime('11', '59', '59', '01', '19', '2024'),
+            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+            "end_of_registration" => mktime('11', '59', '59', '04', '12', '2024'),
             "text" => $localizer['kt1_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['michi']]
         ],
         # Kneipentour II
         "KT2" => [
             "link" => "KT2",
             "name" => $localizer['kt2_name'],
-            "startUTS" => mktime('19', '00', '0', '01', '27', '2024'),
+            "startUTS" => mktime('19', '00', '0', '05', '02', '2024'),
             'onTime' => TRUE,
-            "active" => FALSE,
-            "cancelled" => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
             "course_required" => TRUE,
             "food" => FALSE,
             "breakfast" => FALSE,
             "path" => "{$fp}ersti-kneipentour2.csv",
             "icon" => "beer",
             "location" => '',
-            "date" => '19.10.23 19:00',
+            "date" => '02.05.24 19:00',
             "max_participants" => 84,
-            "start_of_registration" => mktime('0', '0', '0', '01', '20', '2024'),
-            "end_of_registration" => mktime('11', '59', '59', '01', '25', '2024'),
+            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+            "end_of_registration" => mktime('11', '59', '59', '05', '02', '2024'),
             "text" => $localizer['kt2_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['michi']]
         ],
+        /*
         # Stadtrallye
         "RY" => [
             "link" => "RY",
