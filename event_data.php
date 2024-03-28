@@ -54,7 +54,7 @@ $events = [
                 "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
                 "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
                 "metas" => [$mail_handles['linus']]
-            ]
+        ],
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
