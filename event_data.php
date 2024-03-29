@@ -77,9 +77,9 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['michi']]
         ],
-        # Spieleabend II
-        "SP2" => [
-            "link" => 'SP2',
+        # Spieleabend III
+        "SP3" => [
+            "link" => 'SP3',
             "name" => $localizer['sp2_name'],
             "startUTS" => mktime('19', '0', '0', '04', 16', '2024'),
             "onTime" => FALSE,
@@ -88,7 +88,7 @@ $events = [
             "course_required" => TRUE,
             "food" => FALSE,
             "breakfast" => FALSE,
-            "path" => "{$fp}ersti-spieleabend2.csv",
+            "path" => "{$fp}ersti-spieleabend3.csv",
             "icon" => 'dice',
             "location" => 'Sand 14, A104',
             "date" => '16.04.24 ab 19:00',
