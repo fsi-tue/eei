@@ -231,11 +231,12 @@ $events = [
             "info" => "",
             "metas" => []
         ],
+        */
         # Spieleabend I
         "SP1" => [
             "link" => 'SP1',
             "name" => $localizer['sp1_name'],
-            "startUTS" => mktime('19', '0', '0', '10', '04', '2023'),
+            "startUTS" => mktime('19', '0', '0', '04', '11', '2024'),
             "onTime" => FALSE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -245,19 +246,19 @@ $events = [
             "path" => "{$fp}ersti-spieleabend1.csv",
             "icon" => 'dice',
             "location" => 'Sand 14, A104',
-            "date" => '04.10.23 ab 19:00',
+            "date" => '11.04.24 ab 19:00',
             "max_participants" => 200 ,
-            "start_of_registration" => mktime('0', '0', '0', '9', '27', '2023'),
-            "end_of_registration" => mktime('19', '0', '0', '10', '04', '2023'),
+            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+            "end_of_registration" => mktime('19', '0', '0', '04', '11', '2024'),
             "text" => $localizer['sp1_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['flop']]
         ],
         # Spieleabend II
         "SP2" => [
             "link" => 'SP2',
             "name" => $localizer['sp2_name'],
-            "startUTS" => mktime('19', '0', '0', '10', '18', '2023'),
+            "startUTS" => mktime('19', '0', '0', '04', '24', '2023'),
             "onTime" => FALSE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -266,15 +267,16 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}ersti-spieleabend2.csv",
             "icon" => 'dice',
-            "location" => 'Sand 14, A301',
-            "date" => '18.10.23 ab 19:00',
+            "location" => 'Sand 14, A104',
+            "date" => '24.04.24 ab 19:00',
             "max_participants" => 200 ,
-            "start_of_registration" => mktime('0', '0', '0', '10', '11', '2023'),
-            "end_of_registration" => mktime('19', '0', '0', '10', '18', '2023'),
+            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+            "end_of_registration" => mktime('19', '0', '0', '04', '24', '2024'),
             "text" => $localizer['sp2_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['flop']]
         ],
+        /*
         # Grillen 1
         "GR1" => [
             "link" => 'GR1',
