@@ -77,6 +77,28 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['michi']]
         ],
+        # Spieleabend III
+        "SP3" => [
+            "link" => 'SP3',
+            "name" => $localizer['sp2_name'],
+            "startUTS" => mktime('19', '0', '0', '04', 16', '2024'),
+            "onTime" => FALSE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}ersti-spieleabend3.csv",
+            "icon" => 'dice',
+            "location" => 'Sand 14, A104',
+            "date" => '16.04.24 ab 19:00',
+            "max_participants" => 100 ,
+            "start_of_registration" => mktime('0', '0', '0', '04', '02', '2024'),
+            "end_of_registration" => mktime('19', '0', '0', '04', '14', '2024'),
+            "text" => $localizer['sp2_text'],
+            "info" => "",
+            "metas" => [$mail_handles['jules']]
+        ],
         # Kneipentour II
         "KT2" => [
             "link" => "KT2",
