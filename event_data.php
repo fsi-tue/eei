@@ -404,11 +404,12 @@ $events = [
             "info" => "",
             "metas" => []
         ],
+        */
         # Flunkyball Turnier
         "FB" => [
             "link" => "FB",
             "name" => 'Flunkyball Turnier',
-            "startUTS" => mktime('19', '00', '0', '10', '05', '2023'),
+            "startUTS" => mktime('19', '00', '0', '04', '17', '2024'),
             'onTime' => TRUE,
             "active" => TRUE,
             "cancelled" => FALSE,
@@ -417,15 +418,16 @@ $events = [
             "breakfast" => FALSE,
             "path" => "{$fp}flunkyball_turnier.csv",
             "icon" => "beer",
-            "location" => 'Sand',
-            "date" => '10.10.23 19:00',
+            "location" => 'Sand 14',
+            "date" => '17.04.24 19:00',
             "max_participants" => 200,
-            "start_of_registration" => mktime('0', '0', '0', '01', '01', '2023'),
-            "end_of_registration" => mktime('11', '59', '59', '10', '3', '2023'),
+            "start_of_registration" => mktime('0', '0', '0', '04', '01', '2024'),
+            "end_of_registration" => mktime('11', '59', '59', '04', '17', '2024'),
             "text" => $localizer['fb_text'],
             "info" => "",
             "metas" => []
         ],
+        /*
         # Jugger Workshop
         "JUGGER" => [
             "link" => "JUGGER",
