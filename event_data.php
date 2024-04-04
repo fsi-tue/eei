@@ -14,46 +14,46 @@ if (file_exists("metas.php")) {
 global $fp;
 
 $events = [
-            # SE Workshop
-            "ws-software-engineering" => [
-                "link" => "ws-software-engineering",
-                "name" => '<span style="font-size: 14px;">Software Engineering</span> Workshop',
-                "startUTS" => mktime('9', '0', '0', '04', '20', '2024'),
-                "active" => TRUE,
-                "cancelled" => FALSE,
-                "course_required" => TRUE,
-                "food" => FALSE,
-                "breakfast" => FALSE,
-                "path" => "{$fp}workshop-se-ss24-01.csv",
-                "icon" => "cap",
-                "location" => 'Sand A104',
-                "date" => '20./21.04.2024 9-17',
-                "max_participants" => 25,
-                "start_of_registration" => FALSE,
-                "end_of_registration" => mktime('23', '59', '59', '04', '19', '2024'),
-                "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 20./21.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
-                "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015).Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024.",
-                "metas" => [$mail_handles['linus']]
-            ],
-            "ws-software-engineering2" => [
-                "link" => "ws-software-engineering2",
-                "name" => '<span style="font-size: 14px;">Software Engineering</span> Workshop',
-                "startUTS" => mktime('9', '0', '0', '05', '04', '2024'),
-                "active" => TRUE,
-                "cancelled" => FALSE,
-                "course_required" => TRUE,
-                "food" => FALSE,
-                "breakfast" => FALSE,
-                "path" => "{$fp}workshop-se-ss24-02.csv",
-                "icon" => "cap",
-                "location" => 'Sand A104',
-                "date" => '04./05.05.2024 9-17',
-                "max_participants" => 25,
-                "start_of_registration" => FALSE,
-                "end_of_registration" => mktime('23', '59', '59', '05', '03', '2024'),
-                "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
-                "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
-                "metas" => [$mail_handles['linus']]
+        # SE Workshops
+        "ws-software-engineering" => [
+            "link" => "ws-software-engineering",
+            "name" => '<span style="font-size: 14px;">Software Engineering</span> Workshop',
+            "startUTS" => mktime('9', '0', '0', '04', '20', '2024'),
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}workshop-se-ss24-01.csv",
+            "icon" => "cap",
+            "location" => 'Sand A104',
+            "date" => '20./21.04.2024 9-17',
+            "max_participants" => 25,
+            "start_of_registration" => FALSE,
+            "end_of_registration" => mktime('23', '59', '59', '04', '19', '2024'),
+            "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 20./21.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
+            "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015).Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024.",
+            "metas" => [$mail_handles['linus']]
+        ],
+        "ws-software-engineering2" => [
+            "link" => "ws-software-engineering2",
+            "name" => '<span style="font-size: 14px;">Software Engineering</span> Workshop',
+            "startUTS" => mktime('9', '0', '0', '05', '04', '2024'),
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}workshop-se-ss24-02.csv",
+            "icon" => "cap",
+            "location" => 'Sand A104',
+            "date" => '04./05.05.2024 9-17',
+            "max_participants" => 25,
+            "start_of_registration" => FALSE,
+            "end_of_registration" => mktime('23', '59', '59', '05', '03', '2024'),
+            "text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
+            "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
+            "metas" => [$mail_handles['linus']]
         ],
         # Kneipentour I
         "KT1" => [
@@ -76,6 +76,50 @@ $events = [
             "text" => $localizer['kt1_text'],
             "info" => "",
             "metas" => [$mail_handles['michi']]
+        ],
+        # Spieleabend I
+        "SP1" => [
+            "link" => 'SP1',
+            "name" => $localizer['sp1_name'],
+            "startUTS" => mktime('19', '0', '0', '04', '11', '2024'),
+            "onTime" => FALSE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}ersti-spieleabend1.csv",
+            "icon" => 'dice',
+            "location" => 'Sand 14, A104',
+            "date" => '11.04.24 ab 19:00',
+            "max_participants" => 200 ,
+            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+            "end_of_registration" => mktime('19', '0', '0', '04', '11', '2024'),
+            "text" => $localizer['sp1_text'],
+            "info" => "",
+            "metas" => [$mail_handles['flop']]
+        ],
+        # Spieleabend II
+        "SP2" => [
+            "link" => 'SP2',
+            "name" => $localizer['sp2_name'],
+            "startUTS" => mktime('19', '0', '0', '04', '24', '2024'),
+            "onTime" => FALSE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}ersti-spieleabend2.csv",
+            "icon" => 'dice',
+            "location" => 'Sand 14, A301',
+            "date" => '24.04.24 ab 19:00',
+            "max_participants" => 200 ,
+            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+            "end_of_registration" => mktime('19', '0', '0', '04', '24', '2024'),
+            "text" => $localizer['sp2_text'],
+            "info" => "",
+            "metas" => [$mail_handles['flop']]
         ],
         # Spieleabend III
         "SP3" => [
@@ -120,6 +164,28 @@ $events = [
             "text" => $localizer['kt2_text'],
             "info" => "",
             "metas" => [$mail_handles['michi']]
+        ],
+        # Flunkyball Turnier
+        "FB" => [
+            "link" => "FB",
+            "name" => 'Flunkyball Turnier',
+            "startUTS" => mktime('17', '00', '0', '04', '17', '2024'),
+            'onTime' => TRUE,
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}flunkyball_turnier.csv",
+            "icon" => "beer",
+            "location" => 'Sand 14',
+            "date" => '17.04.24 17:00',
+            "max_participants" => 200,
+            "start_of_registration" => mktime('0', '0', '0', '04', '01', '2024'),
+            "end_of_registration" => mktime('11', '59', '59', '04', '17', '2024'),
+            "text" => $localizer['fb_text'],
+            "info" => "",
+            "metas" => []
         ],
         /*
         # Stadtrallye
@@ -253,52 +319,6 @@ $events = [
             "info" => "",
             "metas" => []
         ],
-        */
-        # Spieleabend I
-        "SP1" => [
-            "link" => 'SP1',
-            "name" => $localizer['sp1_name'],
-            "startUTS" => mktime('19', '0', '0', '04', '11', '2024'),
-            "onTime" => FALSE,
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => TRUE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}ersti-spieleabend1.csv",
-            "icon" => 'dice',
-            "location" => 'Sand 14, A104',
-            "date" => '11.04.24 ab 19:00',
-            "max_participants" => 200 ,
-            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
-            "end_of_registration" => mktime('19', '0', '0', '04', '11', '2024'),
-            "text" => $localizer['sp1_text'],
-            "info" => "",
-            "metas" => [$mail_handles['flop']]
-        ],
-        # Spieleabend II
-        "SP2" => [
-            "link" => 'SP2',
-            "name" => $localizer['sp2_name'],
-            "startUTS" => mktime('19', '0', '0', '04', '24', '2023'),
-            "onTime" => FALSE,
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => TRUE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}ersti-spieleabend2.csv",
-            "icon" => 'dice',
-            "location" => 'Sand 14, A301',
-            "date" => '24.04.24 ab 19:00',
-            "max_participants" => 200 ,
-            "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
-            "end_of_registration" => mktime('19', '0', '0', '04', '24', '2024'),
-            "text" => $localizer['sp2_text'],
-            "info" => "",
-            "metas" => [$mail_handles['flop']]
-        ],
-        /*
         # Grillen 1
         "GR1" => [
             "link" => 'GR1',
@@ -426,30 +446,6 @@ $events = [
             "info" => "",
             "metas" => []
         ],
-        */
-        # Flunkyball Turnier
-        "FB" => [
-            "link" => "FB",
-            "name" => 'Flunkyball Turnier',
-            "startUTS" => mktime('17', '00', '0', '04', '17', '2024'),
-            'onTime' => TRUE,
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => TRUE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}flunkyball_turnier.csv",
-            "icon" => "beer",
-            "location" => 'Sand 14',
-            "date" => '17.04.24 17:00',
-            "max_participants" => 200,
-            "start_of_registration" => mktime('0', '0', '0', '04', '01', '2024'),
-            "end_of_registration" => mktime('11', '59', '59', '04', '17', '2024'),
-            "text" => $localizer['fb_text'],
-            "info" => "",
-            "metas" => []
-        ],
-        /*
         # Jugger Workshop
         "JUGGER" => [
             "link" => "JUGGER",
