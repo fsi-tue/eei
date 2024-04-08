@@ -243,7 +243,9 @@ $events = [
             "food" => FALSE,
             "breakfast" => FALSE,
             "path" => "{$fp}ersti-grillen1.csv",
+            */
             "icon" => 'grill',
+            /*
             "location" => 'Terrasse Sand',
             "date" => '06.10.23 ab 17:00',
             "max_participants" => 150 ,
@@ -265,7 +267,9 @@ $events = [
             "food" => FALSE,
             "breakfast" => FALSE,
             "path" => "{$fp}ersti-grillen2.csv",
+            */
             "icon" => 'grill',
+            /*
             "location" => 'Terrasse Sand',
             "date" => '25.10.23 ab 17:00',
             "max_participants" => 150 ,
