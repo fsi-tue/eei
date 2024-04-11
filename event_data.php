@@ -299,7 +299,7 @@ $events = [
             "end_of_registration" => mktime('23', '59', '59', '04', '20', '2024'),
             "text" => "Mister X / Scotland Yard (real life)",
             "info" => "Bitte ein aufgeladenes Handy mitbringen (wenn möglich).",
-            "metas" => []
+            "metas" => [$mail_handles['danielb']]
         ],
         /*
         # Stadtrallye
