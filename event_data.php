@@ -283,7 +283,7 @@ $events = [
         # Mister X
         "X" => [
             "link" => "X",
-            "name" => 'Mister X / Scotland Yard (real life)',
+            "name" => 'Mister X (real life)',
             "startUTS" => mktime('15', '0', '0', '04', '21', '2024'),
             "active" => TRUE,
             "cancelled" => FALSE,
