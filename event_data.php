@@ -280,6 +280,27 @@ $events = [
             */
             "metas" => [$mail_handles['kaip']]
         ],
+        # Mister X
+        "X" => [
+            "link" => "X",
+            "name" => 'Mister X / Scotland Yard (real life)',
+            "startUTS" => mktime('15', '0', '0', '04', '21', '2024'),
+            "active" => TRUE,
+            "cancelled" => FALSE,
+            "course_required" => TRUE,
+            "food" => FALSE,
+            "breakfast" => FALSE,
+            "path" => "{$fp}misterx1.csv",
+            "icon" => "marker",
+            "location" => 'Sand 14',
+            "date" => '21.04.24 15:00',
+            "max_participants" => 35,
+            "start_of_registration" => mktime('0', '0', '0', '04', '12', '2024'),
+            "end_of_registration" => mktime('23', '59', '59', '04', '20', '2024'),
+            "text" => "Mister X / Scotland Yard (real life)",
+            "info" => "Bitte ein aufgeladenes Handy mitbringen (wenn möglich).",
+            "metas" => []
+        ],
         /*
         # Stadtrallye
         "RY" => [
@@ -496,6 +517,7 @@ $events = [
             "info" => "",
             "metas" => []
         ],
+        
         # Jugger Workshop
         "JUGGER" => [
             "link" => "JUGGER",
