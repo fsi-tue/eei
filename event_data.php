@@ -185,7 +185,7 @@ $events = [
             "end_of_registration" => mktime('11', '59', '59', '04', '17', '2024'),
             "text" => $localizer['fb_text'],
             "info" => "",
-            "metas" => []
+            "metas" => [$mail_handles['michi'], $mail_handles['flop']]
         ],
      # Wanderung I
         "WD1" => [
