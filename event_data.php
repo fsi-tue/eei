@@ -55,7 +55,7 @@ $events = [
             "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
             "metas" => [$mail_handles['linus']]
         ],
-        # Kneipentour I
+        /*# Kneipentour I
         "KT1" => [
             "link" => "KT1",
             "name" => $localizer['kt1_name'],
@@ -97,7 +97,7 @@ $events = [
             "end_of_registration" => mktime('19', '0', '0', '04', '11', '2024'),
             "text" => $localizer['sp1_text'],
             "info" => "",
-            "metas" => [$mail_handles['flop']]
+            "metas" => [$mail_handles['flop']] */
         ],
         # Spieleabend II
         "SP2" => [
@@ -165,7 +165,7 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['michi']]
         ],
-        # Flunkyball Turnier
+        /* # Flunkyball Turnier
         "FB" => [
             "link" => "FB",
             "name" => 'Flunkyball Turnier',
@@ -185,7 +185,7 @@ $events = [
             "end_of_registration" => mktime('11', '59', '59', '04', '17', '2024'),
             "text" => $localizer['fb_text'],
             "info" => "",
-            "metas" => [$mail_handles['michi'], $mail_handles['flop']]
+            "metas" => [$mail_handles['michi'], $mail_handles['flop']] */
         ],
      # Wanderung I
         "WD1" => [
