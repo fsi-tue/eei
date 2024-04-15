@@ -55,6 +55,7 @@ $events = [
             "info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
             "metas" => [$mail_handles['linus']]
         ],
+        /*
         # Kneipentour I
         "KT1" => [
             "link" => "KT1",
@@ -99,6 +100,7 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['flop']]
         ],
+        */
         # Spieleabend II
         "SP2" => [
             "link" => 'SP2',
@@ -165,6 +167,7 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['michi']]
         ],
+        /*
         # Flunkyball Turnier
         "FB" => [
             "link" => "FB",
@@ -187,6 +190,7 @@ $events = [
             "info" => "",
             "metas" => [$mail_handles['michi'], $mail_handles['flop']]
         ],
+        */
      # Wanderung I
         "WD1" => [
             "link" => "WD1",
