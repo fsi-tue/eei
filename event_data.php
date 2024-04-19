@@ -192,27 +192,27 @@ $events = [
         ],
         */
      # Wanderung I
-        "WD1" => [
-            "link" => "WD1",
-            "name" => $localizer['wd1_name'],
-            "startUTS" => mktime('10', '30', '0', '04', '20', '2024'),
-            'onTime' => TRUE,
-            "active" => TRUE,
-            "cancelled" => FALSE,
-            "course_required" => TRUE,
-            "food" => FALSE,
-            "breakfast" => FALSE,
-            "path" => "{$fp}ersti-wanderung1.csv",
-            "icon" => "route",
-            "location" => 'Neckarinsel',
-            "date" => '20.04.24 10:30',
-            "max_participants" => 120,
-            "start_of_registration" => mktime('0', '0', '0', '04', '20', '2024'),
-            "end_of_registration" => mktime('10', '30', '0', '04', '20', '2024'),
-            "text" => $localizer['wd1_text'],
-            "info" => "",
-            "metas" => [$mail_handles['kaip']]
-        ],
+      #  "WD1" => [
+       #     "link" => "WD1",
+       #     "name" => $localizer['wd1_name'],
+       #     "startUTS" => mktime('10', '30', '0', '04', '20', '2024'),
+       #     'onTime' => TRUE,
+       #     "active" => TRUE,
+       #     "cancelled" => FALSE,
+       #     "course_required" => TRUE,
+       #     "food" => FALSE,
+       #     "breakfast" => FALSE,
+       #     "path" => "{$fp}ersti-wanderung1.csv",
+       #     "icon" => "route",
+       #     "location" => 'Neckarinsel',
+       #     "date" => '20.04.24 10:30',
+       #     "max_participants" => 120,
+       #     "start_of_registration" => mktime('0', '0', '0', '04', '20', '2024'),
+       #     "end_of_registration" => mktime('10', '30', '0', '04', '20', '2024'),
+       #    "text" => $localizer['wd1_text'],
+       #     "info" => "",
+       #     "metas" => [$mail_handles['kaip']]
+       # ],
         # Wanderung II
         "WD2" => [
             "link" => "WD2",
