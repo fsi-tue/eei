@@ -1,8 +1,7 @@
 <?php
 
-require_once('localisation/localizer.php');
-$localizer = new Localizer();
-require_once("config.php");
+require_once 'i18n/i18n.php';
+require_once "config.php";
 
 # Metas contains email addresses of people who should be notified when someone registers for an event
 if (file_exists("metas.php")) {
@@ -11,7 +10,7 @@ if (file_exists("metas.php")) {
     global $mail_handles;
 }
 
-global $fp;
+global $i18n, $fp;
 
 $events = [
         # SE Workshops
@@ -104,7 +103,7 @@ $events = [
         # Spieleabend II
         "SP2" => [
             "link" => 'SP2',
-            "name" => $localizer['sp2_name'],
+            "name" => $i18n['sp2_name'],
             "startUTS" => mktime('19', '0', '0', '04', '24', '2024'),
             "onTime" => FALSE,
             "active" => TRUE,
@@ -119,14 +118,14 @@ $events = [
             "max_participants" => 200 ,
             "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
             "end_of_registration" => mktime('19', '0', '0', '04', '24', '2024'),
-            "text" => $localizer['sp2_text'],
+            "text" => $i18n['sp2_text'],
             "info" => "",
             "metas" => [$mail_handles['flop']]
         ],
         # Spieleabend III
         "SP3" => [
             "link" => 'SP3',
-            "name" => $localizer['sp2_name'],
+            "name" => $i18n['sp2_name'],
             "startUTS" => mktime('19', '0', '0', '04', '16', '2024'),
             "onTime" => FALSE,
             "active" => TRUE,
@@ -141,14 +140,14 @@ $events = [
             "max_participants" => 100 ,
             "start_of_registration" => mktime('0', '0', '0', '04', '02', '2024'),
             "end_of_registration" => mktime('19', '0', '0', '04', '14', '2024'),
-            "text" => $localizer['sp2_text'],
+            "text" => $i18n['sp2_text'],
             "info" => "",
             "metas" => [$mail_handles['jules']]
         ],
         # Kneipentour II
         "KT2" => [
             "link" => "KT2",
-            "name" => $localizer['kt2_name'],
+            "name" => $i18n['kt2_name'],
             "startUTS" => mktime('19', '00', '0', '05', '02', '2024'),
             'onTime' => TRUE,
             "active" => TRUE,
@@ -163,7 +162,7 @@ $events = [
             "max_participants" => 84,
             "start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
             "end_of_registration" => mktime('11', '59', '59', '05', '02', '2024'),
-            "text" => $localizer['kt2_text'],
+            "text" => $i18n['kt2_text'],
             "info" => "",
             "metas" => [$mail_handles['michi']]
         ],
@@ -216,7 +215,7 @@ $events = [
         # Wanderung II
         "WD2" => [
             "link" => "WD2",
-            "name" => $localizer['wd2_name'],
+            "name" => $i18n['wd2_name'],
             "startUTS" => mktime('10', '30', '0', '05', '11', '2024'),
             'onTime' => TRUE,
             "active" => TRUE,
@@ -231,14 +230,14 @@ $events = [
             "max_participants" => 120,
             "start_of_registration" => mktime('0', '0', '0', '05', '11', '2024'),
             "end_of_registration" => mktime('10', '30', '0', '05', '11', '2024'),
-            "text" => $localizer['wd2_text'],
+            "text" => $i18n['wd2_text'],
             "info" => "",
             "metas" => [$mail_handles['kaip']]
         ],
     # Grillen 1
         "GR1" => [
             "link" => 'GR1',
-            "name" => $localizer['gr1_name'],
+            "name" => $i18n['gr1_name'],
             "startUTS" => mktime('18', '30', '0', '04', '27', '2024'),
             'onTime' => FALSE,
             "active" => TRUE,/*
@@ -262,7 +261,7 @@ $events = [
         # Grillen 2
         "GR2" => [
             "link" => 'GR2',
-            "name" => $localizer['gr2_name'],
+            "name" => $i18n['gr2_name'],
             "startUTS" => mktime('18', '30', '0', '05', '25', '2024'),
             'onTime' => FALSE,
             "active" => TRUE,/*

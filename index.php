@@ -1,26 +1,31 @@
 <?php
-require_once('config.php');
-require_once('utils.php');
-require_once('event_data.php');
-require_once('localisation/localizer.php');
-$localizer = new Localizer();
+require_once 'config.php';
+require_once 'utils.php';
+require_once 'event_type.php';
+require_once 'i18n/i18n.php';
 
-global $CONFIG_TERM, $FILE_REVISION, $events;
+global $i18n, $CONFIG_TERM, $FILE_REVISION, $events;
 
 // Loads the environment variables from the .env file
 loadEnv('.env');
-function sortByDate($a, $b)
-{
-    return ($a['startUTS'] > $b['startUTS']);
-}
 
 // Sort the data using the custom comparison function
-usort($events, 'sortByDate');
+/**
+ * Sorts the events by date
+ * @param Event $a
+ * @param Event $b
+ * @return bool
+ */
+function sortByDate(Event $a, Event $b): int
+{
+    return $a->getStartDate() - $b->getStartDate();
+}
 
+usort($events, 'sortByDate');
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $localizer->getLang() ?>">
+<html lang="<?= $i18n->getLanguage() ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -28,86 +33,84 @@ usort($events, 'sortByDate');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css<?= $FILE_REVISION; ?>">
     <link rel="stylesheet" href="css/icons.css<?= $FILE_REVISION; ?>">
-    <title><?= $localizer['title'] ?></title>
+    <title><?= $i18n['title'] ?></title>
 </head>
 
 <body>
-    <!-- Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free -->
-    <!-- The BBQ-Grill Icon is made by Smashicons from www.flaticon.com -->
-    <div id="center">
-        <h1><?= $localizer['title'] ?> - <?= $CONFIG_TERM ?></h1>
+<!-- Icons made by fontawesome.com under CC BY 4.0 License https://fontawesome.com/license/free -->
+<!-- The BBQ-Grill Icon is made by Smashicons from www.flaticon.com -->
+<div id="center">
+    <h1><?= $i18n['title'] ?> - <?= $CONFIG_TERM ?></h1>
 
-        <div class="container">
-            <label>
-                <div class="select-container">
-                    <select id="lang-selection" aria-description="Select language">
-                        <option value='de' <?= $localizer->getLang() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
-                        <option value="en" <?= $localizer->getLang() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
-                    </select>
-                </div>
-            </label>
-        </div>
-
-        <div class="container">
-            <?php
-            // Sort events by date and if they are active
-            $sorted_events = $events;
-            usort($sorted_events, function ($a, $b) {
-                // sort by active first, then by date
-                $a_status = $a['active'] && time() < $a['startUTS'];
-                $b_status = $b['active'] && time() < $b['startUTS'];
-
-                if ($a_status == $b_status) {
-                    return $a['startUTS'] > $b['startUTS'];
-                } else {
-                    return $a_status < $b_status;
-                }
-            });
-
-            foreach ($sorted_events as $E) {
-                if ($E['active']) {
-                    // date in first line, time shall go in new line
-                    $date = $E['date'];
-                    $date = replaceFirstOccurence(" ", ",<br>", $date);
-            ?>
-                    <a href="event.php?e=<?= $E['link'] ?>&lang=<?= $localizer->getLang() ?>">
-                        <div class="box icon <?= $E['icon'] ?> <?= time() > $E['startUTS'] ? ' past ' : '' ?> float-style">
-                            <p class="name"><?= $E['name'] ?></p>
-                            <p class="date"><?= showDateAndTime($E, array('compact' => TRUE)) ?></p>
-                        </div>
-                    </a>
-            <?php
-                }
-            }
-            ?>
-        </div>
-        <br>
-        <div class="footnotes">
-            <p>
-                <?php echo $localizer['index_savedDataDisclaimer']; ?>
-            </p>
-            <br>
-            <div class="container">
-                <input id="btn-clr" type="submit" value="<?= $localizer['delete'] ?>" onclick="!localStorage.clear() && alert('<?= $localizer['index_deletedData'] ?>')">
+    <div class="container">
+        <label>
+            <div class="select-container">
+                <select id="lang-selection" aria-description="Select language">
+                    <option value='de' <?= $i18n->getLanguage() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
+                    <option value="en" <?= $i18n->getLanguage() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
+                </select>
             </div>
-            <div class="container">
-                <a href="https://github.com/fsi-tue/eei">
-                    <div class="link color-border">
-                        Source Code auf Github
-                    </div>
-                </a>
-            </div>
-        </div>
-
+        </label>
     </div>
 
-    <script>
-        // change language
-        const langSelection = document.getElementById('lang-selection')
-        langSelection.addEventListener('change', () => {
-            this.location.href = `index.php?lang=${langSelection.value}`
-        })
-    </script>
+    <div class="container">
+		<?php
+		// Sort events by date and if they are active
+		$sorted_events = $events;
+		usort($sorted_events, function (Event $a, Event $b) {
+			// sort by active first, then by date
+			$a_status = $a->isActive() && time() - $a->getStartDate();
+			$b_status = $b->isActive() && time() - $b->getStartDate();
+
+			if ($a_status == $b_status) {
+				return $a->getStartDate() - $b->getStartDate();
+			}
+			return $a_status - $b_status;
+		});
+
+		foreach ($sorted_events as /* @var Event $E */
+                 $E) {
+			if ($E->isActive()) {
+				?>
+                <a href="event.php?e=<?= $E->link ?>&lang=<?= $i18n->getLanguage() ?>">
+                    <div class="box icon <?= $E->icon ?> <?= time() > $E->getStartDate() ? ' past ' : '' ?> float-style">
+                        <p class="name"><?= $E->name ?></p>
+                        <p class="date"><?= $E->dateTimeToString(array('compact' => true)) ?></p>
+                    </div>
+                </a>
+				<?php
+			}
+		}
+		?>
+    </div>
+    <br>
+    <div class="footnotes">
+        <p>
+			<?php echo $i18n['index_savedDataDisclaimer']; ?>
+        </p>
+        <br>
+        <div class="container">
+            <input id="btn-clr" type="submit" value="<?= $i18n['delete'] ?>"
+                   onclick="!localStorage.clear() && alert('<?= $i18n['index_deletedData'] ?>">
+        </div>
+        <div class="container">
+            <a href="https://github.com/fsi-tue/eei">
+                <div class="link color-border">
+                    Source Code auf Github
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+	// change language
+	const langSelection = document.getElementById('lang-selection')
+	langSelection.addEventListener('change', () => {
+		this.location.href = `index.php?lang=${langSelection.value}`
+	})
+</script>
 </body>
 
 </html>

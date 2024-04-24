@@ -1,16 +1,16 @@
 <?php
 
-class Localizer implements ArrayAccess
+class I18n implements ArrayAccess
 {
 
     /**
      * @var string
      */
-    private mixed $localizationObject;
+    private mixed $i18nObject;
     /**
      * @var mixed
      */
-    private string $lang;
+    private string $language;
 
     public function __construct()
     {
@@ -22,13 +22,13 @@ class Localizer implements ArrayAccess
         // sanitize language
         $lang = preg_replace('/[^a-z]/', '', $lang);
 
-        $this->lang = $lang;
+        $this->language = $lang;
         $localizationFile = __DIR__ . "/$lang.json";
         if (file_exists($localizationFile)) {
-            $this->localizationObject = json_decode(file_get_contents($localizationFile), TRUE);
+            $this->i18nObject = json_decode(file_get_contents($localizationFile), true);
         } else {
             // If the localization file does not exist, use the default language (german)
-            $this->localizationObject = json_decode(file_get_contents(__DIR__ . '/de.json'), TRUE);
+            $this->i18nObject = json_decode(file_get_contents(__DIR__ . '/de.json'), true);
         }
     }
 
@@ -37,40 +37,53 @@ class Localizer implements ArrayAccess
      *
      * @param $key                   string key of the string to translate
      * @param $insertVariables       array replace variables in the string with the values in this array
-     *                               <code>Example: $localizer->translate('hello', array('name' => 'John')) will return
+     *                               <code>Example: $i18n->translate('hello', array('name' => 'John')) will return
      *                               'Hello John'</code>
      *
      * @return string
      */
-    function translate(string $key, array $insertVariables = array()): string
+    public function translate(string $key, array $insertVariables = array()): string
     {
-        $translatedString = $this->localizationObject[$key];
+		// Make the key lowercase
+		$key = strtolower($key);
+
+		// If the key does not exist, return an empty string
+		if (!array_key_exists($key, $this->i18nObject)) {
+			return '';
+		}
+
+        $translatedString = $this->i18nObject[$key];
+
         foreach ($insertVariables as $key => $value) {
             $translatedString = str_replace("{" . $key . "}", $value, $translatedString);
         }
-        return $translatedString;
+        return $translatedString ?? '';
     }
 
-    function getLang()
+    public function getLanguage()
     {
-        return $this->lang;
+        return $this->language;
     }
 
     #[ReturnTypeWillChange] public function offsetExists($offset): bool
     {
-        return isset($this->localizationObject[$offset]);
+        return isset($this->i18nObject[$offset]);
     }
 
     #[ReturnTypeWillChange] public function offsetGet($offset)
     {
-        return $this->localizationObject[$offset] ?? NULL;
+        return $this->i18nObject[$offset] ?? NULL;
     }
 
     #[ReturnTypeWillChange] public function offsetSet($offset, $value)
     {
+		throw new Exception('Cannot set value in i18n object');
     }
 
     #[ReturnTypeWillChange] public function offsetUnset($offset)
     {
+		throw new Exception('Cannot unset value in i18n object');
     }
 }
+
+$i18n = new I18n();

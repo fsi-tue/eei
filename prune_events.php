@@ -5,8 +5,8 @@
  */
 
 global $events, $fp;
-require_once('config.php');
-require_once('event_data.php');
+require_once 'config.php';
+require_once 'event_data.php';
 
 
 $ALL_FILES = scandir($fp);

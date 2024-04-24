@@ -1,20 +1,17 @@
 <?php
-require_once('config.php');
-require_once('utils.php');
-require_once('localisation/localizer.php');
-$localizer = new Localizer();
-// import event_data after localizer, because event_data uses $localizer
-require_once('event_data.php');
+require_once 'config.php';
+require_once 'utils.php';
+require_once 'event_type.php';
+require_once 'i18n/i18n.php';
 
-global $events;
+global $i18n, $events;
 const ICS_MIME_TYPE = 'text/calendar';
-const iCalenderHeader = "
+const ICALENDAR_HEADER = "
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 ";
-const iCalenderFooter = "END:VCALENDAR";
-
+const ICALENDAR_FOOTER = "END:VCALENDAR";
 const FSI_ICAL_CLOUD_URL = 'https://www.fsi.uni-tuebingen.de/__calendarHelper/';
 
 # Downloads the ICS file from the FSI cloud and saves it to the file system.
@@ -39,7 +36,7 @@ function downloadAndSaveFSICloudICS(): bool
 }
 
 # Returns the ICS file for the given event.
-function getICSForEvent($E): string
+function getICSForEvent(Event $event): string
 {
     // Check if the ICS file for the event exists.
     global $fp;
@@ -50,22 +47,22 @@ function getICSForEvent($E): string
     }
 
     // Read the ICS file.
-    $content = file_get_contents($filename);
-    if ($content === FALSE) {
+    $fsi_cloud_calendar = file_get_contents($filename);
+    if ($fsi_cloud_calendar === FALSE) {
         return '';
     }
 
     // Split the ICS file into events.
-    $events = explode('BEGIN:VEVENT', $content);
+    $fsi_events = explode('BEGIN:VEVENT', $fsi_cloud_calendar);
 
     // Search in the event DESCRIPTION for the event with the given event id
     // and return it.
-    foreach ($events as $event) {
+    foreach ($fsi_events as $fsi_event) {
         // Find Event ID in the event and return the event
         // It does not matter where it is, but for the sake of cleanliness
         // it could be put in the description of the event
-        if (str_contains($event, $E['link'])) {
-            return iCalenderHeader . "BEGIN:VEVENT" . $event . iCalenderFooter;
+        if (str_contains($fsi_event, $event->link)) {
+            return ICALENDAR_HEADER . "BEGIN:VEVENT" . $fsi_event . ICALENDAR_FOOTER;
         }
     }
 

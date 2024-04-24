@@ -36,7 +36,7 @@ Example:
         "SP1" => [
          # Link MUST be the same as the key (top left)
             "link" => 'SP1',
-            "name" => $localizer['sp1_name'],
+            "name" => $i18n['sp1_name'],
          #   Time of event (hour, minute, second, MONTH, DAY, year)
          #   This timestamp is used by prune_events.php, so make sure it is set correctly, otherwise the registrations will be deleted automatically!
             "startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
@@ -66,7 +66,7 @@ Example:
             # set start_of_registration to FALSE to open registration for immediately
             "end_of_registration" => mktime('20', '0', '0', '09', '23', '2021'),
          # Text (html) description of event
-            "text" => $localizer['sp1_text'],
+            "text" => $i18n['sp1_text'],
          # Metas for the event
             "metas" => [
               # Email addresses to send registration to
