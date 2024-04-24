@@ -4,10 +4,10 @@
  * Deletes old events from EEI, this script is called by Github Actions weekly
  */
 
-global $events, $fp;
 require_once 'config.php';
 require_once 'event_type.php';
 
+global $events, $fp;
 
 $ALL_FILES = scandir($fp);
 
