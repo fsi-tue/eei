@@ -1,4 +1,15 @@
 <?php
+/**
+ * Event type
+ *
+ * This file contains the Event class which represents an event.
+ * It also contains the events array which contains all events.
+ *
+ * To use this file, include it in your PHP file:
+ * require_once "event_type.php";
+ * global $events;
+ */
+
 // Import config because it needs $fp
 require_once "config.php";
 
@@ -415,4 +426,7 @@ class Event
 	}
 }
 
+// Load the events from the events.yaml file
+// The events must be imported using the following code:
+// global $events;
 $events = Event::fromYaml(__DIR__ . '/events.yml');
