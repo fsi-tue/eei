@@ -4,17 +4,18 @@
  * Deletes old events from EEI, this script is called by Github Actions weekly
  */
 
-global $events, $fp;
 require_once 'config.php';
-require_once 'event_data.deprecated.php';
+require_once 'event_type.php';
 
+global $events, $fp;
 
 $ALL_FILES = scandir($fp);
 
 // get all filepaths (for detecting orphans)
 $event_filepaths = array();
-foreach ($events as $event_id) {
-	$event_filepaths[] = $event_id['path'];
+foreach ($events as /* @var Event $event */
+		 $event) {
+	$event_filepaths[] = $event->csvPath;
 }
 
 $deleted_events = array();
@@ -41,12 +42,13 @@ if ($ALL_FILES != $event_filepaths) {
 	}
 }
 
-foreach ($events as $event_id) {
+foreach ($events as /* @var Event $event */
+		 $event) {
 	// delete list of participants if event was more than two weeks ago
-	if (file_exists($event_id['path']) && time() >= ($event_id["startUTS"] + (86400 * 14))) {
-		if (unlink($event_id["path"])) {
-			echo("deleted " . $event_id['path'] . PHP_EOL);
-			$deleted_events[] = $event_id['path'];
+	if (file_exists($event->csvPath) && time() >= ($event->getEventStartUTS() + (86400 * 14))) {
+		if (unlink($event["path"])) {
+			echo("deleted " . $event->csvPath . PHP_EOL);
+			$deleted_events[] = $event->csvPath;
 		} else {
 			http_response_code(500);
 			exit("File could not be deleted. Possible file permission problem (uid/gid for PHP-FPM instances: 82)");

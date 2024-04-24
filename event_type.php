@@ -12,6 +12,7 @@
 
 // Import config because it needs $fp
 require_once "config.php";
+require_once "i18n/i18n.php";
 
 // Load the Spyc library
 require __DIR__ . '/lib/spyc/Spyc.php';
