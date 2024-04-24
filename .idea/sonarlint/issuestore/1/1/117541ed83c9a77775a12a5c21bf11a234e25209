@@ -1,6 +1,0 @@
-
-;	php:S2003
-"&Replace "require" with "require_once".(¦ϋΘ 
-G	php:S6600"-Remove the parentheses from this "echo" call.(³ξτΫϊÿÿÿÿ
-a	php:S4833
-"LReplace "require" with namespace import mechanism through the "use" keyword.(¦ϋΘ 
