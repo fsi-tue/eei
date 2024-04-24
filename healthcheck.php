@@ -1,9 +1,9 @@
 <?php
 
 if (php_sapi_name() !== 'cli') {
-    http_response_code(400);
-    echo('This script can only be run from the command line.');
-    exit(1);
+	http_response_code(400);
+	echo('This script can only be run from the command line.');
+	exit(1);
 }
 
 // Include the config file to get the filepath $fp
@@ -15,13 +15,13 @@ $testString = 'Healthcheck test string';
 
 // Remove test file if it already exists
 if (file_exists($testFile)) {
-    unlink($testFile);
+	unlink($testFile);
 }
 
 // Try writing to a test file
 if (file_put_contents($testFile, $testString) === false) {
-    echo "Error: Unable to write to the specified file path in config.php\n";
-    exit(1); // Indicate an error
+	echo "Error: Unable to write to the specified file path in config.php\n";
+	exit(1); // Indicate an error
 }
 
 // Clean up the test file

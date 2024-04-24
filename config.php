@@ -1,9 +1,9 @@
 <?php
 
-error_reporting(E_ERROR);
+error_reporting(E_ALL);
 date_default_timezone_set("Europe/Berlin");
 
-$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", FALSE, NULL, 0, 40);
+$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", false, NULL, 0, 40);
 
 # General Information
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';

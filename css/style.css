@@ -3,12 +3,23 @@
     /* Colors */
     --background-color: #f5f5f5;
     --background-color-light: #ffffff;
+
+    /* Primary Color */
     --primary-color: #000080;
     --primary-color-rgb: 0, 0, 128;
+
+    /* Success Color */
+    --success-color: #008000;
+    --success-color-rgb: 0, 128, 0;
+    --success-color-light: #cce5cc;
+
+    /* Text Color */
     --text-color: #202020;
     --text-color-light: #ffffff;
     --text-hover-color: var(--primary-color);
     --text-inactive-color: #606060;
+
+    /* Box Color */
     --box-color: #ffffff;
     --box-hover-color: #dddddd;
     --box-inactive-color: #cccccc;
@@ -28,7 +39,6 @@
     --font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-weight: 500;
     --letter-spacing: 0.02em;
-    --font-size: 12pt;
 }
 
 body {
@@ -36,7 +46,7 @@ body {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     letter-spacing: var(--letter-spacing);
-    font-size: var(--font-size);
+    font-size: calc(10pt + 0.390625vw);
     text-align: justify;
 
     /* Colors */
@@ -85,13 +95,17 @@ a .link.color-border {
     padding: 5px;
     text-align: center;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 150%;
     border-radius: var(--border-radius);
 
     transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: var(--box-shadow);
     transform: translateY(0);
     background-color: initial;
+}
+
+.box.today {
+    background-color: var(--success-color-light);
 }
 
 .box:not(.inactive):not(.past):hover {
@@ -179,6 +193,7 @@ p.date {
 
 /* Container Styles */
 .container {
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -228,7 +243,7 @@ form {
     text-align: left;
 }
 
-form input[type="submit"], form .block {
+form input[type="submit"], form .text-block {
     margin: 0 auto;
     margin-bottom: 10px;
     display: block;
@@ -236,7 +251,7 @@ form input[type="submit"], form .block {
 }
 
 /* Block */
-.block {
+.text-block {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
@@ -245,8 +260,8 @@ form input[type="submit"], form .block {
 }
 
 /* Error and Info Message Styles */
-.block.error,
-.block.info {
+.text-block.error,
+.text-block.info {
     border-radius: var(--border-radius);
     margin: 5px auto;
 }
@@ -295,7 +310,7 @@ a .box.icon {
 
 /* Description Styles */
 .description {
-    margin: 5px auto;
+    margin: 10px auto;
     white-space: nowrap;
     padding-left: 35px;
     width: min-content;

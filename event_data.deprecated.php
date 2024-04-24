@@ -1,0 +1,741 @@
+<?php
+#########################################################
+#                                                       #
+#      _                               _           _    #
+#     | |                             | |         | |   #
+#   __| | ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |   #
+#  / _` |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |   #
+# | (_| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |   #
+#  \__,_|\___| .__/|_|  \___|\___\__,_|\__\___|\__,_|   #
+#            | |                                        #
+#            |_|                                        #
+#   													#
+#########################################################
+
+
+
+
+require_once 'i18n/i18n.php';
+require_once "config.php";
+
+# Metas contains email addresses of people who should be notified when someone registers for an event
+if (file_exists("metas.php")) {
+	include_once "metas.php";
+	# import the variable mail_handles from metas.php if existant
+	global $mail_handles;
+}
+
+#########################################################
+#                                                       #
+#      _                               _           _    #
+#     | |                             | |         | |   #
+#   __| | ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |   #
+#  / _` |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |   #
+# | (_| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |   #
+#  \__,_|\___| .__/|_|  \___|\___\__,_|\__\___|\__,_|   #
+#            | |                                        #
+#            |_|                                        #
+#   													#
+#########################################################
+
+global $i18n, $fp;
+
+$events = [
+	# SE Workshops
+	"ws-software-engineering" => [
+		"link" => "ws-software-engineering",
+		"name" => '<span style="font-size: 14px;">Software Engineering</span> Workshop',
+		"startUTS" => mktime('9', '0', '0', '04', '20', '2024'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-se-ss24-01.csv",
+		"icon" => "cap",
+		"location" => 'Sand A104',
+		"date" => '20./21.04.2024 9-17',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '04', '19', '2024'),
+		"text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 20./21.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
+		"info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015).Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024.",
+		"metas" => [$mail_handles['linus']]
+	],
+	"ws-software-engineering2" => [
+		"link" => "ws-software-engineering2",
+		"name" => '<span style="font-size: 14px;">Software Engineering</span> Workshop',
+		"startUTS" => mktime('9', '0', '0', '05', '04', '2024'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-se-ss24-02.csv",
+		"icon" => "cap",
+		"location" => 'Sand A104',
+		"date" => '04./05.05.2024 9-17',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '05', '03', '2024'),
+		"text" => "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt.",
+		"info" => "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024.",
+		"metas" => [$mail_handles['linus']]
+	],
+	#########################################################
+	#                                                       #
+	#      _                               _           _    #
+	#     | |                             | |         | |   #
+	#   __| | ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |   #
+	#  / _` |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |   #
+	# | (_| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |   #
+	#  \__,_|\___| .__/|_|  \___|\___\__,_|\__\___|\__,_|   #
+	#            | |                                        #
+	#            |_|                                        #
+	#   													#
+	#########################################################
+	/*
+	# Kneipentour I
+	"KT1" => [
+		"link" => "KT1",
+		"name" => $localizer['kt1_name'],
+		"startUTS" => mktime('20', '00', '0', '04', '12', '2024'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-kneipentour1.csv",
+		"icon" => "beer",
+		"location" => '',
+		"date" => '12.04.24 20:00',
+		"max_participants" => 40,
+		"start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+		"end_of_registration" => mktime('18', '59', '59', '04', '12', '2024'),
+		"text" => $localizer['kt1_text'],
+		"info" => "",
+		"metas" => [$mail_handles['michi']]
+	],
+	# Spieleabend I
+	"SP1" => [
+		"link" => 'SP1',
+		"name" => $localizer['sp1_name'],
+		"startUTS" => mktime('19', '0', '0', '04', '11', '2024'),
+		"onTime" => false,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-spieleabend1.csv",
+		"icon" => 'dice',
+		"location" => 'Sand 14, A104',
+		"date" => '11.04.24 ab 19:00',
+		"max_participants" => 200 ,
+		"start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+		"end_of_registration" => mktime('19', '0', '0', '04', '11', '2024'),
+		"text" => $localizer['sp1_text'],
+		"info" => "",
+		"metas" => [$mail_handles['flop']]
+	],
+	#########################################################
+	#                                                       #
+	#      _                               _           _    #
+	#     | |                             | |         | |   #
+	#   __| | ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |   #
+	#  / _` |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |   #
+	# | (_| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |   #
+	#  \__,_|\___| .__/|_|  \___|\___\__,_|\__\___|\__,_|   #
+	#            | |                                        #
+	#            |_|                                        #
+	#   													#
+	#########################################################
+	*/
+	# Spieleabend II
+	"SP2" => [
+		"link" => 'SP2',
+		"name" => $i18n['sp2_name'],
+		"startUTS" => mktime('19', '0', '0', '04', '24', '2024'),
+		"onTime" => false,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-spieleabend2.csv",
+		"icon" => 'dice',
+		"location" => 'Sand 14, A301',
+		"date" => '24.04.24 ab 19:00',
+		"max_participants" => 200,
+		"start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+		"end_of_registration" => mktime('19', '0', '0', '04', '24', '2024'),
+		"text" => $i18n['sp2_text'],
+		"info" => "",
+		"metas" => [$mail_handles['flop']]
+	],
+	# Spieleabend III
+	"SP3" => [
+		"link" => 'SP3',
+		"name" => $i18n['sp2_name'],
+		"startUTS" => mktime('19', '0', '0', '04', '16', '2024'),
+		"onTime" => false,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-spieleabend3.csv",
+		"icon" => 'dice',
+		"location" => 'Sand 14, A104',
+		"date" => '16.04.24 ab 19:00',
+		"max_participants" => 100,
+		"start_of_registration" => mktime('0', '0', '0', '04', '02', '2024'),
+		"end_of_registration" => mktime('19', '0', '0', '04', '14', '2024'),
+		"text" => $i18n['sp2_text'],
+		"info" => "",
+		"metas" => [$mail_handles['jules']]
+	],
+	# Kneipentour II
+	"KT2" => [
+		"link" => "KT2",
+		"name" => $i18n['kt2_name'],
+		"startUTS" => mktime('19', '00', '0', '05', '02', '2024'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-kneipentour2.csv",
+		"icon" => "beer",
+		"location" => '',
+		"date" => '02.05.24 19:00',
+		"max_participants" => 84,
+		"start_of_registration" => mktime('0', '0', '0', '03', '27', '2024'),
+		"end_of_registration" => mktime('11', '59', '59', '05', '02', '2024'),
+		"text" => $i18n['kt2_text'],
+		"info" => "",
+		"metas" => [$mail_handles['michi']]
+	],
+	/*
+	# Flunkyball Turnier
+	"FB" => [
+		"link" => "FB",
+		"name" => 'Flunkyball Turnier',
+		"startUTS" => mktime('17', '00', '0', '04', '17', '2024'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}flunkyball_turnier.csv",
+		"icon" => "beer",
+		"location" => 'Sand 14',
+		"date" => '17.04.24 17:00',
+		"max_participants" => 200,
+		"start_of_registration" => mktime('0', '0', '0', '04', '01', '2024'),
+		"end_of_registration" => mktime('11', '59', '59', '04', '17', '2024'),
+		"text" => $localizer['fb_text'],
+		"info" => "",
+		"metas" => [$mail_handles['michi'], $mail_handles['flop']]
+	],
+	*/
+	# Wanderung I
+	#  "WD1" => [
+	#     "link" => "WD1",
+	#     "name" => $localizer['wd1_name'],
+	#     "startUTS" => mktime('10', '30', '0', '04', '20', '2024'),
+	#     'onTime' => true,
+	#     "active" => true,
+	#     "cancelled" => false,
+	#     "course_required" => true,
+	#     "food" => false,
+	#     "breakfast" => false,
+	#     "path" => "{$fp}ersti-wanderung1.csv",
+	#     "icon" => "route",
+	#     "location" => 'Neckarinsel',
+	#     "date" => '20.04.24 10:30',
+	#     "max_participants" => 120,
+	#     "start_of_registration" => mktime('0', '0', '0', '04', '20', '2024'),
+	#     "end_of_registration" => mktime('10', '30', '0', '04', '20', '2024'),
+	#    "text" => $localizer['wd1_text'],
+	#     "info" => "",
+	#     "metas" => [$mail_handles['kaip']]
+	# ],
+	# Wanderung II
+	"WD2" => [
+		"link" => "WD2",
+		"name" => $i18n['wd2_name'],
+		"startUTS" => mktime('10', '30', '0', '05', '11', '2024'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-wanderung2.csv",
+		"icon" => "route",
+		"location" => 'Neckarinsel',
+		"date" => '11.05.24 10:30',
+		"max_participants" => 120,
+		"start_of_registration" => mktime('0', '0', '0', '05', '11', '2024'),
+		"end_of_registration" => mktime('10', '30', '0', '05', '11', '2024'),
+		"text" => $i18n['wd2_text'],
+		"info" => "",
+		"metas" => [$mail_handles['kaip']]
+	],
+	# Grillen 1
+	"GR1" => [
+		"link" => 'GR1',
+		"name" => $i18n['gr1_name'],
+		"startUTS" => mktime('18', '30', '0', '04', '27', '2024'),
+		'onTime' => false,
+		"active" => true,/*
+            "cancelled" => false,
+            "course_required" => true,
+            "food" => false,
+            "breakfast" => false,
+            "path" => "{$fp}ersti-grillen1.csv",
+            */
+		"icon" => 'grill',
+		/*
+		"location" => 'Terrasse Sand',
+		"date" => '06.10.23 ab 17:00',
+		"max_participants" => 150 ,
+		"start_of_registration" => mktime('0', '0', '0', '09', '29', '2023'),
+		"end_of_registration" => mktime('17', '0', '0', '10', '06', '2023'),
+		"text" => $localizer['gr1_text'],
+		"info" => "",*/
+		"metas" => [$mail_handles['kaip']]
+	],
+	# Grillen 2
+	"GR2" => [
+		"link" => 'GR2',
+		"name" => $i18n['gr2_name'],
+		"startUTS" => mktime('18', '30', '0', '05', '25', '2024'),
+		'onTime' => false,
+		"active" => true,/*
+            "cancelled" => false,
+            "course_required" => true,
+            "food" => false,
+            "breakfast" => false,
+            "path" => "{$fp}ersti-grillen2.csv",
+            */
+		"icon" => 'grill',
+		/*
+		"location" => 'Terrasse Sand',
+		"date" => '25.10.23 ab 17:00',
+		"max_participants" => 150 ,
+		"start_of_registration" => mktime('0', '0', '0', '10', '18', '2023'),
+		"end_of_registration" => mktime('17', '0', '0', '10', '25', '2023'),
+		"text" => $localizer['gr2_text'],
+		"info" => "",
+		*/
+		"metas" => [$mail_handles['kaip']]
+	],
+	# Mister X
+	"X" => [
+		"link" => "X",
+		"name" => 'Mister X (real life)',
+		"startUTS" => mktime('15', '0', '0', '04', '21', '2024'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}misterx1.csv",
+		"icon" => "marker",
+		"location" => 'Sand 14',
+		"date" => '21.04.24 15:00',
+		"max_participants" => 35,
+		"start_of_registration" => mktime('0', '0', '0', '04', '12', '2024'),
+		"end_of_registration" => mktime('23', '59', '59', '04', '20', '2024'),
+		"text" => "Mister X / Scotland Yard (real life)",
+		"info" => "Bitte ein aufgeladenes Handy mitbringen (wenn möglich).",
+		"metas" => [$mail_handles['danielb']]
+	],
+	/*
+	# Stadtrallye
+	"RY" => [
+		"link" => "RY",
+		"name" => $localizer['ry_name'],
+		"startUTS" => mktime('16', '30', '0', '10', '20', '2023'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-rallye.csv",
+		"icon" => "route",
+		"location" => '',
+		"date" => '20.10.23 16:30',
+		"max_participants" => 120,
+		"start_of_registration" => mktime('0', '0', '0', '10', '13', '2023'),
+		"end_of_registration" => mktime('11', '59', '59', '10', '18', '2023'),
+		"text" => $localizer['ry_text'],
+		# <br> Nach der Rallye ziehen wir gemeinsam durch die Kneipen dieser Stadt.",
+		"info" => "",
+		"metas" => []
+	],
+	# Kastenlauf
+	"KASTEN" => [
+		"link" => "KASTEN",
+		"name" => $localizer['kasten_name'],
+		"startUTS" => mktime('18', '0', '0', '04', '14', '2023'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}kastenlauf.csv",
+		"icon" => "beer",
+		"location" => 'Rewe Weststadt <br> Schleifmühlenweg 36',
+		"date" => '14.04.23 18:00',
+		"max_participants" => 60,
+		"start_of_registration" => mktime('0', '0', '0', '04', '07', '2023'),
+		"end_of_registration" => mktime('23', '59', '59', '04', '13', '2023'),
+		"text" => $localizer['kasten_text'],
+		"info" => "",
+	],
+
+	# Wanderung III
+	"WD3" => [
+		"link" => "WD3",
+		"name" => $localizer['wd3_name'],
+		"startUTS" => mktime('11', '0', '0', '11', '18', '2023'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => true,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-wanderung3.csv",
+		"icon" => "route",
+		"location" => 'Neckarinsel',
+		"date" => '18.11.23 11:00',
+		"max_participants" => 120,
+		"start_of_registration" => mktime('0', '0', '0', '11', '11', '2023'),
+		"end_of_registration" => mktime('11', '0', '0', '11', '18', '2023'),
+		"text" => $localizer['wd3_text'],
+		"info" => "",
+		"metas" => [$mail_handles['kaip']]
+	],
+	"FILM" => [
+		"link" => 'FILM',
+		"name" => $localizer['film_name'],
+		"startUTS" => mktime('18', '30', '0', '10', '24', '2023'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => false,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}filmeabend.csv",
+		"icon" => 'film',
+		"location" => 'Sand',
+		"date" => '24.10.23 18:30',
+		"max_participants" => 50 ,
+		"start_of_registration" => mktime('0', '0', '0', '10', '17', '2023'),
+		"end_of_registration" => mktime('18', '30', '00', '10', '24', '2023'),
+		"text" => $localizer['film_text'],
+		"info" => "",
+		"metas" => []
+	],
+	# Grillen 1
+	"GR1" => [
+		"link" => 'GR1',
+		"name" => $localizer['gr1_name'],
+		"startUTS" => mktime('17', '0', '0', '10', '06', '2023'),
+		'onTime' => false,
+		"active" => true,/*
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-grillen1.csv",
+		"icon" => 'grill',
+		"location" => 'Terrasse Sand',
+		"date" => '06.10.23 ab 17:00',
+		"max_participants" => 150 ,
+		"start_of_registration" => mktime('0', '0', '0', '09', '29', '2023'),
+		"end_of_registration" => mktime('17', '0', '0', '10', '06', '2023'),
+		"text" => $localizer['gr1_text'],
+		"info" => "",
+		"metas" => []
+	],
+	# Grillen 2
+	"GR2" => [
+		"link" => 'GR2',
+		"name" => $localizer['gr2_name'],
+		"startUTS" => mktime('17', '0', '0', '10', '25', '2023'),
+		'onTime' => false,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}ersti-grillen2.csv",
+		"icon" => 'grill',
+		"location" => 'Terrasse Sand',
+		"date" => '25.10.23 ab 17:00',
+		"max_participants" => 150 ,
+		"start_of_registration" => mktime('0', '0', '0', '10', '18', '2023'),
+		"end_of_registration" => mktime('17', '0', '0', '10', '25', '2023'),
+		"text" => $localizer['gr2_text'],
+		"info" => "",
+		"metas" => [$mail_handles['olli']]
+	],
+	# Wochenende/Hütte
+	"HUETTE" => [
+		"link" => "HUETTE",
+		"name" => $localizer['huette_name'],
+		"startUTS" => mktime('15', '30', '0', '04', '28', '2023'),
+		// Time is ignored
+		"endUTS" => mktime('0', '0', '0', '04', '30', '2023'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => true,
+		"breakfast" => true,
+		"path" => "{$fp}ersti-huette.csv",
+		"icon" => "home",
+		"location" => 'Kalkweil',
+		"date" => '28.04.23 - 30.04.23',
+		"max_participants" => 35,
+		"start_of_registration" => mktime('10', '0', '0', '04', '17', '2023'),
+		"end_of_registration" => mktime('23', '59', '59', '04', '21', '2023'),
+		"text" => $localizer['huette_text'],
+		"info" => "",
+	],
+	# Sommerfest
+	"SO" => [
+		"link" => 'SO',
+		"name" => 'Sommerfest',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => false,
+		"food" => true,
+		"breakfast" => false,
+		"path" => "{$fp}sommerfest.csv",
+		"icon" => 'grill',
+		"location" => 'Terrasse Sand',
+		"date" => '25.09.21 ab 18:00',
+		"max_participants" => 260 ,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('20', '0', '0', '09', '23', '2021')
+	],
+	# Frühstück
+	"FRUEH" => [
+		"link" => "FRUEH",
+		"name" => $localizer['frueh_name'],
+		"startUTS" => mktime('10', '0', '0', '10', '13', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => true,
+		"breakfast" => true,
+		"path" => "{$fp}ersti-fruestueck.csv",
+		"icon" => "food",
+		"location" => 'Mensa Morgenstelle',
+		"date" => '13.10.23 10:00',
+		"max_participants" => 120,
+		"start_of_registration" => mktime('0', '0', '0', '10', '01', '2023'),
+		"end_of_registration" => mktime('17', '0', '0', '10', '08', '2023'),
+		"text" => $localizer['frueh_text'],
+		"info" => "",
+		"metas" => []
+	],
+	# Capture the Flag
+	"CTF" => [
+		"link" => "CTF",
+		"name" => 'Capture the Flag',
+		"startUTS" => mktime('15', '0', '0', '10', '15', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}capture-the-flag.csv",
+		"icon" => "marker",
+		"location" => '',
+		"date" => '15.10.23 15:00',
+		"max_participants" => 40,
+		"start_of_registration" => mktime('0', '0', '0', '10', '8', '2023'),
+		"end_of_registration" => mktime('23', '59', '59', '10', '14', '2023'),
+		"text" => "Capture the Flag (Real Life)",
+		"info" => "",
+		"metas" => []
+	],
+
+	# Jugger Workshop
+	"JUGGER" => [
+		"link" => "JUGGER",
+		"name" => 'Jugger Workshop',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-jugger.csv",
+		"icon" => "marker",
+		"location" => 'Terasse Sand',
+		"date" => '17.10.22 17:00',
+		"max_participants" => 18,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('24', '0', '0', '10', '14', '2022'),
+		"text" => "Jugger-Workshop<br>
+		Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht.
+		Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren.
+		Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können.
+		Um eine Idee von der Sportart zu bekommen findet ihr <a href='https://www.youtube.com/watch?v=-EVhMVWmdUw'>hier [YouTube]</a> ein Beispielvideo.<br>
+		Für den Workshop sind Studierende aus allen Semestern willkommen.
+		Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen.
+		Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit.",
+		"info" => "",
+		"metas" => []
+	],
+	# Workshop Latex Basic
+	"ws-latex-basic" => [
+		"link" => "ws-latex-basic",
+		"name" => 'Latex Basic',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-latex-basic-ss23.csv",
+		"icon" => "cap",
+		"location" => 'Sand A301',
+		"date" => '04.04.23 9-12',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
+		"text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Könnt ihr dies schon, gibt es am Nachmittag fortgeschrittene Themen.",
+		"info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+	],
+	# Workshop Latex Advanced
+	"ws-latex-advanced" => [
+		"link" => "ws-latex-advanced",
+		"name" => 'Latex Advanced',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-latex-advanced-ss23.csv",
+		"icon" => "cap",
+		"location" => 'Sand A301',
+		"date" => '04.04.23 14-17',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
+		"text" => "Ob Übungsblatt oder Abschlussarbeit, im Laufe des Studiums müsst ihr öfters wissenschaftlich und mathematische Texte verfassen. Mit LaTeX habt ihr die Möglichkeit, diese schnell und professionell zu erstellen. Dieser Workshop bietet euch einen Einstieg in den Umgang mit LaTeX, Overleaf und TexStudio. Dieser Kurs setzt gewisse Latex Grundkentnisse die ihr im Workshop Latex Basics erwerben kann.",
+		"info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+	],
+	# Workshop Git Basic
+	"ws-git-basic" => [
+		"link" => "ws-git-basic",
+		"name" => 'GIT Basic',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-git-basic-ss23.csv",
+		"icon" => "cap",
+		"location" => 'Sand A301',
+		"date" => '05.04.23 9-12',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
+		"text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dies ist der Grundlagenkurs.",
+		"info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+	],
+	# Workshop Git Advanced
+	"ws-git-advanced" => [
+		"link" => "ws-git-advanced",
+		"name" => 'GIT Advanced',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-git-advanced-ss23.csv",
+		"icon" => "cap",
+		"location" => 'Sand A301',
+		"date" => '05.04.23 14-17',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
+		"text" => "Git ist DAS Tool, welches dir beim Teamprojekt und auf der Arbeit viel Mühe spart. In diesem Workshop gibt es eine kurze Einführung in die Versionsverwaltung mit Git für Programmierprojekte und wie ihr es effektiv nutzen könnt. Hierbei wird es keine reine Theorievorlesung sein, sondern auch eine Vielzahl an praktischen Übungen geben. Dieser Kurs baut auf Git Basic auf.",
+		"info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+	],
+	# Workshop Python Basics
+		"ws-python-basic" => [
+		"link" => "ws-python-basic",
+		"name" => 'Python Basic',
+		"startUTS" => mktime('18', '0', '0', '04', '20', '2023'),
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => true,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}workshop-python-basic-ss23.csv",
+		"icon" => "cap",
+		"location" => 'Sand A301',
+		"date" => '03.04.23 9-16',
+		"max_participants" => 25,
+		"start_of_registration" => false,
+		"end_of_registration" => mktime('23', '59', '59', '04', '02', '2023'),
+		"text" => "Schnell eine Aufgabe automatisieren? Ein ML-Modell trainieren oder doch ein eigenständiges Programm entwickeln? Mit der vielseitigen und einfach zu erlernenden Programmiersprache “Python” lässt sich dies und vieles mehr erreichen. In diesem Workshop lernt ihr die Grundlagen, um eigenständig kleinere Skripte zu schreiben. Nachmittags werden am Beispiel von einer Datenquelle im Netz tiefer gehende Konzepte eingeführt.",
+		"info" => "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen.",
+	],
+	# offene Weihnachtsfeier
+	"WF" => [
+		"link" => "WF",
+		"name" => $localizer['wf_name'],
+		"startUTS" => mktime('17', '00', '0', '12', '15', '2023'),
+		'onTime' => true,
+		"active" => true,
+		"cancelled" => false,
+		"course_required" => false,
+		"food" => false,
+		"breakfast" => false,
+		"path" => "{$fp}weihnachtsfeier.csv",
+		"icon" => "marker",
+		"location" => 'Sand A104',
+		"date" => '15.12.23 17:00',
+		"max_participants" => 300,
+		"start_of_registration" => mktime('0', '0', '0', '11', '24', '2023'),
+		"end_of_registration" => mktime('23', '59', '59', '12', '14', '2023'),
+		"text" => $localizer['wf_text'],
+		"info" => "",
+		"metas" => [$mail_handles['drei']]
+	],
+	*/
+];
+#########################################################
+#                                                       #
+#      _                               _           _    #
+#     | |                             | |         | |   #
+#   __| | ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |   #
+#  / _` |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |   #
+# | (_| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |   #
+#  \__,_|\___| .__/|_|  \___|\___\__,_|\__\___|\__,_|   #
+#            | |                                        #
+#            |_|                                        #
+#   													#
+#########################################################
+
+?>
