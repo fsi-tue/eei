@@ -138,8 +138,8 @@ class Event
 			$event->eventDate['endUTS'] = $endDate ? $endDate->getTimestamp() : 0;
 
 			// Registration
-			$startRegDate = DateTime::createFromFormat($dateFormat, $event->registrationDate['start']);
-			$endRegDate = DateTime::createFromFormat($dateFormat, $event->registrationDate['end']);
+			$startRegDate = DateTime::createFromFormat($dateFormat, $event->registrationDate['start'] ?? '');
+			$endRegDate = DateTime::createFromFormat($dateFormat, $event->registrationDate['end'] ?? '');
 			$event->registrationDate['startUTS'] = $startRegDate ? $startRegDate->getTimestamp() : 0;
 			$event->registrationDate['endUTS'] = $endRegDate ? $endRegDate->getTimestamp() : 0;
 
@@ -376,21 +376,6 @@ class Event
 		return $dateAndTime;
 	}
 
-	public function getInfo(): string
-	{
-		return $this->info;
-	}
-
-	public function getLocation(): string
-	{
-		return $this->location;
-	}
-
-	public function getIcon(): string
-	{
-		return $this->icon;
-	}
-
 	public function getRemainingSpots(): int
 	{
 		if ($this->maxParticipants) {
@@ -408,21 +393,7 @@ class Event
 			}
 			return $spots;
 		}
-		return -1;
-	}
-
-	public function getRemainingSpotsString(): string
-	{
-		$spots = $this->getRemainingSpots();
-		if ($spots === -1) {
-			return '∞';
-		}
-		return $spots;
-	}
-
-	public function getMeta(string $key)
-	{
-		return $this->metas[$key] ?? '';
+		return 0;
 	}
 }
 

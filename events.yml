@@ -45,20 +45,20 @@ events:
     metas:
       - "flop"
 
-#  SP3:
-#    name: "i18n:sp1_name"
-#    location: "Sand 14, A104"
-#    max_participants: 200
-#    event_date:
-#      start: "08.05.2024 19:00"
-#      onTime: false
-#    registration_date:
-#      start: "27.03.2024 00:00"
-#      end: "08.05.2024 19:00"
-#    csv_path: "ersti-spieleabend3.csv"
-#    icon: "dice"
-#    metas:
-#      - "jules"
+  #  SP3:
+  #    name: "i18n:sp1_name"
+  #    location: "Sand 14, A104"
+  #    max_participants: 200
+  #    event_date:
+  #      start: "08.05.2024 19:00"
+  #      onTime: false
+  #    registration_date:
+  #      start: "27.03.2024 00:00"
+  #      end: "08.05.2024 19:00"
+  #    csv_path: "ersti-spieleabend3.csv"
+  #    icon: "dice"
+  #    metas:
+  #      - "jules"
 
   KT2:
     location: ""
@@ -119,13 +119,13 @@ events:
 
   GR1:
     location: "Terrasse Sand"
-    max_participants: 150
+    #max_participants: 150
     event_date:
       start: "27.04.2024 18:30"
       onTime: false
-    registration_date:
-      start: "20.04.2024 00:00"
-      end: "27.04.2024 17:00"
+      #registration_date:
+      #start: "20.04.2024 00:00"
+      #end: "27.04.2024 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
     metas:
@@ -162,78 +162,78 @@ events:
     metas:
       - "danielb"
 
-#  RY:
-#    location: ""
-#    max_participants: 120
-#    event_date:
-#      start: "20.10.2023 16:30"
-#      onTime: true
-#    registration_date:
-#      start: "13.10.2023 00:00"
-#      end: "20.10.2023 16:00"
-#    csv_path: "rallye1.csv"
-#    icon: "marker"
+  #  RY:
+  #    location: ""
+  #    max_participants: 120
+  #    event_date:
+  #      start: "20.10.2023 16:30"
+  #      onTime: true
+  #    registration_date:
+  #      start: "13.10.2023 00:00"
+  #      end: "20.10.2023 16:00"
+  #    csv_path: "rallye1.csv"
+  #    icon: "marker"
 
-#  KASTEN:
-#    location: "Rewe Weststadt <br> Schleifmühlenweg 36"
-#    max_participants: 60
-#    event_date:
-#      start: "14.04.2023 18:00"
-#      onTime: true
-#    registration_date:
-#      start: "07.04.2023 00:00"
-#      end: "13.04.2023 23:59:59"
-#    csv_path: "kastenlauf.csv"
-#    icon: "beer"
-#    metas:
-#      - "danielb"
+  #  KASTEN:
+  #    location: "Rewe Weststadt <br> Schleifmühlenweg 36"
+  #    max_participants: 60
+  #    event_date:
+  #      start: "14.04.2023 18:00"
+  #      onTime: true
+  #    registration_date:
+  #      start: "07.04.2023 00:00"
+  #      end: "13.04.2023 23:59:59"
+  #    csv_path: "kastenlauf.csv"
+  #    icon: "beer"
+  #    metas:
+  #      - "danielb"
 
-#  FILM:
-#    location: "Sand 14, A104"
-#    max_participants: 200
-#    event_date:
-#      start: "24.10.2023 18:30"
-#      onTime: true
-#    registration_date:
-#      start: "17.10.2023 00:00"
-#      end: "24.10.2023 18:30"
-#    csv_path: "ersti-filmabend.csv"
-#    icon: "film"
+  #  FILM:
+  #    location: "Sand 14, A104"
+  #    max_participants: 200
+  #    event_date:
+  #      start: "24.10.2023 18:30"
+  #      onTime: true
+  #    registration_date:
+  #      start: "17.10.2023 00:00"
+  #      end: "24.10.2023 18:30"
+  #    csv_path: "ersti-filmabend.csv"
+  #    icon: "film"
   
-#  CaptureTheFlag:
-#    name: "Capture the Flag"
-#    location: ""
-#    max_participants: 40
-#    event_date:
-#      start: "15.10.2023 10:00"
-#      end: "15.10.2023 18:00"
-#    registration_date:
-#      start: "08.10.2023 00:00"
-#      end: "15.10.2023 09:00"
-#    csv_path: "capture-the-flag.csv"
-#    icon: "marker"
-#    metas:
-#      - "info"
+  #  CaptureTheFlag:
+  #    name: "Capture the Flag"
+  #    location: ""
+  #    max_participants: 40
+  #    event_date:
+  #      start: "15.10.2023 10:00"
+  #      end: "15.10.2023 18:00"
+  #    registration_date:
+  #      start: "08.10.2023 00:00"
+  #      end: "15.10.2023 09:00"
+  #    csv_path: "capture-the-flag.csv"
+  #    icon: "marker"
+  #    metas:
+  #      - "info"
 
   ##############################
   ### Workshops ###
   ##############################
 
-#  JuggerWorkshop:
-#    name: "Jugger Workshop"
-#    location: "Terrasse Sand"
-#    max_participants: 18
-#    event_date:
-#      start: "17.10.2022 10:00"
-#      end: "17.10.2022 18:00"
-#    registration_date:
-#      start: "14.10.2022 00:00"
-#      end: "17.10.2022 09:00"
-#    csv_path: "workshop-jugger.csv"
-#    icon: "marker"
-#    text: "Jugger-Workshop. Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren. Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können. Um eine Idee von der Sportart zu bekommen findet ihr hier [YouTube] ein Beispielvideo. Für den Workshop sind Studierende aus allen Semestern willkommen. Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen. Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit."
-#    metas:
-#      - "info"
+  #  JuggerWorkshop:
+  #    name: "Jugger Workshop"
+  #    location: "Terrasse Sand"
+  #    max_participants: 18
+  #    event_date:
+  #      start: "17.10.2022 10:00"
+  #      end: "17.10.2022 18:00"
+  #    registration_date:
+  #      start: "14.10.2022 00:00"
+  #      end: "17.10.2022 09:00"
+  #    csv_path: "workshop-jugger.csv"
+  #    icon: "marker"
+  #    text: "Jugger-Workshop. Jugger ist ein actionreicher Teamsport bei dem es um Taktik, Fairness und Spielspaß geht. Es spielen zwei Teams gegeneinander mit dem Ziel, einen Ball (Jugg) möglichst oft im Tor (Mal) der Gegenseite zu platzieren. Außer dem Läufer besitzt jede/r Spielende eine Polsterwaffe (Pompfe) mit der andere Spielende abgetippt werden können. Um eine Idee von der Sportart zu bekommen findet ihr hier [YouTube] ein Beispielvideo. Für den Workshop sind Studierende aus allen Semestern willkommen. Falls ihr eine Brille tragt empfehlen wir euch für den Workshop auf Kontaktlinsen umzusteigen. Bringt ansonsten bitte feste Sportschuhe und ggf. wetterfeste Kleidung mit."
+  #    metas:
+  #      - "info"
 
   ws-software-engineering:
     name: "Software Engineering Workshop"

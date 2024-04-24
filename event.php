@@ -45,7 +45,7 @@ $event = $events[$event_id];
     <h1><?= $event->name . " - " . $CONFIG_TERM ?></h1>
     <h2 class="description icon clock"><?= $event->getEventDateString() ?></h2>
     <h2 class="description icon marker"><?= $event->location; ?></h2>
-    <h2 class="description"><?= $i18n['remaining'] . ": " . $event->getRemainingSpotsString() ?></h2>
+    <h2 class="description"><?= $i18n['remaining'] . ": " . $event->getRemainingSpots() ?></h2>
 	<?= $event->text ?>
     <br>
 	<?php
