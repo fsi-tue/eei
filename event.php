@@ -22,7 +22,7 @@ $event_id = filter_input(INPUT_GET, "e", FILTER_SANITIZE_ENCODED);
 $E = $events[$event_id];
 
 // Check if event is active
-if (!$E->isActive()) {
+if (!$E->isUpcoming()) {
 	// Event is not active
 	// Redirect to main page
 	header(LOCATION);
@@ -46,7 +46,7 @@ if (!$E->isActive()) {
 <body>
 <div id="center" class="small">
     <h1><?= $E->name . " - " . $CONFIG_TERM ?></h1>
-    <h2 class="description icon clock"><?= $E->dateTimeToString() ?></h2>
+    <h2 class="description icon clock"><?= $E->getEventDateString() ?></h2>
     <h2 class="description icon marker"><?= $E->location; ?></h2>
     <h2 class="description"><?= $i18n['remaining'] . ": " . $E->getRemainingSpots() ?></h2>
 	<?= $E->text ?>
@@ -54,7 +54,7 @@ if (!$E->isActive()) {
 	<?php
 	if ($E->info != '') {
 		?>
-        <div class="block info"><?= $E->info ?></div>
+        <div class="text-block info"><?= $E->info ?></div>
 		<?php
 	} ?>
     <div class="block>">
@@ -77,7 +77,7 @@ if (!$E->isActive()) {
 			$del_register_ret = deleteRegistration($registration_id, $E);
 			?>
             <!-- Print the result of the deletion -->
-            <div class="block <?= $del_register_ret[0] ? 'info' : 'error' ?>">
+            <div class="text-block <?= $del_register_ret[0] ? 'info' : 'error' ?>">
 				<?= $del_register_ret[1] ?>
             </div>
 			<?php
@@ -85,7 +85,7 @@ if (!$E->isActive()) {
 			// Register for event
 			$register_ret = register($E);
 			?>
-            <div class="block <?= $register_ret[0] ? 'info' : 'error' ?>">
+            <div class="text-block <?= $register_ret[0] ? 'info' : 'error' ?>">
 				<?= $register_ret[1] ?>
             </div>
 		<?php
@@ -99,7 +99,7 @@ if (!$E->isActive()) {
 		?>
             <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $i18n->getLanguage() ?>"
                   method="post">
-                <div class="block info">
+                <div class="text-block info">
 					<?= $i18n->translate('unsubscribe_text') ?>
                 </div>
                 <input type="hidden" name="registration_id" value="<?= $registration_id ?>">
@@ -112,10 +112,10 @@ if (!$E->isActive()) {
 		// It is used to break out of the loop if an error occurs
 		do {
 		// Check for possible errors and print them if necessary
-        $time = time();
+		$time = time();
 		if (!$E->canRegister()) {
 		?>
-            <div class="block error">
+            <div class="text-block error">
 				<?php
 				// These are sorted by priority
 				if ($E->cancelled) {
@@ -125,10 +125,10 @@ if (!$E->isActive()) {
 				} elseif ($E->getRemainingSpots() == 0) {
 					// Event is full
 					echo $i18n['event_full'];
-				} elseif ($time < $E->getRegistrationStart()) {
+				} elseif ($time < $E->getRegistrationStartUTS()) {
 					// Event is not yet open for registration
-					echo $i18n['start_of_registration'];
-				} elseif ($time > $E->getRegistrationEnd()) {
+					echo $i18n->translate('start_of_registration', array('REGISTRATION_DATE' => $E->getRegistrationDateString()));
+				} elseif ($time > $E->getRegistrationEndUTS()) {
 					// Event is no longer open for registration
 					echo $i18n['end_of_registration'];
 				}
@@ -253,7 +253,7 @@ if (!$E->isActive()) {
 		}
 		}
 		?>
-        <div class="container left">
+        <div class="container">
             <a href="index.php?lang=<?= $i18n->getLanguage() ?>">
                 <div class="link">
 					<?= $i18n['back'] ?>

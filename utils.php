@@ -5,7 +5,7 @@ require_once 'email.php';
 require_once 'calender.php';
 require_once 'event_type.php';
 
-global $i18n;
+global $i18n, $fp;
 
 # Loads the environment variables from the .env file
 # This is a modified version of the function from:
@@ -53,9 +53,24 @@ function isLocalhost($whitelist = ['127.0.0.1', '::1']): bool
 	return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
 }
 
+function createEeiRegistrationFolder(): void
+{
+	global $fp;
+
+	if (!file_exists($fp)) {
+		if (mkdir($fp, 0777, true)) {
+			echo "Created folder $fp\n";
+		} else {
+			http_response_code(500);
+			exit("Folder could not be created. Possible file permission problem (uid/gid for PHP-FPM instances: 82)");
+		}
+	}
+
+}
+
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr)
 {
-	return (FALSE !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
+	return (false !== ($pos = strpos($sourceStr, $searchStr))) ? substr_replace($sourceStr, $replacementStr, $pos, strlen($searchStr)) : $sourceStr;
 }
 
 function writeHeader($file, Event $event): void
@@ -113,27 +128,27 @@ function sendRegistrationDeletedMail($recipient, Event $event): void
 function generateRegistrationIDFromData($data, Event $event): string
 {
 	// Use only “static” values from the event
-	return hash('sha256', implode("", [...$data, $event->link, $event->csvPath, $event->isActive()]));
+	return hash('sha256', implode("", [...$data, $event->link, $event->csvPath, $event->isUpcoming()]));
 }
 
 # Deletes a registration
 function deleteRegistration($registration_id, Event $event): array
 {
 	global $i18n;
-	$filepath = $event->isActive();
+	$filepath = $event->csvPath;
 	$file = fopen($filepath, "r");
 	$data = array();
-	$success = FALSE;
+	$success = false;
 	$deletedLine = NULL;
 
-	while (($line = fgetcsv($file)) !== FALSE) {
+	while (($line = fgetcsv($file)) !== false) {
 		// if the registration hash matches the one we're looking for, skip it
 		if (generateRegistrationIDFromData($line, $event) !== $registration_id) {
 			// if it's not, add it to the new data array
 			$data[] = $line;
 		} else {
 			$deletedLine = $line;
-			$success = TRUE;
+			$success = true;
 		}
 	}
 
@@ -149,9 +164,9 @@ function deleteRegistration($registration_id, Event $event): array
 
 	if ($success) {
 		sendRegistrationDeletedMail($deletedLine[1], $event);
-		return array(TRUE, $i18n->translate('unsubscribed_success'));
+		return array(true, $i18n->translate('unsubscribed_success'));
 	}
-	return array(FALSE, $i18n->translate('unsubscribed_error'));
+	return array(false, $i18n->translate('unsubscribed_error'));
 }
 
 # Processes a registration
@@ -160,10 +175,11 @@ function register(Event $event): array
 	global $i18n;
 
 	// Check if csv file exists
+	var_dump($event->csvPath);
 	if (!file_exists($event->csvPath)) {
 		$file = fopen($event->csvPath, "w");
-		if ($file === FALSE) {
-			return array(FALSE, "Fehler beim Schreiben der Daten");
+		if ($file === false) {
+			return array(false, "Fehler beim Schreiben der Daten");
 		}
 		fclose($file);
 	}
@@ -182,12 +198,12 @@ function register(Event $event): array
 		$fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
 
 	if (empty($mail) || empty($name) || ($event->form['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))) {
-		return array(FALSE, $i18n['missing_data']);
+		return array(false, $i18n['missing_data']);
 	}
 
 	// already registered
 	if (file_exists($event->csvPath) && str_contains(file_get_contents($event->csvPath), $mail)) {
-		return array(FALSE, $i18n['already_registered']);
+		return array(false, $i18n['already_registered']);
 	}
 
 	$data = array();
@@ -208,8 +224,8 @@ function register(Event $event): array
 	}
 
 	$file = fopen($event->csvPath, "a");
-	if ($file === FALSE) {
-		return array(FALSE, "Fehler beim Schreiben der Daten");
+	if ($file === false) {
+		return array(false, "Fehler beim Schreiben der Daten");
 	}
 
 	// add CSV headers if file doesn't exist yet
@@ -219,11 +235,11 @@ function register(Event $event): array
 	$fputcsvRetVal = fputcsv($file, $data);
 	fclose($file);
 
-	if ($fputcsvRetVal !== FALSE) {
+	if ($fputcsvRetVal !== false) {
 		// Generate registration hash and send mail
 		sendRegistrationMail($mail, generateRegistrationIDFromData($data, $event), $event);
 
-		return array(TRUE, "Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.");
+		return array(true, "Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.");
 	}
-	return array(FALSE, "Fehler beim Schreiben der Daten");
+	return array(false, "Fehler beim Schreiben der Daten");
 }

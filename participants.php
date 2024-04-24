@@ -21,17 +21,13 @@ const MAX_TIME_BETWEEN_EMAILS = 12 * 60 * 60; // 12 hours
  */
 function sendParticipantListMail(Event $event): bool
 {
-	if (!canSendEmail($event)) {
-		return false;
-	}
-
 	// get email addresses for event
 	$metas_email_addresses = $event->metas;
-	if (!$metas_email_addresses) {
+	if (!canSendEmail($event) || !$metas_email_addresses) {
 		return false;
 	}
 
-	$subject = "Teilnehmerliste für {$event->name} am " . $event->dateTimeToString();
+	$subject = "Teilnehmerliste für $event->name am " . $event->dateTimeToString();
 	// build message
 	$msg = "$subject:<br><br>";
 	$participants = getParticipants($event);
@@ -67,7 +63,7 @@ function getParticipants(Event $event): array
 	$file = fopen($filepath, "r");
 	$participants = array();
 
-	while (($line = fgetcsv($file)) !== FALSE) {
+	while (($line = fgetcsv($file)) !== false) {
 		$participants[] = $line;
 	}
 
@@ -122,7 +118,7 @@ function canSendEmail(Event $event): bool
 
 	// Find the last time the list of participants was sent
 	$lastTime = 0;
-	while (($line = fgetcsv($file)) !== FALSE) {
+	while (($line = fgetcsv($file)) !== false) {
 		if ($line[0] === $event->link) {
 			$lastTime = strtotime($line[1]);
 		}
@@ -156,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$_SESSION['token_field'] = createRandomToken();
 }
 
-$filtered_events = array_filter($events, fn(Event $event) => $event->isActive());
+$filtered_events = array_filter($events, fn(Event $event) => $event->isUpcoming());
 
 ?>
 
@@ -170,7 +166,7 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isActive())
     <title><?= $i18n["title"] ?></title>
 </head>
 <body>
-<div id='center'>
+<div id="center">
     <div class="container">
 		<?php
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -182,7 +178,7 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isActive())
 					<?php
 					foreach ($filtered_events as /* @var Event $event */
 							 $event) {
-						if ($event->isActive()) {
+						if ($event->isUpcoming()) {
 							?>
                             <option value="<?= $event->link ?>"><?= $event->name ?> - <?= $event->link ?></option>
 							<?php
@@ -190,14 +186,25 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isActive())
 					}
 					?>
                 </select>
-                <br>
+                <br
                 <input type="hidden" name="send" value="true">
                 <input type="hidden" name="<?= $_SESSION['token_field'] ?>" value="<?= $_SESSION['token'] ?>">
                 <br>
                 <input type="submit" value="Liste senden">
             </form>
+
+            <div class="container">
+                <a href="index.php?lang=<?= $i18n->getLanguage() ?>">
+                    <div class="link">
+						<?= $i18n['back'] ?>
+                    </div>
+                </a>
+            </div>
 			<?php
 		} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		?>
+        <div class="container">
+			<?php
 			// Check if the POST request is valid
 			// This checks the token that was sent in a POST request to the page
 			// to prevent that someone uses automated programs to spam the person.
@@ -207,22 +214,29 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isActive())
 				$success = sendParticipantListMail($event);
 				if ($success) {
 					?>
-                    <div class="block">Die Teilnehmerliste wurde erfolgreich versendet.</div>
+                    <div class="text-block">Die Teilnehmerliste wurde erfolgreich versendet.</div>
 					<?php
 				} else {
 					?>
-                    <div class="block error">Das Versenden der Teilnehmerliste hat nicht funktioniert.</div>
+                    <div class="text-block error">Das Versenden der Teilnehmerliste hat nicht funktioniert.</div>
 					<?php
 				}
 			} else {
 				?>
-                <div class="block error">Ungültiger Vorgang.</div>
+                <div class="text-block error">Ungültiger Vorgang.</div>
 				<?php
 			}
 			?>
-            <a href="participants.php">Zurück</a>
+            <div class="container">
+                <a href="participants.php?lang=<?= $i18n->getLanguage() ?>">
+                    <div class="link">
+						<?= $i18n['back'] ?>
+                    </div>
+                </a>
+            </div>
 			<?php
-		} ?>
+			} ?>
+        </div>
     </div>
 </div>
 </body>

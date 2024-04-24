@@ -1,0 +1,20 @@
+
+‡	php:S1131B"@Remove the useless trailing whitespaces at the end of this line.(Œšğ±úÿÿÿÿ8˜§À’¶1J$46426cec-1a43-44a6-aaff-25c642bff936
+Œphp:S103"KSplit this 140 characters long line (which is greater than 120 authorized).(Ëó¨8˜§À’¶1J$b462f35a-3733-4eec-ab84-b380ac1194c4
+k	php:S1781")Write this "TRUE" constant in lower case.(Ë¡£8íÛ™Ë³1J$44cdb8b1-e754-4aa0-80a0-4c88acf8a8f7
+p	php:S1781%")Write this "TRUE" constant in lower case.(¬œ§ûÿÿÿÿ8˜§À’¶1J$9329d7d5-9793-48c1-ac72-85d1d1189114
+q	php:S1781)"*Write this "FALSE" constant in lower case.(ï·¹úÿÿÿÿ8íÛ™Ë³1J$a5ea014a-95a0-474e-b14a-6f9ccfef57f7
+l	php:S1781*"*Write this "FALSE" constant in lower case.(Ã¬»¡8˜§À’¶1J$b1c5f8dc-2c68-434b-b25d-2181cb5630bf
+p	php:S1781+")Write this "TRUE" constant in lower case.(ˆòÙëûÿÿÿÿ8™§À’¶1J$844182fc-2d03-4128-9d55-aaad1f75a796
+q	php:S17812"*Write this "FALSE" constant in lower case.(›ûšşÿÿÿÿ8™§À’¶1J$cff84b70-d60c-4126-abf2-24b3208ebd5c
+l	php:S17813"*Write this "FALSE" constant in lower case.(ûßà¸8™§À’¶1J$b4793486-adad-48ee-841b-25ba482c06f9
+q	php:S17814"*Write this "FALSE" constant in lower case.(Òèşàıÿÿÿÿ8™§À’¶1J$f6cddd4a-ec84-4441-b1a8-8e2b104d886e
+k	php:S17816")Write this "TRUE" constant in lower case.(ü×ÚÂ8™§À’¶1J$250fa1fd-fbd0-4c3b-a354-630817063c88
+p	php:S1781H")Write this "TRUE" constant in lower case.(÷ô•Àûÿÿÿÿ8™§À’¶1J$12a5aeb1-7a0a-455d-a130-c8011660b621
+q	php:S1781J"*Write this "FALSE" constant in lower case.(ä÷–åşÿÿÿÿ8™§À’¶1J$e3ad2365-5c88-42b5-8cac-a7ae794f39f0
+h	php:S2003"&Replace "require" with "require_once".(–öã˜8æìÉáğ1J$0d180915-8303-4c14-9c8c-5a1512129d6a
+h	php:S2003"&Replace "require" with "require_once".(ıñÊË8æìÉáğ1J$0ed811aa-1b96-4c6c-bac7-a23f5a06a68c
+m	php:S2003"&Replace "require" with "require_once".(íŒùÌøÿÿÿÿ8çìÉáğ1J$af40d95b-fa53-4778-a9d8-0f386e88310e
+	php:S4833"LReplace "require" with namespace import mechanism through the "use" keyword.(–öã˜8çìÉáğ1J$a077e474-14a5-4d59-81a5-783c6fcf1cf5
+	php:S4833"LReplace "require" with namespace import mechanism through the "use" keyword.(ıñÊË8çìÉáğ1J$f7e165ef-a887-4938-94ef-18ec0f630ef6
+“	php:S4833"LReplace "require" with namespace import mechanism through the "use" keyword.(íŒùÌøÿÿÿÿ8çìÉáğ1J$2eb502b6-7498-4b3b-b438-30cef5bee198

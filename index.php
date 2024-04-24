@@ -9,6 +9,9 @@ global $i18n, $CONFIG_TERM, $FILE_REVISION, $events;
 // Loads the environment variables from the .env file
 loadEnv('.env');
 
+// Create eei-registration folder if it does not exist
+createEeiRegistrationFolder();
+
 // Sort the data using the custom comparison function
 /**
  * Sorts the events by date
@@ -18,7 +21,7 @@ loadEnv('.env');
  */
 function sortByDate(Event $a, Event $b): int
 {
-    return $a->getStartDate() - $b->getStartDate();
+	return $a->getEventStartUTS() - $b->getEventStartUTS();
 }
 
 usort($events, 'sortByDate');
@@ -58,28 +61,28 @@ usort($events, 'sortByDate');
 		// Sort events by date and if they are active
 		$sorted_events = $events;
 		usort($sorted_events, function (Event $a, Event $b) {
-			// sort by active first, then by date
-			$a_status = $a->isActive() && time() - $a->getStartDate();
-			$b_status = $b->isActive() && time() - $b->getStartDate();
-
-			if ($a_status == $b_status) {
-				return $a->getStartDate() - $b->getStartDate();
-			}
-			return $a_status - $b_status;
+			// 1. upcoming events first
+            // 2. then sort by date
+            if ($a->isUpcoming() && !$b->isUpcoming()) {
+                return -1;
+            } elseif (!$a->isUpcoming() && $b->isUpcoming()) {
+                return 1;
+            } else {
+                return $a->getEventStartUTS() - $b->getEventStartUTS();
+            }
 		});
 
-		foreach ($sorted_events as /* @var Event $E */
-                 $E) {
-			if ($E->isActive()) {
-				?>
-                <a href="event.php?e=<?= $E->link ?>&lang=<?= $i18n->getLanguage() ?>">
-                    <div class="box icon <?= $E->icon ?> <?= time() > $E->getStartDate() ? ' past ' : '' ?> float-style">
-                        <p class="name"><?= $E->name ?></p>
-                        <p class="date"><?= $E->dateTimeToString(array('compact' => true)) ?></p>
-                    </div>
-                </a>
-				<?php
-			}
+		// Display the events
+		foreach ($sorted_events as /* @var Event $event */
+				 $event) {
+            ?>
+            <a href="event.php?e=<?= $event->link ?>&lang=<?= $i18n->getLanguage() ?>">
+                <div class="box icon <?= $event->icon ?> <?= $event->isPast() ? ' past ' : '' ?> float-style <?= $event->isActive() ? 'today' : '' ?>">
+                    <p class="name"><?= $event->name ?></p>
+                    <p class="date"><?= $event->getEventDateString(array('compact' => true)) ?></p>
+                </div>
+            </a>
+			<?php
 		}
 		?>
     </div>

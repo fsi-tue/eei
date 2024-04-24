@@ -110,7 +110,7 @@ class Event
 			}
 
 			// Csv path
-			$event->csvPath = realpath(__DIR__ . '/../eei-registration/') . '/' . $event->csvPath;
+			$event->csvPath = realpath(__DIR__ . '/../eei-registration/') . $event->csvPath;
 		}
 
 		return $events;
@@ -124,42 +124,82 @@ class Event
 	public function canRegister(): bool
 	{
 		$now = time();
-		return $now >= $this->getRegistrationStart()
-			&& $now <= $this->getRegistrationEnd()
+		return $now >= $this->getRegistrationStartUTS()
+			&& $now <= $this->getRegistrationEndUTS()
 			&& $this->getRemainingSpots() > 0
 			&& !$this->cancelled
-			&& $this->isActive();
+			&& $this->isUpcoming();
+	}
+
+	/**
+	 * Check if the event is upcoming.
+	 * An event is upcoming if the current time is before the event start time.
+	 * @return bool
+	 */
+	public function isUpcoming(): bool
+	{
+		$now = time();
+		return $now <= $this->getEventEndUTS() || $now <= $this->getEventStartUTS();
+	}
+
+	/**
+	 * Check if the event is past.
+	 * An event is past if the current time is after the event end time.
+	 * @return bool
+	 */
+	public function isPast(): bool
+	{
+		$now = time();
+		return $now > $this->getEventEndUTS();
 	}
 
 	/**
 	 * Check if the event is active.
-	 * Active means that the event has not started yet and is not over yet
+	 * An event is active if the current time is between the event start and end time.
 	 * @return bool
 	 */
 	public function isActive(): bool
 	{
 		$now = time();
-		return $now <= $this->getEndDate();
+		return $now >= $this->getEventStartUTS() && $now <= $this->getEventEndUTS();
 	}
 
-	public function getRegistrationStart(): int
+	public function getRegistrationStartUTS(): int
 	{
 		return $this->registrationDate['startUTS'];
 	}
 
-	public function getRegistrationEnd(): int
+	public function getRegistrationEndUTS(): int
 	{
 		return $this->registrationDate['endUTS'];
 	}
 
-	public function getStartDate(): int
+	public function getEventStartUTS(): int
 	{
 		return $this->eventDate['startUTS'];
 	}
 
-	public function getEndDate(): int
+	public function getEventEndUTS(): int
 	{
 		return $this->eventDate['endUTS'];
+	}
+
+	public function getEventDateString(array $options = array()): string
+	{
+		return $this->dateTimeToString(array(
+			$this->getEventStartUTS(),
+			$this->getEventEndUTS(),
+			$this->eventDate['on_time'] ?? true
+		), $options);
+	}
+
+	public function getRegistrationDateString(): string
+	{
+		return $this->dateTimeToString(array(
+			$this->getRegistrationStartUTS(),
+			$this->getRegistrationEndUTS(),
+			true
+		), array('compact' => false, 'no_end' => true));
 	}
 
 	/**
@@ -173,7 +213,7 @@ class Event
 	 *
 	 * @return string
 	 */
-	public function dateTimeToString(array $options = array()): string
+	public static function dateTimeToString(array $date, array $options = array()): string
 	{
 		global $i18n;
 
@@ -181,14 +221,21 @@ class Event
 		$dateFormat = $isGerman ? 'd.m.y' : 'y-m-d';
 		$timeFormat = $isGerman ? 'H:i' : 'h:i A';
 
-		$startDate = date($dateFormat, $this->getStartDate() ?? 0);
-		$startTime = date($timeFormat, $this->getStartDate() ?? 0);
-		$endDate = date($dateFormat, $this->getEndDate() ?? 0);
-		$onTime = $this->eventDate['onTime'] ?? true;
+
+		$startDate = date($dateFormat, $date[0] ?? 0);
+		$startTime = date($timeFormat, $date[0] ?? 0);
+		$endDate = date($dateFormat, $date[1] ?? 0);
+		$onTime = $date[2] ?? true;
 		$compact = isset($options['compact']) && $options['compact'];
+		$noEnd = isset($options['no_end']) && $options['no_end'];
 		// Check if the start and end date are on different days
 		$isStartEndDiffDays = $startDate != $endDate;
 
+		$time = time();
+		$today = date($dateFormat, $time);
+		if ($today === $startDate) {
+			$startDate = $i18n['time_today'];
+		}
 
 		$dateAndTime = $startDate;
 		if ($compact) {
@@ -206,15 +253,12 @@ class Event
 			// 1.1.2017 ab 12:00 Uhr
 			// 1.1.2017 um 12:00 Uhr - 2.1.2017
 
-			if ($isGerman) {
-				$dateAndTime = $dateAndTime . ($onTime ? ' um ' : ' ab ') . $startTime . ' Uhr';
-			} else {
-				$dateAndTime = $dateAndTime . ($onTime ? ' at ' : ' from ') . $startTime;
-			}
-
+			$startTimeKey = $onTime ? 'time_at' : 'time_from';
+			$dateAndTime = "$dateAndTime {$i18n->translate($startTimeKey, array('TIME' => $startTime))}";
 		}
-		if ($isStartEndDiffDays) {
-			$dateAndTime = $dateAndTime . ' - ' . $endDate;
+
+		if ($isStartEndDiffDays && !$noEnd) {
+			$dateAndTime = "$dateAndTime {$i18n['time_to']} $endDate";
 		}
 
 		return $dateAndTime;
