@@ -63,10 +63,10 @@ usort($events, 'sortByDate');
 		usort($sorted_events, function (Event $a, Event $b) {
 			// 1. upcoming events first
             // 2. then sort by date
-            if ($a->isUpcoming() && !$b->isUpcoming()) {
-                return -1;
-            } elseif (!$a->isUpcoming() && $b->isUpcoming()) {
+            if ($a->isPast() && !$b->isPast()) {
                 return 1;
+            } elseif (!$a->isPast() && $b->isPast()) {
+                return -1;
             } else {
                 return $a->getEventStartUTS() - $b->getEventStartUTS();
             }
@@ -77,7 +77,7 @@ usort($events, 'sortByDate');
 				 $event) {
             ?>
             <a href="event.php?e=<?= $event->link ?>&lang=<?= $i18n->getLanguage() ?>">
-                <div class="box icon <?= $event->icon ?> <?= $event->isPast() ? ' past ' : '' ?> float-style <?= $event->isActive() ? 'today' : '' ?>">
+                <div class="box icon <?= $event->icon ?> <?= $event->isPast() ? ' past ' : '' ?> float-style <?= $event->eventIsTakingPlace() ? 'today' : '' ?>">
                     <p class="name"><?= $event->name ?></p>
                     <p class="date"><?= $event->getEventDateString(array('compact' => true)) ?></p>
                 </div>

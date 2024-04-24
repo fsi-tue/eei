@@ -65,7 +65,6 @@ function createEeiRegistrationFolder(): void
 			exit("Folder could not be created. Possible file permission problem (uid/gid for PHP-FPM instances: 82)");
 		}
 	}
-
 }
 
 function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr)
@@ -105,10 +104,20 @@ function validateEmail($email): bool
 function sendRegistrationMail(string $recipient, string $registration_id, Event $event): void
 {
 	global $i18n;
-	$subject = $i18n->translate('email_registration_subject', array('EVENT_NAME' => $event->name));
-	$deleteRegistrationLink = getAddress() . "/event_type.php?e={$event->link}&r=$registration_id&lang={$i18n->getLanguage()}";
+
+	$subject = $i18n->translate('email_registration_subject',
+		array('EVENT_NAME' => $event->name,
+			'DATE' => $event->getEventDateString(array(
+				'compact' => true,
+				'no_time' => true
+			))));
+	$deleteRegistrationLink = getAddress() . "/event.php?e={$event->link}&r=$registration_id&lang={$i18n->getLanguage()}";
 	$deleteRegistrationHTML = "<a href='$deleteRegistrationLink'>{$i18n->translate('unsubscribe')}</a>";
-	$msg = $i18n->translate('email_registration_body', array('EVENT_NAME' => $event->name, 'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML, 'SENDER_NAME' => getEnvVar('SENDER_NAME')));
+	$msg = $i18n->translate('email_registration_body',
+		array('EVENT_NAME' => $event->name,
+			'DATE' => $event->getEventDateString(),
+			'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML,
+			'SENDER_NAME' => getEnvVar('SENDER_NAME')));
 	$ics = getICSForEvent($event);
 	sendMailViaPHPMailer($recipient, $subject, $msg, $ics, 'event.ics');
 }
@@ -118,7 +127,7 @@ function sendRegistrationDeletedMail($recipient, Event $event): void
 {
 	global $i18n;
 	$subject = $i18n->translate('email_unsubscribe_subject', array('EVENT_NAME' => $event->name));
-	$msg = $i18n->translate('email_unsubscribe_body', array('EVENT_NAME' => $event['name'], 'SENDER_NAME' => getEnvVar('SENDER_NAME')));
+	$msg = $i18n->translate('email_unsubscribe_body', array('EVENT_NAME' => $event->name, 'SENDER_NAME' => getEnvVar('SENDER_NAME')));
 	sendMailViaPHPMailer($recipient, $subject, $msg);
 }
 
@@ -136,7 +145,12 @@ function deleteRegistration($registration_id, Event $event): array
 {
 	global $i18n;
 	$filepath = $event->csvPath;
+	// Check if csv file exists
+	if (!file_exists($filepath)) {
+		return array(false, $i18n->translate('unsubscribed_error'));
+	}
 	$file = fopen($filepath, "r");
+
 	$data = array();
 	$success = false;
 	$deletedLine = NULL;
@@ -175,11 +189,11 @@ function register(Event $event): array
 	global $i18n;
 
 	// Check if csv file exists
-	var_dump($event->csvPath);
 	if (!file_exists($event->csvPath)) {
+		// Create the file if it doesn't exist
 		$file = fopen($event->csvPath, "w");
 		if ($file === false) {
-			return array(false, "Fehler beim Schreiben der Daten");
+			return array(false, $i18n['form_error']);
 		}
 		fclose($file);
 	}
@@ -223,9 +237,10 @@ function register(Event $event): array
 		$data[] = $fruehstueck;
 	}
 
+	// open the file in append mode
 	$file = fopen($event->csvPath, "a");
 	if ($file === false) {
-		return array(false, "Fehler beim Schreiben der Daten");
+		return array(false, $i18n['form_error']);
 	}
 
 	// add CSV headers if file doesn't exist yet
@@ -239,7 +254,7 @@ function register(Event $event): array
 		// Generate registration hash and send mail
 		sendRegistrationMail($mail, generateRegistrationIDFromData($data, $event), $event);
 
-		return array(true, "Du hast dich erfolgreich zu dieser Veranstaltung angemeldet! Du erhältst einige Tage vor dem Event eine Mail.");
+		return array(true, $i18n['form_success']);
 	}
-	return array(false, "Fehler beim Schreiben der Daten");
+	return array(false, $i18n['form_error']);
 }

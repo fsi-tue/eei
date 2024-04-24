@@ -21,10 +21,6 @@
 
 namespace PHPMailer\PHPMailer;
 
-use vendor\phpmailer\src\Exception;
-use vendor\phpmailer\src\PHPMailer;
-use vendor\phpmailer\src\SMTP;
-
 /**
  * Configure PHPMailer with DSN string.
  *

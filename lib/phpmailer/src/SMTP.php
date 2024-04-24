@@ -21,8 +21,6 @@
 
 namespace PHPMailer\PHPMailer;
 
-use vendor\phpmailer\src\OAuthTokenProvider;
-
 /**
  * PHPMailer RFC821 SMTP email transport class.
  * Implements RFC 821 SMTP commands and provides some utility methods for sending mail to an SMTP server.
@@ -1171,7 +1169,7 @@ class SMTP
      *   3. EHLO has been sent -
      *     $name == 'HELO'|'EHLO': returns the server name
      *     $name == any other string: if extension $name exists, returns True
-     *       or its options (e.g. AUTH mechanisms supported). Otherwise returns false.
+     *       or its options (e.g. AUTH mechanisms supported). Otherwise returns False.
      *
      * @param string $name Name of SMTP extension or 'HELO'|'EHLO'
      *

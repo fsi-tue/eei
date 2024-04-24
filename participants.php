@@ -27,7 +27,7 @@ function sendParticipantListMail(Event $event): bool
 		return false;
 	}
 
-	$subject = "Teilnehmerliste für $event->name am " . $event->dateTimeToString();
+	$subject = "Teilnehmerliste für $event->name am " . $event->getEventDateString();
 	// build message
 	$msg = "$subject:<br><br>";
 	$participants = getParticipants($event);
@@ -111,6 +111,10 @@ function logToAvoidEmailSpam(Event $event, array $metas): array
 function canSendEmail(Event $event): bool
 {
 	global $fp;
+
+	if (!file_exists($fp . 'logs.csv')) {
+		return true;
+	}
 	$file = fopen($fp . 'logs.csv', "r");
 	if (!$file) {
 		return true;
@@ -180,13 +184,15 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isUpcoming(
 							 $event) {
 						if ($event->isUpcoming()) {
 							?>
-                            <option value="<?= $event->link ?>"><?= $event->name ?> - <?= $event->link ?></option>
+                            <option value="<?= $event->link ?>"><?= $event->name ?>
+                                - <?= $event->getEventDateString() ?>
+                                - <?= $event->link ?></option>
 							<?php
 						}
 					}
 					?>
                 </select>
-                <br
+                <br>
                 <input type="hidden" name="send" value="true">
                 <input type="hidden" name="<?= $_SESSION['token_field'] ?>" value="<?= $_SESSION['token'] ?>">
                 <br>
@@ -205,10 +211,15 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isUpcoming(
 		?>
         <div class="container">
 			<?php
+
 			// Check if the POST request is valid
 			// This checks the token that was sent in a POST request to the page
 			// to prevent that someone uses automated programs to spam the person.
-			if (isset($_POST["send"]) && isset($_POST["event"]) && isset($_POST[$_SESSION["token_field"]]) && $_POST[$_SESSION["token_field"]] === $_SESSION["token"]) {
+			if (isset($_POST["send"]) &&
+				isset($_POST["event"]) &&
+				isset($_POST[$_SESSION["token_field"]]) &&
+				$_POST[$_SESSION["token_field"]] === $_SESSION["token"]) {
+
 				$link = filter_input(INPUT_POST, 'event', FILTER_SANITIZE_ENCODED);
 				$event = $events[$link];
 				$success = sendParticipantListMail($event);

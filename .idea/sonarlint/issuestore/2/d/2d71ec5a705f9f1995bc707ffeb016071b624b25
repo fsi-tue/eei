@@ -1,24 +1,20 @@
 
-Œphp:S103I"KSplit this 145 characters long line (which is greater than 120 authorized).(’ùÀ¦8íÅ´‰ñ1J$5d367449-713e-49e8-9f33-78b7c9775817
-Œphp:S103m"KSplit this 124 characters long line (which is greater than 120 authorized).(£¢Íò8íÅ´‰ñ1J$1b08cc3a-19e5-472f-9cde-9b07a09d130b
-Œphp:S103o"KSplit this 187 characters long line (which is greater than 120 authorized).(¢”Ã©8íÅ´‰ñ1J$ecc64913-7b91-4503-b5e6-be492c678872
-‘php:S103y"KSplit this 133 characters long line (which is greater than 120 authorized).(Æ°“ùøÿÿÿÿ8íÅ´‰ñ1J$89934184-f40d-49a3-9651-2a922453857a
-’php:S103È"KSplit this 139 characters long line (which is greater than 120 authorized).(ŠË„ÿÿÿÿÿ8íÅ´‰ñ1J$38a539e2-8a37-4568-9e43-6b54daae7eca
-Œphp:S103ò"KSplit this 134 characters long line (which is greater than 120 authorized).(çÆ8íÅ´‰ñ1J$769ee6d8-b15c-44e8-b2b8-a6401ba20aea
-	php:S1142­">This function has 6 returns, which is more than the 3 allowed.(äÌÌ8íÅ´‰ñ1J$283602fc-7877-4607-a236-797bba5f4a34
-k	php:S1781,")Write this "NULL" constant in lower case.(”Ï¬8íÅ´‰ñ1J$9b25dc9b-da7c-4947-b9b5-39499513160d
-q	php:S1781")Write this "NULL" constant in lower case.(ê»µùüÿÿÿÿ8îÅ´‰ñ1J$724c4ee1-b194-4f8a-afbd-d2d6fdf0067b
-—	php:S3776­"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(äÌÌ8îÅ´‰ñ1J$3fc5e61d-e507-4f71-92d3-6491ab1949eb
-	php:S1192V"IDefine a constant instead of duplicating this literal "Ersti WE" 3 times.(–·àŒûÿÿÿÿ8îÅ´‰ñ1J$feec6913-ea3c-460d-9ea7-5ef89d9aa377
-¨	php:S1192¶"`Define a constant instead of duplicating this literal "Fehler beim Schreiben der Daten" 3 times.(˜Şè¡úÿÿÿÿ8îÅ´‰ñ1J$3b42c669-4399-4051-bfc0-c9b253508a73
-vphp:S121R"0Add curly braces around the nested statement(s).(„¶áìøÿÿÿÿ8îÅ´‰ñ1J$cd657733-e787-4899-b3b5-761d62536cca
-vphp:S121P"0Add curly braces around the nested statement(s).(¢‘›ıûÿÿÿÿ8îÅ´‰ñ1J$cadcb868-ea0d-42e5-9eac-1c5e51f85b67
-qphp:S121T"0Add curly braces around the nested statement(s).(à«ì¬8îÅ´‰ñ1J$fff40f0b-53ce-4a00-afee-d43faa65693f
-vphp:S121V"0Add curly braces around the nested statement(s).(–·àŒûÿÿÿÿ8îÅ´‰ñ1J$5903c7e1-ef35-4f2e-8ea1-de7a9bd843ff
-rphp:S121Ã"0Add curly braces around the nested statement(s).(à«ì¬8îÅ´‰ñ1J$f8ab1a2a-8819-4e72-a935-fe1e95ef4947
-wphp:S121Å"0Add curly braces around the nested statement(s).(–·àŒûÿÿÿÿ8îÅ´‰ñ1J$b1d9417d-cf9e-4016-9402-26c4ff15e983
-˜	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(¥ô‰Óûÿÿÿÿ8îÅ´‰ñ1J$d294b1fb-0e76-4123-8b88-56b3902763ee
-˜	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(³–¥ãüÿÿÿÿ8îÅ´‰ñ1J$4a5b91b4-93b9-47ef-9a33-3bd997524f87
-“	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(•àò8îÅ´‰ñ1J$bc5f5cf4-01d9-4278-85cf-1bc35c7fabef
-“	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(ñã•Œ8îÅ´‰ñ1J$5b2240f8-2736-4c21-8936-a098eb631fb6
-“	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(ò˜˜¿8îÅ´‰ñ1J$c013a59b-638c-4f94-b69a-8f1f3d73f9af
+Œphp:S103H"KSplit this 145 characters long line (which is greater than 120 authorized).(’ùÀ¦8ëèşñ1J$45185005-0b88-4312-81c1-3417b6a45dff
+php:S103‚"KSplit this 131 characters long line (which is greater than 120 authorized).(Ö©Ô³8ëèşñ1J$32fa2f9d-6859-4ff4-973b-e64735c72642
+’php:S103Ö"KSplit this 139 characters long line (which is greater than 120 authorized).(ŠË„ÿÿÿÿÿ8ëèşñ1J$a02dbf14-b596-4fc4-b8d6-4ab0115005f8
+	php:S1142»">This function has 6 returns, which is more than the 3 allowed.(äÌÌ8ëèşñ1J$4a4d46bd-6c55-4886-8f4e-ac41d7492427
+k	php:S1781,")Write this "NULL" constant in lower case.(”Ï¬8ëèşñ1J$87b85731-7fbf-433d-b7c0-4feb72a97e4e
+q	php:S1781œ")Write this "NULL" constant in lower case.(ê»µùüÿÿÿÿ8ëèşñ1J$8bc24443-8278-4b0d-918d-fbe3ea256560
+—	php:S3776»"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(äÌÌ8ìèşñ1J$7172adea-4140-46b6-b284-d56332821396
+	php:S1192U"IDefine a constant instead of duplicating this literal "Ersti WE" 3 times.(–·àŒûÿÿÿÿ8ìèşñ1J$3f89a743-a2f0-4e1e-aad3-044fee261d08
+vphp:S121Q"0Add curly braces around the nested statement(s).(„¶áìøÿÿÿÿ8ìèşñ1J$b176cb37-9ca8-45dc-83b0-da1ddf0f95d0
+vphp:S121O"0Add curly braces around the nested statement(s).(¢‘›ıûÿÿÿÿ8ìèşñ1J$c0ba1752-83e4-4c9f-a331-d1d10ef6b5ad
+qphp:S121S"0Add curly braces around the nested statement(s).(à«ì¬8ìèşñ1J$927eb378-c24f-4d59-964e-99f575c29c25
+vphp:S121U"0Add curly braces around the nested statement(s).(–·àŒûÿÿÿÿ8ìèşñ1J$feb0af67-0b37-4550-9dae-8da642fc7d54
+rphp:S121Ñ"0Add curly braces around the nested statement(s).(à«ì¬8ìèşñ1J$3276e490-0377-400c-bc25-e6ce5df8b91d
+wphp:S121Ó"0Add curly braces around the nested statement(s).(–·àŒûÿÿÿÿ8ìèşñ1J$51336f22-a32a-4265-ada5-34c041b7cc4c
+˜	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(¥ô‰Óûÿÿÿÿ8ìèşñ1J$1817c47b-b454-46aa-a2f1-d6d9745faabd
+˜	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(³–¥ãüÿÿÿÿ8ìèşñ1J$d5734a71-781a-4d9f-9414-85babef81030
+“	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(•àò8ìèşñ1J$c4c98799-f5ea-41f7-a7cf-6a195ad9cff6
+“	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(ñã•Œ8ìèşñ1J$84e9086f-1ada-4f92-9da3-c1f714fde894
+“	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(ò˜˜¿8ìèşñ1J$c3659973-59cf-40c7-b53f-b9102ed244f7

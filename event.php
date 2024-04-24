@@ -18,16 +18,13 @@ if (!isset($_GET["e"])) {
 // Get event id
 $event_id = filter_input(INPUT_GET, "e", FILTER_SANITIZE_ENCODED);
 
-/* @var Event $E */
-$E = $events[$event_id];
-
-// Check if event is active
-if (!$E->isUpcoming()) {
-	// Event is not active
+if (!isset($events[$event_id])) {
 	// Redirect to main page
 	header(LOCATION);
 	die();
 }
+/* @var Event $event */
+$event = $events[$event_id];
 
 ?>
 <!DOCTYPE html>
@@ -40,21 +37,21 @@ if (!$E->isUpcoming()) {
     <link rel="stylesheet" href="css/style.css<?= $FILE_REVISION; ?>">
     <link rel="stylesheet" href="css/input.css<?= $FILE_REVISION; ?>">
     <link rel="stylesheet" href="css/icons.css<?= $FILE_REVISION; ?>">
-    <title><?= $E->name . " - " . $CONFIG_TERM ?></title>
+    <title><?= $event->name . " - " . $CONFIG_TERM ?></title>
 </head>
 
 <body>
 <div id="center" class="small">
-    <h1><?= $E->name . " - " . $CONFIG_TERM ?></h1>
-    <h2 class="description icon clock"><?= $E->getEventDateString() ?></h2>
-    <h2 class="description icon marker"><?= $E->location; ?></h2>
-    <h2 class="description"><?= $i18n['remaining'] . ": " . $E->getRemainingSpots() ?></h2>
-	<?= $E->text ?>
+    <h1><?= $event->name . " - " . $CONFIG_TERM ?></h1>
+    <h2 class="description icon clock"><?= $event->getEventDateString() ?></h2>
+    <h2 class="description icon marker"><?= $event->location; ?></h2>
+    <h2 class="description"><?= $i18n['remaining'] . ": " . $event->getRemainingSpotsString() ?></h2>
+	<?= $event->text ?>
     <br>
 	<?php
-	if ($E->info != '') {
+	if ($event->info != '') {
 		?>
-        <div class="text-block info"><?= $E->info ?></div>
+        <div class="text-block info"><?= $event->info ?></div>
 		<?php
 	} ?>
     <div class="block>">
@@ -74,7 +71,7 @@ if (!$E->isUpcoming()) {
 			// Registration id is used to find the registration in the csv file
 		if (isset($registration_id)) {
 			// Delete registration
-			$del_register_ret = deleteRegistration($registration_id, $E);
+			$del_register_ret = deleteRegistration($registration_id, $event);
 			?>
             <!-- Print the result of the deletion -->
             <div class="text-block <?= $del_register_ret[0] ? 'info' : 'error' ?>">
@@ -83,7 +80,7 @@ if (!$E->isUpcoming()) {
 			<?php
 		} else {
 			// Register for event
-			$register_ret = register($E);
+			$register_ret = register($event);
 			?>
             <div class="text-block <?= $register_ret[0] ? 'info' : 'error' ?>">
 				<?= $register_ret[1] ?>
@@ -97,9 +94,9 @@ if (!$E->isUpcoming()) {
 		// Check if a registration id is given
 		if (isset($registration_id)) {
 		?>
-            <form action="event.php?e=<?= $E['link'] ?>&r=<?= $registration_id ?>&lang=<?= $i18n->getLanguage() ?>"
+            <form action="event.php?e=<?= $event->link ?>&r=<?= $registration_id ?>&lang=<?= $i18n->getLanguage() ?>"
                   method="post">
-                <div class="text-block info">
+                <div class="text-block">
 					<?= $i18n->translate('unsubscribe_text') ?>
                 </div>
                 <input type="hidden" name="registration_id" value="<?= $registration_id ?>">
@@ -113,22 +110,22 @@ if (!$E->isUpcoming()) {
 		do {
 		// Check for possible errors and print them if necessary
 		$time = time();
-		if (!$E->canRegister()) {
+		if (!$event->canRegister()) {
 		?>
             <div class="text-block error">
 				<?php
 				// These are sorted by priority
-				if ($E->cancelled) {
+				if ($event->cancelled) {
 					// Event is cancelled
 					// This has obviously the highest priority and should be displayed first
-					echo $i18n->translate('event_cancelled', array('EVENT_NAME' => $E->name, 'EMAIL_CONTACT' => $CONFIG_CONTACT));
-				} elseif ($E->getRemainingSpots() == 0) {
+					echo $i18n->translate('event_cancelled', array('EVENT_NAME' => $event->name, 'EMAIL_CONTACT' => $CONFIG_CONTACT));
+				} elseif ($event->getRemainingSpots() == 0) {
 					// Event is full
 					echo $i18n['event_full'];
-				} elseif ($time < $E->getRegistrationStartUTS()) {
+				} elseif ($time < $event->getRegistrationStartUTS()) {
 					// Event is not yet open for registration
-					echo $i18n->translate('start_of_registration', array('REGISTRATION_DATE' => $E->getRegistrationDateString()));
-				} elseif ($time > $E->getRegistrationEndUTS()) {
+					echo $i18n->translate('start_of_registration', array('REGISTRATION_DATE' => $event->getRegistrationDateString()));
+				} elseif ($time > $event->getRegistrationEndUTS()) {
 					// Event is no longer open for registration
 					echo $i18n['end_of_registration'];
 				}
@@ -153,7 +150,7 @@ if (!$E->isUpcoming()) {
 				<?php
 
 				// Courses
-				if ($E->form['course_required']) {
+				if ($event->form['course_required']) {
 					echo $i18n['form_study_programme'] . ':<br>';
 					$courses = [
 						['Informatik', 'form_cs'],
@@ -206,7 +203,7 @@ if (!$E->isUpcoming()) {
 				}
 
 				// Food
-				if ($E->form['food']) {
+				if ($event->form['food']) {
 					echo $i18n['form_food'] . ':<br>';
 					$food_preferences = [
 						$i18n['form_food_no_preference'],
@@ -228,7 +225,7 @@ if (!$E->isUpcoming()) {
 
 				<?php
 				// Breakfast
-				if ($E->form['breakfast']) {
+				if ($event->form['breakfast']) {
 					echo $i18n['form_breakfast'] . ':<br>';
 					$food_preferences = [
 						$i18n['form_food_no_preference'],

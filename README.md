@@ -22,7 +22,7 @@ EMAIL_PORT=587
 
 ## Adding/Updating an event:
 
-### [`event_data.php`](event_data.php)
+### [`event_data.php`](event_data.deprecated.php)
 
 To add / edit an event
 

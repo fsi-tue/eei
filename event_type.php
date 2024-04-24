@@ -6,21 +6,23 @@ require_once "config.php";
 require __DIR__ . '/lib/spyc/Spyc.php';
 
 // Metas contains email addresses of people who should be notified when someone registers for an event
-if (file_exists(__DIR__ . 'metas.php')) {
-	include_once __DIR__ . 'metas.php';
+if (file_exists(__DIR__ . '/metas.php')) {
+	include_once __DIR__ . '/metas.php';
 	// import the variable mail_handles from metas.php if existant
 	global $mail_handles;
 }
 
 global $fp;
 
-// Event class
+/**
+ * Represents a FSI Event.
+ */
 class Event
 {
 	public string $link;
 	public string $name;
 	public string $location;
-	public int $maxParticipants;
+	private int $maxParticipants;
 	public bool $cancelled;
 	public string $text;
 	public string $info;
@@ -37,22 +39,23 @@ class Event
 
 		$this->link = $data['link'];
 		// If the name is set, use it, otherwise use the translation
-		$this->name = $data['name'] ?? $i18n->translate($this->link . '_name') ?? '';
-		if ($this->name === '') {
-			throw new Exception('Name for event ' . $this->link . ' is empty');
-		}
+		$this->name = Event::i18n($data, 'name') ?? $i18n->translate(strtolower($this->link) . '_name') ?? '';
+
 		$this->location = $data['location'];
-		$this->maxParticipants = $data['max_participants'];
+		$this->maxParticipants = $data['max_participants'] ?? false;
 		$this->cancelled = $data['cancelled'] ?? false;
 		// Text and info
-		$this->text = $data['text'] ?? $i18n->translate($this->link . '_text') ?? '';
-		$this->info = $data['info'] ?? $i18n->translate($this->link . '_info') ?? '';
+		$this->text = Event::i18n($data, 'text') ?? $i18n->translate(strtolower($this->link) . '_text') ?? '';
+		$this->info = Event::i18n($data, 'info') ?? $i18n->translate(strtolower($this->link) . '_info') ?? '';
 		// Date and time of the event
-		$this->eventDate = $data['event_date'];
-		$this->registrationDate = $data['registration_date'];
+		$this->eventDate = [
+			'onTime' => true
+		];
+		$this->eventDate = array_merge($this->eventDate, $data['event_date'] ?? []);
+		$this->registrationDate = $data['registration_date'] ?? [];
 		// Form fields
 		$this->form = [
-			'course_required' => false,
+			'course_required' => true,
 			'food' => false,
 			'breakfast' => false,
 		];
@@ -60,9 +63,35 @@ class Event
 		// Misc
 		$this->csvPath = $data['csv_path'];
 		$this->icon = $data['icon'];
-		$this->metas = $data['metas'];
+		$this->metas = $data['metas'] ?? [];
 	}
 
+	/**
+	 * Translate the given key if it is an i18n key.
+	 * @param array $data - The data array.
+	 * @param string $key - The key to translate.
+	 * @return string|null - The translated string or null if the key does not exist.
+	 */
+	private static function i18n(array $data, string $key)
+	{
+		global $i18n;
+
+		// Check if the key exists in the data array
+		if (!isset($data[$key])) {
+			return null;
+		}
+		$value = $data[$key];
+		if ($i18n::isI18nKey($value)) {
+			return $i18n->translate($value);
+		}
+		return $value;
+	}
+
+	/**
+	 * Load events from a YAML file.
+	 * @param string $filepath - The path to the YAML file.
+	 * @return array - An array of Event objects.
+	 */
 	public static function fromYaml(string $filepath): array
 	{
 		global $mail_handles, $fp;
@@ -84,33 +113,37 @@ class Event
 		$events = $event_map;
 
 		// Parse the date and time of each event
-		$dateFormat = 'd.m.y H:i';
+		$dateFormat = 'd.m.Y H:i';
 		foreach ($events as /* @var Event $event */ $event) {
-			// Date parsing function
+			///// Date parsing /////
+
 			// Event
+			// 1. Parse the start and end date of the event
+			// 2. Convert the date to a Unix timestamp
+			//    If the date is invalid, set the timestamp to 0
 			$startDate = DateTime::createFromFormat($dateFormat, $event->eventDate['start']);
-			$endDate = DateTime::createFromFormat($dateFormat, $event->eventDate['end']);
-			$event->eventDate['startUTS'] = $startDate->getTimestamp();
-			$event->eventDate['endUTS'] = $endDate->getTimestamp();
+			$endDate = DateTime::createFromFormat($dateFormat, $event->eventDate['end'] ?? '');
+			$event->eventDate['startUTS'] = $startDate ? $startDate->getTimestamp() : 0;
+			$event->eventDate['endUTS'] = $endDate ? $endDate->getTimestamp() : 0;
 
 			// Registration
 			$startRegDate = DateTime::createFromFormat($dateFormat, $event->registrationDate['start']);
 			$endRegDate = DateTime::createFromFormat($dateFormat, $event->registrationDate['end']);
-			if ($startRegDate === false || $endRegDate === false) {
-				throw new Exception('Invalid date format');
-			}
-			$event->registrationDate['startUTS'] = $startRegDate->getTimestamp();
-			$event->registrationDate['endUTS'] = $endRegDate->getTimestamp();
+			$event->registrationDate['startUTS'] = $startRegDate ? $startRegDate->getTimestamp() : 0;
+			$event->registrationDate['endUTS'] = $endRegDate ? $endRegDate->getTimestamp() : 0;
 
-			// Map metas to mail handles
+			///// Metas /////
 			$metas = $event->metas;
 			$event->metas = [];
-			foreach ($metas as $key => $value) {
-				$event->metas[$key] = $mail_handles[$value] ?? '';
+			foreach ($metas as $value) {
+				// Check if the value exists in $mail_handles and append it to the list in $event->metas.
+				if (isset($mail_handles[$value])) {
+					$event->metas[] = $mail_handles[$value];
+				}
 			}
 
-			// Csv path
-			$event->csvPath = realpath(__DIR__ . '/../eei-registration/') . $event->csvPath;
+			///// CSV path /////
+			$event->csvPath = $fp . $event->csvPath;
 		}
 
 		return $events;
@@ -150,62 +183,117 @@ class Event
 	public function isPast(): bool
 	{
 		$now = time();
-		return $now > $this->getEventEndUTS();
+		return !$this->isTakingPlace(
+				array(
+					'startUTS' => $this->getEventStartUTS(),
+					'endUTS' => $this->getEventEndUTS())) &&
+			(($this->getEventEndUTS() !== 0 && $now > $this->getEventEndUTS()) ||
+				($this->getEventEndUTS() === 0 && $this->getEventStartUTS() < $now));
 	}
 
 	/**
 	 * Check if the event is active.
 	 * An event is active if the current time is between the event start and end time.
+	 * @param bool $exact - If true, the event is only active if the current time is exactly between the start
+	 *                        and end time. If false, the event is active if it's the day of the event.
 	 * @return bool
 	 */
-	public function isActive(): bool
+	private static function isTakingPlace(array $date, bool $exact = false): bool
 	{
+		$startUTS = $date['startUTS'];
+		$endUTS = $date['endUTS'] ?? 0;
+
 		$now = time();
-		return $now >= $this->getEventStartUTS() && $now <= $this->getEventEndUTS();
+		$start_time = $exact ? $startUTS : strtotime('today midnight', $startUTS);
+		$end_time = $endUTS !== 0 ? $endUTS : strtotime('tomorrow midnight', $startUTS);
+
+		return $now >= $start_time && time() <= $end_time;
 	}
 
+	/**
+	 * Check if the event is taking place.
+	 * @param bool $exact - If true, the event is only taking place if the current time is exactly between the start
+	 *                        and end time. If false, the event is taking place if it's the day of the event.
+	 * @return bool
+	 */
+	public function eventIsTakingPlace(bool $exact = false): bool
+	{
+		return Event::isTakingPlace(array(
+			'startUTS' => $this->getEventStartUTS(),
+			'endUTS' => $this->getEventEndUTS()
+		), $exact);
+	}
+
+	/**
+	 * Get the start date of the registration.
+	 * @return int
+	 */
 	public function getRegistrationStartUTS(): int
 	{
 		return $this->registrationDate['startUTS'];
 	}
 
+	/**
+	 * Get the end date of the registration.
+	 * @return int
+	 */
 	public function getRegistrationEndUTS(): int
 	{
 		return $this->registrationDate['endUTS'];
 	}
 
+	/**
+	 * Get the start date of the event.
+	 * @return int
+	 */
 	public function getEventStartUTS(): int
 	{
-		return $this->eventDate['startUTS'];
+		return $this->eventDate['startUTS'] ?? 0;
 	}
 
+	/**
+	 * Get the end date of the event.
+	 * @return int
+	 */
 	public function getEventEndUTS(): int
 	{
-		return $this->eventDate['endUTS'];
+		return $this->eventDate['endUTS'] ?? 0;
 	}
 
+	/**
+	 * Get the event date as a string.
+	 * @param array $options - array of options
+	 *                        <ul>
+	 *                        <li>compact: show date in compact mode</li>
+	 *                        </ul>
+	 * @return string
+	 */
 	public function getEventDateString(array $options = array()): string
 	{
 		return $this->dateTimeToString(array(
 			$this->getEventStartUTS(),
 			$this->getEventEndUTS(),
-			$this->eventDate['on_time'] ?? true
+			$this->eventDate['onTime'] ?? true
 		), $options);
 	}
 
+	/**
+	 * Get the registration date as a string.
+	 * @return string
+	 */
 	public function getRegistrationDateString(): string
 	{
 		return $this->dateTimeToString(array(
 			$this->getRegistrationStartUTS(),
 			$this->getRegistrationEndUTS(),
 			true
-		), array('compact' => false, 'no_end' => true));
+		), array('compact' => false, 'noEnd' => true));
 	}
 
 	/**
 	 * Build a date and time string for the given start and end date.
 	 *
-	 * @param array $E - event
+	 * @param array $date
 	 * @param array $options - array of options
 	 *                        <ul>
 	 *                        <li>compact: show date in compact mode</li>
@@ -225,17 +313,24 @@ class Event
 		$startDate = date($dateFormat, $date[0] ?? 0);
 		$startTime = date($timeFormat, $date[0] ?? 0);
 		$endDate = date($dateFormat, $date[1] ?? 0);
+		$hasEndDate = $date[1] !== 0;
 		$onTime = $date[2] ?? true;
+
+		// Parse options
 		$compact = isset($options['compact']) && $options['compact'];
-		$noEnd = isset($options['no_end']) && $options['no_end'];
+		$noEnd = isset($options['noEnd']) && $options['noEnd'];
+		$noTime = isset($options['no_time']) && $options['no_time'];
 		// Check if the start and end date are on different days
-		$isStartEndDiffDays = $startDate != $endDate;
+		$isStartEndDiffDays = $startDate != $endDate && $hasEndDate;
 
 		$time = time();
 		$today = date($dateFormat, $time);
 		if ($today === $startDate) {
 			$startDate = $i18n['time_today'];
 		}
+
+		// Check if the event is taking place
+		$isTakingPlace = Event::isTakingPlace(array('startUTS' => $date[0], 'endUTS' => $date[1]));
 
 		$dateAndTime = $startDate;
 		if ($compact) {
@@ -244,7 +339,11 @@ class Event
 			// 1.1.2017 - 2.1.2017
 			// 1.1.2017 12:00 Uhr
 
-			if (!$isStartEndDiffDays) {
+			if (Event::isTakingPlace(array('startUTS' => $date[0], 'endUTS' => $date[1]), true)) {
+				$dateAndTime = $i18n['time_takingPlace'];
+			} elseif ($isTakingPlace) {
+				$dateAndTime = $i18n['time_today'];
+			} elseif (!$isStartEndDiffDays && !$noTime) {
 				$dateAndTime = $dateAndTime . '<br>' . $startTime;
 			}
 		} else {
@@ -253,11 +352,13 @@ class Event
 			// 1.1.2017 ab 12:00 Uhr
 			// 1.1.2017 um 12:00 Uhr - 2.1.2017
 
-			$startTimeKey = $onTime ? 'time_at' : 'time_from';
-			$dateAndTime = "$dateAndTime {$i18n->translate($startTimeKey, array('TIME' => $startTime))}";
+			if (!$noTime) {
+				$startTimeKey = $onTime ? 'time_at' : 'time_from';
+				$dateAndTime = "$dateAndTime {$i18n->translate($startTimeKey, array('TIME' => $startTime))}";
+			}
 		}
 
-		if ($isStartEndDiffDays && !$noEnd) {
+		if ($isStartEndDiffDays && !$noEnd && $hasEndDate && !$isTakingPlace) {
 			$dateAndTime = "$dateAndTime {$i18n['time_to']} $endDate";
 		}
 
@@ -296,7 +397,16 @@ class Event
 			}
 			return $spots;
 		}
-		return 0;
+		return -1;
+	}
+
+	public function getRemainingSpotsString(): string
+	{
+		$spots = $this->getRemainingSpots();
+		if ($spots === -1) {
+			return '∞';
+		}
+		return $spots;
 	}
 
 	public function getMeta(string $key)

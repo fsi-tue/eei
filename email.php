@@ -71,6 +71,9 @@ function sendMailViaPHPMailer(string $recipient, string $subject, string $body, 
 		$mail->send();
 		return true;
 	} catch (Exception) {
+		if (isLocalhost()) {
+			echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+		}
 		return false;
 	}
 }
