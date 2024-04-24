@@ -1,7 +1,0 @@
-
-–	php:S3776¼"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¶Æ—C8Á¨¤‘ñ1J$1a250673-dad2-4a9d-8fa2-2323f5fd17ab
-h	php:S2003"&Replace "require" with "require_once".(¤Óò„8Á¨¤‘ñ1J$d236d582-5524-4115-8fe4-259a8eb77d98
-˜	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(ùç‰Òüÿÿÿÿ8Á¨¤‘ñ1J$f0419fc0-57f8-4bcf-8609-6e63f2dbfb70
-m	php:S4833"QReplace "require_once" with namespace import mechanism through the "use" keyword.(­§ é8æ¿Ø‘ñ1
-Ž	php:S4833"LReplace "require" with namespace import mechanism through the "use" keyword.(¤Óò„8Á¨¤‘ñ1J$bdaa8c67-14f6-43cd-971a-b7ddbfb10948
-˜	php:S4833"QReplace "include_once" with namespace import mechanism through the "use" keyword.(´‡Ý©øÿÿÿÿ8Á¨¤‘ñ1J$de0aad5d-42b5-47d1-ac84-b457455b95b3
