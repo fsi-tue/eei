@@ -1,0 +1,34 @@
+
+name: YML Ingegrity
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:  # Run in every PR
+  workflow_dispatch:  # Allow manually triggering the workflow
+
+concurrency:
+  group: >-
+    ${{ github.workflow }}-${{ github.ref_type }}-
+    ${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+    yml_check:
+      name: YML Integrity
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout
+          uses: actions/checkout@v4
+        - name: "setup python"
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.x'
+        - name: "install dependencies"
+          run: |
+            python -m pip install --upgrade pip
+            pip install schema pyyaml
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        - name: Run python file
+          run: python check_yml_integrity.py
