@@ -295,7 +295,6 @@ a .box.icon {
         align-items: center;
         justify-content: center;
         gap: 5px;
-        flex-direction: column;
     }
 
     .container.small-screen-reverse-order {
@@ -305,6 +304,14 @@ a .box.icon {
     .info,
     .error {
         width: 80%;
+    }
+    #center {
+        margin: 0auto;
+        width: 95%;
+    }
+    #center.small {
+        margin: 0auto;
+        width: 95%;
     }
 }
 
