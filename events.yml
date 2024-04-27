@@ -125,7 +125,7 @@ events:
       onTime: false
     registration_date:
       start: "20.04.2024 00:00"
-      #end: "27.04.2024 17:00"
+      end: "27.04.2024 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
     metas:
