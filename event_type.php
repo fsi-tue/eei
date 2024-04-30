@@ -169,22 +169,14 @@ class Event
 	public function canRegister(): bool
 	{
 		$now = time();
-		return $now >= $this->getRegistrationStartUTS()
+		return (
+				($now >= $this->getRegistrationStartUTS() && $this->getRegistrationStartUTS() > 0)
+				|| $this->getRegistrationStartUTS() == 0
+			)
 			&& $now <= $this->getRegistrationEndUTS()
 			&& $this->getRemainingSpots() > 0
 			&& !$this->cancelled
 			&& $this->isUpcoming();
-	}
-
-	/**
-	 * Check if the event is upcoming.
-	 * An event is upcoming if the current time is before the event start time.
-	 * @return bool
-	 */
-	public function isUpcoming(): bool
-	{
-		$now = time();
-		return $now <= $this->getEventEndUTS() || $now <= $this->getEventStartUTS();
 	}
 
 	/**
@@ -201,6 +193,16 @@ class Event
 					'endUTS' => $this->getEventEndUTS())) &&
 			(($this->getEventEndUTS() !== 0 && $now > $this->getEventEndUTS()) ||
 				($this->getEventEndUTS() === 0 && $this->getEventStartUTS() < $now));
+	}
+
+	/**
+	 * Check if the event is upcoming.
+	 * An event is upcoming if the current time is before the event start time.
+	 * @return bool
+	 */
+	public function isUpcoming(): bool
+	{
+		return !$this->isPast();
 	}
 
 	/**
