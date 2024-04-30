@@ -122,7 +122,9 @@ $event = $events[$event_id];
 				} elseif ($event->getRemainingSpots() == 0) {
 					// Event is full
 					echo $i18n['event_full'];
-				} elseif ($time < $event->getRegistrationStartUTS()) {
+				} elseif (!$event->isUpcoming()) {
+					echo $i18n['event_is_past'];
+				} elseif ($time < $event->getRegistrationStartUTS() && $event->getRegistrationStartUTS() > 0) {
 					// Event is not yet open for registration
 					echo $i18n->translate('start_of_registration', array('REGISTRATION_DATE' => $event->getRegistrationDateString()));
 				} elseif ($time > $event->getRegistrationEndUTS()) {

@@ -265,7 +265,6 @@ events:
       onTime: true
       end: "05.05.2024 17:00"
     registration_date:
-      start: "03.05.2024 00:00"
       end: "03.05.2024 23:59"
     csv_path: "workshop-se-ss24-02.csv"
     icon: "cap"

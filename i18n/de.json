@@ -48,6 +48,7 @@
   "end_of_registration": "Die Anmeldephase für diese Veranstaltung ist vorüber.",
   "event_cancelled": "{EVENT_NAME} fällt leider aus.<br> Die Gründe sind entweder offensichtlich oder bei der Fachschaft unter <a href='mailto:{EMAIL_CONTACT}'>{EMAIL_CONTACT}</a> zu erfragen.",
   "event_full": "Für diese Veranstaltung sind bereits alle Plätze vergeben.",
+  "event_is_past": "Diese Veranstaltung hat bereits stattgefunden.",
   "index_savedDataDisclaimer": "Deine Daten werden zur Planung benutzt und bis 2 Wochen nach den Veranstaltungen gespeichert. Sie werden außerdem, solltest du dich einmal angemeldet haben, lokal in deinem Browser gespeichert, so dass du dich bei weiteren Veranstaltungen schneller anmelden kannst.<br> Du kannst die in Browser gespeicherten Daten durch einen Klick aus deinem Browser löschen:",
   "index_deletedData": "Daten erfolgreich aus dem Browser gelöscht",
   "kt1_name": "Kneipentour",

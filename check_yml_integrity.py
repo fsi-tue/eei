@@ -61,8 +61,8 @@ REQUIRED_SCHEMA = Schema(
             Optional("end"): And(str, is_date),
         },
         "registration_date": {
-            "start": And(str, is_date),
-            Optional("end"): And(str, is_date),
+            Optional("start"): And(str, is_date),
+            "end": And(str, is_date),
         },
         "csv_path": And(str, len, lambda s: is_unique("csv_path", s)),
         "icon": str,
