@@ -46,7 +46,7 @@ body {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     letter-spacing: var(--letter-spacing);
-    font-size: calc(10pt + 0.390625vw);
+    font-size: calc(10pt + 0.3vw);
     text-align: justify;
 
     /* Colors */
@@ -182,7 +182,7 @@ p.date {
     margin-bottom: 10px;
     width: 80%;
     max-width: 1200px;
-    padding: 10px;
+    padding: 20px;
     background-color: var(--background-color-light);
 }
 
@@ -205,6 +205,7 @@ p.date {
 /* Header Styles */
 h1 {
     text-align: center;
+    margin-top: 0;
 }
 
 /* Button Styles */
@@ -300,17 +301,12 @@ a .box.icon {
     .container.small-screen-reverse-order {
         flex-direction: column-reverse;
     }
-
-    .info,
-    .error {
-        width: 80%;
-    }
     #center {
-        margin: 0auto;
+        margin: 0 auto;
         width: 95%;
     }
     #center.small {
-        margin: 0auto;
+        margin: 0 auto;
         width: 95%;
     }
 }
@@ -319,9 +315,9 @@ a .box.icon {
 .description {
     margin: 10px auto;
     white-space: nowrap;
-    padding-left: 35px;
+    padding-left: 1em;
     width: min-content;
     background-repeat: no-repeat;
     background-position: left center;
-    background-size: contain;
+    background-size: 0.84em;
 }
