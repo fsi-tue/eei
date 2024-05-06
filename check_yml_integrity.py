@@ -4,6 +4,7 @@ This script checks the ingegrity of the structure and (partially) the data of th
 @author: Jules Kreuer
 @contact: contact@juleskreuer.eu
 """
+
 from datetime import datetime
 from schema import Schema, And, Use, Optional, SchemaError
 import yaml
@@ -13,6 +14,7 @@ FILE_NAME = "events.yml"
 
 UNIQUE_VALUES = {}
 DATE_FORMAT = "%d.%m.%Y %H:%M"
+
 
 def is_date(s: str) -> bool:
     """
@@ -41,6 +43,26 @@ def is_unique(key, data) -> bool:
 
     return False
 
+
+def is_icon(s: str) -> bool:
+    valid_icon_names = [
+        "beer",
+        "cap",
+        "clock",
+        "cocktail",
+        "dice",
+        "film",
+        "food",
+        "grill",
+        "hiking",
+        "home",
+        "marker",
+        "route",
+        "sings",
+    ]
+    return s in valid_icon_names
+
+
 # Schema of a single event
 # To check the value for:
 #    a string use: str
@@ -53,22 +75,23 @@ def is_unique(key, data) -> bool:
 REQUIRED_SCHEMA = Schema(
     {
         Optional("name"): And(str, len),
+        Optional("cancelled"): bool,
+        Optional("text"): str,
+        Optional("info"): str,
         "location": str,
         "max_participants": int,
         "event_date": {
             "start": And(str, is_date),
-            "onTime": bool,
             Optional("end"): And(str, is_date),
+            "onTime": bool,
         },
         "registration_date": {
             Optional("start"): And(str, is_date),
             "end": And(str, is_date),
         },
         "csv_path": And(str, len, lambda s: is_unique("csv_path", s)),
-        "icon": str,
+        "icon": And(str, is_icon),
         Optional("metas"): [str],
-        Optional("text"): str,
-        Optional("info"): str,
     }
 )
 
