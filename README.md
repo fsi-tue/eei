@@ -111,6 +111,7 @@ SP1:
   # Registration period for the event.
   registration_date:
     # Start date and time for registration, formatted as DD.MM.YYYY HH:MM.
+    # Not required
     start: "27.03.2024 00:00"
     # End date and time for registration, ensuring it ends before the event starts.
     end: "12.04.2024 19:00"
