@@ -15,7 +15,9 @@ events:
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
     metas:
-      - "michi"
+      - "nico"
+      - "kamuel"
+      - "clara"
 
   SP1:
     location: "Sand 14, A104"
@@ -29,21 +31,22 @@ events:
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     metas:
-      - "flop"
+      - "lukas3"
+      - "fabi"
 
-  SP2:
-    location: "Sand 14, A301"
-    max_participants: 200
-    event_date:
-      start: "24.04.2024 19:00"
-      onTime: false
-    registration_date:
-      start: "27.03.2024 00:00"
-      end: "24.04.2024 19:00"
-    csv_path: "ersti-spieleabend2.csv"
-    icon: "dice"
-    metas:
-      - "flop"
+  #SP2:
+  #  location: "Sand 14, A301"
+  #  max_participants: 200
+  #  event_date:
+  #    start: "24.04.2024 19:00"
+  #    onTime: false
+  #  registration_date:
+  #    start: "27.03.2024 00:00"
+  #    end: "24.04.2024 19:00"
+  #  csv_path: "ersti-spieleabend2.csv"
+  #  icon: "dice"
+  #  metas:
+  #    - "flop"
 
   #  SP3:
   #    name: "i18n:sp1_name"
@@ -72,7 +75,9 @@ events:
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
     metas:
-      - "michi"
+      - "nico"
+      - "kamuel"
+      - "clara"
 
   #  FB:
   #    location: "Sand 14, A104"
@@ -89,19 +94,19 @@ events:
   #      - "michi"
   #      - "flop"
 
-  #  WD1:
-  #    location: "Neckarinsel"
-  #    max_participants: 120
-  #    event_date:
-  #      start: "20.04.2024 10:30"
-  #      onTime: true
-  #    registration_date:
-  #      start: "13.04.2024 00:00"
-  #      end: "20.04.2024 9:30"
-  #    csv_path: "ersti-wanderung1.csv"
-  #    icon: "route"
-  #    metas:
-  #      - "kaip"
+  WD1:
+      location: "Neckarinsel"
+      max_participants: 120
+      event_date:
+        start: "20.04.2024 10:30"
+        onTime: true
+      registration_date:
+        start: "13.04.2024 00:00"
+        end: "20.04.2024 9:30"
+      csv_path: "ersti-wanderung1.csv"
+      icon: "route"
+      metas:
+        - "kaip"
 
   WD2:
     location: "Neckarinsel"
@@ -143,37 +148,37 @@ events:
     csv_path: "ersti-grillen2.csv"
     icon: "grill"
     metas:
-      - "olli"
+      - "kaip"
 
-  MisterX:
-    name: "Mister X (real life)"
-    location: "Sand 14"
-    max_participants: 35
-    event_date:
-      start: "21.04.2024 15:00"
-      onTime: true
-      end: "21.04.2024 18:00"
-    registration_date:
-      start: "12.04.2024 00:00"
-      end: "21.04.2024 14:00"
-    csv_path: "misterx1.csv"
-    icon: "marker"
-    text: "Mister X / Scotland Yard (real life)"
-    info: "Bitte ein aufgeladenes Handy mitbringen (wenn möglich)."
-    metas:
-      - "danielb"
+  #MisterX:
+  #  name: "Mister X (real life)"
+  #  location: "Sand 14"
+  #  max_participants: 35
+  #  event_date:
+  #    start: "21.04.2024 15:00"
+  #    onTime: true
+  #    end: "21.04.2024 18:00"
+  #  registration_date:
+  #    start: "12.04.2024 00:00"
+  #    end: "21.04.2024 14:00"
+  #  csv_path: "misterx1.csv"
+  #  icon: "marker"
+  #  text: "Mister X / Scotland Yard (real life)"
+  #  info: "Bitte ein aufgeladenes Handy mitbringen (wenn möglich)."
+  #  metas:
+  #    - "danielb"
 
-  #  RY:
-  #    location: ""
-  #    max_participants: 120
-  #    event_date:
-  #      start: "20.10.2023 16:30"
-  #      onTime: true
-  #    registration_date:
-  #      start: "13.10.2023 00:00"
-  #      end: "20.10.2023 16:00"
-  #    csv_path: "rallye1.csv"
-  #    icon: "marker"
+    RY:
+      location: ""
+      max_participants: 120
+      event_date:
+        start: "20.10.2023 16:30"
+        onTime: true
+      registration_date:
+        start: "13.10.2023 00:00"
+        end: "20.10.2023 16:00"
+      csv_path: "rallye1.csv"
+      icon: "marker"
 
   #  KASTEN:
   #    location: "Rewe Weststadt <br> Schleifmühlenweg 36"
