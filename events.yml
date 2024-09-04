@@ -3,47 +3,169 @@ events:
   ### Ersti-Events ###
   ##############################
   
-  KT1:
-    location: "Various locations in the city"
-    max_participants: 120
-    event_date:
-      start: "12.04.2024 20:00"
-      onTime: true
-    registration_date:
-      start: "27.03.2024 00:00"
-      end: "12.04.2024 19:00"
-    csv_path: "ersti-kneipentour1.csv"
-    icon: "route"
-    metas:
-      - "michi"
-
   SP1:
     location: "Sand 14, A104"
     max_participants: 200
     event_date:
-      start: "11.04.2024 19:00"
+      start: "01.10.2024 19:00"
       onTime: false
     registration_date:
-      start: "27.03.2024 00:00"
-      end: "11.04.2024 19:00"
+      start: "24.09.2024 00:00"
+      end: "01.10.2024 19:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     metas:
-      - "flop"
+      - "lukas"
+      - "fabian"
+
+  FB:
+    location: "Sand 14, A104"
+    max_participants: 200
+    event_date:
+      start: "02.10.2023 18:00"
+      onTime: true
+    registration_date:
+      start: "26.09.2023 00:00"
+      end: "02.10.2023 18:00"
+    csv_path: "flunkyball.csv"
+    icon: "film"
+    metas: 
+      - "nico"
+      - "lukas"  
+  
+
+  WD1:
+    location: "Neckarinsel"
+    max_participants: 120
+    event_date:
+      start: "05.10.2024 10:30"
+      onTime: true
+    registration_date:
+      start: "28.09.2024 00:00"
+      end: "05.10.2024 9:30"
+    csv_path: "ersti-wanderung1.csv"
+    icon: "route"
+    metas:
+      - "kaip"
+
+  KT1:
+    location: "Various locations in the city"
+    max_participants: 120
+    event_date:
+      start: "08.10.2024 20:00"
+      onTime: true
+    registration_date:
+      start: "01.10.2024 00:00"
+      end: "08.10.2024 19:00"
+    csv_path: "ersti-kneipentour1.csv"
+    icon: "route"
+    metas:
+      - "nico"
+      - "kamuel"
+      - "clara"
 
   SP2:
     location: "Sand 14, A301"
     max_participants: 200
     event_date:
-      start: "24.04.2024 19:00"
+      start: "10.10.2024 19:00"
       onTime: false
     registration_date:
-      start: "27.03.2024 00:00"
-      end: "24.04.2024 19:00"
+      start: "03.10.2024 00:00"
+      end: "10.10.2024 19:00"
     csv_path: "ersti-spieleabend2.csv"
     icon: "dice"
     metas:
-      - "flop"
+      - "david"
+
+  FRUEH: 
+    location: "Mensa Morgenstelle"
+    max_participants: 120
+    event_date: 
+      start: "11.10.2024 10:00"
+      onTime: true
+    registration_date:
+      start: "01.10.2024 00:00"
+      end: "10.10.2024 23:59"
+    csv_path: "ersti-fruehstueck.csv"
+    icon: "signs"
+    metas:
+      - "hannah"
+      - "clara"
+
+  GR1:
+    location: "Terrasse Sand"
+    max_participants: 150
+    event_date:
+      start: "12.10.2024 18:30"
+      onTime: false
+    registration_date:
+      start: "05.10.2024 00:00"
+      end: "12.10.2024 17:00"
+    csv_path: "ersti-grillen1.csv"
+    icon: "grill"
+    metas:
+      - "kaip"
+
+  KT2:
+    location: ""
+    max_participants: 120
+    event_date:
+      start: "14.10.2024 19:00"
+      onTime: true
+    registration_date:
+      start: "07.10.2024 00:00"
+      end: "14.10.2024 12:00"
+    csv_path: "ersti-kneipentour2.csv"
+    icon: "route"
+    metas:
+      - "nico"
+      - "kamuel"
+      - "clara"
+
+  FILM:
+    location: "Sand 14, A104"
+    max_participants: 200
+    event_date:
+      start: "15.10.2024 19:00"
+      onTime: false
+    registration_date:
+      start: "08.10.2024 00:00"
+      end: "15.10.2024 14:00"
+    csv_path: "ersti-filmabend.csv"
+    icon: "film"
+    metas:
+      - "kathi"
+
+  KASTEN:
+    name: "Kastenlauf"
+    location: "Rewe Weststadt <br> Schleifmühlenweg 36"
+    max_participants: 60
+    event_date:
+      start: "16.10.2024 18:00"
+      onTime: true
+    registration_date:
+      start: "08.10.2024 00:00"
+      end: "15.10.2024 23:59:59"
+    csv_path: "kastenlauf.csv"
+    icon: "beer"
+    metas:
+      - "kamuel"
+
+  AS:
+    location: "Sand 14, A301"
+    max_participants: 200
+    event_date:
+      start: "17.10.2024 19:00"
+      onTime: false
+    registration_date:
+      start: "10.10.2024 00:00"
+      end: "17.10.2024 19:00"
+    csv_path: "akademischer-spieleabend.csv"
+    icon: "beer"
+    metas:
+      - "lukas"
+      - "fabian"
 
   #  SP3:
   #    name: "i18n:sp1_name"
@@ -60,108 +182,66 @@ events:
   #    metas:
   #      - "jules"
 
-  KT2:
-    location: ""
-    max_participants: 120
+  GR2:
+    location: "Terrasse Sand"
+    max_participants: 150
     event_date:
-      start: "02.05.2024 19:00"
-      onTime: true
+      start: "19.10.2024 18:30"
+      onTime: false
     registration_date:
-      start: "27.03.2024 00:00"
-      end: "02.05.2024 12:00"
-    csv_path: "ersti-kneipentour2.csv"
-    icon: "route"
+      start: "12.10.2024 00:00"
+      end: "19.10.2024 17:00"
+    csv_path: "ersti-grillen2.csv"
+    icon: "grill"
     metas:
-      - "michi"
+      - "kaip"
 
-  #  FB:
-  #    location: "Sand 14, A104"
-  #    max_participants: 200
-  #    event_date:
-  #      start: "17.04.2024 17:00"
-  #      onTime: false
-  #    registration_date:
-  #      start: "04.04.2024 00:00"
-  #      end: "17.04.2024 12:00"
-  #    csv_path: "ersti-filmabend.csv"
-  #    icon: "film"
-  #    metas:
-  #      - "michi"
-  #      - "flop"
-
-  #  WD1:
-  #    location: "Neckarinsel"
-  #    max_participants: 120
-  #    event_date:
-  #      start: "20.04.2024 10:30"
-  #      onTime: true
-  #    registration_date:
-  #      start: "13.04.2024 00:00"
-  #      end: "20.04.2024 9:30"
-  #    csv_path: "ersti-wanderung1.csv"
-  #    icon: "route"
-  #    metas:
-  #      - "kaip"
+  CaptureTheFlag:
+     name: "Capture the Flag"
+     location: ""
+     max_participants: 40
+     event_date:
+       start: "20.10.2023 14:00"
+       end: "20.10.2023 18:00"
+     registration_date:
+       start: "13.10.2023 00:00"
+       end: "20.10.2023 09:00"
+     csv_path: "capture-the-flag.csv"
+     icon: "marker"
+     metas:
+       - "david"
 
   WD2:
     location: "Neckarinsel"
     max_participants: 120
     event_date:
-      start: "11.05.2024 10:30"
+      start: "26.10.2024 10:30"
       onTime: true
     registration_date:
-      start: "04.05.2024 00:00"
-      end: "11.05.2024 9:30"
+      start: "19.10.2024 00:00"
+      end: "26.10.2024 9:30"
     csv_path: "ersti-wanderung2.csv"
     icon: "route"
     metas:
       - "kaip"
 
-  GR1:
-    location: "Terrasse Sand"
-    max_participants: 150
-    event_date:
-      start: "27.04.2024 18:30"
-      onTime: false
-    registration_date:
-      start: "20.04.2024 00:00"
-      end: "27.04.2024 17:00"
-    csv_path: "ersti-grillen1.csv"
-    icon: "grill"
-    metas:
-      - "kaip"
-
-  GR2:
-    location: "Terrasse Sand"
-    max_participants: 150
-    event_date:
-      start: "25.05.2024 18:30"
-      onTime: false
-    registration_date:
-      start: "18.05.2024 00:00"
-      end: "25.05.2024 17:00"
-    csv_path: "ersti-grillen2.csv"
-    icon: "grill"
-    metas:
-      - "olli"
-
-  MisterX:
-    name: "Mister X (real life)"
-    location: "Sand 14"
-    max_participants: 35
-    event_date:
-      start: "21.04.2024 15:00"
-      onTime: true
-      end: "21.04.2024 18:00"
-    registration_date:
-      start: "12.04.2024 00:00"
-      end: "21.04.2024 14:00"
-    csv_path: "misterx1.csv"
-    icon: "marker"
-    text: "Mister X / Scotland Yard (real life)"
-    info: "Bitte ein aufgeladenes Handy mitbringen (wenn möglich)."
-    metas:
-      - "danielb"
+  # MisterX:
+  #   name: "Mister X (real life)"
+  #   location: "Sand 14"
+  #   max_participants: 35
+  #   event_date:
+  #     start: "21.04.2024 15:00"
+  #     onTime: true
+  #     end: "21.04.2024 18:00"
+  #   registration_date:
+  #     start: "12.04.2024 00:00"
+  #     end: "21.04.2024 14:00"
+  #   csv_path: "misterx1.csv"
+  #   icon: "marker"
+  #   text: "Mister X / Scotland Yard (real life)"
+  #   info: "Bitte ein aufgeladenes Handy mitbringen (wenn möglich)."
+  #   metas:
+  #     - "danielb"
 
   #  RY:
   #    location: ""
@@ -175,46 +255,21 @@ events:
   #    csv_path: "rallye1.csv"
   #    icon: "marker"
 
-  #  KASTEN:
-  #    location: "Rewe Weststadt <br> Schleifmühlenweg 36"
-  #    max_participants: 60
-  #    event_date:
-  #      start: "14.04.2023 18:00"
-  #      onTime: true
-  #    registration_date:
-  #      start: "07.04.2023 00:00"
-  #      end: "13.04.2023 23:59:59"
-  #    csv_path: "kastenlauf.csv"
-  #    icon: "beer"
-  #    metas:
-  #      - "danielb"
-
-  #  FILM:
-  #    location: "Sand 14, A104"
-  #    max_participants: 200
-  #    event_date:
-  #      start: "24.10.2023 18:30"
-  #      onTime: true
-  #    registration_date:
-  #      start: "17.10.2023 00:00"
-  #      end: "24.10.2023 18:30"
-  #    csv_path: "ersti-filmabend.csv"
-  #    icon: "film"
-  
-  #  CaptureTheFlag:
-  #    name: "Capture the Flag"
-  #    location: ""
-  #    max_participants: 40
-  #    event_date:
-  #      start: "15.10.2023 10:00"
-  #      end: "15.10.2023 18:00"
-  #    registration_date:
-  #      start: "08.10.2023 00:00"
-  #      end: "15.10.2023 09:00"
-  #    csv_path: "capture-the-flag.csv"
-  #    icon: "marker"
-  #    metas:
-  #      - "info"
+  HUETTE:
+    name: "Erstihütte"
+    location: ""
+    max_participants: 40
+    event_date:
+      start: "01.11.2023 10:00"
+      end: "03.11.2023 18:00"
+    registration_date:
+      start: "11.10.2023 00:00"
+      end: "25.10.2023 09:00"
+    csv_path: "ersti-huette.csv"
+    icon: "marker"
+    metas:
+      - "clara"
+      - "chris"
 
   ##############################
   ### Workshops ###
@@ -236,40 +291,40 @@ events:
   #    metas:
   #      - "info"
 
-  ws-software-engineering:
-    name: "Software Engineering Workshop"
-    location: "Sand A104"
-    max_participants: 25
-    text: "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 20./21.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt."
-    info: "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024."
-    event_date:
-      start: "20.04.2024 09:00"
-      onTime: true
-      end: "21.04.2024 17:00"
-    registration_date:
-      start: "19.04.2024 00:00"
-      end: "19.04.2024 23:59"
-    csv_path: "workshop-se-ss24-01.csv"
-    icon: "cap"
-    metas:
-      - "linus"
+  # ws-software-engineering:
+  #   name: "Software Engineering Workshop"
+  #   location: "Sand A104"
+  #   max_participants: 25
+  #   text: "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 20./21.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt."
+  #   info: "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024."
+  #   event_date:
+  #     start: "20.04.2024 09:00"
+  #     onTime: true
+  #     end: "21.04.2024 17:00"
+  #   registration_date:
+  #     start: "19.04.2024 00:00"
+  #     end: "19.04.2024 23:59"
+  #   csv_path: "workshop-se-ss24-01.csv"
+  #   icon: "cap"
+  #   metas:
+  #     - "linus"
 
-  ws-software-engineering2:
-    name: "Software Engineering Workshop"
-    location: "Sand A104"
-    max_participants: 25
-    text: "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.05.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt."
-    info: "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024."
-    event_date:
-      start: "04.05.2024 09:00"
-      onTime: true
-      end: "05.05.2024 17:00"
-    registration_date:
-      end: "03.05.2024 23:59"
-    csv_path: "workshop-se-ss24-02.csv"
-    icon: "cap"
-    metas:
-      - "linus"
+  # ws-software-engineering2:
+  #   name: "Software Engineering Workshop"
+  #   location: "Sand A104"
+  #   max_participants: 25
+  #   text: "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.05.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt."
+  #   info: "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024."
+  #   event_date:
+  #     start: "04.05.2024 09:00"
+  #     onTime: true
+  #     end: "05.05.2024 17:00"
+  #   registration_date:
+  #     end: "03.05.2024 23:59"
+  #   csv_path: "workshop-se-ss24-02.csv"
+  #   icon: "cap"
+  #   metas:
+  #     - "linus"
 
 #  LatexBasicWorkshop:
 #    name: "Latex Basic"
