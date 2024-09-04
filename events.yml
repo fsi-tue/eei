@@ -146,7 +146,7 @@ events:
       onTime: true
     registration_date:
       start: "08.10.2024 00:00"
-      end: "15.10.2024 23:59:59"
+      end: "15.10.2024 23:59"
     csv_path: "kastenlauf.csv"
     icon: "beer"
     metas:
@@ -203,6 +203,7 @@ events:
      event_date:
        start: "20.10.2023 14:00"
        end: "20.10.2023 18:00"
+       onTime: true
      registration_date:
        start: "13.10.2023 00:00"
        end: "20.10.2023 09:00"
@@ -262,6 +263,7 @@ events:
     event_date:
       start: "01.11.2023 10:00"
       end: "03.11.2023 18:00"
+      onTime: true
     registration_date:
       start: "11.10.2023 00:00"
       end: "25.10.2023 09:00"
