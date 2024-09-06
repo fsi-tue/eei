@@ -58,7 +58,7 @@ def is_icon(s: str) -> bool:
         "home",
         "marker",
         "route",
-        "sings",
+        "signs",
     ]
     return s in valid_icon_names
 

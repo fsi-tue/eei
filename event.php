@@ -161,7 +161,7 @@ $event = $events[$event_id];
 						['Medizininformatik', 'form_cs_med'],
 						['Medieninformatik', 'form_cs_media'],
 						['Maschinelles Lernen', 'form_ml'],
-						['Kognitive Informatik', 'form_cog'],
+						['Kognitionswissenschaft', 'form_cog'],
 						['Nebenfach', 'form_subsidiary']
 					];
 					foreach ($courses as $course) {
