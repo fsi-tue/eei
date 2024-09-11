@@ -19,16 +19,17 @@ events:
       - "fabian"
 
   FB:
+    name: "Flunkyball"
     location: "Sand 14, A104"
     max_participants: 200
     event_date:
-      start: "02.10.2023 18:00"
+      start: "02.10.2024 18:00"
       onTime: true
     registration_date:
-      start: "26.09.2023 00:00"
-      end: "02.10.2023 18:00"
+      start: "26.09.2024 00:00"
+      end: "02.10.2024 18:00"
     csv_path: "flunkyball.csv"
-    icon: "film"
+    icon: "beer"
     metas: 
       - "nico"
       - "lukas"  
@@ -201,11 +202,11 @@ events:
      location: ""
      max_participants: 40
      event_date:
-       start: "20.10.2023 14:00"
-       end: "20.10.2023 18:00"
+       start: "20.10.2024 14:00"
+       end: "20.10.2024 18:00"
        onTime: true
      registration_date:
-       start: "13.10.2023 00:00"
+       start: "13.10.2024 00:00"
        end: "20.10.2023 09:00"
      csv_path: "capture-the-flag.csv"
      icon: "marker"
@@ -261,12 +262,12 @@ events:
     location: ""
     max_participants: 40
     event_date:
-      start: "01.11.2023 10:00"
-      end: "03.11.2023 18:00"
+      start: "01.11.2024 10:00"
+      end: "03.11.2024 18:00"
       onTime: true
     registration_date:
-      start: "11.10.2023 00:00"
-      end: "25.10.2023 09:00"
+      start: "11.10.2024 00:00"
+      end: "25.10.2024 09:00"
     csv_path: "ersti-huette.csv"
     icon: "marker"
     metas:
