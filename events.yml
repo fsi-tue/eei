@@ -259,16 +259,19 @@ events:
 
   HUETTE:
     name: "Erstihütte"
-    location: ""
+    location: "Naturfreundehaus Waldheim Dettingen"
     max_participants: 40
     event_date:
       start: "01.11.2024 10:00"
       end: "03.11.2024 18:00"
       onTime: true
     registration_date:
-      start: "11.10.2024 00:00"
+      start: "16.10.2024 06:00"
       end: "25.10.2024 09:00"
     csv_path: "ersti-huette.csv"
+    form:
+      breakfast: false
+      food: true
     icon: "marker"
     metas:
       - "clara"
