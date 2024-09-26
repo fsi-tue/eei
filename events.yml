@@ -51,9 +51,9 @@ events:
 
   KT1:
     location: "Various locations in the city"
-    max_participants: 120
+    max_participants: 60
     event_date:
-      start: "08.10.2024 20:00"
+      start: "08.10.2024 19:00"
       onTime: true
     registration_date:
       start: "01.10.2024 00:00"
@@ -110,7 +110,7 @@ events:
 
   KT2:
     location: ""
-    max_participants: 120
+    max_participants: 60
     event_date:
       start: "14.10.2024 19:00"
       onTime: true
@@ -143,7 +143,7 @@ events:
     location: "Rewe Weststadt <br> Schleifmühlenweg 36"
     max_participants: 60
     event_date:
-      start: "16.10.2024 18:00"
+      start: "16.10.2024 17:00"
       onTime: true
     registration_date:
       start: "08.10.2024 00:00"
