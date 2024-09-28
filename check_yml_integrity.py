@@ -90,6 +90,11 @@ REQUIRED_SCHEMA = Schema(
             "end": And(str, is_date),
         },
         "csv_path": And(str, len, lambda s: is_unique("csv_path", s)),
+        Optional("form"): {
+            Optional("breakfast"): bool,
+            Optional("food"): bool,
+            Optional("course_required"): bool
+        },
         "icon": And(str, is_icon),
         Optional("metas"): [str],
     }
