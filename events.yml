@@ -27,12 +27,11 @@ events:
       onTime: true
     registration_date:
       start: "26.09.2024 00:00"
-      end: "02.10.2024 18:00"
+      end: "02.10.2024 17:30"
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas: 
       - "nico"
-      - "lukas"  
   
 
   WD1:
