@@ -46,6 +46,7 @@ $event = $events[$event_id];
     <h2 class="description icon clock"><?= $event->getEventDateString() ?></h2>
     <h2 class="description icon marker"><?= $event->location; ?></h2>
     <h2 class="description"><?= $i18n['remaining'] . ": " . $event->getRemainingSpots() ?></h2>
+	<?php if($event->dinosAllowed) {?> <h4 class="description"> <?= $i18n['dinos'] ?></h4> <?php } ?>
 	<?= $event->text ?>
     <br>
 	<?php

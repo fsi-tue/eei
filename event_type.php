@@ -35,6 +35,7 @@ class Event
 	public string $name;
 	public string $location;
 	private int $maxParticipants;
+	public bool $dinosAllowed;
 	public bool $cancelled;
 	public string $text;
 	public string $info;
@@ -55,6 +56,7 @@ class Event
 
 		$this->location = $data['location'];
 		$this->maxParticipants = $data['max_participants'] ?? false;
+		$this->dinosAllowed = $data['dinos'] ?? false;
 		$this->cancelled = $data['cancelled'] ?? false;
 		// Text and info
 		$this->text = Event::i18n($data, 'text') ?? $i18n->translate(strtolower($this->link) . '_text') ?? '';
