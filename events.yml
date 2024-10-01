@@ -23,7 +23,7 @@ events:
     location: "Sand 14, A104"
     max_participants: 200
     event_date:
-      start: "02.10.2024 18:00"
+      start: "02.10.2024 17:30"
       onTime: true
     registration_date:
       start: "26.09.2024 00:00"
