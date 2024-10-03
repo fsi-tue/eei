@@ -80,6 +80,7 @@ REQUIRED_SCHEMA = Schema(
         Optional("info"): str,
         "location": str,
         "max_participants": int,
+        Optional("dinos"): bool,
         "event_date": {
             "start": And(str, is_date),
             Optional("end"): And(str, is_date),
