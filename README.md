@@ -169,3 +169,7 @@ $mail_handles = [
 ```
 
 The variable `$mail_handles` is imported as global in `event_type.php` if the file `metas.php` exists.
+
+
+### Requesting the participants csv
+Go to https://eei.fsi.uni-tuebingen.de/participants.php
