@@ -15,7 +15,7 @@ events:
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     metas:
-      - "lukas"
+      - "lukas3"
       - "fabian"
 
   FB:
@@ -164,7 +164,7 @@ events:
     csv_path: "akademischer-spieleabend.csv"
     icon: "beer"
     metas:
-      - "lukas"
+      - "lukas3"
       - "fabian"
 
   #  SP3:
