@@ -50,7 +50,7 @@ events:
 
   KT1:
     location: "Various locations in the city"
-    max_participants: 70
+    max_participants: 80
     event_date:
       start: "08.10.2024 19:00"
       onTime: true
