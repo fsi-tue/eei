@@ -35,6 +35,12 @@ function sendParticipantListMail(Event $event): string
 		$msg .= "{$participant["name"]} (<a href='mailto:{$participant["mail"]}'>{$participant["mail"]}</a>) {$participant["misc"]}<br>";
 	}
 
+	// provide list of participants
+	$msg .= "<br><br>Mail-Liste:<br><br>";
+	$msg .= implode(',', array_map(function($participant) {
+	    return $participant['mail'];
+	}, $participants));
+
 	foreach ($metas_email_addresses as $meta_email) {
 		if (!validateEmail($meta_email)) {
 			return "Eine der hinterlegten Mailadressen ist keine gültige Mailadresse!";
