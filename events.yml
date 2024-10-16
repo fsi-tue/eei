@@ -207,7 +207,7 @@ events:
        onTime: true
      registration_date:
        start: "13.10.2024 00:00"
-       end: "20.10.2023 09:00"
+       end: "20.10.2024 09:00"
      csv_path: "capture-the-flag.csv"
      icon: "marker"
      metas:
