@@ -96,6 +96,12 @@ SP1:
   # Maximum number of participants that can attend the event.
   max_participants: 120
 
+  # Boolean value indicating if the event is open for past members.
+  # Not required!
+  # IMPORTANT: If not set, it will be set to false.
+  dinos: false
+
+
   # Event timing details.
   event_date:
     # Start date and time of the event, formatted as DD.MM.YYYY HH:MM.
@@ -163,3 +169,7 @@ $mail_handles = [
 ```
 
 The variable `$mail_handles` is imported as global in `event_type.php` if the file `metas.php` exists.
+
+
+### Requesting the participants csv
+Go to https://eei.fsi.uni-tuebingen.de/participants.php

@@ -10,21 +10,21 @@ session_start();
 
 // global variables and configuration
 global $i18n, $FILE_REVISION, $events;
-const MAX_TIME_BETWEEN_EMAILS = 12 * 60 * 60; // 12 hours
+const MAX_TIME_BETWEEN_EMAILS = 2 * 60 * 60; // 2 hours
 
 /**
  * Send a participant list mail via PHPMailer.
  *
  * @param $event         Event The event object.
  *
- * @return bool Whether the mail was sent successfully.
+ * @return string String containing the message to be printed to the user.
  */
-function sendParticipantListMail(Event $event): bool
+function sendParticipantListMail(Event $event): string
 {
 	// get email addresses for event
 	$metas_email_addresses = $event->metas;
 	if (!canSendEmail($event) || !$metas_email_addresses) {
-		return false;
+		return "Der letzte Mailversand liegt unter der Minimalzeit, bitte versuch es später erneut!";
 	}
 
 	$subject = "Teilnehmerliste für $event->name am " . $event->getEventDateString();
@@ -35,16 +35,24 @@ function sendParticipantListMail(Event $event): bool
 		$msg .= "{$participant["name"]} (<a href='mailto:{$participant["mail"]}'>{$participant["mail"]}</a>) {$participant["misc"]}<br>";
 	}
 
+	// provide list of participants
+	$msg .= "<br><br>Mail-Liste:<br><br>";
+	$msg .= implode(',', array_map(function($participant) {
+	    return $participant['mail'];
+	}, $participants));
+
 	foreach ($metas_email_addresses as $meta_email) {
-		if (!validateEmail($meta_email) || !sendMailViaPHPMailer($meta_email, $subject, $msg)) {
-			return false;
+		if (!validateEmail($meta_email)) {
+			return "Eine der hinterlegten Mailadressen ist keine gültige Mailadresse!";
+		} else if(!sendMailViaPHPMailer($meta_email, $subject, $msg)) {
+			return "Der Mailversand hat nicht funktioniert!";
 		}
 	}
 
 	// log the sending of the participant list mail
 	logToAvoidEmailSpam($event, $metas_email_addresses);
 
-	return true;
+	return "Die Teilnehmerliste wurde erfolgreich versendet.";
 }
 
 /**
@@ -223,13 +231,13 @@ $filtered_events = array_filter($events, fn(Event $event) => $event->isUpcoming(
 				$link = filter_input(INPUT_POST, 'event', FILTER_SANITIZE_ENCODED);
 				$event = $events[$link];
 				$success = sendParticipantListMail($event);
-				if ($success) {
+				if ($success == "Die Teilnehmerliste wurde erfolgreich versendet.") {
 					?>
                     <div class="text-block">Die Teilnehmerliste wurde erfolgreich versendet.</div>
 					<?php
 				} else {
 					?>
-                    <div class="text-block error">Das Versenden der Teilnehmerliste hat nicht funktioniert.</div>
+                    <div class="text-block error"><?php echo $success; ?></div>
 					<?php
 				}
 			} else {

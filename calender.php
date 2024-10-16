@@ -84,7 +84,7 @@ if (isset($_GET['e']) && isset($_GET['ics'])) {
 
 	if ($ics !== '') {
 		header('Content-Type: ' . ICS_MIME_TYPE);
-		header('Content-Disposition: attachment; filename="' . $E['name'] . '.ics"');
+		header('Content-Disposition: attachment; filename="' . $E->name . '.ics"');
 		echo $ics;
 	}
 }

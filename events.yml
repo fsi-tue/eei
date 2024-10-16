@@ -15,7 +15,7 @@ events:
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     metas:
-      - "lukas"
+      - "lukas3"
       - "fabian"
 
   FB:
@@ -23,16 +23,15 @@ events:
     location: "Sand 14, A104"
     max_participants: 200
     event_date:
-      start: "02.10.2024 18:00"
+      start: "02.10.2024 17:30"
       onTime: true
     registration_date:
       start: "26.09.2024 00:00"
-      end: "02.10.2024 18:00"
+      end: "02.10.2024 17:30"
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas: 
       - "nico"
-      - "lukas"  
   
 
   WD1:
@@ -51,9 +50,9 @@ events:
 
   KT1:
     location: "Various locations in the city"
-    max_participants: 120
+    max_participants: 80
     event_date:
-      start: "08.10.2024 20:00"
+      start: "08.10.2024 19:00"
       onTime: true
     registration_date:
       start: "01.10.2024 00:00"
@@ -110,13 +109,13 @@ events:
 
   KT2:
     location: ""
-    max_participants: 120
+    max_participants: 70
     event_date:
       start: "14.10.2024 19:00"
       onTime: true
     registration_date:
       start: "07.10.2024 00:00"
-      end: "14.10.2024 12:00"
+      end: "13.10.2024 12:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
     metas:
@@ -143,7 +142,7 @@ events:
     location: "Rewe Weststadt <br> Schleifmühlenweg 36"
     max_participants: 60
     event_date:
-      start: "16.10.2024 18:00"
+      start: "16.10.2024 17:00"
       onTime: true
     registration_date:
       start: "08.10.2024 00:00"
@@ -165,7 +164,7 @@ events:
     csv_path: "akademischer-spieleabend.csv"
     icon: "beer"
     metas:
-      - "lukas"
+      - "lukas3"
       - "fabian"
 
   #  SP3:
@@ -259,16 +258,19 @@ events:
 
   HUETTE:
     name: "Erstihütte"
-    location: ""
+    location: "Naturfreundehaus Waldheim Dettingen"
     max_participants: 40
     event_date:
       start: "01.11.2024 10:00"
       end: "03.11.2024 18:00"
       onTime: true
     registration_date:
-      start: "11.10.2024 00:00"
+      start: "17.10.2024 06:00"
       end: "25.10.2024 09:00"
     csv_path: "ersti-huette.csv"
+    form:
+      breakfast: false
+      food: true
     icon: "marker"
     metas:
       - "clara"
