@@ -48,10 +48,6 @@
     background-image: url("../icons/route-solid.svg");
 }
 
-.icon.signgs {
-    background-image: url("../icons/sings-solid.svg");
-}
-
 .icon.inactive {
     opacity: 50%;
 }
