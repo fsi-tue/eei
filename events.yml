@@ -266,7 +266,7 @@ events:
       onTime: true
     registration_date:
       start: "17.10.2024 06:00"
-      end: "25.10.2024 09:00"
+      end: "06.11.2024 09:00"
     csv_path: "ersti-huette.csv"
     form:
       breakfast: false
