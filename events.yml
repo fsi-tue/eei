@@ -276,6 +276,22 @@ events:
       - "clara"
       - "chris"
 
+  WEIHNACHTSFEIER:
+    name: "Weihnachtsfeier"
+    location: "Sand"
+    max_participants: 200
+    event_date:
+      start: "13.12.2024 18:00"
+      end: "14.12.2024 00:00"
+      onTime: true
+    registration_date:
+      start: "06.12.2024 00:00"
+      end: "14.12.2024 00:00"
+    csv_path: "weihnachtsfeier.csv"
+    icon: "cocktail"
+    metas:
+      - "lukas3"
+
   ##############################
   ### Workshops ###
   ##############################
