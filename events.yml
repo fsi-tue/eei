@@ -282,8 +282,7 @@ events:
     max_participants: 300
     event_date:
       start: "13.12.2024 18:00"
-      end: "14.12.2024 00:00"
-      onTime: true
+      onTime: false
     registration_date:
       start: "06.12.2024 00:00"
       end: "14.12.2024 00:00"
