@@ -52,6 +52,10 @@
     background-image: url("../icons/sings-solid.svg");
 }
 
+.icon.snowflake {
+    background-image: url("../icons/snowflake-solid.svg");
+}
+
 .icon.inactive {
     opacity: 50%;
 }
