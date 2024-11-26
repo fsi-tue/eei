@@ -375,7 +375,7 @@ class Event
 		}
 
 		if ($isStartEndDiffDays && !$noEnd && $hasEndDate && !$isTakingPlace) {
-			$dateAndTime = "$dateAndTime {$i18n['time_to']} $endDate";
+			$dateAndTime = "$dateAndTime " . $i18n->translate('time_to') . " $endDate";
 		}
 
 		return $dateAndTime;

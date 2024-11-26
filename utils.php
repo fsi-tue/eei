@@ -2,7 +2,7 @@
 require_once 'config.php';
 require_once 'i18n/i18n.php';
 require_once 'email.php';
-require_once 'calender.php';
+require_once 'calendar.php';
 require_once 'event_type.php';
 
 global $i18n, $fp;
@@ -51,6 +51,14 @@ function getEnvVar($key, $default = NULL): mixed
 function isLocalhost($whitelist = ['127.0.0.1', '::1']): bool
 {
 	return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+}
+
+function getRemoteAddr(): string
+{
+	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+	$host = $_SERVER['HTTP_HOST'];
+	$baseURL = "{$protocol}://{$host}";
+	return $baseURL;
 }
 
 function createEeiRegistrationFolder(): void
@@ -118,7 +126,8 @@ function sendRegistrationMail(string $recipient, string $registration_id, Event 
 			'DATE' => $event->getEventDateString(),
 			'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML,
 			'SENDER_NAME' => getEnvVar('SENDER_NAME')));
-	$ics = getICSForEvent($event);
+	$generator = new ICSGenerator($event);
+	$ics = $generator->generateICS();
 	sendMailViaPHPMailer($recipient, $subject, $msg, $ics, 'event.ics');
 }
 

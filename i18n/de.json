@@ -7,8 +7,8 @@
   "time_from": "ab {TIME} Uhr",
   "time_to": "bis",
   "time_takingPlace": "Findet gerade statt",
-  "calender_download": "Kalender herunterladen",
-  "calender_subscribe": "Kalender abonnieren",
+  "calendar_download": "Kalender herunterladen",
+  "calendar_subscribe": "Kalender abonnieren",
   "back": "Zurück zur Übersicht",
   "form_yourName": "Dein Name (Vor- und Nachname)",
   "form_email": "Mail-Adresse",
@@ -84,5 +84,5 @@
   "fb_text": "Wir laden euch herzlich ein, eure linken Füße und eure Zielgenauigkeit beim Flunky Ball zu testen. Egal, ob ihr bereits Flunky Ball Profis seid oder es zum ersten Mal ausprobiert.<br> Wir sorgen für die Flunky Ball Ausrüstung und eine tolle Atmosphäre, ihr müsst nur euch selbst mitbringen. Damit wir alles bestens vorbereiten können, freuen wir uns, wenn ihr euch vorab anmeldet.",
   "wf_name": "Weihnachtsfeier",
   "wf_text": "Wir laden euch herzlich zur diesjährigen Weihnachtsfeier ein. Es gibt Waffeln, Glühwein und Bowle. Weihnachtsmützen optional!",
-  "dinos" : "Dinos willkommen!"
+  "dinos": "Dinos willkommen!"
 }
