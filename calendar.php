@@ -1,6 +1,4 @@
 <?php
-declare(strict_types=1);
-
 require_once 'config.php';
 require_once 'utils.php';
 require_once 'event_type.php';
@@ -118,7 +116,7 @@ class ICSGenerator
     }
 }
 
-// Usage example
+
 if (isset($_GET['e'], $_GET['ics'])) {
     $eventId = filter_input(INPUT_GET, 'e', FILTER_SANITIZE_ENCODED);
     
@@ -126,7 +124,19 @@ if (isset($_GET['e'], $_GET['ics'])) {
         header('Location: /', true, 302);
         exit;
     }
-    
-    $generator = new ICSGenerator($events[$eventId]);
+
+    downloadIcsFile($eventId);
+}
+
+function downloadIcsFile(string $eventId): void
+{
+    global $events;
+    $event = $events[$eventId];
+    if (!$event instanceof Event) {
+        return;
+    }
+
+    $generator = new ICSGenerator($event);
     $generator->sendICSFile();
+    exit;
 }
