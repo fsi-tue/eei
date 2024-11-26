@@ -104,6 +104,18 @@ a .link.color-border {
     background-color: initial;
 }
 
+.box .name {
+    font-size: 100%;
+    color: var(--text-color);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
 .box.today {
     background-color: var(--success-color-light);
 }
@@ -166,11 +178,11 @@ p.date {
         height: 150px;
     }
 
-    p.name {
+    .box .name {
         font-size: 70%;
     }
 
-    p.date {
+    .box .date {
         font-size: 50%;
     }
 }

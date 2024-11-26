@@ -36,6 +36,7 @@ usort($events, 'sortByDate');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css<?= $FILE_REVISION; ?>">
     <link rel="stylesheet" href="css/icons.css<?= $FILE_REVISION; ?>">
+    <link rel="stylesheet" href="css/i18n.css<?= $FILE_REVISION; ?>">
     <title><?= $i18n['title'] ?></title>
 </head>
 
@@ -47,8 +48,8 @@ usort($events, 'sortByDate');
 
     <div class="container">
         <label>
-            <div class="select-container">
-                <select id="lang-selection" aria-description="Select language">
+            <div class="language-switcher">
+                <select id="lang-selection" aria-label="Select language">
                     <option value='de' <?= $i18n->getLanguage() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
                     <option value="en" <?= $i18n->getLanguage() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
                 </select>
