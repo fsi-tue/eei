@@ -1,4 +1,12 @@
+# PHP
 /vendor/
+
+# JetBrains IDE
+.idea
+
+# Mac OS
+.DS_Store
+
+# Misc
 *.env
 metas.php
-.idea

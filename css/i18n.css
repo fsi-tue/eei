@@ -1,0 +1,40 @@
+.language-switcher {
+    position: relative;
+    display: inline-block;
+}
+
+.language-switcher select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px 32px 8px 12px;
+    font-size: 16px;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    min-width: 140px;
+    transition: all 0.2s ease;
+}
+
+.language-switcher::after {
+    content: '▼';
+    font-size: 12px;
+    color: #666;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.language-switcher select:hover {
+    border-color: #999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.language-switcher select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+}
