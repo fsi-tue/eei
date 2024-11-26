@@ -53,6 +53,14 @@ function isLocalhost($whitelist = ['127.0.0.1', '::1']): bool
 	return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
 }
 
+function getRemoteAddr(): string
+{
+	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+	$host = $_SERVER['HTTP_HOST'];
+	$baseURL = "{$protocol}://{$host}";
+	return $baseURL;
+}
+
 function createEeiRegistrationFolder(): void
 {
 	global $fp;

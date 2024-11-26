@@ -1,90 +1,132 @@
 <?php
+declare(strict_types=1);
+
 require_once 'config.php';
 require_once 'utils.php';
 require_once 'event_type.php';
 require_once 'i18n/i18n.php';
 
-global $i18n, $events;
-const ICS_MIME_TYPE = 'text/calendar';
-const ICALENDAR_HEADER = "
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//hacksw/handcal//NONSGML v1.0//EN
-";
-const ICALENDAR_FOOTER = "END:VCALENDAR";
-const FSI_ICAL_CLOUD_URL = 'https://www.fsi.uni-tuebingen.de/__calendarHelper/';
-
-# Downloads the ICS file from the FSI cloud and saves it to the file system.
-function downloadAndSaveFSICloudICS(): bool
+class ICSGenerator
 {
-	// Download the ICS file from the FSI cloud.
-	$content = file_get_contents(FSI_ICAL_CLOUD_URL);
-	if ($content === false) {
-		return false;
-	}
-
-	// Save the ICS file to the file system.
-	global $fp;
-	$filename = "{$fp}fsi.ics";
-	$file = fopen($filename, 'w');
-	if ($file === false) {
-		return false;
-	}
-	fwrite($file, $content);
-	fclose($file);
-	return true;
-}
-
-# Returns the ICS file for the given event.
-function getICSForEvent(Event $event): string
-{
-	// Check if the ICS file for the event exists.
-	global $fp;
-	$filename = "{$fp}fsi.ics";
-	if (!file_exists($filename) && !downloadAndSaveFSICloudICS()) {
-		// If download fails, return empty string.
-		return '';
-	}
-
-	// Read the ICS file.
-	$fsi_cloud_calendar = file_get_contents($filename);
-	if ($fsi_cloud_calendar === false) {
-		return '';
-	}
-
-	// Split the ICS file into events.
-	$fsi_events = explode('BEGIN:VEVENT', $fsi_cloud_calendar);
-
-	// Search in the event DESCRIPTION for the event with the given event id
-	// and return it.
-	foreach ($fsi_events as $fsi_event) {
-		// Find Event ID in the event and return the event
-		// It does not matter where it is, but for the sake of cleanliness
-		// it could be put in the description of the event
-		if (str_contains($fsi_event, $event->link)) {
-			return ICALENDAR_HEADER . "BEGIN:VEVENT" . $fsi_event . ICALENDAR_FOOTER;
+    private const MIME_TYPE = 'text/calendar';
+    private const LINE_ENDING = "\r\n";
+    
+    private Event $event;
+    
+    public function __construct(Event $event)
+    {
+        $this->event = $event;
+    }
+    
+    public function generateICS(): string
+    {
+        return implode(self::LINE_ENDING, [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//FSI//Calendar//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            $this->generateEventBlock(),
+            'END:VCALENDAR'
+        ]);
+    }
+    
+    private function generateEventBlock(): string
+    {
+        $eventData = [
+			'BEGIN:VEVENT',
+			'UID:' . $this->generateUID(),
+			'DTSTAMP:' . $this->formatDateTime(new DateTimeImmutable()),
+			'DTSTART:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($this->event->getEventStartUTS())),
+		];
+		
+		$eventStartUTS = $this->event->getEventStartUTS();
+		$eventEndUTS = $this->event->getEventEndUTS();
+		
+		// Check if the event has an end
+		if ($eventEndUTS > 0) {
+			$eventData[] = 'DTEND:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($eventEndUTS));
+		} else {
+			// If there is no end, instead of using the 0 (which is kind of bad because this represents 1970-01-01)
+			// we set the end to the end of the day
+			$endOfDay = (new DateTimeImmutable())->setTimestamp($eventStartUTS)->setTime(23, 59, 59);
+			$eventData[] = 'DTEND:' . $this->formatDateTime($endOfDay);
 		}
-	}
+		
+		$eventData[] = 'SUMMARY:' . $this->escapeString($this->event->name);
 
-	// If the event was not found, return empty string.
-	return '';
+        if (!empty($this->event->description)) {
+            $eventData[] = 'DESCRIPTION:' . $this->escapeString($this->event->text);
+        }
+
+        if (!empty($this->event->location)) {
+            $eventData[] = 'LOCATION:' . $this->escapeString($this->event->location);
+        }
+
+        if (!empty($this->event->link)) {
+            $eventData[] = 'URL:' . $this->escapeString(getRemoteAddr() . '/event.php?e=' . $this->event->link);
+        }
+
+        $eventData[] = 'END:VEVENT';
+
+		// To debug the Calendar, uncomment the following lines
+		// echo '<pre>';
+		// var_dump($eventData);
+		// echo '</pre>';
+
+        return implode(self::LINE_ENDING, $eventData);
+    }
+    
+    private function generateUID(): string
+    {
+        return sprintf(
+            '%s-%s@%s',
+            uniqid('event-', true),
+            hash('crc32', $this->event->name),
+            $_SERVER['HTTP_HOST'] ?? 'fsi.uni-tuebingen.de'
+        );
+    }
+    
+    private function formatDateTime(DateTimeInterface $dateTime): string
+    {
+        return $dateTime->format('Ymd\THis\Z');
+    }
+    
+    private function escapeString(string $text): string
+    {
+        $text = str_replace(['\\', ',', ';'], ['\\\\', '\,', '\;'], $text);
+        return preg_replace('/\R/', '\n', $text);
+    }
+    
+    public function sendICSFile(): void
+    {
+        $filename = $this->sanitizeFilename($this->event->name) . '.ics';
+        
+		// To debug the Calendar, comment all the "header" lines
+        header('Content-Type: ' . self::MIME_TYPE);
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Expires: 0');
+        
+        echo $this->generateICS();
+        exit;
+    }
+    
+    private function sanitizeFilename(string $filename): string
+    {
+        return preg_replace('/[^a-zA-Z0-9-_.]/', '_', $filename);
+    }
 }
 
-# If event id and "ics" are not set, redirect to main page.
-if (isset($_GET['e']) && isset($_GET['ics'])) {
-	$event_id = filter_input(INPUT_GET, 'e', FILTER_SANITIZE_ENCODED);
-	# If event id is unknown, redirect to main page.
-	if (!array_key_exists($event_id, $events)) {
-		header('Location:/');
-		die();
-	}
-
-	$E = $events[$event_id];
-	$ics = getICSForEvent($E);
-
-	if ($ics !== '') {
-		header('Content-Type: ' . ICS_MIME_TYPE);
-		header('Content-Disposition: attachment; filename="' . $E->name . '.ics"');
-		echo $ics;
-	}
+// Usage example
+if (isset($_GET['e'], $_GET['ics'])) {
+    $eventId = filter_input(INPUT_GET, 'e', FILTER_SANITIZE_ENCODED);
+    
+    if (!isset($events[$eventId])) {
+        header('Location: /', true, 302);
+        exit;
+    }
+    
+    $generator = new ICSGenerator($events[$eventId]);
+    $generator->sendICSFile();
 }
