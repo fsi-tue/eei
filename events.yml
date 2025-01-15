@@ -5,7 +5,7 @@ events:
 
   SPx:
     name: i18n:as_name
-    text: i18n:spx_name
+    text: i18n:spx_text
     location: "Sand 14, A104"
     max_participants: 100
     event_date:
