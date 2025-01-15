@@ -2,8 +2,8 @@ events:
   ##############################
   ### Ersti-Events ###
   ##############################
-  
-  SPx:
+
+  SP1:
     location: "Sand 14, A104"
     max_participants: 100
     event_date:
@@ -17,7 +17,7 @@ events:
     metas:
       - "flop"
 
-  
+
   # SP1:
   #   location: "Sand 14, A104"
   #   max_participants: 200
@@ -45,9 +45,9 @@ events:
   #     end: "02.10.2024 17:30"
   #   csv_path: "flunkyball.csv"
   #   icon: "beer"
-  #   metas: 
+  #   metas:
   #     - "nico"
-  
+
 
   # WD1:
   #   location: "Neckarinsel"
@@ -93,10 +93,10 @@ events:
   #   metas:
   #     - "david"
 
-  # FRUEH: 
+  # FRUEH:
   #   location: "Mensa Morgenstelle"
   #   max_participants: 120
-  #   event_date: 
+  #   event_date:
   #     start: "11.10.2024 10:00"
   #     onTime: true
   #   registration_date:
