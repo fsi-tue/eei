@@ -36,8 +36,8 @@ events:
      - "kaip"
      - "clara"
 
-  FRUEH:
-    location: "Mensa Morgenstelle"
+  FRUEHSAND:
+    location: "Sand A103"
     max_participants: 120
     event_date:
       start: "11.04.2025 10:00"
@@ -113,7 +113,7 @@ events:
       - "seb"
       - "clara"
   
-  SP2:
+  SPx:
   name: "Spieleabend 2"
   text: i18n:spx_text
   location: "Sand 14, A104"
@@ -179,7 +179,7 @@ events:
       - "kaip"
       - "clara"
 
-  RY:
+  ASJ:
     name: "Abenteuer-Schnitzeljagd"
     location: "Stiftskirche"
     max_participants: 120
