@@ -62,6 +62,21 @@ events:
     metas:
       - "seb"
 
+  GR1:
+    location: "Terrasse Sand"
+    max_participants: 150
+    event_date:
+      start: "12.04.2025 18:30"
+      onTime: false
+    registration_date:
+      start: "05.04.2025 00:00"
+      end: "12.04.2025 17:00"
+    csv_path: "ersti-grillen1.csv"
+    icon: "grill"
+    metas:
+      - "kaip"
+
+
   FB:
     name: "Flunkyball"
     location: "Sand 14, A104"
@@ -122,6 +137,51 @@ events:
     icon: "route"
     metas:
      - "kaip"
+
+  KASTEN:
+    name: "Kastenlauf"
+    location: "TBA"
+    max_participants: 60
+    event_date:
+      start: "23.04.2025 17:00"
+      onTime: true
+    registration_date:
+      start: "16.04.2025 00:00"
+      end: "22.04.2025 23:59"
+    csv_path: "kastenlauf.csv"
+    icon: "beer"
+    metas:
+      - "seb" 
+      - "max"
+
+  GR2:
+    location: "Terrasse Sand"
+    max_participants: 150
+    event_date:
+      start: "25.04.2024 18:30"
+      onTime: false
+    registration_date:
+      start: "18.04.2025 00:00"
+      end: "25.10.2024 17:00"
+    csv_path: "ersti-grillen2.csv"
+    icon: "grill"
+    metas:
+      - "kaip"
+
+  RY:
+    location: "Stiftskirche"
+    max_participants: 120
+    event_date:
+      start: "26.04.2025 14:00"
+      onTime: true
+    registration_date:
+      start: "19.04.2025 00:00"
+      end: "25.04.2025 23:59"
+    csv_path: "rallye1.csv"
+    icon: "marker"
+    metas:
+      - "seb"
+      - "hannah"
 
 
   # SP1:
