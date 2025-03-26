@@ -3,22 +3,125 @@ events:
   ### Ersti-Events ###
   ##############################
 
-  SPx:
-    name: i18n:as_name
+  SP1:
+    name: "Spieleabend 1"
     text: i18n:spx_text
     location: "Sand 14, A104"
-    max_participants: 100
+    max_participants: 200
     event_date:
-      start: "23.01.2025 19:00"
+      start: "01.04.2025 19:00"
       onTime: false
     registration_date:
-      start: "16.01.2025 00:00"
-      end: "23.01.2024 20:00"
-    csv_path: "spieleabend_x.csv"
+      start: "24.03.2025 19:00"
+      end: "31.04.2025 20:00"
+    csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
-    dinos: True
+    dinos: False
     metas:
-      - "flop"
+      - "Matti"
+
+  WD1:
+    location: "Neckarinsel"
+    max_participants: 120
+    event_date:
+      start: "05.04.2025 10:30"
+      onTime: true
+    registration_date:
+      start: "22.03.2025 00:00"
+      end: "05.04.2025 9:30"
+    csv_path: "ersti-wanderung1.csv"
+    icon: "route"
+    metas:
+     - "kaip"
+
+  FRUEH:
+    location: "Mensa Morgenstelle"
+    max_participants: 120
+    event_date:
+      start: "11.04.2025 10:00"
+      onTime: true
+    registration_date:
+      start: "28.03.2025 00:00 00:00"
+      end: "10.04.2025 23:59"
+    csv_path: "ersti-fruehstueck.csv"
+    icon: "signs"
+    metas:
+      - "seb"
+
+  KT1:
+    location: "Various locations in the city"
+    max_participants: 80
+    event_date:
+      start: "11.04.2025 19:00"
+      onTime: true
+    registration_date:
+      start: "28.03.2025 00:00"
+      end: "10.04.2025 19:00"
+    csv_path: "ersti-kneipentour1.csv"
+    icon: "route"
+    metas:
+      - "seb"
+
+  FB:
+    name: "Flunkyball"
+    location: "Sand 14, A104"
+    max_participants: 200
+    event_date:
+      start: "14.04.2025 18:00"
+      onTime: true
+    registration_date:
+      start: "01.04.2025 00:00"
+      end: "13.04.2025 17:30"
+    csv_path: "flunkyball.csv"
+    icon: "beer"
+    metas:
+      - "hannah"
+
+  KT2:
+    location: "Various locations in the city"
+    max_participants: 80
+    event_date:
+      start: "15.04.2025 19:00"
+      onTime: true
+    registration_date:
+      start: "01.04.2025 00:00"
+      end: "14.04.2025 19:00"
+    csv_path: "ersti-kneipentour2.csv"
+    icon: "route"
+    metas:
+      - "seb"
+  
+  SP2:
+  name: "Spieleabend 2"
+  text: i18n:spx_text
+  location: "Sand 14, A104"
+  max_participants: 200
+  event_date:
+    start: "16.04.2025 19:00"
+    onTime: false
+  registration_date:
+    start: "02.04.2025 19:00"
+    end: "15.04.2025 20:00"
+  csv_path: "ersti-spieleabend2.csv"
+  icon: "dice"
+  dinos: False
+  metas:
+    - "Matti" 
+    - "Sungbin"
+
+  WD2:
+    location: "Neckarinsel"
+    max_participants: 120
+    event_date:
+      start: "03.05.2025 10:30"
+      onTime: true
+    registration_date:
+      start: "19.04.2025 00:00"
+      end: "03.05.2025 9:30"
+    csv_path: "ersti-wanderung2.csv"
+    icon: "route"
+    metas:
+     - "kaip"
 
 
   # SP1:
