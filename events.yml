@@ -12,7 +12,7 @@ events:
       start: "01.04.2025 19:00"
       onTime: false
     registration_date:
-      start: "24.03.2025 19:00"
+      start: "25.03.2025 19:00"
       end: "31.04.2025 20:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
@@ -27,7 +27,7 @@ events:
       start: "05.04.2025 10:30"
       onTime: true
     registration_date:
-      start: "22.03.2025 00:00"
+      start: "29.03.2025 00:00"
       end: "05.04.2025 9:30"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
@@ -41,7 +41,7 @@ events:
       start: "11.04.2025 10:00"
       onTime: true
     registration_date:
-      start: "28.03.2025 00:00 00:00"
+      start: "04.04.2025 00:00 00:00"
       end: "10.04.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
     icon: "signs"
@@ -55,7 +55,7 @@ events:
       start: "11.04.2025 19:00"
       onTime: true
     registration_date:
-      start: "28.03.2025 00:00"
+      start: "04.04.2025 00:00"
       end: "10.04.2025 19:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
@@ -85,7 +85,7 @@ events:
       start: "14.04.2025 18:00"
       onTime: true
     registration_date:
-      start: "01.04.2025 00:00"
+      start: "06.04.2025 00:00"
       end: "13.04.2025 17:30"
     csv_path: "flunkyball.csv"
     icon: "beer"
@@ -99,7 +99,7 @@ events:
       start: "15.04.2025 19:00"
       onTime: true
     registration_date:
-      start: "01.04.2025 00:00"
+      start: "08.04.2025 00:00"
       end: "14.04.2025 19:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
@@ -115,7 +115,7 @@ events:
     start: "16.04.2025 19:00"
     onTime: false
   registration_date:
-    start: "02.04.2025 19:00"
+    start: "09.04.2025 19:00"
     end: "15.04.2025 20:00"
   csv_path: "ersti-spieleabend2.csv"
   icon: "dice"
