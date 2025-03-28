@@ -167,7 +167,7 @@ SP1:
 ### `metas.php`
 
 Since the email address is not supposed to be public, it is stored in a separate file
-that is not tracked by git.
+that is not tracked by git. Only an administrator can perform this step.
 
 To add / edit an email address, add / edit the following line in `metas.php`:
 
