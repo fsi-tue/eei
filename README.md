@@ -38,9 +38,9 @@ The events are stored in the file `events.yml`. To add or update an event, you n
 
 To add / edit an event
 
+0. Make sure to follow the Git Forking Workflow for ease of collaboration.
 1. Copy or edit the dummy event and modify the values.
-2. Append this event to the $events array.
-3. Add or change the german (`i18n/de.json`) and english `i18n/en.json` version inside the `i18n` folder.
+2. Add or change the german (`i18n/de.json`) and english `i18n/en.json` version inside the `i18n` folder.
 
 Usage of the `events.yml` file:
 
