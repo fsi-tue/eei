@@ -47,7 +47,7 @@ events:
       start: "04.04.2025 00:00"
       end: "10.04.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
-    icon: "signs"
+    icon: "food"
     metas:
       - "seb"
       - "clara"
