@@ -47,7 +47,7 @@ events:
       start: "04.04.2025 00:00"
       end: "10.04.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
-    icon: "signs"
+    icon: "food"
     metas:
       - "seb"
       - "clara"
@@ -120,7 +120,7 @@ events:
   SPx:
     name: "Spieleabend 2"
     text: i18n:spx_text
-    location: "Sand 14, A104"
+    location: "Sand 14, A302"
     max_participants: 200
     event_date:
       start: "16.04.2025 19:00"
@@ -173,11 +173,11 @@ events:
     location: "Terrasse Sand"
     max_participants: 150
     event_date:
-      start: "25.04.2024 18:30"
+      start: "25.04.2025 18:30"
       onTime: false
     registration_date:
       start: "18.04.2025 00:00"
-      end: "25.10.2024 17:00"
+      end: "25.04.2025 17:00"
     csv_path: "ersti-grillen2.csv"
     icon: "grill"
     dinos: True
