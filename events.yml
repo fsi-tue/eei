@@ -3,143 +3,205 @@ events:
   ### Ersti-Events ###
   ##############################
 
-  SPx:
-    name: i18n:as_name
+  SP1:
+    name: "Spieleabend 1"
     text: i18n:spx_text
     location: "Sand 14, A104"
-    max_participants: 100
+    max_participants: 200
     event_date:
-      start: "23.01.2025 19:00"
+      start: "01.04.2025 19:00"
       onTime: false
     registration_date:
-      start: "16.01.2025 00:00"
-      end: "23.01.2024 20:00"
-    csv_path: "spieleabend_x.csv"
+      start: "25.03.2025 19:00"
+      end: "01.04.2025 18:00"
+    csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
+    dinos: False
+    metas:
+      - "matti"
+      - "clara"
+
+  WD1:
+    location: "Neckarinsel"
+    max_participants: 120
+    event_date:
+      start: "05.04.2025 10:30"
+      onTime: true
+    registration_date:
+      start: "29.03.2025 00:00"
+      end: "05.04.2025 9:30"
+    csv_path: "ersti-wanderung1.csv"
+    icon: "route"
     dinos: True
     metas:
-      - "flop"
+     - "kaip"
+     - "clara"
+
+  FRUEHSAND:
+    location: "Sand A103"
+    max_participants: 120
+    event_date:
+      start: "11.04.2025 10:00"
+      onTime: true
+    registration_date:
+      start: "04.04.2025 00:00"
+      end: "10.04.2025 23:59"
+    csv_path: "ersti-fruehstueck.csv"
+    icon: "signs"
+    metas:
+      - "seb"
+      - "clara"
+
+  KT1:
+    location: "Various locations in the city"
+    max_participants: 80
+    event_date:
+      start: "11.04.2025 19:00"
+      onTime: true
+    registration_date:
+      start: "04.04.2025 00:00"
+      end: "10.04.2025 19:00"
+    csv_path: "ersti-kneipentour1.csv"
+    icon: "route"
+    dinos: False
+    metas:
+      - "seb"
+      - "clara"
+
+  GR1:
+    location: "Terrasse Sand"
+    max_participants: 150
+    event_date:
+      start: "12.04.2025 18:30"
+      onTime: false
+    registration_date:
+      start: "05.04.2025 00:00"
+      end: "12.04.2025 17:00"
+    csv_path: "ersti-grillen1.csv"
+    icon: "grill"
+    dinos: True
+    metas:
+      - "kaip"
+      - "clara"
 
 
-  # SP1:
-  #   location: "Sand 14, A104"
-  #   max_participants: 200
-  #   event_date:
-  #     start: "01.10.2024 19:00"
-  #     onTime: false
-  #   registration_date:
-  #     start: "24.09.2024 00:00"
-  #     end: "01.10.2024 19:00"
-  #   csv_path: "ersti-spieleabend1.csv"
-  #   icon: "dice"
-  #   metas:
-  #     - "lukas3"
-  #     - "fabian"
+  FB:
+    name: "Flunkyball"
+    location: "Sand 14, A104"
+    max_participants: 200
+    event_date:
+      start: "14.04.2025 18:00"
+      onTime: true
+    registration_date:
+      start: "06.04.2025 00:00"
+      end: "13.04.2025 17:30"
+    csv_path: "flunkyball.csv"
+    icon: "beer"
+    metas:
+      - "hannah"
+      - "clara"
 
-  # FB:
-  #   name: "Flunkyball"
-  #   location: "Sand 14, A104"
-  #   max_participants: 200
-  #   event_date:
-  #     start: "02.10.2024 17:30"
-  #     onTime: true
-  #   registration_date:
-  #     start: "26.09.2024 00:00"
-  #     end: "02.10.2024 17:30"
-  #   csv_path: "flunkyball.csv"
-  #   icon: "beer"
-  #   metas:
-  #     - "nico"
+  KT2:
+    location: "Various locations in the city"
+    max_participants: 80
+    event_date:
+      start: "15.04.2025 19:00"
+      onTime: true
+    registration_date:
+      start: "08.04.2025 00:00"
+      end: "14.04.2025 19:00"
+    csv_path: "ersti-kneipentour2.csv"
+    icon: "route"
+    dinos: False
+    metas:
+      - "seb"
+      - "clara"
+  
+  SPx:
+    name: "Spieleabend 2"
+    text: i18n:spx_text
+    location: "Sand 14, A104"
+    max_participants: 200
+    event_date:
+      start: "16.04.2025 19:00"
+      onTime: false
+    registration_date:
+      start: "09.04.2025 19:00"
+      end: "15.04.2025 20:00"
+    csv_path: "ersti-spieleabend2.csv"
+    icon: "dice"
+    dinos: False
+    metas:
+      - "matti" 
+      - "sungbin"
+      - "clara"
 
+  WD2:
+    location: "Neckarinsel"
+    max_participants: 120
+    event_date:
+      start: "03.05.2025 10:30"
+      onTime: true
+    registration_date:
+      start: "19.04.2025 00:00"
+      end: "03.05.2025 9:30"
+    csv_path: "ersti-wanderung2.csv"
+    icon: "route"
+    dinos: True
+    metas:
+     - "kaip"
+     - "clara"
 
-  # WD1:
-  #   location: "Neckarinsel"
-  #   max_participants: 120
-  #   event_date:
-  #     start: "05.10.2024 10:30"
-  #     onTime: true
-  #   registration_date:
-  #     start: "28.09.2024 00:00"
-  #     end: "05.10.2024 9:30"
-  #   csv_path: "ersti-wanderung1.csv"
-  #   icon: "route"
-  #   metas:
-  #     - "kaip"
+  KASTEN:
+    name: "Kastenlauf"
+    location: "TBA"
+    max_participants: 60
+    event_date:
+      start: "23.04.2025 17:00"
+      onTime: true
+    registration_date:
+      start: "16.04.2025 00:00"
+      end: "22.04.2025 23:59"
+    csv_path: "kastenlauf.csv"
+    icon: "beer"
+    metas:
+      - "seb" 
+      - "max"
+      - "clara"
 
-  # KT1:
-  #   location: "Various locations in the city"
-  #   max_participants: 80
-  #   event_date:
-  #     start: "08.10.2024 19:00"
-  #     onTime: true
-  #   registration_date:
-  #     start: "01.10.2024 00:00"
-  #     end: "08.10.2024 19:00"
-  #   csv_path: "ersti-kneipentour1.csv"
-  #   icon: "route"
-  #   metas:
-  #     - "nico"
-  #     - "kamuel"
-  #     - "clara"
+  GR2:
+    location: "Terrasse Sand"
+    max_participants: 150
+    event_date:
+      start: "25.04.2024 18:30"
+      onTime: false
+    registration_date:
+      start: "18.04.2025 00:00"
+      end: "25.10.2024 17:00"
+    csv_path: "ersti-grillen2.csv"
+    icon: "grill"
+    dinos: True
+    metas:
+      - "kaip"
+      - "clara"
 
-  # SP2:
-  #   location: "Sand 14, A301"
-  #   max_participants: 200
-  #   event_date:
-  #     start: "10.10.2024 19:00"
-  #     onTime: false
-  #   registration_date:
-  #     start: "03.10.2024 00:00"
-  #     end: "10.10.2024 19:00"
-  #   csv_path: "ersti-spieleabend2.csv"
-  #   icon: "dice"
-  #   metas:
-  #     - "david"
+  ASJ:
+    name: "Abenteuer-Schnitzeljagd"
+    location: "Stiftskirche"
+    max_participants: 120
+    event_date:
+      start: "26.04.2025 14:00"
+      onTime: true
+    registration_date:
+      start: "19.04.2025 00:00"
+      end: "25.04.2025 12:00"
+    csv_path: "rallye1.csv"
+    icon: "marker"
+    metas:
+      - "seb"
+      - "hannah"
+      - "clara"
 
-  # FRUEH:
-  #   location: "Mensa Morgenstelle"
-  #   max_participants: 120
-  #   event_date:
-  #     start: "11.10.2024 10:00"
-  #     onTime: true
-  #   registration_date:
-  #     start: "01.10.2024 00:00"
-  #     end: "10.10.2024 23:59"
-  #   csv_path: "ersti-fruehstueck.csv"
-  #   icon: "signs"
-  #   metas:
-  #     - "hannah"
-  #     - "clara"
-
-  # GR1:
-  #   location: "Terrasse Sand"
-  #   max_participants: 150
-  #   event_date:
-  #     start: "12.10.2024 18:30"
-  #     onTime: false
-  #   registration_date:
-  #     start: "05.10.2024 00:00"
-  #     end: "12.10.2024 17:00"
-  #   csv_path: "ersti-grillen1.csv"
-  #   icon: "grill"
-  #   metas:
-  #     - "kaip"
-
-  # KT2:
-  #   location: ""
-  #   max_participants: 70
-  #   event_date:
-  #     start: "14.10.2024 19:00"
-  #     onTime: true
-  #   registration_date:
-  #     start: "07.10.2024 00:00"
-  #     end: "13.10.2024 12:00"
-  #   csv_path: "ersti-kneipentour2.csv"
-  #   icon: "route"
-  #   metas:
-  #     - "nico"
-  #     - "kamuel"
-  #     - "clara"
 
   # FILM:
   #   location: "Sand 14, A104"
@@ -155,20 +217,6 @@ events:
   #   metas:
   #     - "kathi"
 
-  # KASTEN:
-  #   name: "Kastenlauf"
-  #   location: "Rewe Weststadt <br> Schleifmühlenweg 36"
-  #   max_participants: 60
-  #   event_date:
-  #     start: "16.10.2024 17:00"
-  #     onTime: true
-  #   registration_date:
-  #     start: "08.10.2024 00:00"
-  #     end: "15.10.2024 23:59"
-  #   csv_path: "kastenlauf.csv"
-  #   icon: "beer"
-  #   metas:
-  #     - "kamuel"
 
   # AS:
   #   location: "Sand 14, A301"
@@ -200,19 +248,6 @@ events:
   #    metas:
   #      - "jules"
 
-  # GR2:
-  #   location: "Terrasse Sand"
-  #   max_participants: 150
-  #   event_date:
-  #     start: "19.10.2024 18:30"
-  #     onTime: false
-  #   registration_date:
-  #     start: "12.10.2024 00:00"
-  #     end: "19.10.2024 17:00"
-  #   csv_path: "ersti-grillen2.csv"
-  #   icon: "grill"
-  #   metas:
-  #     - "kaip"
 
   # CaptureTheFlag:
   #    name: "Capture the Flag"
@@ -229,20 +264,6 @@ events:
   #    icon: "marker"
   #    metas:
   #      - "david"
-
-  # WD2:
-  #   location: "Neckarinsel"
-  #   max_participants: 120
-  #   event_date:
-  #     start: "26.10.2024 10:30"
-  #     onTime: true
-  #   registration_date:
-  #     start: "19.10.2024 00:00"
-  #     end: "26.10.2024 9:30"
-  #   csv_path: "ersti-wanderung2.csv"
-  #   icon: "route"
-  #   metas:
-  #     - "kaip"
 
   # MisterX:
   #   name: "Mister X (real life)"
