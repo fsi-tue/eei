@@ -13,7 +13,7 @@ events:
       onTime: false
     registration_date:
       start: "25.03.2025 19:00"
-      end: "31.04.2025 20:00"
+      end: "01.04.2025 18:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     dinos: False
@@ -32,6 +32,7 @@ events:
       end: "05.04.2025 9:30"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
+    dinos: True
     metas:
      - "kaip"
      - "clara"
@@ -43,7 +44,7 @@ events:
       start: "11.04.2025 10:00"
       onTime: true
     registration_date:
-      start: "04.04.2025 00:00 00:00"
+      start: "04.04.2025 00:00"
       end: "10.04.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
     icon: "signs"
@@ -62,6 +63,7 @@ events:
       end: "10.04.2025 19:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
+    dinos: False
     metas:
       - "seb"
       - "clara"
@@ -77,6 +79,7 @@ events:
       end: "12.04.2025 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
+    dinos: True
     metas:
       - "kaip"
       - "clara"
@@ -109,6 +112,7 @@ events:
       end: "14.04.2025 19:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
+    dinos: False
     metas:
       - "seb"
       - "clara"
@@ -143,6 +147,7 @@ events:
       end: "03.05.2025 9:30"
     csv_path: "ersti-wanderung2.csv"
     icon: "route"
+    dinos: True
     metas:
      - "kaip"
      - "clara"
@@ -175,6 +180,7 @@ events:
       end: "25.10.2024 17:00"
     csv_path: "ersti-grillen2.csv"
     icon: "grill"
+    dinos: True
     metas:
       - "kaip"
       - "clara"
