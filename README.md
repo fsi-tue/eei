@@ -30,6 +30,19 @@
 3. Run `php -S localhost:8000` in the terminal. This will start a local server on port 8000
 4. Open a browser and navigate to: <http://localhost:8000>
 
+## Updating Term 
+
+[`config.php`](config.php)
+
+To update the term in you need to modify the file `config.php` where the term information is stored. 
+
+```php
+...
+$CONFIG_TERM = 'SoSe 25'; # example: WS 19/20 or SS 20
+// see https://www.php.net/manual/en/language.constants.predefined.php
+$fp = realpath(__DIR__ . "/../eei-registration/") . "/"; #File Prefix
+```
+
 ## Adding/Updating an event
 
 The events are stored in the file `events.yml`. To add or update an event, you need to edit this file.
@@ -38,9 +51,10 @@ The events are stored in the file `events.yml`. To add or update an event, you n
 
 To add / edit an event
 
-0. Make sure to follow the Git Forking Workflow for ease of collaboration.
+0. Make sure to follow the Github Workflow for collaboration. Fork this repository, make changes (i.e. push them to your fork) and then create a Pull Request.
 1. Copy or edit the dummy event and modify the values.
-2. Add or change the german (`i18n/de.json`) and english `i18n/en.json` version inside the `i18n` folder.
+2. Add or change the german `i18n/de.json` and english `i18n/en.json` version inside the `i18n` folder.
+
 
 Usage of the `events.yml` file:
 
@@ -154,7 +168,7 @@ SP1:
 ### `metas.php`
 
 Since the email address is not supposed to be public, it is stored in a separate file
-that is not tracked by git.
+that is not tracked by git. Only an administrator can perform this step on the host where EEI is hosted.
 
 To add / edit an email address, add / edit the following line in `metas.php`:
 
