@@ -55,6 +55,7 @@ To add / edit an event
 1. Copy or edit the dummy event and modify the values.
 2. Add or change the german `i18n/de.json` and english `i18n/en.json` version inside the `i18n` folder.
 
+
 Usage of the `events.yml` file:
 
 ---
