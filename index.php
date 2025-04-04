@@ -63,7 +63,7 @@ require_once 'head.php';
             <a href="event.php?e=<?= $event->link ?>&lang=<?= $i18n->getLanguage() ?>" class="event-link">
                 <div class="event-row <?= $event->isPast() ? 'past' : '' ?> <?= $event->eventIsTakingPlace() ? 'today' : '' ?>">
                     <div class="event-pill event-date-pill">
-                        <?= htmlspecialchars($date_string) ?>
+                        <?= $event->getEventDateString(['compact' => true, 'no_time' => true]) ?>
                     </div>
                     <div class="event-pill event-info-pill">
                         <span class="event-name"><?= htmlspecialchars($event->name) ?></span>
