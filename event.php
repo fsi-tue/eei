@@ -75,15 +75,9 @@ function renderPage($event, $registrationId)
     <!DOCTYPE html>
     <html lang="<?= $language ?>">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/style.css<?= $FILE_REVISION; ?>">
-        <link rel="stylesheet" href="css/input.css<?= $FILE_REVISION; ?>">
-        <link rel="stylesheet" href="css/icons.css<?= $FILE_REVISION; ?>">
-        <title><?= htmlspecialchars($event->name) . " - " . $CONFIG_TERM ?></title>
-    </head>
+    <?php
+    require_once 'head.php';
+    ?>
 
     <body>
     <div id="center" class="small">
