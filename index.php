@@ -56,9 +56,6 @@ require_once 'head.php';
 
         // Render the sorted events
         foreach ($sorted_events as $event) {
-            $fmt = datefmt_create($i18n->getLanguage(), IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, NULL, NULL, 'dd.MM.');
-            $date_string = datefmt_format($fmt, $event->getEventStartUTS());
-
             ?>
             <a href="event.php?e=<?= $event->link ?>&lang=<?= $i18n->getLanguage() ?>" class="event-link">
                 <div class="event-row <?= $event->isPast() ? 'past' : '' ?> <?= $event->eventIsTakingPlace() ? 'today' : '' ?>">
