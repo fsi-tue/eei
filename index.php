@@ -11,20 +11,6 @@ loadEnv('.env');
 
 // Ensure the eei-registration folder exists
 createEeiRegistrationFolder();
-
-// Define a function to sort events by their start date
-/**
- * Sorts events chronologically by their start time
- * @param Event $a
- * @param Event $b
- * @return int
- */
-function sortByDate(Event $a, Event $b): int
-{
-    return $a->getEventStartUTS() - $b->getEventStartUTS();
-}
-
-usort($events, 'sortByDate');
 ?>
 
 <!DOCTYPE html>
@@ -41,70 +27,96 @@ usort($events, 'sortByDate');
 </head>
 
 <body>
-    <!-- Icons courtesy of fontawesome.com under CC BY 4.0 License -->
-    <!-- BBQ-Grill icon by Smashicons from flaticon.com -->
-    <div id="center">
-        <h1><?= $i18n['title'] ?> - <?= $CONFIG_TERM ?></h1>
+<!-- Icons courtesy of fontawesome.com under CC BY 4.0 License -->
+<!-- BBQ-Grill icon by Smashicons from flaticon.com -->
+<div id="center">
+    <div class="container">
+        <span class="sub-title"><?= $CONFIG_TERM ?></span>
+        <h1 class="title">ERSTI-PROGRAMM</h1>
+    </div>
 
-        <div class="container">
-            <label>
-                <div class="language-switcher">
-                    <select id="lang-selection" aria-label="Select language">
-                        <option value="de" <?= $i18n->getLanguage() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
-                        <option value="en" <?= $i18n->getLanguage() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
-                    </select>
+    <div class="container">
+        <div class="language-switcher">
+            <label for="lang-selection" style="display: none;">Language</label> <!-- Hidden label for accessibility -->
+            <select id="lang-selection" aria-label="Select language">
+                <option value="de" <?= $i18n->getLanguage() === 'de' ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
+                <option value="en" <?= $i18n->getLanguage() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <?php
+        // Sort events by activity status and date
+        $sorted_events = $events;
+        usort($sorted_events, function (Event $a, Event $b) {
+            // Keep future events before past events
+            if ($a->isPast() && !$b->isPast()) {
+                return 1; // Past events appear after active ones
+            } elseif (!$a->isPast() && $b->isPast()) {
+                return -1;
+            }
+            // If both are past or both are future, sort by date
+            return $a->getEventStartUTS() - $b->getEventStartUTS();
+        });
+
+        // Render the sorted events
+        foreach ($sorted_events as $event) {
+            $fmt = datefmt_create($i18n->getLanguage(), IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, NULL, NULL, 'dd.MM.');
+            $date_string = datefmt_format($fmt, $event->getEventStartUTS());
+
+            ?>
+            <a href="event.php?e=<?= $event->link ?>&lang=<?= $i18n->getLanguage() ?>" class="event-link">
+                <div class="event-row <?= $event->isPast() ? 'past' : '' ?> <?= $event->eventIsTakingPlace() ? 'today' : '' ?>">
+                    <div class="event-pill event-date-pill">
+                        <?= htmlspecialchars($date_string) ?>
+                    </div>
+                    <div class="event-pill event-info-pill">
+                        <span class="event-name"><?= htmlspecialchars($event->name) ?></span>
+                        <?php
+                        // Render icon using a span and the class from $event->icon ?>
+                        <?php
+                        if (!empty($event->icon)): ?>
+                            <span class="event-icon icon <?= htmlspecialchars($event->icon) ?>"></span>
+                        <?php
+                        endif; ?>
+                    </div>
                 </div>
-            </label>
-        </div>
-
-        <div class="container">
+            </a>
             <?php
-            // Sort events by activity status and date
-            $sorted_events = $events;
-            usort($sorted_events, function (Event $a, Event $b) {
-                if ($a->isPast() && !$b->isPast()) {
-                    return 1; // Past events appear after active ones
-                } elseif (!$a->isPast() && $b->isPast()) {
-                    return -1;
-                }
-                return $a->getEventStartUTS() - $b->getEventStartUTS();
-            });
+        } ?>
+    </div>
 
-            // Render the sorted events
-            foreach ($sorted_events as $event) { ?>
-                <a href="event.php?e=<?= $event->link ?>&lang=<?= $i18n->getLanguage() ?>">
-                    <div class="box icon <?= $event->icon ?> <?= $event->isPast() ? 'past' : '' ?> float-style <?= $event->eventIsTakingPlace() ? 'today' : '' ?>">
-                        <p class="name"><?= $event->name ?></p>
-                        <p class="date"><?= $event->getEventDateString(['compact' => true]) ?></p>
-                    </div>
-                </a>
-            <?php } ?>
-        </div>
-
+    <br>
+    <div class="footnotes">
+        <p><?= $i18n['index_savedDataDisclaimer'] ?></p>
         <br>
-        <div class="footnotes">
-            <p><?= $i18n['index_savedDataDisclaimer'] ?></p>
-            <br>
-            <div class="container">
+        <!-- Using a container with row direction for buttons -->
+        <div class="container">
+            <div class="row">
                 <input id="btn-clr" type="submit" value="<?= $i18n['delete'] ?>"
-                       onclick="!localStorage.clear() && alert('<?= $i18n['index_deletedData'] ?>')">
-            </div>
-            <div class="container">
+                       onclick="if(confirm('<?= addslashes($i18n['index_confirmDelete']) ?>')) { localStorage.clear(); alert('<?= addslashes($i18n['index_deletedData']) ?>'); }">
+
                 <a href="https://github.com/fsi-tue/eei">
-                    <div class="link color-border">
+                    <!-- Removed inner div, styling applied directly to link -->
+                    <span class="link"> <!-- Use span or div if needed, styled by .link -->
                         Source Code auf GitHub
-                    </div>
+                    </span>
                 </a>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        // Language change handler
-        document.getElementById('lang-selection').addEventListener('change', function () {
-            location.href = `index.php?lang=${this.value}`;
-        });
-    </script>
+<script>
+    // Language change handler
+    document.getElementById('lang-selection').addEventListener('change', function () {
+        // Construct URL without query string first
+        let baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        // Add the new language parameter
+        location.href = `${baseUrl}?lang=${this.value}`;
+    });
+</script>
 </body>
 
 </html>
