@@ -6,6 +6,8 @@ require_once 'utils.php';
 require_once 'event_type.php';
 require_once 'i18n/i18n.php';
 
+global $i18n;
+
 class ParticipantListMailer
 {
     private const MAX_TIME_BETWEEN_EMAILS = 2 * 60 * 60; // 2 hours
