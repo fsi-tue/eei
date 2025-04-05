@@ -80,7 +80,7 @@ function renderPage($event, $registrationId)
     ?>
 
     <body>
-    <div id="center" class="small">
+    <main class="small">
         <div class="container">
             <span class='sub-title'><?= $CONFIG_TERM ?></span>
             <h1 class="title"><?= htmlspecialchars($event->name) ?></h1>
@@ -141,7 +141,7 @@ function renderPage($event, $registrationId)
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     </body>
 
     </html>

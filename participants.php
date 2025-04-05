@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 require_once 'head.php';
 ?>
 <body>
-<div id="center">
+<main>
     <div class="container">
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'GET'): ?>
@@ -230,6 +230,6 @@ require_once 'head.php';
         <?php
         endif; ?>
     </div>
-</div>
+</main>
 </body>
 </html>
