@@ -23,7 +23,7 @@ require_once 'head.php';
 <body>
 <!-- Icons courtesy of fontawesome.com under CC BY 4.0 License -->
 <!-- BBQ-Grill icon by Smashicons from flaticon.com -->
-<div id="center">
+<main>
     <div class="container">
         <span class="sub-title"><?= $CONFIG_TERM ?></span>
         <h1 class="title">ERSTI-PROGRAMM</h1>
@@ -97,7 +97,7 @@ require_once 'head.php';
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <script>
     // Language change handler

@@ -9,6 +9,8 @@ require_once 'event_type.php';
 
 global $events, $fp;
 
+const CLEANUP_AFTER = 14; // days
+
 $ALL_FILES = scandir($fp);
 
 // get all filepaths (for detecting orphans)
@@ -45,7 +47,7 @@ if ($ALL_FILES != $event_filepaths) {
 foreach ($events as /* @var Event $event */
 		 $event) {
 	// delete list of participants if event was more than two weeks ago
-	if (file_exists($event->csvPath) && time() >= ($event->getEventStartUTS() + (86400 * 14))) {
+	if (file_exists($event->csvPath) && time() >= ($event->getEventStartUTS() + (86400 * CLEANUP_AFTER))) {
 		if (unlink($event["path"])) {
 			echo("deleted " . $event->csvPath . PHP_EOL);
 			$deleted_events[] = $event->csvPath;
@@ -56,6 +58,7 @@ foreach ($events as /* @var Event $event */
 	}
 }
 
-echo "deleted " . count($deleted_events) . " events in total" . PHP_EOL;
+echo "There are " . count($ALL_FILES) . " files in the folder" . PHP_EOL;
+echo "Deleted " . count($deleted_events) . " files that were older than " . CLEANUP_AFTER . " days" . PHP_EOL;
 
 exit;

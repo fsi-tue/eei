@@ -1,251 +1,255 @@
-/* General Styles */
-/* Part of this code was (re)written by Google Gemini 2.5 Pro */
-
 @font-face {
     font-family: Anton;
     src: url('./anton/Anton-Regular.ttf');
 }
 
 :root {
-    /* Colors */
-    --background-color: #000080; /* Changed to primary color */
+    --background-color: #000080;
     --background-color-light: #ffffff;
 
-    /* Primary Color */
     --primary-color: #000080;
     --primary-color-rgb: 0, 0, 128;
 
-    /* Success Color */
     --success-color: #008000;
     --success-color-rgb: 0, 128, 0;
-    --success-color-light: #cce5cc; /* Keep for potential 'today' highlight */
+    --success-color-light: #cce5cc;
 
-    /* Text Color */
-    --text-color: #ffffff; /* Changed default text to light */
+    --text-color: #ffffff;
     --text-color-light: #ffffff;
-    --text-hover-color: #dddddd; /* Adjust hover if needed */
-    --text-inactive-color: #aaaaaa; /* Lighter grey for inactive on dark bg */
-    --text-on-light-bg: #000080; /* Text color for inside pills */
+    --text-hover-color: #dddddd;
+    --text-inactive-color: #aaaaaa;
+    --text-on-light-bg: #000080;
 
-    /* Box Color (Pill Background) */
-    --box-color: #ffffff;
-    --box-hover-color: #f0f0f0; /* Subtle hover for pills */
-    --box-inactive-color: #cccccc; /* Inactive pill background */
+    --box-color: #ffffff !important;
+    --box-hover-color: #f0f0f0;
+    --box-inactive-color: #cccccc;
 
-    /* Border */
     --border: 1px solid #999;
     --border-radius: 10px;
-    --pill-border-radius: 30px; /* More rounded for pills */
+    --pill-border-radius: 30px;
 
-    /* Shadow */
-    /* Removing shadows as they are not prominent in the image */
+
     --box-shadow: none;
     --box-shadow-hover: none;
 
-    /* Transition */
-    --transition: all .3s ease-in-out; /* Slightly faster transition */
 
-    /* Font */
+    --transition: all .3s ease-in-out;
+
+
     --font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-weight-light: 300; /* Light weight */
-    --font-weight: 500; /* Keep default weight */
-    --font-weight-bold: 700; /* Add bold weight */
+    --font-weight-light: 300;
+    --font-weight: 500;
+    --font-weight-bold: 700;
     --letter-spacing: 0.02em;
 }
 
 body {
-    /* Font + Text */
     font-family: var(--font-family), sans-serif;
     font-weight: var(--font-weight);
     letter-spacing: var(--letter-spacing);
-    font-size: calc(10pt + 0.3vw);
-    text-align: justify; /* Keep or change to left/center as needed */
+    font-size: clamp(14px, calc(10pt + 0.3vw), 20px);
+    text-align: justify;
 
-    /* Colors */
     background-color: var(--background-color);
     color: var(--text-color);
 
-    /* Margin + Padding */
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-/* Link Styles */
+*, *:before, *:after {
+    box-sizing: inherit; /* Ensure padding doesn't increase width */
+}
+
+main {
+    margin: 10px auto;
+    width: 90%;
+    max-width: 700px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+}
+
+main.small {
+    max-width: 600px;
+}
+
+
 a:link,
 a:visited,
 a:hover,
 a:active {
     text-decoration: none;
-    color: var(--text-color); /* Default link color to white */
+    color: var(--text-color);
 }
 
-/* General Link Button Style (e.g., GitHub) */
+
 a .link {
     text-align: center;
-    padding: 10px 20px; /* Adjusted padding */
+    padding: 10px 20px;
     color: var(--text-color-light);
     cursor: pointer;
-    border-radius: var(--pill-border-radius); /* Use pill radius */
+    border-radius: var(--pill-border-radius);
     text-decoration: none;
     margin-top: 1.3em;
     transition: var(--transition);
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-    border: 1px solid var(--text-color-light); /* White border */
-    width: auto; /* Adjust width automatically */
-    display: inline-block; /* Allow auto width */
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--text-color-light);
+    width: auto;
+    display: inline-block;
 }
 
 a .link:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Lighten on hover */
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* --- NEW Event List Styles --- */
-.event-link { /* Style for the anchor wrapping the row */
+
+.event-link {
     text-decoration: none;
-    color: inherit; /* Inherit color */
-    display: block; /* Make it block level for margin */
-    margin-bottom: 15px; /* Space between event rows */
+    color: inherit;
+    display: block;
+    margin-bottom: 15px;
     transition: var(--transition);
 }
 
-.event-link:hover .event-pill { /* Subtle hover effect on pills */
+.event-link:hover .event-pill {
     background-color: var(--box-hover-color);
+}
+
+.event-link:hover .event-info-pill {
+    transform: scale(1.01);
 }
 
 .event-row {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; /* Center pills within the row space */
-    gap: 10px; /* Space between date and info pills */
-    width: 100%; /* Take full width of container */
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
 }
 
 .event-pill {
     background-color: var(--box-color);
     color: var(--text-on-light-bg);
     border-radius: var(--pill-border-radius);
-    padding: 10px 20px; /* Adjust padding */
+    padding: 10px 20px;
     font-weight: var(--font-weight-bold);
     display: flex;
     align-items: center;
     transition: var(--transition);
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
+    width: fit-content;
+    box-sizing: border-box;
 }
 
 .event-date-pill {
-    min-width: 80px; /* Ensure some minimum width */
-    justify-content: center; /* Center text */
+    width: 100px;
+    justify-content: center;
     text-align: center;
-    flex-shrink: 0; /* Prevent shrinking */
+    flex-shrink: 0;
 }
 
 .event-info-pill {
-    flex-grow: 1; /* Allow this pill to take more space */
-    justify-content: space-between; /* Push name and icon apart */
-    padding-right: 15px; /* Ensure space for icon */
+    flex-grow: 1;
+    min-width: 100px;
+    justify-content: space-between;
+    padding-right: 15px;
 }
 
 .event-name {
-    margin-right: 15px; /* Space between name and icon */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis if too long */
+    margin-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event-icon {
-    /* Assuming icons.css provides the actual icon via background or font */
-    display: inline-block; /* Make it an element */
-    width: 24px; /* Adjust size as needed */
-    height: 24px; /* Adjust size as needed */
-    background-size: contain; /* Ensure icon fits */
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    flex-shrink: 0; /* Prevent icon from shrinking */
-
-    /* DO NOT MODIFY. DON'T ASK ME HOW: https://codepen.io/sosuke/pen/Pjoqqp */
+    flex-shrink: 0;
     filter: invert(10%) sepia(74%) saturate(4575%) hue-rotate(235deg) brightness(85%) contrast(142%);
 }
 
-/* Styling for past/inactive events */
+
 .event-row.past .event-pill {
     background-color: var(--box-inactive-color);
     color: var(--text-inactive-color);
-    opacity: 0.7; /* Make them slightly faded */
-}
-
-.event-row.past .event-icon {
-    color: var(--text-inactive-color); /* Match icon color */
     opacity: 0.7;
 }
 
-/* Styling for 'today' events (optional highlight) */
-.event-row.today .event-pill {
-    /* Example: Add a subtle border or slightly different background */
-    /* border: 2px solid var(--success-color); */
-    background-color: #e8f5e8; /* Lighter green tint */
+.event-row.past .event-icon {
+    color: var(--text-inactive-color);
+    opacity: 0.7;
 }
 
 
-/* Footnotes Styles */
+.event-row.today .event-pill {
+
+
+    background-color: #e8f5e8;
+}
+
+
 .footnotes {
     width: 100%;
-    margin: 20px auto 0; /* Add margin top */
+    margin: 20px auto 0;
     text-align: center;
     justify-content: center;
-    color: var(--text-color-light); /* Ensure white text */
+    color: var(--text-color-light);
     font-size: 90%;
 }
 
 .footnotes p {
-    color: var(--text-color-light); /* Ensure white text */
-    text-align: center; /* Center footnote text */
+    color: var(--text-color-light);
+    text-align: center;
 }
 
-/* Media Queries */
-@media only screen and (max-device-width: 680px) {
+
+@media only screen and (max-width: 680px) {
     .event-row {
-        flex-direction: column; /* Stack pills vertically on small screens */
-        align-items: stretch; /* Stretch pills to full width */
-        gap: 5px; /* Reduce gap */
+        align-items: stretch;
+        gap: 5px;
     }
 
     .event-date-pill {
-        min-width: auto; /* Remove min-width */
+        min-width: auto;
         justify-content: center;
     }
 
     .event-info-pill {
-        justify-content: center; /* Center content when stacked */
+        justify-content: center;
     }
 
     .event-name {
-        margin-right: 10px; /* Adjust margin */
+        margin-right: 10px;
     }
 
-    #center {
-        padding: 15px; /* Adjust padding */
+    main {
+        padding: 15px;
     }
 }
 
-/* Centering and Alignment */
-#center {
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 90%; /* Adjusted width */
-    max-width: 700px; /* Adjusted max-width */
-    padding: 20px;
-    background-color: var(--background-color); /* Inherit body background */
-    border-radius: var(--border-radius); /* Optional: add slight rounding to the container */
+@media only screen and (max-width: 320px) {
+    .event-date-pill {
+        display: none;
+    }
+
+    .event-info-pill {
+        justify-content: center;
+    }
+
+    .event-name {
+        margin-right: 0;
+    }
 }
 
-#center.small {
-    /* Keep or adjust specific styles for the event page */
-    max-width: 600px;
-}
-
-/* Container Styles */
 .container {
     width: 100%;
     margin: 10px auto;
@@ -265,8 +269,9 @@ a .link:hover {
 }
 
 
-/* Header Styles */
 h1, .title {
+    font-size: clamp(1.8em, 5vw, 3.5em);
+    word-wrap: break-word;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
@@ -275,137 +280,132 @@ h1, .title {
     font-family: Anton, sans-serif;
     text-transform: uppercase;
     letter-spacing: -1px;
-    font-size: 3.5em; /* Adjusted size */
 }
 
 .sub-title {
+    font-size: clamp(1.2em, 3vw, 2.5em);
     text-align: center;
     margin-top: 0;
-    margin-bottom: -20px; /* Add space below subtitle */
+    margin-bottom: -20px;
     color: var(--text-color-light);
     font-weight: var(--font-weight-light);
     letter-spacing: -1.5px;
-    font-size: 1.8em; /* Adjusted size */
 }
 
-/* Button Styles (e.g., Delete Button) */
+
 input[type="submit"] {
     text-align: center;
-    padding: 10px 20px; /* Match link button padding */
+    padding: 10px 20px;
     cursor: pointer;
-    border: 1px solid var(--text-color-light); /* White border */
-    border-radius: var(--pill-border-radius); /* Use pill radius */
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border: 1px solid var(--text-color-light);
+    border-radius: var(--pill-border-radius);
+    background-color: rgba(255, 255, 255, 0.2);
     color: var(--text-color-light);
     text-decoration: none;
     margin-top: 2px;
     transition: var(--transition);
-    width: auto; /* Auto width */
+    width: auto;
     max-width: 250px;
     font-size: 100%;
-    box-shadow: var(--box-shadow); /* Removed shadow */
-    display: inline-block; /* Allow auto width */
+    box-shadow: var(--box-shadow);
+    display: inline-block;
 }
 
 input[type="submit"]:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Lighten on hover */
-    box-shadow: var(--box-shadow-hover); /* Removed shadow */
-    transform: none; /* Remove transform */
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: var(--box-shadow-hover);
+    transform: none;
 }
 
 input[type="submit"]:disabled {
-    background-color: #aaaaaa; /* Adjust disabled style for dark bg */
+    background-color: #aaaaaa;
     border-color: #888888;
     color: #dddddd;
     cursor: not-allowed;
 }
 
-/* Form Styles (General - check event.php if needed) */
+
 form {
-    margin: 20px auto; /* Add vertical margin */
+    margin: 20px auto;
     display: block;
     width: max-content;
-    max-width: 100%; /* Prevent overflow */
+    max-width: 100%;
     text-align: left;
 }
 
 form input[type="submit"], form .text-block {
-    margin: 0 auto 10px; /* Center horizontally */
+    margin: 0 auto 10px;
     display: block;
     text-align: center;
 }
 
-/* Block Styles */
+
 .text-block {
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 10px 15px; /* Adjusted padding */
+    padding: 10px 15px;
     text-align: center;
-    width: fit-content; /* Adjust width based on content */
-    max-width: 90%; /* Prevent overflow */
-    color: var(--text-color-light); /* Default to light text */
+    width: fit-content;
+    max-width: 90%;
+    color: var(--text-color-light);
 }
 
-/* Error and Info Message Styles */
+
 .text-block.error,
 .text-block.info {
-    border-radius: var(--border-radius); /* Less rounding than pills */
-    margin: 15px auto; /* Add more vertical margin */
-    color: var(--text-color-light); /* White text */
+    border-radius: var(--border-radius);
+    margin: 15px auto;
+    color: var(--text-color-light);
 }
 
 .error {
-    border: 2px solid #ff8a8a; /* Lighter red for dark bg */
-    background-color: rgba(255, 0, 0, 0.2); /* Reddish background */
+    border: 2px solid #ff8a8a;
+    background-color: rgba(255, 0, 0, 0.2);
 }
 
 .info {
-    border: 2px solid white; /* Lighter blue for dark bg */
-    background-color: rgba(0, 51, 153, 0.3); /* Bluish background */
+    border: 2px solid white;
+    background-color: rgba(0, 51, 153, 0.3);
 }
 
 
-/* Responsive Design Adjustments */
 @media screen and (max-width: 680px) {
     .container {
-        gap: 10px; /* Adjust gap */
+        gap: 10px;
     }
 
     .container .row {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items */
-        gap: 5px; /* Reduce gap */
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
     }
 
-    /* Keep specific container adjustments if needed */
-    /* .container.small-screen-reverse-order { ... } */
-    #center {
+    main {
         margin: 0 auto;
         width: 95%;
     }
 
-    #center.small {
+    main.small {
         margin: 0 auto;
         width: 95%;
     }
 
     h1 {
-        font-size: 1.5em; /* Adjust title size */
+        font-size: 1.5em;
     }
 }
 
-/* Description Styles (from event.php - adjust if needed) */
+
 .description {
-    margin: 0px auto;
-    white-space: normal; /* Allow wrapping */
-    padding-left: 1.5em; /* Ensure space for icon */
-    width: auto; /* Adjust width */
+    margin: 0 auto;
+    white-space: normal;
+    width: auto;
     max-width: 100%;
     background-repeat: no-repeat;
     background-position: left center;
-    background-size: 1em; /* Adjust icon size */
-    color: var(--text-color-light); /* Ensure white text */
-    text-align: center; /* Center description text */
+    background-size: 1em;
+    color: var(--text-color-light);
+    text-align: center;
 }
 
 .description h2 {
@@ -415,8 +415,8 @@ form input[type="submit"], form .text-block {
 
 .description .icon {
     display: inline-block;
-    width: 1em; /* Adjust icon size */
-    height: 1em; /* Adjust icon size */
+    width: 1em;
+    height: 1em;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -424,11 +424,11 @@ form input[type="submit"], form .text-block {
     filter: invert(1);
 }
 
-/* Language Switcher Styles */
+
 .language-switcher {
 
     margin: 20px auto;
-    text-align: center; /* Center it */
+    text-align: center;
     position: relative;
     display: inline-block;
 }

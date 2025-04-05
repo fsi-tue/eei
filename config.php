@@ -3,10 +3,11 @@
 error_reporting(E_ALL);
 date_default_timezone_set("Europe/Berlin");
 
-$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", false, NULL, 0, 40);
+$FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", FALSE, NULL, 0, 40);
 
 # General Information
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
-$CONFIG_TERM = 'Sommersemester 25'; # example: WS 19/20 or SS 20
+$CONFIG_TERM = 'Sommersemester 25'; # example: 'Wintersemester 2023/24' or 'Sommersemester 2024'
+$CONFIG_TERM_SHORT = 'SS25'; # example: 'WS23_24' or 'SS24'
 // see https://www.php.net/manual/en/language.constants.predefined.php
 $fp = realpath(__DIR__ . "/../eei-registration/") . "/"; #File Prefix
