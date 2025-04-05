@@ -34,13 +34,12 @@
 
 [`config.php`](config.php)
 
-To update the term in you need to modify the file `config.php` where the term information is stored. 
+To update the term, you need to modify the file `config.php` where the term information is stored. 
 
 ```php
 ...
-$CONFIG_TERM = 'SoSe 25'; # example: WS 19/20 or SS 20
-// see https://www.php.net/manual/en/language.constants.predefined.php
-$fp = realpath(__DIR__ . "/../eei-registration/") . "/"; #File Prefix
+$CONFIG_TERM = 'Sommersemester 2025'; # example: Wintersemester 2020/21
+$CONFIG_TERM_SHORT = 'SS25'; # example: WS20_21
 ```
 
 ## Adding/Updating an event
