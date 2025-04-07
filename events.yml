@@ -38,7 +38,7 @@ events:
      - "clara"
 
   FRUEHSAND:
-    location: "Sand A103"
+    location: "Sand A104"
     max_participants: 120
     event_date:
       start: "11.04.2025 10:00"
