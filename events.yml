@@ -153,7 +153,6 @@ events:
      - "clara"
 
   KASTEN:
-    name: "Kastenlauf"
     location: "TBA"
     max_participants: 60
     event_date:
