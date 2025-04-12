@@ -42,6 +42,7 @@
   "email_unsubscribe_subject": "Abmeldung für {EVENT_NAME}",
   "email_unsubscribe_body": "Hallo,<br> Du hast dich erfolgreich von <strong>{EVENT_NAME}</strong> abgemeldet.<br> Viele Grüße,<br>{SENDER_NAME}",
   "remaining": "Verbleibende Plätze",
+  "deadline": "Anmeldeschluss",
   "missing_data": "Fehler. Du hast nicht alle erforderlichen Daten angegeben.",
   "already_registered": "Du bist bereits für diese Veranstaltung angemeldet.",
   "start_of_registration": "Die Anmeldephase für diese Veranstaltung hat noch nicht angefangen. Sie beginnt am {REGISTRATION_DATE}.",

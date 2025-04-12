@@ -95,6 +95,7 @@ function renderPage($event, $registrationId)
                 <span class="icon marker"></span>
                 <h2><?= htmlspecialchars($event->location) ?></h2>
             </div>
+
         </div>
 
         <div class="container">
@@ -106,6 +107,13 @@ function renderPage($event, $registrationId)
                 <?php
                 endif; ?>
             </div>
+            
+            <?php if($event->canRegister()) { ?>
+                <div class="deadline">
+                    <span class="icon hourglass"></span>
+                    <h4><?=$i18n["deadline"]?>: <?= htmlspecialchars(string: $event->getRegistrationEndDateString()) ?></h4>
+                </div>
+            <?php } ?>
         </div>
 
         <div class="container text-block info">
