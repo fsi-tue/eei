@@ -40,6 +40,10 @@
     background-image: url("../icons/home-solid.svg");
 }
 
+.icon.hourglass {
+    background-image: url("../icons/hourglass-half-solid.svg");
+}
+
 .icon.marker {
     background-image: url("../icons/marker-solid.svg");
 }
