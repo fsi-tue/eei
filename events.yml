@@ -94,7 +94,7 @@ events:
       onTime: true
     registration_date:
       start: "06.04.2025 00:00"
-      end: "13.04.2025 17:30"
+      end: "14.04.2025 14:00"
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas:
@@ -109,7 +109,7 @@ events:
       onTime: true
     registration_date:
       start: "08.04.2025 00:00"
-      end: "14.04.2025 19:00"
+      end: "15.04.2025 15:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
     dinos: False
