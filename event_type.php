@@ -324,6 +324,15 @@ class Event
         ), array('compact' => FALSE, 'noEnd' => TRUE));
     }
 
+    public function getRegistrationEndDateString(): string
+    {
+        return $this->dateTimeToString(array(
+            $this->getRegistrationEndUTS(),
+            null,
+            TRUE
+        ), array('compact' => FALSE, 'noEnd' => TRUE));
+    }
+
     /**
      * Build a date and time string for the given start and end date.
      *
@@ -418,6 +427,7 @@ class Event
         }
         return 0;
     }
+
 }
 
 // Load the events from the events.yaml file

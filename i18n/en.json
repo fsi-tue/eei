@@ -42,6 +42,7 @@
   "email_unsubscribe_subject": "Unsubscribe from {EVENT_NAME}",
   "email_unsubscribe_body": "Hello,<br> you have been successfully unsubscribed from <strong>{EVENT_NAME}</strong>.<br> Best regards,<br> The student council",
   "remaining": "Remaining",
+  "deadline": "Registration Deadline",
   "missing_data": "Error. You have not entered all the required data.",
   "already_registered": "You have already registered for this event.",
   "start_of_registration": "The registration phase for this event has not yet started. It starts on {REGISTRATION_DATE}.",

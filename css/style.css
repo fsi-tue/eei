@@ -424,6 +424,34 @@ form input[type="submit"], form .text-block {
     filter: invert(1);
 }
 
+.deadline {
+    margin: 0 auto;
+    white-space: normal;
+    width: auto;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 1em;
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.deadline h4 {
+    margin: 0;
+    display: inline;
+}
+
+.deadline .icon {
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+    filter: invert(1);
+}
+
 
 .language-switcher {
 
