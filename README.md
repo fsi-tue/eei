@@ -146,7 +146,7 @@ SP1:
     food: false
     # Ask for gender
     # By default, this is set to false
-    food: false    
+    gender: false    
     # Ask for course information
     # By default, this is set to true
     course_required: true
