@@ -29,6 +29,23 @@ class ICSGenerator
             'CALSCALE:GREGORIAN',
             'METHOD:PUBLISH',
             implode(self::LINE_ENDING, $eventBlocks),
+            'BEGIN:VTIMEZONE',
+            'TZID:Europe/Berlin',
+            'BEGIN:DAYLIGHT',
+            'TZOFFSETFROM:+0100',
+            'TZOFFSETTO:+0200',
+            'TZNAME:CEST',
+            'DTSTART:19700329T020000',
+            'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU',
+            'END:DAYLIGHT',
+            'BEGIN:STANDARD',
+            'TZOFFSETFROM:+0200',
+            'TZOFFSETTO:+0100',
+            'TZNAME:CET',
+            'DTSTART:19701025T030000',
+            'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU',
+            'END:STANDARD',
+            'END:VTIMEZONE',
             'END:VCALENDAR'
         ]);
     }
@@ -39,7 +56,7 @@ class ICSGenerator
 			'BEGIN:VEVENT',
 			'UID:' . $this->generateUID($event),
 			'DTSTAMP:' . $this->formatDateTime(new DateTimeImmutable()),
-			'DTSTART:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($event->getEventStartUTS())),
+			'DTSTART;TZID=Europe/Berlin:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($event->getEventStartUTS())),
 		];
 		
 		$eventStartUTS = $event->getEventStartUTS();
@@ -47,12 +64,12 @@ class ICSGenerator
 		
 		// Check if the event has an end
 		if ($eventEndUTS > 0) {
-			$eventData[] = 'DTEND:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($eventEndUTS));
+			$eventData[] = 'DTEND;TZID=Europe/Berlin:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($eventEndUTS));
 		} else {
 			// If there is no end, instead of using the 0 (which is kind of bad because this represents 1970-01-01)
 			// we set the end to the end of the day
-			$endOfDay = (new DateTimeImmutable())->setTimestamp($eventStartUTS)->setTime(23, 59, 59);
-			$eventData[] = 'DTEND:' . $this->formatDateTime($endOfDay);
+			$endOfDay = (new DateTimeImmutable())->setTimestamp($eventStartUTS)->setTime(23, 59, 00);
+			$eventData[] = 'DTEND;TZID=Europe/Berlin:' . $this->formatDateTime($endOfDay);
 		}
 		
 		$eventData[] = 'SUMMARY:' . $this->escapeString($event->name);
@@ -91,7 +108,7 @@ class ICSGenerator
     
     private function formatDateTime(DateTimeInterface $dateTime): string
     {
-        return $dateTime->format('Ymd\THis\Z');
+        return $dateTime->format('Ymd\THis');
     }
     
     private function escapeString(string $text): string
