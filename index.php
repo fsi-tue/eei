@@ -88,6 +88,12 @@ require_once 'head.php';
                 <input id="btn-clr" type="submit" value="<?= $i18n['delete'] ?>"
                        onclick="if(confirm('<?= addslashes($i18n['index_confirmDelete']) ?>')) { localStorage.clear(); alert('<?= addslashes($i18n['index_deletedData']) ?>'); }">
 
+                <a href="calendar.php?allevents">
+                    <span class="link">
+                        iCal-Feed aller Events
+                    </span>
+                </a>
+
                 <a href="https://github.com/fsi-tue/eei">
                     <!-- Removed inner div, styling applied directly to link -->
                     <span class="link"> <!-- Use span or div if needed, styled by .link -->
