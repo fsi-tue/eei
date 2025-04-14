@@ -76,7 +76,7 @@ class Event
         ];
         $this->form = array_merge($this->form, $data['form'] ?? []);
         // Misc
-        $this->csvPath = __DIR__ . $data['csv_path'];
+        $this->csvPath = $data['csv_path'];
         $this->icon = $data['icon'];
         $this->metas = $data['metas'] ?? [];
     }
