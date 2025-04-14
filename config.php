@@ -2,7 +2,11 @@
 
 error_reporting(E_ALL);
 date_default_timezone_set("Europe/Berlin");
-
+$CSV_OPTIONS = array(
+	'separator' => ',',
+	'enclosure' => '"',
+	'escape' => '\\',
+);
 $FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", FALSE, NULL, 0, 40);
 
 # General Information

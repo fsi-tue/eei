@@ -6,11 +6,6 @@ require_once 'calendar.php';
 require_once 'event_type.php';
 
 global $i18n, $fp;
-$CSV_OPTIONS = array(
-	'separator' => ',',
-	'enclosure' => '"',
-	'escape' => '\\',
-);
 
 # Loads the environment variables from the .env file
 # This is a modified version of the function from:
@@ -228,7 +223,7 @@ function register(Event $event): array
 	if ($event->name === "Ersti WE")
 		$fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
 	if ($event->form['gender'])
-		$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_ENCODED);
+		$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_SPECIAL_CHARS);
 
 	if (empty($mail) || empty($name) || ($event->form['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))) {
 		return array(false, $i18n['missing_data']);
