@@ -88,11 +88,8 @@ require_once 'head.php';
                 <input id="btn-clr" type="submit" value="<?= $i18n['delete'] ?>"
                        onclick="if(confirm('<?= addslashes($i18n['index_confirmDelete']) ?>')) { localStorage.clear(); alert('<?= addslashes($i18n['index_deletedData']) ?>'); }">
 
-                <a href="calendar.php?allevents">
-                    <span class="link">
-                        iCal-Feed aller Events
-                    </span>
-                </a>
+
+                <input class="link" id="calendar-subscription-button" type="button" value="<?=$i18n['calendar_subscribe']?>">
 
                 <a href="https://github.com/fsi-tue/eei">
                     <!-- Removed inner div, styling applied directly to link -->
@@ -101,6 +98,15 @@ require_once 'head.php';
                     </span>
                 </a>
             </div>
+        </div>
+    </div>
+    <!-- Hidden Modal for Calendar Subscription -->
+    <div id="calendar-subscription-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <label for="calendar-link"><?=$i18n['calendar_subscribe_text']?><br>
+            <input type="text" id="calendar-link" name="calendar-link" value="https://eei.fsi.uni-tuebingen.de/calendar.php?allevents" readonly>
+        </label>
         </div>
     </div>
 </main>
@@ -114,6 +120,7 @@ require_once 'head.php';
         location.href = `${baseUrl}?lang=${this.value}`;
     });
 </script>
+<script src="js/calendarModal.js"></script>
 </body>
 
 </html>

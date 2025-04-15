@@ -9,6 +9,7 @@
   "time_takingPlace": "Taking place",
   "calendar_download": "Download calendar",
   "calendar_subscribe": "Subscribe to calendar",
+  "calendar_subscribe_text": "Link to import in your calendar software:",
   "back": "Back to overview",
   "form_yourName": "Your name (first and last name)",
   "form_email": "Mail address",
