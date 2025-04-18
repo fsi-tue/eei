@@ -125,8 +125,9 @@ class ICSGenerator
             $filename = $this->sanitizeFilename($this->events[0]->name) . '.ics';
         }
         
-		// To debug the Calendar, comment all the "header" lines
-        header('Content-Type: ' . self::MIME_TYPE);
+	// To debug the Calendar, comment all the "header" lines
+	header('Access-Control-Allow-Origin: *');
+	header('Content-Type: ' . self::MIME_TYPE);
         header('Content-Disposition: attachment; filename="' . $filename . '"');
         header('Cache-Control: no-cache, must-revalidate');
         header('Expires: 0');
