@@ -193,6 +193,7 @@ function renderRegistrationForm($event)
         renderCourseOptions($event);
         renderFoodOptions($event);
         renderFoodBreakfastOptions($event);
+        renderGenderOptions($event);
         ?>
         <script src="js/saveFormValues.js"></script>
         <input type="submit" value="<?= $i18n['send'] ?>" onclick="saveFormValues()">
@@ -308,6 +309,33 @@ function renderFoodBreakfastOptions($event)
         <label>
             <input type="radio" class="form-fruehstueck" name="fruestueck" value="<?= $preference ?>" required>
             <?= $preference ?>
+        </label>
+        <br>
+        <?php
+    } ?>
+    <br>
+    <?php
+}
+
+function renderGenderOptions($event)
+{
+    if (!$event->form['gender']) {
+        return;
+    }
+
+    global $i18n;
+    echo $i18n['form_gender'] . ':<br>';
+    $genderOptions = [
+        $i18n['form_gender_male'],
+        $i18n['form_gender_female'],
+        $i18n['form_gender_other'],
+    ];
+
+    foreach ($genderOptions as $option) {
+        ?>
+        <label>
+            <input type="radio" class="form-gender" name="gender" value="<?= $option ?>" required>
+            <?= $option ?>
         </label>
         <br>
         <?php

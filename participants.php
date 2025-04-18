@@ -43,6 +43,7 @@ class ParticipantListMailer
 
     private function getParticipants(Event $event): array
     {
+        global $CSV_OPTIONS;
         if (!file_exists($event->csvPath)) {
             return [];
         }
@@ -50,9 +51,9 @@ class ParticipantListMailer
         $participants = [];
         if (($handle = fopen($event->csvPath, 'r')) !== FALSE) {
             // Skip header row
-            fgetcsv($handle);
+            fgetcsv($handle, null, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
 
-            while (($data = fgetcsv($handle)) !== FALSE) {
+            while (($data = fgetcsv($handle, null, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape'])) !== FALSE) {
                 $participants[] = [
                     'name' => $data[0] ?? '',
                     'mail' => $data[1] ?? '',
@@ -91,13 +92,14 @@ class ParticipantListMailer
 
     private function canSendEmail(Event $event): bool
     {
+        global $CSV_OPTIONS;
         if (!file_exists($this->logPath)) {
             return TRUE;
         }
 
         $lastSentTime = 0;
         if (($handle = fopen($this->logPath, 'r')) !== FALSE) {
-            while (($line = fgetcsv($handle)) !== FALSE) {
+            while (($line = fgetcsv($handle, null, CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape'])) !== FALSE) {
                 if ($line[0] === $event->link) {
                     $lastSentTime = strtotime($line[1] ?? '');
                 }
@@ -110,6 +112,7 @@ class ParticipantListMailer
 
     private function logEmailSent(Event $event, array $emailAddresses): void
     {
+        global $CSV_OPTIONS;
         $data = [
             $event->link,
             date('Y-m-d H:i:s'),
@@ -117,7 +120,7 @@ class ParticipantListMailer
         ];
 
         if (($handle = fopen($this->logPath, 'a')) !== FALSE) {
-            fputcsv($handle, $data);
+            fputcsv($handle, $data, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
             fclose($handle);
         }
     }

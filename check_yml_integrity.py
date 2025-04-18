@@ -95,6 +95,7 @@ REQUIRED_SCHEMA = Schema(
         Optional("form"): {
             Optional("breakfast"): bool,
             Optional("food"): bool,
+            Optional("gender"): bool,
             Optional("course_required"): bool
         },
         "icon": And(str, is_icon),
