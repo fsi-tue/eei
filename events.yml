@@ -187,6 +187,7 @@ events:
   ASJ:
     name: "Abenteuer-Schnitzeljagd"
     location: "Stiftskirche"
+    cancelled: true
     max_participants: 120
     event_date:
       start: "26.04.2025 14:00"
