@@ -20,6 +20,9 @@ class ICSGenerator
     {
         $eventBlocks = array();
         foreach($this->events as $event) {
+            if ($event->cancelled) {
+                continue;
+            }
             $eventBlocks[] = $this->generateEventBlock($event);
         }
         return implode(self::LINE_ENDING, [
