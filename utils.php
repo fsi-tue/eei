@@ -126,7 +126,7 @@ function sendRegistrationMail(string $recipient, string $registration_id, Event 
 			'DATE' => $event->getEventDateString(),
 			'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML,
 			'SENDER_NAME' => getEnvVar('SENDER_NAME')));
-	$generator = new ICSGenerator($event);
+	$generator = new ICSGenerator(array($event));
 	$ics = $generator->generateICS();
 	sendMailViaPHPMailer($recipient, $subject, $msg, $ics, 'event.ics');
 }
