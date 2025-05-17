@@ -1,5 +1,5 @@
 """
-This script checks the ingegrity of the structure and (partially) the data of the eventy.yml YAML file.
+This script checks the ingegrity of the structure and (partially) the data of the eventy.yml YAML file and the translations keys (de.json / en.json).
 
 @author: Jules Kreuer
 @contact: contact@juleskreuer.eu
@@ -59,7 +59,7 @@ def is_icon(s: str) -> bool:
         "marker",
         "route",
         "signs",
-        "snowflake"
+        "snowflake",
     ]
     return s in valid_icon_names
 
@@ -95,7 +95,7 @@ REQUIRED_SCHEMA = Schema(
         Optional("form"): {
             Optional("breakfast"): bool,
             Optional("food"): bool,
-            Optional("course_required"): bool
+            Optional("course_required"): bool,
         },
         "icon": And(str, is_icon),
         Optional("metas"): [str],
