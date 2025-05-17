@@ -3,6 +3,23 @@ events:
   ### Ersti-Events ###
   ##############################
 
+  MC_LAN:
+    name: "Minecraft Lan-Party"
+    text: i18n:mc_lan_text
+    location: "Sand 14, Terasse / A104"
+    max_participants: 50
+    event_date:
+      start: "11.07.2025 16:00"
+      onTime: false
+    registration_date:
+      start: "24.06.2025 00:00"
+      end: "06.07.2025 24:00"
+    csv_path: "mc_lan_party.csv"
+    icon: "dice"
+    dinos: False
+    metas:
+      - "jules"
+
   SP1:
     name: "Spieleabend 1"
     text: i18n:spx_text
