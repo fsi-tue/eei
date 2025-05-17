@@ -8,9 +8,11 @@ This script checks the ingegrity of the structure and (partially) the data of th
 from datetime import datetime
 from schema import Schema, And, Use, Optional, SchemaError
 import yaml
+import os
+import json
 
 FILE_NAME = "events.yml"
-
+LANG_FILES = ["i18n/de.json", "i18n/en.json"]
 
 UNIQUE_VALUES = {}
 DATE_FORMAT = "%d.%m.%Y %H:%M"
@@ -121,6 +123,43 @@ class UniqueKeyLoader(yaml.SafeLoader):
         return super().construct_mapping(node, deep)
 
 
+def check_language_files() -> int:
+    """
+    Check the integrity of the language JSON files.
+    Ensures:
+    - Files exist.
+    - Files are valid JSON.
+    - Keys in both files match.
+    """
+    errors = 0
+    lang_data = {}
+
+    # Check if files exist and are valid JSON
+    for lang_file in LANG_FILES:
+        if not os.path.exists(lang_file):
+            print(f"Error: Language file {lang_file} does not exist.")
+            errors += 1
+            continue
+
+        try:
+            with open(lang_file, "r", encoding="utf-8") as f:
+                lang_data[lang_file] = json.load(f)
+        except json.JSONDecodeError as e:
+            print(f"Error: Language file {lang_file} is not valid JSON. {e}")
+            errors += 1
+
+    # Compare keys between language files
+    if len(lang_data) == len(LANG_FILES):
+        keys = [set(data.keys()) for data in lang_data.values()]
+        if keys[0] != keys[1]:
+            print("Error: Keys in language files do not match.")
+            print(f"Keys in {LANG_FILES[0]} but not in {LANG_FILES[1]}: {keys[0] - keys[1]}")
+            print(f"Keys in {LANG_FILES[1]} but not in {LANG_FILES[0]}: {keys[1] - keys[0]}")
+            errors += 1
+
+    return errors
+
+
 with open(FILE_NAME, "r") as f:
     yaml_data = yaml.load(f, Loader=UniqueKeyLoader)
 
@@ -136,4 +175,6 @@ for key, event in yaml_data["events"].items():
         e = str(e).replace("\n", " ")
         print(f" {key.ljust(max_key_len)} Invalid schema. {e}")
 
+# Add the language file check to the main script
+num_errors += check_language_files()
 exit(num_errors)
