@@ -16,7 +16,7 @@ events:
       end: "07.07.2025 23:59"
     csv_path: "mc_lan_party.csv"
     icon: "dice"
-    dinos: False
+    dinos: false
     metas:
       - "jules"
 
@@ -33,7 +33,7 @@ events:
       end: "01.04.2025 18:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
-    dinos: False
+    dinos: false
     metas:
       - "matti"
       - "clara"
@@ -49,7 +49,7 @@ events:
       end: "05.04.2025 9:30"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
-    dinos: True
+    dinos: true
     metas:
      - "kaip"
      - "clara"
@@ -80,7 +80,7 @@ events:
       end: "11.04.2025 15:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
-    dinos: False
+    dinos: false
     metas:
       - "seb"
       - "clara"
@@ -96,7 +96,7 @@ events:
       end: "12.04.2025 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
-    dinos: True
+    dinos: true
     metas:
       - "kaip"
       - "clara"
@@ -129,7 +129,7 @@ events:
       end: "15.04.2025 15:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
-    dinos: False
+    dinos: false
     metas:
       - "seb"
       - "clara"
@@ -147,7 +147,7 @@ events:
       end: "15.04.2025 20:00"
     csv_path: "ersti-spieleabend2.csv"
     icon: "dice"
-    dinos: False
+    dinos: false
     metas:
       - "matti" 
       - "sungbin"
@@ -164,7 +164,7 @@ events:
       end: "03.05.2025 9:30"
     csv_path: "ersti-wanderung2.csv"
     icon: "route"
-    dinos: True
+    dinos: true
     metas:
      - "kaip"
      - "clara"
@@ -196,7 +196,7 @@ events:
       end: "25.05.2025 17:00"
     csv_path: "ersti-grillen2.csv"
     icon: "grill"
-    dinos: True
+    dinos: true
     metas:
       - "kaip"
       - "clara"
