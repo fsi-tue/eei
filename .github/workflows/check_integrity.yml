@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-    yml_check:
-      name: YML Integrity
+    data_check:
+      name: Data Integrity
       runs-on: ubuntu-latest
       steps:
         - name: checkout
