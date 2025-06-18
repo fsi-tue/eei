@@ -1,5 +1,5 @@
 """
-This script checks the ingegrity of the structure and (partially) the data of the eventy.yml YAML file and the translations keys (de.json / en.json).
+This script checks the integrity of the structure and (partially) the data of the event.yml YAML file and the translations keys (de.json / en.json).
 
 @author: Jules Kreuer
 @contact: contact@juleskreuer.eu
@@ -97,8 +97,7 @@ REQUIRED_SCHEMA = Schema(
         Optional("form"): {
             Optional("breakfast"): bool,
             Optional("food"): bool,
-            Optional("gender"): bool,
-            Optional("course_required"): bool
+            Optional("course_required"): bool,
         },
         "icon": And(str, is_icon),
         Optional("metas"): [str],
@@ -161,11 +160,13 @@ def check_language_files() -> int:
     return errors
 
 
+num_errors = 0
+
+# Check yml files
 with open(FILE_NAME, "r") as f:
     yaml_data = yaml.load(f, Loader=UniqueKeyLoader)
 
 max_key_len = max(len(k) for k in yaml_data["events"].keys()) + 1
-num_errors = 0
 
 for key, event in yaml_data["events"].items():
     try:
@@ -176,6 +177,6 @@ for key, event in yaml_data["events"].items():
         e = str(e).replace("\n", " ")
         print(f" {key.ljust(max_key_len)} Invalid schema. {e}")
 
-# Add the language file check to the main script
+# Check language files
 num_errors += check_language_files()
 exit(num_errors)
