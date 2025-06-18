@@ -13,7 +13,7 @@ events:
       onTime: false
     registration_date:
       start: "20.06.2025 00:00"
-      end: "06.07.2025 23:59"
+      end: "10.07.2025 23:59"
     csv_path: "mc_lan_party.csv"
     icon: "dice"
     dinos: false
