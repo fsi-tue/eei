@@ -5,6 +5,7 @@ events:
 
   MC_LAN:
     name: "Git Push Sand - Minecraft LAN-Party im Freien"
+    cancelled: true
     text: i18n:mc_lan_text
     location: "Sand 14, Terasse / A104"
     max_participants: 50
