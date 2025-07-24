@@ -10,8 +10,8 @@ global $i18n, $events, $CONFIG_TERM, $FILE_REVISION, $CONFIG_CONTACT;
 const REDIRECT_URL = 'Location:/';
 $eventId = filter_input(INPUT_GET, 'e', FILTER_SANITIZE_ENCODED);
 if (!$eventId || !isset($events[$eventId])) {
-    header(REDIRECT_URL);
-    exit;
+	header(REDIRECT_URL);
+	exit;
 }
 
 $event = $events[$eventId];
@@ -29,17 +29,17 @@ renderPage($event, $registrationId);
  *
  * @return void
  */
-function handlePostRequest($event, $registrationId)
+function handlePostRequest($event, $registrationId): void
 {
-    global $i18n;
+	global $i18n;
 
-    if ($registrationId) {
-        $result = deleteRegistration($registrationId, $event);
-        renderMessageBlock($result[0], $result[1]);
-    } else {
-        $result = register($event);
-        renderMessageBlock($result[0], $result[1]);
-    }
+	if ($registrationId) {
+		$result = deleteRegistration($registrationId, $event);
+		renderMessageBlock($result[0], $result[1]);
+	} else {
+		$result = register($event);
+		renderMessageBlock($result[0], $result[1]);
+	}
 }
 
 /**
@@ -51,10 +51,10 @@ function handlePostRequest($event, $registrationId)
  *
  * @return void
  */
-function renderMessageBlock($isSuccess, $message)
+function renderMessageBlock($isSuccess, $message): void
 {
-    $class = $isSuccess ? 'info' : 'error';
-    echo "<div class=\"text-block $class\">$message</div>";
+	$class = $isSuccess ? 'info' : 'error';
+	echo "<div class=\"text-block $class\">$message</div>";
 }
 
 /**
@@ -68,16 +68,16 @@ function renderMessageBlock($isSuccess, $message)
  */
 function renderPage($event, $registrationId)
 {
-    global $i18n, $CONFIG_TERM, $FILE_REVISION, $CONFIG_CONTACT;
+	global $i18n, $CONFIG_TERM, $FILE_REVISION, $CONFIG_CONTACT;
 
-    $language = htmlspecialchars($i18n->getLanguage(), ENT_QUOTES);
-    ?>
+	$language = htmlspecialchars($i18n->getLanguage(), ENT_QUOTES);
+	?>
     <!DOCTYPE html>
     <html lang="<?= $language ?>">
 
-    <?php
-    require_once 'head.php';
-    ?>
+	<?php
+	require_once 'head.php';
+	?>
 
     <body>
     <main class="small">
@@ -101,43 +101,44 @@ function renderPage($event, $registrationId)
         <div class="container">
             <div class="row">
                 <div class="event-pill"><?= $i18n['remaining'] . ": " . htmlspecialchars($event->getRemainingSpots()) ?></div>
-                <?php
-                if ($event->dinosAllowed): ?>
+				<?php
+				if ($event->dinosAllowed): ?>
                     <div class="event-pill"><?= $i18n['dinos'] ?></div>
-                <?php
-                endif; ?>
+				<?php
+				endif; ?>
             </div>
-            
-            <?php if($event->canRegister()) { ?>
+
+			<?php if ($event->canRegister()) { ?>
                 <div class="deadline">
                     <span class="icon hourglass"></span>
-                    <h4><?=$i18n["deadline"]?>: <?= htmlspecialchars(string: $event->getRegistrationEndDateString()) ?></h4>
+                    <h4><?= $i18n["deadline"] ?>
+                        : <?= htmlspecialchars(string: $event->getRegistrationEndDateString()) ?></h4>
                 </div>
-            <?php } ?>
+			<?php } ?>
         </div>
 
         <div class="container text-block info">
-            <?= $event->text ?>
-            <?php
-            if (!empty($event->info)): ?>
+			<?= $event->text ?>
+			<?php
+			if (!empty($event->info)): ?>
                 <div class=""><?= $event->info ?></div>
-            <?php
-            endif; ?>
+			<?php
+			endif; ?>
         </div>
         <div class="block">
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                handlePostRequest($event, $registrationId);
-            } else {
-                if ($registrationId) {
-                    renderUnsubscribeForm($event, $registrationId);
-                } elseif ($event->canRegister()) {
-                    renderRegistrationForm($event);
-                } else {
-                    renderErrorMessages($event);
-                }
-            }
-            ?>
+			<?php
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+				handlePostRequest($event, $registrationId);
+			} else {
+				if ($registrationId) {
+					renderUnsubscribeForm($event, $registrationId);
+				} elseif ($event->canRegister()) {
+					renderRegistrationForm($event);
+				} else {
+					renderErrorMessages($event);
+				}
+			}
+			?>
             <div class="container">
                 <div class="row">
                     <a href="index.php?lang=<?= $language ?>">
@@ -153,7 +154,7 @@ function renderPage($event, $registrationId)
     </body>
 
     </html>
-    <?php
+	<?php
 }
 
 /**
@@ -161,27 +162,26 @@ function renderPage($event, $registrationId)
  * Example: Unsubscribe from an event
  *
  * @param mixed $event
- *
- * @return array
+ * @param mixed $registrationId
  */
-function renderUnsubscribeForm($event, $registrationId)
+function renderUnsubscribeForm($event, $registrationId): void
 {
-    global $i18n;
+	global $i18n;
 
-    ?>
+	?>
     <form action="event.php?e=<?= htmlspecialchars($event->link) ?>&r=<?= htmlspecialchars($registrationId) ?>"
           method="post">
         <div class="text-block"><?= $i18n->translate('unsubscribe_text') ?></div>
         <input type="hidden" name="registration_id" value="<?= htmlspecialchars($registrationId) ?>">
         <input type="submit" name="delete_registration" value="<?= $i18n->translate('unsubscribe') ?>">
     </form>
-    <?php
+	<?php
 }
 
-function renderRegistrationForm($event)
+function renderRegistrationForm($event): void
 {
-    global $i18n;
-    ?>
+	global $i18n;
+	?>
     <form method="post" action="#">
         <label for="form-name"><?= $i18n['form_yourName'] ?>:<br>
             <input type="text" id="form-name" name="name" required size="30">
@@ -189,177 +189,195 @@ function renderRegistrationForm($event)
         <label for="form-mail"><?= $i18n['form_email'] ?>:<br>
             <input type="email" id="form-mail" name="mail" required size="30">
         </label><br><br>
-        <?php
-        renderCourseOptions($event);
-        renderFoodOptions($event);
-        renderFoodBreakfastOptions($event);
-        renderGenderOptions($event);
-        ?>
+		<?php
+		renderCourseOptions($event);
+		renderFoodOptions($event);
+		renderFoodBreakfastOptions($event);
+		renderGenderOptions($event);
+		renderAlcoholOptions($event);
+		?>
         <script src="js/saveFormValues.js"></script>
         <input type="submit" value="<?= $i18n['send'] ?>" onclick="saveFormValues()">
     </form>
-    <?php
+	<?php
 }
 
-function renderCourseOptions($event)
+function renderCourseOptions($event): void
 {
-    if (!$event->form['course_required']) {
-        return;
-    }
+	if (!$event->form['course_required']) {
+		return;
+	}
 
-    global $i18n;
+	global $i18n;
 
-    echo $i18n['form_study_programme'] . ':<br>';
-    $courses = [
-        ['Informatik', 'form_cs'],
-        ['Lehramt', 'form_cs_ed'],
-        ['Bioinformatik', 'form_cs_bio'],
-        ['Medizininformatik', 'form_cs_med'],
-        ['Medieninformatik', 'form_cs_media'],
-        ['Maschinelles Lernen', 'form_ml'],
-        ['Kognitionswissenschaft', 'form_cog'],
-        ['Nebenfach', 'form_subsidiary']
-    ];
-    foreach ($courses as $course) {
-        ?>
+	echo $i18n['form_study_programme'] . ':<br>';
+	$courses = [
+		['Informatik', 'form_cs'],
+		['Lehramt', 'form_cs_ed'],
+		['Bioinformatik', 'form_cs_bio'],
+		['Medizininformatik', 'form_cs_med'],
+		['Medieninformatik', 'form_cs_media'],
+		['Maschinelles Lernen', 'form_ml'],
+		['Kognitionswissenschaft', 'form_cog'],
+		['Nebenfach', 'form_subsidiary']
+	];
+	foreach ($courses as $course) {
+		?>
         <label>
             <input type="radio" class="form-studiengang" name="studiengang" value="<?= $course[0] ?>" required>
-            <?= $i18n[$course[1]] ?>
+			<?= $i18n[$course[1]] ?>
         </label>
         <br>
-        <?php
-    } ?>
+		<?php
+	} ?>
 
     <br><?= $i18n['form_degree'] ?>:<br>
-    <?php
+	<?php
 
-    // Degree
-    $degrees = ['Bachelor', 'Master'];
-    foreach ($degrees as $degree) {
-        ?>
+	// Degree
+	$degrees = ['Bachelor', 'Master'];
+	foreach ($degrees as $degree) {
+		?>
         <label>
             <input type="radio" class="form-abschluss" name="abschluss" value="<?= $degree ?>" required>
-            <?= $degree ?>
+			<?= $degree ?>
         </label>
         <br>
-        <?php
-    } ?>
+		<?php
+	} ?>
 
     <br>Semester: <br>
-    <?php
-    // Semester
-    $semesters = ['1', '2', '3', $i18n['form_many']];
-    foreach ($semesters as $semester) {
-        ?>
+	<?php
+	// Semester
+	$semesters = ['1', '2', '3', $i18n['form_many']];
+	foreach ($semesters as $semester) {
+		?>
         <label>
             <input type="radio" class="form-semester" name="semester" value="<?= $semester ?>" required>
-            <?= $semester ?>
+			<?= $semester ?>
         </label>
         <br>
-        <?php
-    } ?>
+		<?php
+	} ?>
     <br>
-    <?php
+	<?php
 }
 
-function renderFoodOptions($event)
+function renderFoodOptions($event): void
 {
-    if (!$event->form['food']) {
-        return;
-    }
+	if (!$event->form['food']) {
+		return;
+	}
 
-    global $i18n;
+	global $i18n;
 
-    echo $i18n['form_food'] . ':<br>';
-    $foodPreferences = [
-        $i18n['form_food_no_preference'],
-        $i18n['form_food_vegetarian'],
-        $i18n['form_food_vegan'],
-        $i18n['form_food_no_pork']
-    ];
-    foreach ($foodPreferences as $preference) {
-        ?>
+	echo $i18n['form_food'] . ':<br>';
+	$foodPreferences = [
+		$i18n['form_food_no_preference'],
+		$i18n['form_food_vegetarian'],
+		$i18n['form_food_vegan'],
+		$i18n['form_food_no_pork']
+	];
+	foreach ($foodPreferences as $preference) {
+		?>
         <label>
-            <input type="radio" class="form-essen" name="essen" value="<?= $preference ?>" required>
-            <?= $preference ?>
+            <input type="radio" class="form-essen" name="food" value="<?= $preference ?>" required>
+			<?= $preference ?>
         </label>
         <br>
-        <?php
-    } ?>
+		<?php
+	} ?>
     <br>
-    <?php
+	<?php
 }
 
-function renderFoodBreakfastOptions($event)
+function renderAlcoholOptions($event): void
 {
-    if (!$event->form['breakfast']) {
-        return;
-    }
+	if (!$event->form['drinks_alcohol']) {
+		return;
+	}
 
-    global $i18n;
-    echo $i18n['form_breakfast'] . ':<br>';
-    $foodPreferences = [
-        $i18n['form_food_no_preference'],
-        $i18n['form_food_sweet'],
-        $i18n['form_food_salty'],
-    ];
+	global $i18n;
+	?>
+    <label>
+        <input type="checkbox" class="form-alcohol" name="drinks_alcohol" value="ja" checked>
+		<?= $i18n['form_alcohol'] ?>
+    </label>
+    <br>
+    <br>
+	<?php
+}
 
-    foreach ($foodPreferences as $preference) {
-        ?>
+function renderFoodBreakfastOptions($event): void
+{
+	if (!$event->form['breakfast']) {
+		return;
+	}
+
+	global $i18n;
+	echo $i18n['form_breakfast'] . ':<br>';
+	$foodPreferences = [
+		$i18n['form_food_no_preference'],
+		$i18n['form_food_sweet'],
+		$i18n['form_food_salty'],
+	];
+
+	foreach ($foodPreferences as $preference) {
+		?>
         <label>
-            <input type="radio" class="form-fruehstueck" name="fruestueck" value="<?= $preference ?>" required>
-            <?= $preference ?>
+            <input type="radio" class="form-fruehstueck" name="breakfast" value="<?= $preference ?>" required>
+			<?= $preference ?>
         </label>
         <br>
-        <?php
-    } ?>
+		<?php
+	} ?>
     <br>
-    <?php
+	<?php
 }
 
-function renderGenderOptions($event)
+function renderGenderOptions($event): void
 {
-    if (!$event->form['gender']) {
-        return;
-    }
+	if (!$event->form['gender']) {
+		return;
+	}
 
-    global $i18n;
-    echo $i18n['form_gender'] . ':<br>';
-    $genderOptions = [
-        $i18n['form_gender_male'],
-        $i18n['form_gender_female'],
-        $i18n['form_gender_other'],
-    ];
+	global $i18n;
+	echo $i18n['form_gender'] . ':<br>';
+	$genderOptions = [
+		$i18n['form_gender_male'],
+		$i18n['form_gender_female'],
+		$i18n['form_gender_other'],
+	];
 
-    foreach ($genderOptions as $option) {
-        ?>
+	foreach ($genderOptions as $option) {
+		?>
         <label>
             <input type="radio" class="form-gender" name="gender" value="<?= $option ?>" required>
-            <?= $option ?>
+			<?= $option ?>
         </label>
         <br>
-        <?php
-    } ?>
+		<?php
+	} ?>
     <br>
-    <?php
+	<?php
 }
 
 
-function renderErrorMessages($event)
+function renderErrorMessages($event): void
 {
-    global $i18n, $CONFIG_CONTACT;
+	global $i18n, $CONFIG_CONTACT;
 
-    echo "<div class=\"text-block error\">";
-    if ($event->cancelled) {
-        echo $i18n->translate('event_cancelled', ['EVENT_NAME' => $event->name, 'EMAIL_CONTACT' => $CONFIG_CONTACT]);
-    } elseif ($event->getRemainingSpots() == 0) {
-        echo $i18n['event_full'];
-    } elseif (!$event->isUpcoming()) {
-        echo $i18n['event_is_past'];
-    } elseif (time() < $event->getRegistrationStartUTS()) {
-        echo $i18n->translate('start_of_registration', ['REGISTRATION_DATE' => $event->getRegistrationDateString()]);
-    } elseif (time() > $event->getRegistrationEndUTS()) {
-        echo $i18n['end_of_registration'];
-    }
-    echo "</div>";
+	echo "<div class=\"text-block error\">";
+	if ($event->cancelled) {
+		echo $i18n->translate('event_cancelled', ['EVENT_NAME' => $event->name, 'EMAIL_CONTACT' => $CONFIG_CONTACT]);
+	} elseif ($event->getRemainingSpots() == 0) {
+		echo $i18n['event_full'];
+	} elseif (!$event->isUpcoming()) {
+		echo $i18n['event_is_past'];
+	} elseif (time() < $event->getRegistrationStartUTS()) {
+		echo $i18n->translate('start_of_registration', ['REGISTRATION_DATE' => $event->getRegistrationDateString()]);
+	} elseif (time() > $event->getRegistrationEndUTS()) {
+		echo $i18n['end_of_registration'];
+	}
+	echo "</div>";
 }

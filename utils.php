@@ -41,7 +41,7 @@ function loadEnv($path): void
 }
 
 # Returns the value of an environment variable
-function getEnvVar($key, $default = NULL): mixed
+function getEnvVar($key, $default = null): mixed
 {
 	// use getenv() if possible
 	return getenv($key) ?: $default;
@@ -57,8 +57,7 @@ function getRemoteAddr(): string
 {
 	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 	$host = $_SERVER['HTTP_HOST'];
-	$baseURL = "{$protocol}://{$host}";
-	return $baseURL;
+	return "{$protocol}://{$host}";
 }
 
 function createEeiRegistrationFolder(): void
@@ -85,16 +84,24 @@ function writeHeader($file, Event $event): void
 	global $CSV_OPTIONS;
 	clearstatcache();
 	if (!filesize($event->csvPath)) {
-		if ($event->form['course_required'])
+		if ($event->form['course_required']) {
 			$headers = array("name", "mail", "studiengang", "abschluss", "semester");
-		else
+		} else {
 			$headers = array("name", "mail");
-		if ($event->form['food'])
+		}
+		if ($event->form['food']) {
 			$headers[] = "essen";
-		if ($event->name === "Ersti WE")
+		}
+		if ($event->form['breakfast']) {
 			$headers[] = "fruehstueck";
-		if ($event->form['gender'])
-			$headers[] = "geschlecht";		
+		}
+		if ($event->form['gender']) {
+			$headers[] = "geschlecht";
+		}
+		if ($event->form['drinks_alcohol']) {
+			$headers[] = "trinkt_alcohol";
+		}
+
 		fputcsv($file, $headers, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
 	}
 }
@@ -165,7 +172,7 @@ function deleteRegistration($registration_id, Event $event): array
 
 	$data = array();
 	$success = false;
-	$deletedLine = NULL;
+	$deletedLine = null;
 
 	while (($line = fgetcsv($file, null, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape'])) !== false) {
 		// if the registration hash matches the one we're looking for, skip it
@@ -210,48 +217,41 @@ function register(Event $event): array
 		fclose($file);
 	}
 
-	$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+	// Sanitize and validate input
 	$mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
-
-	if ($event->form['course_required']) {
-		$studiengang = filter_input(INPUT_POST, 'studiengang', FILTER_SANITIZE_ENCODED);
-		$abschluss = filter_input(INPUT_POST, 'abschluss', FILTER_SANITIZE_ENCODED);
-		$semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_ENCODED);
-	}
-	if ($event->form['food'])
-		$essen = filter_input(INPUT_POST, 'essen', FILTER_SANITIZE_ENCODED);
-	if ($event->name === "Ersti WE")
-		$fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
-	if ($event->form['gender'])
-		$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_SPECIAL_CHARS);
-
-	if (empty($mail) || empty($name) || ($event->form['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))) {
-		return array(false, $i18n['missing_data']);
-	}
+	$data = [
+		'name' => filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS) ?: '',
+		'mail' => $mail ?: '',
+	];
 
 	// already registered
 	if (file_exists($event->csvPath) && str_contains(file_get_contents($event->csvPath), $mail)) {
 		return array(false, $i18n['already_registered']);
 	}
 
-	$data = array();
-
-	$data[] = $name;
-	$data[] = $mail;
-
 	if ($event->form['course_required']) {
-		$data[] = $studiengang;
-		$data[] = $abschluss;
-		$data[] = $semester;
+		$data['studiengang'] = filter_input(INPUT_POST, 'studiengang', FILTER_SANITIZE_ENCODED);
+		$data['abschluss'] = filter_input(INPUT_POST, 'abschluss', FILTER_SANITIZE_ENCODED);
+		$data['semester'] = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_ENCODED);
 	}
 	if ($event->form['food']) {
-		$data[] = $essen;
+		$data['food'] = filter_input(INPUT_POST, 'food', FILTER_SANITIZE_ENCODED);
 	}
-	if ($event->name === "Ersti WE") {
-		$data[] = $fruehstueck;
+	if ($event->form['breakfast']) {
+		$data['breakfast'] = filter_input(INPUT_POST, 'breakfast', FILTER_SANITIZE_ENCODED);
 	}
 	if ($event->form['gender']) {
-		$data[] = $gender;
+		$data['gender'] = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_SPECIAL_CHARS);
+	}
+	if ($event->form['gender']) {
+		$data['gender'] = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_SPECIAL_CHARS);
+	}
+	if ($event->form['drinks_alcohol']) {
+		$data['drinks_alcohol'] = filter_input(INPUT_POST, 'drinks_alcohol', FILTER_SANITIZE_SPECIAL_CHARS);
+	}
+
+	if ($data['name'] === '' || $mail === '' || ($event->form['course_required'] && (empty($data['studiengang']) || empty($data['semester']) || empty($data['abschluss'])))) {
+		return array(false, $i18n['missing_data']);
 	}
 
 	// open the file in append mode
@@ -263,6 +263,7 @@ function register(Event $event): array
 	// add CSV headers if file doesn't exist yet
 	// check if file is empty, because we can't check if it exists because it was opened with fopen()
 	writeHeader($file, $event);
+
 	// use fputcsvRetVal to check if the write was successful
 	$fputcsvRetVal = fputcsv($file, $data, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
 	fclose($file);
