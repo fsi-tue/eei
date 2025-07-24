@@ -3,6 +3,25 @@ events:
   ### Ersti-Events ###
   ##############################
 
+  MC_LAN:
+    name: "Git Push Sand - Minecraft LAN-Party im Freien"
+    cancelled: true
+    text: i18n:mc_lan_text
+    location: "Sand 14, Terasse / A104"
+    max_participants: 50
+    event_date:
+      start: "11.07.2025 16:00"
+      onTime: false
+    registration_date:
+      start: "20.06.2025 00:00"
+      end: "10.07.2025 23:59"
+    csv_path: "mc_lan_party.csv"
+    icon: "dice"
+    dinos: false
+    metas:
+      - "Nico"
+      - "Sebastian"
+
   SP1:
     name: "Spieleabend 1"
     text: i18n:spx_text
@@ -16,7 +35,7 @@ events:
       end: "01.04.2025 18:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
-    dinos: False
+    dinos: false
     metas:
       - "matti"
       - "clara"
@@ -32,13 +51,13 @@ events:
       end: "05.04.2025 9:30"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
-    dinos: True
+    dinos: true
     metas:
      - "kaip"
      - "clara"
 
   FRUEHSAND:
-    location: "Sand A103"
+    location: "Sand A104"
     max_participants: 120
     event_date:
       start: "11.04.2025 10:00"
@@ -60,10 +79,10 @@ events:
       onTime: true
     registration_date:
       start: "04.04.2025 00:00"
-      end: "10.04.2025 19:00"
+      end: "11.04.2025 15:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
-    dinos: False
+    dinos: false
     metas:
       - "seb"
       - "clara"
@@ -79,7 +98,7 @@ events:
       end: "12.04.2025 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
-    dinos: True
+    dinos: true
     metas:
       - "kaip"
       - "clara"
@@ -94,7 +113,7 @@ events:
       onTime: true
     registration_date:
       start: "06.04.2025 00:00"
-      end: "13.04.2025 17:30"
+      end: "14.04.2025 14:00"
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas:
@@ -109,10 +128,10 @@ events:
       onTime: true
     registration_date:
       start: "08.04.2025 00:00"
-      end: "14.04.2025 19:00"
+      end: "15.04.2025 15:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
-    dinos: False
+    dinos: false
     metas:
       - "seb"
       - "clara"
@@ -130,7 +149,7 @@ events:
       end: "15.04.2025 20:00"
     csv_path: "ersti-spieleabend2.csv"
     icon: "dice"
-    dinos: False
+    dinos: false
     metas:
       - "matti" 
       - "sungbin"
@@ -147,13 +166,12 @@ events:
       end: "03.05.2025 9:30"
     csv_path: "ersti-wanderung2.csv"
     icon: "route"
-    dinos: True
+    dinos: true
     metas:
      - "kaip"
      - "clara"
 
   KASTEN:
-    name: "Kastenlauf"
     location: "TBA"
     max_participants: 60
     event_date:
@@ -180,7 +198,7 @@ events:
       end: "25.05.2025 17:00"
     csv_path: "ersti-grillen2.csv"
     icon: "grill"
-    dinos: True
+    dinos: true
     metas:
       - "kaip"
       - "clara"
@@ -188,6 +206,7 @@ events:
   ASJ:
     name: "Abenteuer-Schnitzeljagd"
     location: "Stiftskirche"
+    cancelled: true
     max_participants: 120
     event_date:
       start: "26.04.2025 14:00"

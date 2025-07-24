@@ -60,8 +60,11 @@ body {
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit; /* Ensure padding doesn't increase width */
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    /* Ensure padding doesn't increase width */
 }
 
 main {
@@ -269,7 +272,8 @@ a .link:hover {
 }
 
 
-h1, .title {
+h1,
+.title {
     font-size: clamp(1.8em, 5vw, 3.5em);
     word-wrap: break-word;
     text-align: center;
@@ -293,7 +297,8 @@ h1, .title {
 }
 
 
-input[type="submit"] {
+input[type="submit"],
+input[type="button"] {
     text-align: center;
     padding: 10px 20px;
     cursor: pointer;
@@ -311,13 +316,15 @@ input[type="submit"] {
     display: inline-block;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+input[type="button"]:hover {
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: var(--box-shadow-hover);
     transform: none;
 }
 
-input[type="submit"]:disabled {
+input[type="submit"]:disabled,
+input[type="button"]:disabled {
     background-color: #aaaaaa;
     border-color: #888888;
     color: #dddddd;
@@ -333,7 +340,8 @@ form {
     text-align: left;
 }
 
-form input[type="submit"], form .text-block {
+form input[type="submit"],
+form .text-block {
     margin: 0 auto 10px;
     display: block;
     text-align: center;
@@ -424,6 +432,35 @@ form input[type="submit"], form .text-block {
     filter: invert(1);
 }
 
+.deadline {
+    margin: 0 auto;
+    white-space: normal;
+    width: auto;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 1em;
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.deadline h4 {
+    margin: 0;
+    display: inline;
+}
+
+.deadline .icon {
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+    filter: invert(1);
+}
+
+
 
 .language-switcher {
 
@@ -468,3 +505,4 @@ form input[type="submit"], form .text-block {
     border-color: var(--primary-color);
     box-shadow: var(--box-shadow);
 }
+

@@ -13,5 +13,7 @@ global $i18n, $FILE_REVISION;
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <link rel='stylesheet' href="css/style.css<?= $FILE_REVISION ?>">
     <link rel='stylesheet' href="css/icons.css<?= $FILE_REVISION ?>">
+    <link rel='stylesheet' href="css/input.css<?= $FILE_REVISION ?>">
+    <link rel='stylesheet' href="css/modal.css<?= $FILE_REVISION ?>">
     <title><?= $i18n['title'] ?></title>
 </head>

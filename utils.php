@@ -82,6 +82,7 @@ function replaceFirstOccurence($searchStr, $replacementStr, $sourceStr)
 
 function writeHeader($file, Event $event): void
 {
+	global $CSV_OPTIONS;
 	clearstatcache();
 	if (!filesize($event->csvPath)) {
 		if ($event->form['course_required'])
@@ -92,7 +93,9 @@ function writeHeader($file, Event $event): void
 			$headers[] = "essen";
 		if ($event->name === "Ersti WE")
 			$headers[] = "fruehstueck";
-		fputcsv($file, $headers);
+		if ($event->form['gender'])
+			$headers[] = "geschlecht";		
+		fputcsv($file, $headers, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
 	}
 }
 
@@ -126,7 +129,7 @@ function sendRegistrationMail(string $recipient, string $registration_id, Event 
 			'DATE' => $event->getEventDateString(),
 			'DELETE_REGISTRATION_LINK' => $deleteRegistrationHTML,
 			'SENDER_NAME' => getEnvVar('SENDER_NAME')));
-	$generator = new ICSGenerator($event);
+	$generator = new ICSGenerator(array($event));
 	$ics = $generator->generateICS();
 	sendMailViaPHPMailer($recipient, $subject, $msg, $ics, 'event.ics');
 }
@@ -152,7 +155,7 @@ function generateRegistrationIDFromData($data, Event $event): string
 # Deletes a registration
 function deleteRegistration($registration_id, Event $event): array
 {
-	global $i18n;
+	global $i18n, $CSV_OPTIONS;
 	$filepath = $event->csvPath;
 	// Check if csv file exists
 	if (!file_exists($filepath)) {
@@ -164,7 +167,7 @@ function deleteRegistration($registration_id, Event $event): array
 	$success = false;
 	$deletedLine = NULL;
 
-	while (($line = fgetcsv($file)) !== false) {
+	while (($line = fgetcsv($file, null, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape'])) !== false) {
 		// if the registration hash matches the one we're looking for, skip it
 		if (generateRegistrationIDFromData($line, $event) !== $registration_id) {
 			// if it's not, add it to the new data array
@@ -181,7 +184,7 @@ function deleteRegistration($registration_id, Event $event): array
 
 	// loop through the modified data array and write each line to the file
 	foreach ($data as $line) {
-		fputcsv($file, $line);
+		fputcsv($file, $line, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
 	}
 	fclose($file);
 
@@ -195,7 +198,7 @@ function deleteRegistration($registration_id, Event $event): array
 # Processes a registration
 function register(Event $event): array
 {
-	global $i18n;
+	global $i18n, $CSV_OPTIONS;
 
 	// Check if csv file exists
 	if (!file_exists($event->csvPath)) {
@@ -219,6 +222,8 @@ function register(Event $event): array
 		$essen = filter_input(INPUT_POST, 'essen', FILTER_SANITIZE_ENCODED);
 	if ($event->name === "Ersti WE")
 		$fruehstueck = filter_input(INPUT_POST, 'fruehstueck', FILTER_SANITIZE_ENCODED);
+	if ($event->form['gender'])
+		$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_SPECIAL_CHARS);
 
 	if (empty($mail) || empty($name) || ($event->form['course_required'] && (empty($studiengang) || empty($semester) || empty($abschluss)))) {
 		return array(false, $i18n['missing_data']);
@@ -245,6 +250,9 @@ function register(Event $event): array
 	if ($event->name === "Ersti WE") {
 		$data[] = $fruehstueck;
 	}
+	if ($event->form['gender']) {
+		$data[] = $gender;
+	}
 
 	// open the file in append mode
 	$file = fopen($event->csvPath, "a");
@@ -256,7 +264,7 @@ function register(Event $event): array
 	// check if file is empty, because we can't check if it exists because it was opened with fopen()
 	writeHeader($file, $event);
 	// use fputcsvRetVal to check if the write was successful
-	$fputcsvRetVal = fputcsv($file, $data);
+	$fputcsvRetVal = fputcsv($file, $data, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
 	fclose($file);
 
 	if ($fputcsvRetVal !== false) {

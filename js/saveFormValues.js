@@ -16,6 +16,7 @@ function saveFormValues() {
     saveMultiValue("abschluss", ls);
     saveMultiValue("semester", ls);
     saveMultiValue("essen", ls);
+    saveMultiValue("gender", ls);
 
     ls.setItem("mail", document.getElementById("form-mail").value);
     ls.setItem("name", document.getElementById("form-name").value);
@@ -44,6 +45,7 @@ function popFormValues() {
     popMultiValue("abschluss", ls);
     popMultiValue("semester", ls);
     popMultiValue("essen", ls);
+    popMultiValue("gender", ls);
 
     document.getElementById("form-mail").value = ls.getItem("mail");
     document.getElementById("form-name").value = ls.getItem("name");

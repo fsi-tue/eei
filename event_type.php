@@ -72,6 +72,7 @@ class Event
             'course_required' => TRUE,
             'food' => FALSE,
             'breakfast' => FALSE,
+            'gender' => FALSE
         ];
         $this->form = array_merge($this->form, $data['form'] ?? []);
         // Misc
@@ -320,6 +321,15 @@ class Event
         return $this->dateTimeToString(array(
             $this->getRegistrationStartUTS(),
             $this->getRegistrationEndUTS(),
+            TRUE
+        ), array('compact' => FALSE, 'noEnd' => TRUE));
+    }
+
+    public function getRegistrationEndDateString(): string
+    {
+        return $this->dateTimeToString(array(
+            $this->getRegistrationEndUTS(),
+            null,
             TRUE
         ), array('compact' => FALSE, 'noEnd' => TRUE));
     }

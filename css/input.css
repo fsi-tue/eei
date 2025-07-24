@@ -1,6 +1,5 @@
 /* Input Styles */
 /* Base style for input fields */
-input[type="text"],
 input[type="email"],
 input[type="password"] {
     font-size: 16px;
@@ -8,6 +7,19 @@ input[type="password"] {
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: var(--border-radius);
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+}
+
+/* Special Case: Text inputs should look like pills */
+input[type="text"],
+input[type="email"] {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: var(--pill-border-radius);
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
     width: 100%;

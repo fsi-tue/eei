@@ -144,6 +144,9 @@ SP1:
     # Ask for food preferences
     # By default, this is set to false
     food: false
+    # Ask for gender
+    # By default, this is set to false
+    gender: false    
     # Ask for course information
     # By default, this is set to true
     course_required: true
@@ -186,3 +189,7 @@ The variable `$mail_handles` is imported as global in `event_type.php` if the fi
 
 ### Requesting the participants csv
 Go to https://eei.fsi.uni-tuebingen.de/participants.php
+
+### Integrity check
+At each pull request, the integrity of the `events.yml` file is checked using a Github Action.
+If the file is not valid, the pull request will be rejected. Additionally, the language files are checked for missing and duplicate keys.
