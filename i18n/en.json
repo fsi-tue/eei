@@ -36,6 +36,7 @@
   "form_gender_male": "male",
   "form_gender_female": "female",
   "form_gender_other": "other",
+  "form_alcohol": "I would like to drink alcohol.",
   "form_success": "You have successfully registered for the event. You will receive a confirmation email shortly.",
   "form_error": "An error occurred while registering for the event.",
   "email_registration_subject": "Registration for {EVENT_NAME} at {DATE}",

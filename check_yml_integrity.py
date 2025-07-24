@@ -98,7 +98,8 @@ REQUIRED_SCHEMA = Schema(
             Optional("breakfast"): bool,
             Optional("food"): bool,
             Optional("gender"): bool,
-            Optional("course_required"): bool
+            Optional("course_required"): bool,
+            Optional("drinks_alcohol"): bool,
         },
         "icon": And(str, is_icon),
         Optional("metas"): [str],
@@ -108,7 +109,7 @@ REQUIRED_SCHEMA = Schema(
 
 class UniqueKeyLoader(yaml.SafeLoader):
     """
-    Load the YAML file, raises an error if a douplicate key is found.
+    Load the YAML file, raises an error if a duplicate key is found.
     Adapted from https://gist.github.com/pypt/94d747fe5180851196eb
     """
 

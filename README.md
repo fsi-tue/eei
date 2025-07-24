@@ -136,7 +136,7 @@ SP1:
     end: "12.04.2024 19:00"
 
   # Additional information required for the event registration
-  # Not required! Below are the default values.
+  # Isn't required! Below are the default values.
   form:
     # Ask for breakfast preferences
     # By default, this is set to false
@@ -150,6 +150,9 @@ SP1:
     # Ask for course information
     # By default, this is set to true
     course_required: true
+    # Ask if the participant drinks alcohol
+    # This is set to false by default
+    drinks_alcohol: false
 
     # Path to the CSV file associated with the event. Include the file extension.
     csv_path: "ersti-kneipentour1.csv"

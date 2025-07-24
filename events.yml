@@ -83,6 +83,9 @@ events:
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
     dinos: false
+    form:
+      gender: true
+      drinks_alcohol: true
     metas:
       - "seb"
       - "clara"
