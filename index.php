@@ -100,6 +100,7 @@ require_once 'head.php';
             </div>
         </div>
     </div>
+
     <!-- Hidden Modal for Calendar Subscription -->
     <div id="calendar-subscription-modal" class="modal">
         <div class="modal-content">

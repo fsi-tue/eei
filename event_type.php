@@ -428,7 +428,6 @@ class Event
         }
         return 0;
     }
-
 }
 
 // Load the events from the events.yaml file
