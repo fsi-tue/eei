@@ -3,24 +3,24 @@ events:
   ### Ersti-Events ###
   ##############################
 
-  MC_LAN:
-    name: "Git Push Sand - Minecraft LAN-Party im Freien"
-    cancelled: true
-    text: i18n:mc_lan_text
-    location: "Sand 14, Terasse / A104"
-    max_participants: 50
-    event_date:
-      start: "11.07.2025 16:00"
-      onTime: false
-    registration_date:
-      start: "20.06.2025 00:00"
-      end: "10.07.2025 23:59"
-    csv_path: "mc_lan_party.csv"
-    icon: "dice"
-    dinos: false
-    metas:
-      - "Nico"
-      - "Sebastian"
+  # MC_LAN:
+  #   name: "Git Push Sand - Minecraft LAN-Party im Freien"
+  #   cancelled: true
+  #   text: i18n:mc_lan_text
+  #   location: "Sand 14, Terasse / A104"
+  #   max_participants: 50
+  #   event_date:
+  #     start: "11.07.2025 16:00"
+  #     onTime: false
+  #   registration_date:
+  #     start: "20.06.2025 00:00"
+  #     end: "10.07.2025 23:59"
+  #   csv_path: "mc_lan_party.csv"
+  #   icon: "dice"
+  #   dinos: false
+  #   metas:
+  #     - "Nico"
+  #     - "Sebastian"
 
   SP1:
     name: "Spieleabend 1"
