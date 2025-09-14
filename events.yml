@@ -110,15 +110,14 @@ events:
     location: "Sand 14, A104"
     max_participants: 200
     event_date:
-      start: "14.04.2025 18:00"
+      start: "22.10.2025 18:00"
       onTime: true
     registration_date:
-      start: "06.04.2025 00:00"
-      end: "14.04.2025 14:00"
+      start: "15.10.2025 00:00"
+      end: "22.10.2025 14:00"
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas:
-      - "hannah"
       - "clara"
 
   KT2:
