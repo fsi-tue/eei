@@ -28,17 +28,18 @@ events:
     location: "Sand 14, A104"
     max_participants: 200
     event_date:
-      start: "01.04.2025 19:00"
+      start: "01.10.2025 19:00"
       onTime: false
     registration_date:
-      start: "25.03.2025 19:00"
-      end: "01.04.2025 18:00"
+      start: "24.09.2025 19:00"
+      end: "01.10.2025 18:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     dinos: false
     metas:
       - "matti"
-      - "clara"
+      - "patrick"
+      - "emily"
 
   WD1:
     location: "Neckarinsel"
