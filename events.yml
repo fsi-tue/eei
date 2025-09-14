@@ -63,7 +63,7 @@ events:
       start: "10.10.2025 10:00"
       onTime: true
     registration_date:
-      start: "03.10.2025 00:00"
+      start: "02.10.2025 23:59"
       end: "09.10.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
     icon: "food"
