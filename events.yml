@@ -45,17 +45,16 @@ events:
     location: "Neckarinsel"
     max_participants: 120
     event_date:
-      start: "05.04.2025 10:30"
+      start: "11.10.2025 10:30"
       onTime: true
     registration_date:
-      start: "29.03.2025 00:00"
-      end: "05.04.2025 9:30"
+      start: "04.10.2025 00:00"
+      end: "11.10.2025 9:30"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
     dinos: true
     metas:
      - "kaip"
-     - "clara"
 
   FRUEHSAND:
     location: "Sand A104"
@@ -88,7 +87,7 @@ events:
       gender: true
     metas:
       - "seb"
-      - "clara"
+      - "clara" 
 
   GR1:
     location: "Terrasse Sand"
