@@ -92,17 +92,17 @@ events:
     location: "Terrasse Sand"
     max_participants: 150
     event_date:
-      start: "12.04.2025 18:30"
+      start: "10.10.2025 18:30"
       onTime: false
     registration_date:
-      start: "05.04.2025 00:00"
-      end: "12.04.2025 17:00"
+      start: "03.10.2025 00:00"
+      end: "10.10.2025 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
     dinos: true
     metas:
       - "kaip"
-      - "clara"
+      - "virginia"
 
 
   FB:
