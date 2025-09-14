@@ -136,24 +136,23 @@ events:
       - "seb"
       - "clara"
   
-  SPx:
+  SP2:
     name: "Spieleabend 2"
     text: i18n:spx_text
     location: "Sand 14, A302"
     max_participants: 200
     event_date:
-      start: "16.04.2025 19:00"
+      start: "15.10.2025 19:00"
       onTime: false
     registration_date:
-      start: "09.04.2025 19:00"
-      end: "15.04.2025 20:00"
+      start: "08.10.2025 00:00"
+      end: "15.10.2025 18:00"
     csv_path: "ersti-spieleabend2.csv"
     icon: "dice"
     dinos: false
     metas:
       - "matti" 
-      - "sungbin"
-      - "clara"
+      - "patrick"
 
   WD2:
     location: "Neckarinsel"
