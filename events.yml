@@ -60,16 +60,15 @@ events:
     location: "Sand A104"
     max_participants: 120
     event_date:
-      start: "11.04.2025 10:00"
+      start: "10.10.2025 10:00"
       onTime: true
     registration_date:
-      start: "04.04.2025 00:00"
-      end: "10.04.2025 23:59"
+      start: "03.10.2025 00:00"
+      end: "09.10.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
     icon: "food"
     metas:
       - "seb"
-      - "clara"
 
   KT1:
     location: "Various locations in the city"
