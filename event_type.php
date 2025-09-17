@@ -73,7 +73,7 @@ class Event
 			'food' => FALSE,
 			'breakfast' => FALSE,
 			'gender' => FALSE,
-			'drinks_alcohol' => FALSE,
+			'no_alcohol' => FALSE,
 		];
 		$this->form = array_merge($this->form, $data['form'] ?? []);
 		// Misc
