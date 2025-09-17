@@ -1,0 +1,8 @@
+:root {
+    --background-color: #000080;
+    --primary-color: #000080;
+}
+
+.event-icon {
+    filter: invert(10%) sepia(74%) saturate(4575%) hue-rotate(235deg) brightness(85%) contrast(142%);
+}
