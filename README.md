@@ -40,7 +40,10 @@ To update the term, you need to modify the file `config.php` where the term info
 ...
 $CONFIG_TERM = 'Sommersemester 2025'; # example: Wintersemester 2020/21
 $CONFIG_TERM_SHORT = 'SS25'; # example: WS20_21
+$CONFIG_THEME = 'fsi-only'; # possible values: 'fsi-fsk' or 'fsi-only'
 ```
+
+`$CONFIG_THEME` switches between a blue theme (fsi) and a teal theme (fsi + fsk).
 
 ## Adding/Updating an event
 
