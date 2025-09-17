@@ -99,7 +99,7 @@ REQUIRED_SCHEMA = Schema(
             Optional("food"): bool,
             Optional("gender"): bool,
             Optional("course_required"): bool,
-            Optional("drinks_alcohol"): bool,
+            Optional("no_alcohol"): bool,
         },
         "icon": And(str, is_icon),
         Optional("metas"): [str],

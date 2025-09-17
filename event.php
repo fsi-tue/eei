@@ -293,14 +293,14 @@ function renderFoodOptions($event): void
 
 function renderAlcoholOptions($event): void
 {
-	if (!$event->form['drinks_alcohol']) {
+	if (!$event->form['no_alcohol']) {
 		return;
 	}
 
 	global $i18n;
 	?>
     <label>
-        <input type="checkbox" class="form-alcohol" name="drinks_alcohol" value="ja" checked>
+        <input type="checkbox" class="form-alcohol" name="no_alcohol" value="ja">
 		<?= $i18n['form_alcohol'] ?>
     </label>
     <br>

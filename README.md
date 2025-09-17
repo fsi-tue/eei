@@ -152,7 +152,7 @@ SP1:
     course_required: true
     # Ask if the participant drinks alcohol
     # This is set to false by default
-    drinks_alcohol: false
+    no_alcohol: false
 
     # Path to the CSV file associated with the event. Include the file extension.
     csv_path: "ersti-kneipentour1.csv"

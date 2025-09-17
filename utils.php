@@ -98,8 +98,8 @@ function writeHeader($file, Event $event): void
 		if ($event->form['gender']) {
 			$headers[] = "geschlecht";
 		}
-		if ($event->form['drinks_alcohol']) {
-			$headers[] = "trinkt_alcohol";
+		if ($event->form['no_alcohol']) {
+			$headers[] = "kein_alkohol";
 		}
 
 		fputcsv($file, $headers, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape']);
@@ -246,8 +246,9 @@ function register(Event $event): array
 	if ($event->form['gender']) {
 		$data['gender'] = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_SPECIAL_CHARS);
 	}
-	if ($event->form['drinks_alcohol']) {
-		$data['drinks_alcohol'] = filter_input(INPUT_POST, 'drinks_alcohol', FILTER_SANITIZE_SPECIAL_CHARS);
+	if ($event->form['no_alcohol']) {
+		$data['no_alcohol'] = filter_input(INPUT_POST, 'no_alcohol', FILTER_SANITIZE_SPECIAL_CHARS);
+		$data['no_alcohol'] = $data['no_alcohol'] == "ja" ? "1" : "0";
 	}
 
 	if ($data['name'] === '' || $mail === '' || ($event->form['course_required'] && (empty($data['studiengang']) || empty($data['semester']) || empty($data['abschluss'])))) {

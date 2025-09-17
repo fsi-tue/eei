@@ -85,7 +85,6 @@ events:
     dinos: false
     form:
       gender: true
-      drinks_alcohol: true
     metas:
       - "seb"
       - "clara"
