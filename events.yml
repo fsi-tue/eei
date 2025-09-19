@@ -23,10 +23,10 @@ events:
   #     - "Sebastian"
 
   SP1:
-    name: "Spieleabend 1"
-    text: i18n:spx_text
-    location: "Sand 14, A104"
-    max_participants: 200
+    name: i18n:sp1_name
+    text: i18n:sp1_text
+    location: "Sand 14, A104 & A301 & A302"
+    max_participants: 130
     event_date:
       start: "01.10.2025 19:00"
       onTime: false
@@ -49,7 +49,7 @@ events:
       onTime: true
     registration_date:
       start: "04.10.2025 00:00"
-      end: "11.10.2025 9:30"
+      end: "10.10.2025 20:00"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
     dinos: true
@@ -57,13 +57,13 @@ events:
      - "kaip"
 
   FRUEHSAND:
-    location: "Sand A104"
-    max_participants: 120
+    location: "Mensa Morgenstelle"
+    max_participants: 200
     event_date:
       start: "10.10.2025 10:00"
       onTime: true
     registration_date:
-      start: "02.10.2025 23:59"
+      start: "03.10.2025 00:00"
       end: "09.10.2025 23:59"
     csv_path: "ersti-fruehstueck.csv"
     icon: "food"
@@ -72,21 +72,21 @@ events:
 
   KT1:
     location: "Various locations in the city"
-    max_participants: 80
+    max_participants: 60
     event_date:
-      start: "11.04.2025 19:00"
+      start: "07.10.2025 19:00"
       onTime: true
     registration_date:
-      start: "04.04.2025 00:00"
-      end: "11.04.2025 15:00"
+      start: "01.10.2025 00:00"
+      end: "07.10.2025 12:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
     dinos: false
     form:
       gender: true
+      no_alcohol: true
     metas:
       - "seb"
-      - "clara" 
 
   GR1:
     location: "Terrasse Sand"
@@ -104,7 +104,6 @@ events:
       - "kaip"
       - "virginia"
 
-
   FB:
     name: "Flunkyball"
     location: "Sand 14, A104"
@@ -119,40 +118,44 @@ events:
     icon: "beer"
     metas:
       - "clara"
+      - "nico"
 
   KT2:
     location: "Various locations in the city"
-    max_participants: 80
+    max_participants: 60
     event_date:
-      start: "15.04.2025 19:00"
+      start: "17.10.2025 19:00"
       onTime: true
     registration_date:
-      start: "08.04.2025 00:00"
-      end: "15.04.2025 15:00"
+      start: "10.10.2025 00:00"
+      end: "17.10.2025 12:00"
     csv_path: "ersti-kneipentour2.csv"
     icon: "route"
     dinos: false
+    form:
+      gender: true
+      no_alcohol: true
     metas:
-      - "seb"
-      - "clara"
-  
+      - "seb"  
+
   SP2:
-    name: "Spieleabend 2"
-    text: i18n:spx_text
-    location: "Sand 14, A302"
-    max_participants: 200
+    name: "i18n:sp2_name"
+    text: "i18n:sp2_text"
+    location: "Sand 14, A301 & A302"
+    max_participants: 80
     event_date:
       start: "15.10.2025 19:00"
       onTime: false
     registration_date:
       start: "08.10.2025 00:00"
-      end: "15.10.2025 18:00"
+      end: "14.10.2025 18:00"
     csv_path: "ersti-spieleabend2.csv"
     icon: "dice"
     dinos: false
     metas:
       - "matti" 
       - "patrick"
+      - "emily"
 
   WD2:
     location: "Neckarinsel"
@@ -162,28 +165,28 @@ events:
       onTime: true
     registration_date:
       start: "18.10.2025 00:00"
-      end: "25.10.2025 9:30"
+      end: "24.10.2025 20:00"
     csv_path: "ersti-wanderung2.csv"
     icon: "route"
     dinos: true
     metas:
      - "kaip"
 
-  KASTEN:
-    location: "TBA"
-    max_participants: 60
-    event_date:
-      start: "23.04.2025 17:00"
-      onTime: true
-    registration_date:
-      start: "16.04.2025 00:00"
-      end: "22.04.2025 23:59"
-    csv_path: "kastenlauf.csv"
-    icon: "beer"
-    metas:
-      - "seb" 
-      - "max"
-      - "clara"
+  # KASTEN:
+  #   location: "TBA"
+  #   max_participants: 60
+  #   event_date:
+  #     start: "23.04.2025 17:00"
+  #     onTime: true
+  #   registration_date:
+  #     start: "16.04.2025 00:00"
+  #     end: "22.04.2025 23:59"
+  #   csv_path: "kastenlauf.csv"
+  #   icon: "beer"
+  #   metas:
+  #     - "seb" 
+  #     - "max"
+  #     - "clara"
 
   GR2:
     location: "Terrasse Sand"
@@ -200,38 +203,38 @@ events:
     metas:
       - "kaip"
 
-  ASJ:
-    name: "Abenteuer-Schnitzeljagd"
-    location: "Stiftskirche"
-    cancelled: true
-    max_participants: 120
+  # ASJ:
+  #   name: "Abenteuer-Schnitzeljagd"
+  #   location: "Stiftskirche"
+  #   cancelled: true
+  #   max_participants: 120
+  #   event_date:
+  #     start: "26.04.2025 14:00"
+  #     onTime: true
+  #   registration_date:
+  #     start: "19.04.2025 00:00"
+  #     end: "25.04.2025 12:00"
+  #   csv_path: "rallye1.csv"
+  #   icon: "marker"
+  #   metas:
+  #     - "seb"
+  #     - "hannah"
+  #     - "clara"
+
+
+  FILM:
+    location: "HS24, Kupferbau"
+    max_participants: 200
     event_date:
-      start: "26.04.2025 14:00"
+      start: "14.10.2025 19:15"
       onTime: true
     registration_date:
-      start: "19.04.2025 00:00"
-      end: "25.04.2025 12:00"
-    csv_path: "rallye1.csv"
-    icon: "marker"
+      start: "07.10.2025 00:00"
+      end: "14.10.2025 14:00"
+    csv_path: "ersti-filmabend.csv"
+    icon: "film"
     metas:
-      - "seb"
-      - "hannah"
-      - "clara"
-
-
-  # FILM:
-  #   location: "Sand 14, A104"
-  #   max_participants: 200
-  #   event_date:
-  #     start: "15.10.2024 19:00"
-  #     onTime: false
-  #   registration_date:
-  #     start: "08.10.2024 00:00"
-  #     end: "15.10.2024 14:00"
-  #   csv_path: "ersti-filmabend.csv"
-  #   icon: "film"
-  #   metas:
-  #     - "kathi"
+      - "kathi"
 
 
   # AS:
@@ -313,7 +316,7 @@ events:
 
   # HUETTE:
   #   name: "Erstihütte"
-  #   location: "Naturfreundehaus Waldheim Dettingen"
+  #   location: "TBA"
   #   max_participants: 44
   #   event_date:
   #     start: "01.11.2024 10:00"
