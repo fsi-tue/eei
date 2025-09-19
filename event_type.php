@@ -163,7 +163,7 @@ class Event
 			}
 
 			///// CSV path /////
-			$event->csvPath = $fp . /* TODO: Uncomment this after all events finished . $CONFIG_TERM_SHORT . '-' . */
+			$event->csvPath = $fp . $CONFIG_TERM_SHORT . '-' .
 				$event->csvPath;
 		}
 
