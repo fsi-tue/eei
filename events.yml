@@ -38,7 +38,6 @@ events:
     dinos: false
     metas:
       - "matti"
-      - "patrick"
       - "emily"
 
   WD1:
@@ -154,7 +153,6 @@ events:
     dinos: false
     metas:
       - "matti" 
-      - "patrick"
       - "emily"
 
   WD2:
