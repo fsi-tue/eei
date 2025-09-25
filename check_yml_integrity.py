@@ -75,7 +75,7 @@ def is_icon(s: str) -> bool:
 #    a list of str use: [str]
 #
 # To check for optional keys use: Optionale("KEY NAME"): VALUE
-REQUIRED_SCHEMA = Schema(
+REQUIRED_SCHEMA = Schema(And(
     {
         Optional("name"): And(str, len),
         Optional("registration_enabled"): bool,
@@ -83,18 +83,18 @@ REQUIRED_SCHEMA = Schema(
         Optional("text"): str,
         Optional("info"): str,
         "location": str,
-        "max_participants": int,
+        Optional("max_participants"): int,
         Optional("dinos"): bool,
         "event_date": {
             "start": And(str, is_date),
             Optional("end"): And(str, is_date),
             "onTime": bool,
         },
-        "registration_date": {
+        Optional("registration_date"): {
             Optional("start"): And(str, is_date),
             "end": And(str, is_date),
         },
-        "csv_path": And(str, len, lambda s: is_unique("csv_path", s)),
+        Optional("csv_path"): And(str, len, lambda s: is_unique("csv_path", s)),
         Optional("form"): {
             Optional("breakfast"): bool,
             Optional("food"): bool,
@@ -104,8 +104,11 @@ REQUIRED_SCHEMA = Schema(
         },
         "icon": And(str, is_icon),
         Optional("metas"): [str],
-    }
-)
+    },
+    lambda e: (not e.get("registration_enabled", True)) or ("csv_path" in e),
+    lambda e: (not e.get("registration_enabled", True)) or ("max_participants" in e),
+    lambda e: (not e.get("registration_enabled", True)) or ("registration_date" in e),
+))
 
 
 class UniqueKeyLoader(yaml.SafeLoader):
