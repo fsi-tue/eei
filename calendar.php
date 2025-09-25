@@ -77,15 +77,11 @@ class ICSGenerator
 		
 		$eventData[] = 'SUMMARY:' . $this->escapeString($event->name);
 
-        if (!empty($this->event->description)) {
-            $eventData[] = 'DESCRIPTION:' . $this->escapeString($event->text);
-        }
-
-        if (!empty($this->event->location)) {
+        if ( ! empty($event->location)) {
             $eventData[] = 'LOCATION:' . $this->escapeString($event->location);
         }
 
-        if (!empty($this->event->link)) {
+        if ( ! empty($event->link)) {
             $eventData[] = 'URL:' . $this->escapeString(getRemoteAddr() . '/event.php?e=' . $event->link);
         }
 
