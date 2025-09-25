@@ -12,15 +12,14 @@ events:
       onTime: false
     icon: "party"
 
-  #already prepared template for clara :)
-  #HUETTE:
-  #  name: "Erstihütte"
-  #  location: "TBA"
-  #  registration_enabled: false
-  #  event_date:
-  #    start: "07.11.2025 10:00"
-  #    onTime: true
-  #  icon: "marker"
+  HUETTE:
+    name: "Erstihütte"
+    location: "TBA"
+    registration_enabled: false
+    event_date:
+      start: "07.11.2025 10:00"
+      onTime: true
+    icon: "marker"
 
   MASTERCAFE:
     location: "Sand A301"
