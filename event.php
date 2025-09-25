@@ -100,15 +100,17 @@ function renderPage($event, $registrationId)
 
         <div class="container">
             <div class="row">
-                <div class="event-pill"><?= $i18n['remaining'] . ": " . htmlspecialchars($event->getRemainingSpots()) ?></div>
+				<?php if($event->isRegistrationEnabled()): ?>
+                	<div class="event-pill"><?= $i18n['remaining'] . ": " . htmlspecialchars($event->getRemainingSpots()) ?></div>
+				<?php endif; ?>
 				<?php
 				if ($event->dinosAllowed): ?>
                     <div class="event-pill"><?= $i18n['dinos'] ?></div>
 				<?php
 				endif; ?>
             </div>
-
-			<?php if ($event->canRegister()) { ?>
+			
+			<?php if ($event->canRegister() && $event->isRegistrationEnabled()) { ?>
                 <div class="deadline">
                     <span class="icon hourglass"></span>
                     <h4><?= $i18n["deadline"] ?>
@@ -130,7 +132,9 @@ function renderPage($event, $registrationId)
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				handlePostRequest($event, $registrationId);
 			} else {
-				if ($registrationId) {
+				if ( ! $event->isRegistrationEnabled()) {
+					renderRegistrationDisabledInformation($event);
+				} elseif ($registrationId) {
 					renderUnsubscribeForm($event, $registrationId);
 				} elseif ($event->canRegister()) {
 					renderRegistrationForm($event);
@@ -154,6 +158,15 @@ function renderPage($event, $registrationId)
     </body>
 
     </html>
+	<?php
+}
+
+function renderRegistrationDisabledInformation($event): void {
+	global $i18n;
+	?>
+		<div class="container text-block info">
+			<?= $i18n['registration_disabled'] ?>
+		</div>
 	<?php
 }
 
