@@ -103,6 +103,14 @@ events:
       - "kaip"
       - "virginia"
 
+  CHF:
+    location: "Clubhaus"
+    registration_enabled: false
+    event_date:
+      start: "23.10.2025 21:00"
+      onTime: false
+    icon: "grill"
+
   FB:
     name: "Flunkyball"
     location: "Sand 14, A104"

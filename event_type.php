@@ -33,6 +33,7 @@ class Event
 {
 	public string $link;
 	public string $name;
+	public bool $registrationEnabled;
 	public string $location;
 	private int $maxParticipants;
 	public bool $dinosAllowed;
@@ -53,6 +54,9 @@ class Event
 		$this->link = $data['link'];
 		// If the name is set, use it, otherwise use the translation
 		$this->name = Event::i18n($data, 'name') ?? $i18n->translate(strtolower($this->link) . '_name') ?? '';
+
+		/* is registration enabled for this event? */
+		$this->registrationEnabled = $data['registration_enabled'] ?? TRUE;
 
 		$this->location = $data['location'];
 		$this->maxParticipants = $data['max_participants'] ?? FALSE;
@@ -77,9 +81,11 @@ class Event
 		];
 		$this->form = array_merge($this->form, $data['form'] ?? []);
 		// Misc
-		$this->csvPath = $data['csv_path'];
-		$this->icon = $data['icon'];
+		if($this->registrationEnabled) {
+			$this->csvPath = $data['csv_path'];
+		}
 		$this->metas = $data['metas'] ?? [];
+		$this->icon = $data['icon'];
 	}
 
 	/**
@@ -163,8 +169,9 @@ class Event
 			}
 
 			///// CSV path /////
-			$event->csvPath = $fp . $CONFIG_TERM_SHORT . '-' .
-				$event->csvPath;
+			if($event->registrationEnabled) {
+				$event->csvPath = $fp . $CONFIG_TERM_SHORT . '-' . $event->csvPath;
+			}
 		}
 
 		return $events;
@@ -215,6 +222,15 @@ class Event
 	public function isUpcoming(): bool
 	{
 		return !$this->isPast();
+	}
+
+	/**
+	 * Check if the registration for this event should be enabled or 
+	 * if the event entry is just for informational causes.
+	 * @return bool
+	 */
+	public function isRegistrationEnabled(): bool {
+		return $this->registrationEnabled;
 	}
 
 	/**
@@ -430,6 +446,7 @@ class Event
 		}
 		return 0;
 	}
+
 }
 
 // Load the events from the events.yaml file
