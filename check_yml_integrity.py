@@ -78,6 +78,7 @@ def is_icon(s: str) -> bool:
 REQUIRED_SCHEMA = Schema(
     {
         Optional("name"): And(str, len),
+        Optional("registration_enabled"): bool,
         Optional("cancelled"): bool,
         Optional("text"): str,
         Optional("info"): str,

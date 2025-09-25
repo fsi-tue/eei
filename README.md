@@ -109,6 +109,11 @@ SP1:
   # Location where the event will take place. Can be a specific address or a general area description.
   location: "Sand 14, A301"
 
+  # Boolean value indicating if the event offers a registration.
+  # Not required, default value is true
+  # Set this to false for pure informational entries like a Clubhausfest
+  registration_enabled: true
+
   # Maximum number of participants that can attend the event.
   max_participants: 120
 
