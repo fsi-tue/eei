@@ -60,6 +60,14 @@
     background-image: url("../icons/snowflake-solid.svg");
 }
 
+.icon.information {
+    background-image: url("../icons/information-solid.svg");
+}
+
+.icon.party {
+    background-image: url("../icons/party-solid.svg");
+}
+
 .icon.inactive {
     opacity: 50%;
 }

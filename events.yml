@@ -3,6 +3,49 @@ events:
   ### Ersti-Events ###
   ##############################
 
+  # Informational Events without Registration
+  CHF:
+    location: "Clubhaus"
+    registration_enabled: false
+    event_date:
+      start: "23.10.2025 21:00"
+      onTime: false
+    icon: "party"
+
+  #already prepared template for clara :)
+  #HUETTE:
+  #  name: "Erstihütte"
+  #  location: "TBA"
+  #  registration_enabled: false
+  #  event_date:
+  #    start: "07.11.2025 10:00"
+  #    onTime: true
+  #  icon: "marker"
+
+  MASTERCAFE:
+    location: "Sand A301"
+    registration_enabled: false
+    event_date:
+      start: "09.10.2025 14:30"
+      onTime: true
+    icon: "information"
+
+  TERMOPEN:
+    location: "Maria-von-Linden-Straße 1"
+    registration_enabled: false
+    event_date:
+      start: "10.10.2025 16:15"
+      onTime: true
+    icon: "information"
+
+  SUBINTRO:
+    location: "Various"
+    registration_enabled: false
+    event_date:
+      start: "09.10.2025 16:15"
+      onTime: false
+    icon: "information"
+
   # MC_LAN:
   #   name: "Git Push Sand - Minecraft LAN-Party im Freien"
   #   cancelled: true
@@ -102,14 +145,6 @@ events:
     metas:
       - "kaip"
       - "virginia"
-
-  CHF:
-    location: "Clubhaus"
-    registration_enabled: false
-    event_date:
-      start: "23.10.2025 21:00"
-      onTime: false
-    icon: "grill"
 
   FB:
     name: "Flunkyball"
