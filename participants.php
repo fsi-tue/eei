@@ -159,7 +159,7 @@ final class SecurityToken
 session_start();
 
 $mailer = new ParticipantListMailer($GLOBALS['fp'] . 'logs.csv');
-$filtered_events = array_filter($GLOBALS['events'], fn(Event $event) => $event->isUpcoming());
+$filtered_events = array_filter($GLOBALS['events'], fn(Event $event) => $event->isUpcoming() && $event->isRegistrationEnabled());
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $_SESSION['token'] = SecurityToken::generate();
