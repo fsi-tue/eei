@@ -99,7 +99,7 @@ class ParticipantListMailer
 
         $lastSentTime = 0;
         if (($handle = fopen($this->logPath, 'r')) !== FALSE) {
-            while (($line = fgetcsv($handle, null, CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape'])) !== FALSE) {
+            while (($line = fgetcsv($handle, null, $CSV_OPTIONS['separator'], $CSV_OPTIONS['enclosure'], $CSV_OPTIONS['escape'])) !== FALSE) {
                 if ($line[0] === $event->link) {
                     $lastSentTime = strtotime($line[1] ?? '');
                 }
