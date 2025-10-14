@@ -159,6 +159,12 @@ a .link:hover {
     padding-right: 15px;
 }
 
+.event-pill-multiline {
+    font-size: 60%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
 .event-name {
     margin-right: 15px;
     overflow: hidden;

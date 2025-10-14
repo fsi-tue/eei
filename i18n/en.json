@@ -6,6 +6,8 @@
   "time_at": "at {TIME}",
   "time_from": "from {TIME}",
   "time_to": "until",
+  "date_from": "from",
+  "date_to": "until",
   "time_takingPlace": "Taking place",
   "calendar_download": "Download calendar",
   "calendar_subscribe": "Subscribe to calendar",
