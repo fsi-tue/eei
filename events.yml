@@ -224,6 +224,7 @@ events:
     max_participants: 150
     event_date:
       start: "18.10.2025 18:30"
+      end: "18.10.2025 19:30"
       onTime: false
     registration_date:
       start: "11.10.2025 00:00"

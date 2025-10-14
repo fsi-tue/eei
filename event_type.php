@@ -329,6 +329,13 @@ class Event
 		), $options);
 	}
 
+	public function isMultiDayEvent() {
+		if( $this->getEventEndUTS() == null) return false;
+		$compareFormat = "d.m.Y";
+		return date($compareFormat, $this->getEventStartUTS()) 
+			!= date($compareFormat, $this->getEventEndUTS());
+	}
+
 	/**
 	 * Get the registration date as a string.
 	 *
@@ -421,7 +428,7 @@ class Event
 		}
 
 		if ($isStartEndDiffDays && !$noEnd && $hasEndDate && !$isTakingPlace) {
-			$dateAndTime = "$dateAndTime " . $i18n->translate('time_to') . " $endDate";
+			$dateAndTime = $i18n->translate('date_from') . " $dateAndTime<br/>" . $i18n->translate('date_to') . " $endDate";
 		}
 
 		return $dateAndTime;

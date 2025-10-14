@@ -6,6 +6,8 @@
     "time_at": "um {TIME} Uhr",
     "time_from": "ab {TIME} Uhr",
     "time_to": "bis",
+    "date_from": "von",
+    "date_to": "bis",
     "time_takingPlace": "Jetzt",
     "calendar_download": "Kalender herunterladen",
     "calendar_subscribe": "Kalender abonnieren",

@@ -88,7 +88,7 @@ function renderPage($event, $registrationId)
         <div class="container">
             <div class="description">
                 <span class="icon clock"></span>
-                <h2><?= htmlspecialchars($event->getEventDateString()) ?></h2>
+                <h2><?= $event->getEventDateString() ?></h2>
             </div>
 
             <div class="description">
