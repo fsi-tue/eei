@@ -12,15 +12,6 @@ events:
       onTime: false
     icon: "party"
 
-  HUETTE:
-    name: "Erstihütte"
-    location: "TBA"
-    registration_enabled: false
-    event_date:
-      start: "07.11.2025 10:00"
-      onTime: true
-    icon: "marker"
-
   MASTERCAFE:
     location: "Sand A301"
     registration_enabled: false
@@ -354,25 +345,25 @@ events:
   #    csv_path: "rallye1.csv"
   #    icon: "marker"
 
-  # HUETTE:
-  #   name: "Erstihütte"
-  #   location: "TBA"
-  #   max_participants: 44
-  #   event_date:
-  #     start: "01.11.2024 10:00"
-  #     end: "03.11.2024 18:00"
-  #     onTime: true
-  #   registration_date:
-  #     start: "17.10.2024 06:00"
-  #     end: "06.11.2024 09:00"
-  #   csv_path: "ersti-huette.csv"
-  #   form:
-  #     breakfast: false
-  #     food: true
-  #   icon: "marker"
-  #   metas:
-  #     - "clara"
-  #     - "chris"
+  HUETTE:
+    location: "Waldheim Dettingen"
+    max_participants: 40
+    event_date:
+      start: "07.11.2025 15:00"
+      end: "09.11.2025 14:00"
+      onTime: true
+    registration_date:
+      start: "24.10.2025 10:00"
+      end: "31.10.2025 10:00"
+    csv_path: "ersti-huette.csv"
+    form:
+      breakfast: false
+      food: true
+      gender: true
+    icon: "marker"
+    metas:
+      - "clara"
+      - "emily"
 
   # WEIHNACHTSFEIER:
   #   name: "Weihnachtsfeier"
