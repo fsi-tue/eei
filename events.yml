@@ -139,9 +139,9 @@ events:
   FB:
     name: "Flunkyball"
     location: "Sand 14, A104"
-    max_participants: 200
+    max_participants: 100
     event_date:
-      start: "22.10.2025 18:00"
+      start: "22.10.2025 18:15"
       onTime: true
     registration_date:
       start: "15.10.2025 00:00"
@@ -149,8 +149,7 @@ events:
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas:
-      - "clara"
-      - "nico"
+      - "nico" 
 
   KT2:
     location: "Various locations in the city"
