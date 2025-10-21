@@ -267,6 +267,21 @@ events:
     metas:
       - "kathi"
 
+  FSI_SCHNUSI:
+    location: "Sand A104"
+    max_participants: 30
+    event_date:
+      start: "30.10.2025 18:30"
+      onTime: true
+    registration_date:
+      start: "23.10.2025 00:00"
+      end: "28.10.2025 14:00"
+    csv_path: "schnusi.csv"
+    icon: "cap"
+    metas:
+      - "clara"
+      - "seb"
+
 
   # AS:
   #   location: "Sand 14, A301"
