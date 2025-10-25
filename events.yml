@@ -190,6 +190,7 @@ events:
   WD2:
     location: "Neckarinsel"
     max_participants: 120
+    cancelled: true
     event_date:
       start: "25.10.2025 10:30"
       onTime: true
