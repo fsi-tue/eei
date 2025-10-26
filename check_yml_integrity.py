@@ -85,6 +85,7 @@ REQUIRED_SCHEMA = Schema(And(
         Optional("text"): str,
         Optional("info"): str,
         "location": str,
+        Optional("opentoall"): bool,
         Optional("max_participants"): int,
         Optional("dinos"): bool,
         "event_date": {
