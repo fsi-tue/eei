@@ -7,6 +7,7 @@ events:
   CHF:
     location: "Clubhaus"
     registration_enabled: false
+    opentoall : true
     event_date:
       start: "23.10.2025 21:00"
       onTime: false
@@ -15,6 +16,7 @@ events:
   MASTERCAFE:
     location: "Sand A301"
     registration_enabled: false
+    opentoall : true
     event_date:
       start: "09.10.2025 14:30"
       onTime: true
@@ -23,6 +25,7 @@ events:
   TERMOPEN:
     location: "Maria-von-Linden-Straße 1"
     registration_enabled: false
+    opentoall : true
     event_date:
       start: "10.10.2025 16:15"
       onTime: true
@@ -31,6 +34,7 @@ events:
   SUBINTRO:
     location: "Various"
     registration_enabled: false
+    opentoall : true
     event_date:
       start: "09.10.2025 16:15"
       onTime: false
@@ -41,6 +45,7 @@ events:
   #   cancelled: true
   #   text: i18n:mc_lan_text
   #   location: "Sand 14, Terasse / A104"
+  #   opentoall : false
   #   max_participants: 50
   #   event_date:
   #     start: "11.07.2025 16:00"
@@ -59,6 +64,7 @@ events:
     name: i18n:sp1_name
     text: i18n:sp1_text
     location: "Sand 14, A104 & A301 & A302"
+    opentoall : false
     max_participants: 130
     event_date:
       start: "01.10.2025 19:00"
@@ -74,6 +80,7 @@ events:
 
   WD1:
     location: "Neckarinsel"
+    opentoall : false
     max_participants: 120
     event_date:
       start: "11.10.2025 10:30"
@@ -89,6 +96,7 @@ events:
 
   FRUEHSAND:
     location: "Mensa Morgenstelle"
+    opentoall : false
     max_participants: 200
     event_date:
       start: "10.10.2025 10:00"
@@ -103,6 +111,7 @@ events:
 
   KT1:
     location: "Various locations in the city"
+    opentoall : false
     max_participants: 60
     event_date:
       start: "07.10.2025 19:00"
@@ -121,6 +130,7 @@ events:
 
   GR1:
     location: "Terrasse Sand"
+    opentoall : false
     max_participants: 150
     event_date:
       start: "10.10.2025 18:30"
@@ -137,6 +147,7 @@ events:
   FB:
     name: "Flunkyball"
     location: "Sand 14, A104"
+    opentoall : false
     max_participants: 100
     event_date:
       start: "22.10.2025 18:15"
@@ -151,6 +162,7 @@ events:
 
   KT2:
     location: "Various locations in the city"
+    opentoall : false
     max_participants: 60
     event_date:
       start: "17.10.2025 19:00"
@@ -171,6 +183,7 @@ events:
     name: "i18n:sp2_name"
     text: "i18n:sp2_text"
     location: "Sand 14, A301 & A302"
+    opentoall : false
     max_participants: 80
     event_date:
       start: "15.10.2025 19:00"
@@ -186,6 +199,7 @@ events:
 
   WD2:
     location: "Neckarinsel"
+    opentoall : false
     max_participants: 120
     cancelled: true
     event_date:
@@ -202,6 +216,7 @@ events:
 
   # KASTEN:
   #   location: "TBA"
+  #   opentoall : false
   #   max_participants: 60
   #   event_date:
   #     start: "23.04.2025 17:00"
@@ -218,6 +233,7 @@ events:
 
   GR2:
     location: "Terrasse Sand"
+    opentoall : false
     max_participants: 150
     event_date:
       start: "18.10.2025 18:30"
@@ -235,6 +251,7 @@ events:
   # ASJ:
   #   name: "Abenteuer-Schnitzeljagd"
   #   location: "Stiftskirche"
+  #   opentoall : false
   #   cancelled: true
   #   max_participants: 120
   #   event_date:
@@ -253,6 +270,7 @@ events:
 
   FILM:
     location: "HS24, Kupferbau"
+    opentoall : false
     max_participants: 200
     event_date:
       start: "14.10.2025 19:15"
@@ -267,6 +285,7 @@ events:
 
   FSI_SCHNUSI:
     location: "Sand A104"
+    opentoall : true
     max_participants: 30
     event_date:
       start: "30.10.2025 18:30"
@@ -282,6 +301,7 @@ events:
 
   # AS:
   #   location: "Sand 14, A301"
+  #   opentoall : false
   #   max_participants: 200
   #   event_date:
   #     start: "17.10.2024 19:00"
@@ -298,6 +318,7 @@ events:
   #  SP3:
   #    name: "i18n:sp1_name"
   #    location: "Sand 14, A104"
+  #    opentoall : false
   #    max_participants: 200
   #    event_date:
   #      start: "08.05.2024 19:00"
@@ -313,6 +334,7 @@ events:
 
   # CaptureTheFlag:
   #    name: "Capture the Flag"
+  #    opentoall : false
   #    location: ""
   #    max_participants: 40
   #    event_date:
@@ -329,6 +351,7 @@ events:
 
   # MisterX:
   #   name: "Mister X (real life)"
+  #   opentoall : false
   #   location: "Sand 14"
   #   max_participants: 35
   #   event_date:
@@ -347,6 +370,7 @@ events:
 
   #  RY:
   #    location: ""
+  #    opentoall : false
   #    max_participants: 120
   #    event_date:
   #      start: "20.10.2023 16:30"
@@ -359,6 +383,7 @@ events:
 
   HUETTE:
     location: "Waldheim Dettingen"
+    opentoall : false
     max_participants: 40
     event_date:
       start: "07.11.2025 15:00"
@@ -380,6 +405,7 @@ events:
   # WEIHNACHTSFEIER:
   #   name: "Weihnachtsfeier"
   #   location: "Sand 14, A104"
+  #   opentoall : false
   #   max_participants: 300
   #   event_date:
   #     start: "13.12.2024 17:00"
@@ -399,6 +425,7 @@ events:
   #  JuggerWorkshop:
   #    name: "Jugger Workshop"
   #    location: "Terrasse Sand"
+  #    opentoall : false
   #    max_participants: 18
   #    event_date:
   #      start: "17.10.2022 10:00"
@@ -415,6 +442,7 @@ events:
   # ws-software-engineering:
   #   name: "Software Engineering Workshop"
   #   location: "Sand A104"
+  #   opentoall : false
   #   max_participants: 25
   #   text: "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 20./21.04.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt."
   #   info: "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 04./05.05.2024."
@@ -433,6 +461,7 @@ events:
   # ws-software-engineering2:
   #   name: "Software Engineering Workshop"
   #   location: "Sand A104"
+  #   opentoall : false
   #   max_participants: 25
   #   text: "Du willst dich auf dein Info-Teamprojekt vorbereiten, konntest aber nicht Software-Engineering hören? Dann ist dieser Workshop genau das Richtige für dich! Hier lernst du Grundlagen von git und GitHub sowie einen Jump-Through durch die wichtigsten Themen, die du für dein Info-Teamprojekt gebrauchen kannst! Der Workshop findet am 04./05.05.2024 jeweils von 9-17 Uhr statt und ist auf 25 Teilnehmer begrenzt."
   #   info: "Dieser Workshop richtet sich NUR an Kognitionswissenschaft B.Sc., die das Teamprojekt belegen wollen und Info BSc. aus der alten Prüfungsordnung (2015). Die Inhalte des Workshops sind identisch mit dem Workshop am 20./21.04.2024."
@@ -450,6 +479,7 @@ events:
 #  LatexBasicWorkshop:
 #    name: "Latex Basic"
 #    location: "Sand A301"
+#    opentoall : false
 #    max_participants: 25
 #    event_date:
 #      start: "04.04.2023 09:00"
@@ -467,6 +497,7 @@ events:
 #  LatexAdvancedWorkshop:
 #    name: "Latex Advanced"
 #    location: "Sand A301"
+#    opentoall : false
 #    max_participants: 25
 #    event_date:
 #      start: "04.04.2023 14:00"
@@ -484,6 +515,7 @@ events:
 #  GitBasicWorkshop:
 #    name: "GIT Basic"
 #    location: "Sand A301"
+#    opentoall : false
 #    max_participants: 25
 #    event_date:
 #      start: "05.04.2023 09:00"
@@ -500,6 +532,7 @@ events:
 #
 #  GitAdvancedWorkshop:
 #    name: "GIT Advanced"
+#    opentoall: false
 #    location: "Sand A301"
 #    max_participants: 25
 #    event_date:

@@ -1,5 +1,7 @@
 # eei - Ersti Einführungs Interface
 
+:warning: Please submit any pull requests or issues in english only! Please stick to english for discussions and conversations. :warning:
+
 ## Setup Instructions
 
 1. Download and install php: https://www.php.net/manual/install.php

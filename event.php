@@ -96,6 +96,11 @@ function renderPage($event, $registrationId)
                 <h2><?= htmlspecialchars($event->location) ?></h2>
             </div>
 
+			<?php
+			if ($event->isOpentoall()) {
+				renderOpentoallNotice($event);
+			} ?>
+
         </div>
 
         <div class="container">
@@ -372,6 +377,16 @@ function renderGenderOptions($event): void
 		<?php
 	} ?>
     <br>
+	<?php
+}
+
+function renderOpentoallNotice($event): void
+{
+	global $i18n;
+	?>
+		<div class="container text-block info">
+			<?= $i18n['opentoall'] ?>
+		</div>
 	<?php
 }
 
