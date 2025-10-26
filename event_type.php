@@ -35,6 +35,7 @@ class Event
 	public string $name;
 	public bool $registrationEnabled;
 	public string $location;
+	public bool $opentoall;
 	private int $maxParticipants;
 	public bool $dinosAllowed;
 	public bool $cancelled;
@@ -59,6 +60,7 @@ class Event
 		$this->registrationEnabled = $data['registration_enabled'] ?? TRUE;
 
 		$this->location = $data['location'];
+		$this->opentoall = $data['opentoall'];
 		$this->maxParticipants = $data['max_participants'] ?? FALSE;
 		$this->dinosAllowed = $data['dinos'] ?? FALSE;
 		$this->cancelled = $data['cancelled'] ?? FALSE;
@@ -231,6 +233,16 @@ class Event
 	 */
 	public function isRegistrationEnabled(): bool {
 		return $this->registrationEnabled;
+	}
+
+	/**
+	 * Check if the event is open to all.
+	 * An event is open to all if registration is optional.
+	 * 
+	 * @return bool
+	 */
+	public function isOpentoall(): bool {
+		return $this->opentoall;
 	}
 
 	/**
