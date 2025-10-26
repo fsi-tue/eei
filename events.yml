@@ -70,8 +70,7 @@ events:
     icon: "dice"
     dinos: false
     metas:
-      - "matti"
-      - "emily"
+      - "seb"
 
   WD1:
     location: "Neckarinsel"
@@ -86,7 +85,7 @@ events:
     icon: "route"
     dinos: true
     metas:
-     - "kaip"
+     - "seb"
 
   FRUEHSAND:
     location: "Mensa Morgenstelle"
@@ -133,8 +132,7 @@ events:
     icon: "grill"
     dinos: true
     metas:
-      - "kaip"
-      - "virginia"
+      - "seb"
 
   FB:
     name: "Flunkyball"
@@ -149,7 +147,7 @@ events:
     csv_path: "flunkyball.csv"
     icon: "beer"
     metas:
-      - "nico" 
+      - "seb" 
 
   KT2:
     location: "Various locations in the city"
@@ -184,8 +182,7 @@ events:
     icon: "dice"
     dinos: false
     metas:
-      - "matti" 
-      - "emily"
+      - "seb"
 
   WD2:
     location: "Neckarinsel"
@@ -201,7 +198,7 @@ events:
     icon: "route"
     dinos: true
     metas:
-     - "kaip"
+     - "seb"
 
   # KASTEN:
   #   location: "TBA"
@@ -233,7 +230,7 @@ events:
     icon: "grill"
     dinos: true
     metas:
-      - "kaip"
+      - "seb"
 
   # ASJ:
   #   name: "Abenteuer-Schnitzeljagd"
@@ -266,7 +263,7 @@ events:
     csv_path: "ersti-filmabend.csv"
     icon: "film"
     metas:
-      - "kathi"
+      - "seb"
 
   FSI_SCHNUSI:
     location: "Sand A104"
@@ -280,7 +277,6 @@ events:
     csv_path: "schnusi.csv"
     icon: "cap"
     metas:
-      - "clara"
       - "seb"
 
 
