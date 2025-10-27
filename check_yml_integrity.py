@@ -63,9 +63,24 @@ def is_icon(s: str) -> bool:
         "signs",
         "snowflake",
         "information",
-        "party"
+        "party",
+        "google-maps",
+        "openstreetmap"
     ]
     return s in valid_icon_names
+
+
+def is_valid_location_maps(location_maps: dict) -> bool:
+    """
+    Validate location_maps dictionary.
+    Only allow 'google' and 'osm' as keys.
+    """
+    valid_providers = ['google', 'osm']
+    for key in location_maps.keys():
+        if key not in valid_providers:
+            print(f"Invalid location_maps provider: {key}. Only 'google' and 'osm' are allowed.")
+            return False
+    return True
 
 
 # Schema of a single event
@@ -85,6 +100,7 @@ REQUIRED_SCHEMA = Schema(And(
         Optional("text"): str,
         Optional("info"): str,
         "location": str,
+        Optional("location_maps"): And(dict, is_valid_location_maps),
         Optional("opentoall"): bool,
         Optional("max_participants"): int,
         Optional("dinos"): bool,

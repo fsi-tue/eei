@@ -35,6 +35,7 @@ class Event
 	public string $name;
 	public bool $registrationEnabled;
 	public string $location;
+	public array $locationMaps;
 	public bool $opentoall;
 	private int $maxParticipants;
 	public bool $dinosAllowed;
@@ -60,6 +61,7 @@ class Event
 		$this->registrationEnabled = $data['registration_enabled'] ?? TRUE;
 
 		$this->location = $data['location'];
+		$this->locationMaps = $data['location_maps'] ?? [];
 		$this->opentoall = $data['opentoall'];
 		$this->maxParticipants = $data['max_participants'] ?? FALSE;
 		$this->dinosAllowed = $data['dinos'] ?? FALSE;
