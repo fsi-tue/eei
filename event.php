@@ -94,6 +94,16 @@ function renderPage($event, $registrationId)
             <div class="description">
                 <span class="icon marker"></span>
                 <h2><?= htmlspecialchars($event->location) ?></h2>
+				<?php if (!empty($event->locationMaps)): ?>
+                    <span class="map-links">
+						<?php foreach ($event->locationMaps as $provider => $url): ?>
+                            <a href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener noreferrer" 
+                               class="map-link" title="<?= htmlspecialchars(ucfirst($provider)) ?>">
+                                <span class="icon external-link"></span>
+                            </a>
+						<?php endforeach; ?>
+                    </span>
+				<?php endif; ?>
             </div>
 
 			<?php

@@ -111,6 +111,14 @@ SP1:
   # Location where the event will take place. Can be a specific address or a general area description.
   location: "Sand 14, A301"
 
+  # Optional map links for the location
+  # Not required!
+  # Allows users to get directions to the event location via different map providers.
+  # Each key is a provider name (e.g., "google", "openstreetmap") and the value is the URL.
+  location_maps:
+    google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
+    openstreetmap: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
+
   # Boolean value indicating if the event offers a registration.
   # Not required, default value is true
   # Set this to false for pure informational entries like a Clubhausfest
