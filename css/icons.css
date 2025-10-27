@@ -68,14 +68,6 @@
     background-image: url("../icons/party-solid.svg");
 }
 
-.icon.map {
-    background-image: url("../icons/map-solid.svg");
-}
-
-.icon.external-link {
-    background-image: url("../icons/external-link-solid.svg");
-}
-
 .icon.google-maps {
     background-image: url("../icons/google-maps.svg");
 }

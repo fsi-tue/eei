@@ -64,8 +64,6 @@ def is_icon(s: str) -> bool:
         "snowflake",
         "information",
         "party",
-        "map",
-        "external-link",
         "google-maps",
         "openstreetmap"
     ]
