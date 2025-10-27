@@ -97,10 +97,12 @@ function renderPage($event, $registrationId)
 				<?php if (!empty($event->locationMaps)): ?>
                     <span class="map-links">
 						<?php foreach ($event->locationMaps as $provider => $url): ?>
+							<?php if (filter_var($url, FILTER_VALIDATE_URL) && (str_starts_with($url, 'http://') || str_starts_with($url, 'https://'))): ?>
                             <a href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener noreferrer" 
                                class="map-link" title="<?= htmlspecialchars(ucfirst($provider)) ?>">
                                 <span class="icon external-link"></span>
                             </a>
+							<?php endif; ?>
 						<?php endforeach; ?>
                     </span>
 				<?php endif; ?>
