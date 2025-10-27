@@ -101,10 +101,13 @@ function renderPage($event, $registrationId)
 							// Validate URL and ensure it uses http/https protocol for security
 							if (filter_var($url, FILTER_VALIDATE_URL) && 
 								(str_starts_with($url, 'http://') || str_starts_with($url, 'https://'))): 
+								// Use provider-specific icons
+								$iconClass = ($provider === 'google') ? 'google-maps' : 'openstreetmap';
+								$providerName = ($provider === 'google') ? 'Google Maps' : 'OpenStreetMap';
 							?>
                             <a href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener noreferrer" 
-                               class="map-link" title="<?= htmlspecialchars(ucfirst($provider)) ?>">
-                                <span class="icon external-link"></span>
+                               class="map-link" title="<?= htmlspecialchars($providerName) ?>">
+                                <span class="icon <?= htmlspecialchars($iconClass) ?>"></span>
                             </a>
 							<?php endif; ?>
 						<?php endforeach; ?>

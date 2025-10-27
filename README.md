@@ -114,10 +114,10 @@ SP1:
   # Optional map links for the location
   # Not required!
   # Allows users to get directions to the event location via different map providers.
-  # Each key is a provider name (e.g., "google", "openstreetmap") and the value is the URL.
+  # Only "google" and "osm" keys are allowed.
   location_maps:
     google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
-    openstreetmap: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
+    osm: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
 
   # Boolean value indicating if the event offers a registration.
   # Not required, default value is true

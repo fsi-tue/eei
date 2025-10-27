@@ -76,6 +76,14 @@
     background-image: url("../icons/external-link-solid.svg");
 }
 
+.icon.google-maps {
+    background-image: url("../icons/google-maps.svg");
+}
+
+.icon.openstreetmap {
+    background-image: url("../icons/openstreetmap.svg");
+}
+
 .icon.inactive {
     opacity: 50%;
 }

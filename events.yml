@@ -17,7 +17,7 @@ events:
     location: "Sand A301"
     location_maps:
       google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
-      openstreetmap: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
+      osm: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
     registration_enabled: false
     opentoall : true
     event_date:
@@ -85,7 +85,7 @@ events:
     location: "Neckarinsel"
     location_maps:
       google: "https://www.google.com/maps/search/?api=1&query=Neckarinsel+T%C3%BCbingen"
-      openstreetmap: "https://www.openstreetmap.org/search?query=Neckarinsel%2C%20T%C3%BCbingen"
+      osm: "https://www.openstreetmap.org/search?query=Neckarinsel%2C%20T%C3%BCbingen"
     opentoall : false
     max_participants: 120
     event_date:
