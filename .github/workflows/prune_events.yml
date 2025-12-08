@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Remove old participant data
         id: removal
-        uses: fjogeleit/http-request-action@v1.16.5
+        uses: fjogeleit/http-request-action@v1.16.6
         with:
           url: https://eei.fsi.uni-tuebingen.de/prune_events.php
           method: 'GET'
