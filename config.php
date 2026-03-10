@@ -12,8 +12,8 @@ $FILE_REVISION = "?v=" . file_get_contents(__DIR__ . "/.git/refs/heads/master", 
 
 # General Information
 $CONFIG_CONTACT = 'fsi@fsi.uni-tuebingen.de';
-$CONFIG_TERM = 'Wintersemester 2025/26'; # example: 'Wintersemester 2023/24' or 'Sommersemester 2024'
-$CONFIG_TERM_SHORT = 'WS25_26'; # example: 'WS23_24' or 'SS24'
-$CONFIG_THEME = 'fsi-fsk'; # possible values: 'fsi-fsk' or 'fsi-only'
+$CONFIG_TERM = 'Sommersemester 2026'; # example: 'Wintersemester 2023/24' or 'Sommersemester 2024'
+$CONFIG_TERM_SHORT = 'SS26'; # example: 'WS23_24' or 'SS24'
+$CONFIG_THEME = 'fsi-only'; # possible values: 'fsi-fsk' or 'fsi-only'
 // see https://www.php.net/manual/en/language.constants.predefined.php
 $fp = realpath(__DIR__ . "/../eei-registration/") . "/"; #File Prefix
