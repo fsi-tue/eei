@@ -1,36 +1,40 @@
 events:
   ##############################
-  ### Ersti-Events ###
+  ###    FB  Ersti-Events    ###
   ##############################
 
   # Informational Events without Registration
+
   CHF:
     location: "Clubhaus"
+    location_maps:
+      google: "https://maps.app.goo.gl/JJQ3JjY8SY6vm5em7"
     registration_enabled: false
     opentoall : true
     event_date:
-      start: "23.10.2025 21:00"
+      start: "30.04.2026 21:00"
       onTime: false
     icon: "party"
 
   MASTERCAFE:
-    location: "Sand A301"
+    location: "Maria-von-Linden-Straße 1"
     location_maps:
-      google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
-      osm: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
+      google: "https://maps.app.goo.gl/bS3d63yJiZw9doTU6"
     registration_enabled: false
     opentoall : true
     event_date:
-      start: "09.10.2025 14:30"
+      start: "09.04.2026 14:30"
       onTime: true
     icon: "information"
 
   TERMOPEN:
     location: "Maria-von-Linden-Straße 1"
+    location_maps:
+      google: "https://maps.app.goo.gl/bS3d63yJiZw9doTU6"
     registration_enabled: false
     opentoall : true
     event_date:
-      start: "10.10.2025 16:15"
+      start: "10.04.2026 16:15"
       onTime: true
     icon: "information"
 
@@ -39,92 +43,137 @@ events:
     registration_enabled: false
     opentoall : true
     event_date:
-      start: "09.10.2025 16:15"
+      start: "09.04.2026 16:15"
       onTime: false
     icon: "information"
 
-  # MC_LAN:
-  #   name: "Git Push Sand - Minecraft LAN-Party im Freien"
-  #   cancelled: true
-  #   text: i18n:mc_lan_text
-  #   location: "Sand 14, Terasse / A104"
-  #   opentoall : false
-  #   max_participants: 50
-  #   event_date:
-  #     start: "11.07.2025 16:00"
-  #     onTime: false
-  #   registration_date:
-  #     start: "20.06.2025 00:00"
-  #     end: "10.07.2025 23:59"
-  #   csv_path: "mc_lan_party.csv"
-  #   icon: "dice"
-  #   dinos: false
-  #   metas:
-  #     - "Nico"
-  #     - "Sebastian"
+  ##############################
+  ###    FSI Ersti-Events    ###
+  ##############################
+  GR1:
+    location: "Terrasse Sand"
+    location_maps:
+      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
+    opentoall : false
+    max_participants: 150
+    event_date:
+      start: "31.03.2026 18:30"
+      onTime: false
+    registration_date:
+      start: "24.03.2026 00:00"
+      end: "31.03.2026 17:00"
+    csv_path: "ersti-grillen1.csv"
+    icon: "grill"
+    dinos: true
+    metas:
+      - "kai"
 
   SP1:
     name: i18n:sp1_name
     text: i18n:sp1_text
     location: "Sand 14, A104 & A301 & A302"
+    location_maps:
+      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
     opentoall : false
     max_participants: 130
     event_date:
-      start: "01.10.2025 19:00"
+      start: "01.04.2026 19:00"
       onTime: false
     registration_date:
-      start: "24.09.2025 19:00"
-      end: "01.10.2025 18:00"
+      start: "24.03.2026 19:00"
+      end: "01.04.2026 18:00"
     csv_path: "ersti-spieleabend1.csv"
     icon: "dice"
     dinos: false
     metas:
+      - "matti"
+
+  FRUEHSAND:
+    location: "Sand A104"
+    location_maps:
+      google: "https://maps.app.goo.gl/vYaBv64faQGcWp5D7"
+    opentoall : false
+    max_participants: 200
+    event_date:
+      start: "10.04.2026 10:00"
+      onTime: true
+    registration_date:
+      start: "03.04.2026 00:00"
+      end: "09.04.2026 23:59"
+    csv_path: "ersti-fruehstueck.csv"
+    icon: "food"
+    metas:
       - "seb"
+      - "kai"
+
+
+  GR2:
+    location: "Terrasse Sand"
+    location_maps:
+      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
+    opentoall : false
+    max_participants: 150
+    event_date:
+      start: "10.04.2026 18:30"
+      onTime: false
+    registration_date:
+      start: "03.04.2026 00:00"
+      end: "10.04.2026 17:00"
+    csv_path: "ersti-grillen2.csv"
+    icon: "grill"
+    dinos: true
+    metas:
+      - "kai"
 
   WD1:
     location: "Neckarinsel"
     location_maps:
       google: "https://www.google.com/maps/search/?api=1&query=Neckarinsel+T%C3%BCbingen"
-      osm: "https://www.openstreetmap.org/search?query=Neckarinsel%2C%20T%C3%BCbingen"
     opentoall : false
     max_participants: 120
     event_date:
-      start: "11.10.2025 10:30"
+      start: "11.04.2026 10:30"
       onTime: true
     registration_date:
-      start: "04.10.2025 00:00"
-      end: "10.10.2025 20:00"
+      start: "04.04.2026 00:00"
+      end: "10.04.2026 20:00"
     csv_path: "ersti-wanderung1.csv"
     icon: "route"
     dinos: true
     metas:
-     - "seb"
+     - "kai"
 
-  FRUEHSAND:
-    location: "Mensa Morgenstelle"
+  SP2:
+    name: "i18n:sp2_name"
+    text: "i18n:sp2_text"
+    location: "Sand 14, A301 & A302"
+    location_maps:
+      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
     opentoall : false
-    max_participants: 200
+    max_participants: 80
     event_date:
-      start: "10.10.2025 10:00"
-      onTime: true
+      start: "14.04.2026 19:00"
+      onTime: false
     registration_date:
-      start: "03.10.2025 00:00"
-      end: "09.10.2025 23:59"
-    csv_path: "ersti-fruehstueck.csv"
-    icon: "food"
+      start: "07.04.2026 00:00"
+      end: "14.04.2026 18:00"
+    csv_path: "ersti-spieleabend2.csv"
+    icon: "dice"
+    dinos: false
     metas:
-      - "seb"
+      - "matti"
+
 
   KT1:
     location: "Various locations in the city"
     opentoall : false
-    max_participants: 60
+    max_participants: 50
     event_date:
-      start: "07.10.2025 19:00"
+      start: "17.04.2026 19:00"
       onTime: true
     registration_date:
-      start: "01.10.2025 00:00"
-      end: "07.10.2025 12:00"
+      start: "10.04.2026 00:00"
+      end: "17.04.2026 12:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
     dinos: false
@@ -133,92 +182,78 @@ events:
       no_alcohol: true
     metas:
       - "seb"
-
-  GR1:
-    location: "Terrasse Sand"
-    opentoall : false
-    max_participants: 150
-    event_date:
-      start: "10.10.2025 18:30"
-      onTime: false
-    registration_date:
-      start: "03.10.2025 00:00"
-      end: "10.10.2025 17:00"
-    csv_path: "ersti-grillen1.csv"
-    icon: "grill"
-    dinos: true
-    metas:
-      - "seb"
-
-  FB:
-    name: "Flunkyball"
-    location: "Sand 14, A104"
-    opentoall : false
-    max_participants: 100
-    event_date:
-      start: "22.10.2025 18:15"
-      onTime: true
-    registration_date:
-      start: "15.10.2025 00:00"
-      end: "22.10.2025 14:00"
-    csv_path: "flunkyball.csv"
-    icon: "beer"
-    metas:
-      - "seb" 
-
-  KT2:
-    location: "Various locations in the city"
-    opentoall : false
-    max_participants: 60
-    event_date:
-      start: "17.10.2025 19:00"
-      onTime: true
-    registration_date:
-      start: "10.10.2025 00:00"
-      end: "17.10.2025 12:00"
-    csv_path: "ersti-kneipentour2.csv"
-    icon: "route"
-    dinos: false
-    form:
-      gender: true
-      no_alcohol: true
-    metas:
-      - "seb"  
-
-  SP2:
-    name: "i18n:sp2_name"
-    text: "i18n:sp2_text"
-    location: "Sand 14, A301 & A302"
-    opentoall : false
-    max_participants: 80
-    event_date:
-      start: "15.10.2025 19:00"
-      onTime: false
-    registration_date:
-      start: "08.10.2025 00:00"
-      end: "14.10.2025 18:00"
-    csv_path: "ersti-spieleabend2.csv"
-    icon: "dice"
-    dinos: false
-    metas:
-      - "seb"
+      - "luis"
 
   WD2:
     location: "Neckarinsel"
+    location_maps:
+      google: "https://www.google.com/maps/search/?api=1&query=Neckarinsel+T%C3%BCbingen"
     opentoall : false
     max_participants: 120
     cancelled: true
     event_date:
-      start: "25.10.2025 10:30"
+      start: "19.04.2026 10:30"
       onTime: true
     registration_date:
-      start: "18.10.2025 00:00"
-      end: "24.10.2025 20:00"
+      start: "11.04.2026 00:00"
+      end: "18.04.2026 20:00"
     csv_path: "ersti-wanderung2.csv"
     icon: "route"
     dinos: true
     metas:
-     - "seb"
+     - "kai"
+
+  FSI_SCHNUSI:
+    location: "Sand A104"
+    opentoall : true
+    max_participants: 30
+    event_date:
+      start: "07.05.2026 18:30"
+      onTime: true
+    registration_date:
+      start: "15.10.2026 00:00"
+      end: "04.05.2026 14:00"
+    csv_path: "schnusi.csv"
+    icon: "cap"
+    metas:
+      - "seb"
+
+  # FB:
+  #   name: "Flunkyball"
+  #   location: "Sand 14, A104"
+  #   opentoall : false
+  #   max_participants: 100
+  #   event_date:
+  #     start: "22.10.2025 18:15"
+  #     onTime: true
+  #   registration_date:
+  #     start: "15.10.2025 00:00"
+  #     end: "22.10.2025 14:00"
+  #   csv_path: "flunkyball.csv"
+  #   icon: "beer"
+  #   metas:
+  #     - "seb" 
+
+  # KT2:
+  #   location: "Various locations in the city"
+  #   opentoall : false
+  #   max_participants: 60
+  #   event_date:
+  #     start: "17.10.2025 19:00"
+  #     onTime: true
+  #   registration_date:
+  #     start: "10.10.2025 00:00"
+  #     end: "17.10.2025 12:00"
+  #   csv_path: "ersti-kneipentour2.csv"
+  #   icon: "route"
+  #   dinos: false
+  #   form:
+  #     gender: true
+  #     no_alcohol: true
+  #   metas:
+  #     - "seb"  
+
+
 
   # KASTEN:
   #   location: "TBA"
@@ -237,22 +272,6 @@ events:
   #     - "max"
   #     - "clara"
 
-  GR2:
-    location: "Terrasse Sand"
-    opentoall : false
-    max_participants: 150
-    event_date:
-      start: "18.10.2025 18:30"
-      end: "18.10.2025 19:30"
-      onTime: false
-    registration_date:
-      start: "11.10.2025 00:00"
-      end: "18.10.2025 17:00"
-    csv_path: "ersti-grillen2.csv"
-    icon: "grill"
-    dinos: true
-    metas:
-      - "seb"
 
   # ASJ:
   #   name: "Abenteuer-Schnitzeljagd"
@@ -274,35 +293,20 @@ events:
   #     - "clara"
 
 
-  FILM:
-    location: "HS24, Kupferbau"
-    opentoall : false
-    max_participants: 200
-    event_date:
-      start: "14.10.2025 19:15"
-      onTime: true
-    registration_date:
-      start: "07.10.2025 00:00"
-      end: "14.10.2025 14:00"
-    csv_path: "ersti-filmabend.csv"
-    icon: "film"
-    metas:
-      - "seb"
-
-  FSI_SCHNUSI:
-    location: "Sand A104"
-    opentoall : true
-    max_participants: 30
-    event_date:
-      start: "30.10.2025 18:30"
-      onTime: true
-    registration_date:
-      start: "23.10.2025 00:00"
-      end: "28.10.2025 14:00"
-    csv_path: "schnusi.csv"
-    icon: "cap"
-    metas:
-      - "seb"
+  # FILM:
+  #   location: "HS24, Kupferbau"
+  #   opentoall : false
+  #   max_participants: 200
+  #   event_date:
+  #     start: "14.10.2025 19:15"
+  #     onTime: true
+  #   registration_date:
+  #     start: "07.10.2025 00:00"
+  #     end: "14.10.2025 14:00"
+  #   csv_path: "ersti-filmabend.csv"
+  #   icon: "film"
+  #   metas:
+  #     - "seb"
 
 
   # AS:
@@ -387,26 +391,26 @@ events:
   #    csv_path: "rallye1.csv"
   #    icon: "marker"
 
-  HUETTE:
-    location: "Waldheim Dettingen"
-    opentoall : false
-    max_participants: 40
-    event_date:
-      start: "07.11.2025 15:00"
-      end: "09.11.2025 14:00"
-      onTime: true
-    registration_date:
-      start: "24.10.2025 10:00"
-      end: "31.10.2025 10:00"
-    csv_path: "ersti-huette.csv"
-    form:
-      breakfast: false
-      food: true
-      gender: true
-    icon: "marker"
-    metas:
-      - "clara"
-      - "emily"
+  # HUETTE:
+  #   location: "Waldheim Dettingen"
+  #   opentoall : false
+  #   max_participants: 40
+  #   event_date:
+  #     start: "07.11.2025 15:00"
+  #     end: "09.11.2025 14:00"
+  #     onTime: true
+  #   registration_date:
+  #     start: "24.10.2025 10:00"
+  #     end: "31.10.2025 10:00"
+  #   csv_path: "ersti-huette.csv"
+  #   form:
+  #     breakfast: false
+  #     food: true
+  #     gender: true
+  #   icon: "marker"
+  #   metas:
+  #     - "clara"
+  #     - "emily"
 
   # WEIHNACHTSFEIER:
   #   name: "Weihnachtsfeier"
