@@ -3,7 +3,7 @@ events:
   ###    Other Events    ###
   ##########################
 
-  tuebix:
+  TUEBIX:
     name: "Tübix 2026 - Tübinger Linuxtag"
     location: "Sand"
     location_maps:
@@ -14,7 +14,7 @@ events:
       start: "04.07.2026 09:00"
       onTime: false
     icon: "information"
-    text: "Der Tübix is ein Linuxtag. Damit ist er eine kleine Konferenz inklusive Vorträgen, Workshops und Austausch rund um Open-Source Themen.<br><br>Seit 2015 (mit Pandemie-Unterbrechung) findet der Tübix im Informatikinstitut auf dem Sand statt.<br>Für mehr Informationen besuche den Tübix e.V. auf seiner Website <a href="https://tuebix.org">tuebix.org</a>"
+    text: "Der Tübix is ein Linuxtag. Damit ist er eine kleine Konferenz inklusive Vorträgen, Workshops und Austausch rund um Open-Source Themen.<br><br>Seit 2015 (mit Pandemie-Unterbrechung) findet der Tübix im Informatikinstitut auf dem Sand statt.<br>Für mehr Informationen besuche den Tübix e.V. auf seiner Website <a href=\"https://tuebix.org\">tuebix.org</a>"
     info: "Das Event wird vom Tübix e.V. organisiert und durchgeführt. Studierenden und Nicht-Studierende sind herzlich willkommen!"
 
   ##############################
