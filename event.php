@@ -3,6 +3,7 @@ require_once 'config.php';
 require_once 'utils.php';
 require_once 'i18n/i18n.php';
 require_once 'event_type.php';
+require_once 'category_type.php';
 
 global $i18n, $events, $CONFIG_TERM, $FILE_REVISION, $CONFIG_CONTACT;
 
@@ -115,6 +116,7 @@ function renderPage($event, $registrationId)
 				<?php endif; ?>
             </div>
 
+				<?php renderCategories($event) ?>
 			<?php
 			if ($event->isOpentoall()) {
 				renderOpentoallNotice($event);
@@ -151,6 +153,7 @@ function renderPage($event, $registrationId)
 			<?php
 			endif; ?>
         </div>
+
         <div class="block">
 			<?php
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -409,6 +412,14 @@ function renderOpentoallNotice($event): void
 	<?php
 }
 
+function renderCategories($event): void {
+	global $categories;
+	echo "<div class='category-pill-container'>";
+	foreach($event->categories ?? [] as $category) {
+		echo "<span class='category-pill' data-color-fg='{$category->color_fg}' data-color-bg='{$category->color_bg}'>{$category->name}</span>";
+	}
+	echo "</div>";
+}
 
 function renderErrorMessages($event): void
 {

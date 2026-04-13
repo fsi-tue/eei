@@ -106,6 +106,61 @@ a .link:hover {
 }
 
 
+
+.category-pill-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px auto;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.category-pill {
+    --fg: attr(data-color-fg type(<color>), #ffffff);
+    --bg: attr(data-color-bg type(<color>), #000080);
+    display: inline;
+    background-color: var(--bg);
+    color: var(--fg) !important;
+    border: 1px solid var(--fg);
+    border-radius: var(--pill-border-radius);
+    padding: 6px 12px;
+    font-size: 80%;
+}
+
+.event-info-pill {
+    position: relative;
+    overflow: visible;
+}
+
+.event-ribbons {
+    position: absolute;
+    top: 0;
+    right: 48px;
+    transform: translateY(5px);
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 70%;
+    z-index: 3;
+}
+
+.event-ribbon {
+    --fg: attr(data-color-fg type(<color>), #ffffff);
+    --bg: attr(data-color-bg type(<color>), #000080);
+    background-color: var(--bg);
+    position: relative;
+    padding: 6px 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.42);
+    white-space: nowrap;
+}
+
+
 .event-link {
     text-decoration: none;
     color: inherit;
@@ -238,6 +293,10 @@ a .link:hover {
     main {
         padding: 15px;
     }
+
+    .event-ribbons {
+        right: 8px;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -251,6 +310,10 @@ a .link:hover {
 
     .event-name {
         margin-right: 0;
+    }
+
+    .event-ribbons {
+        right: 8px;
     }
 }
 
@@ -402,6 +465,10 @@ form .text-block {
     h1 {
         font-size: 1.5em;
     }
+
+    .event-ribbons {
+        right: 8px;
+    }
 }
 
 
@@ -533,4 +600,3 @@ form .text-block {
     background-repeat: no-repeat;
     background-position: center;
 }
-

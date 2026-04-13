@@ -4,7 +4,7 @@ require_once 'utils.php';
 require_once 'event_type.php';
 require_once 'i18n/i18n.php';
 
-global $i18n, $CONFIG_TERM, $FILE_REVISION, $events;
+global $i18n, $CONFIG_TERM, $FILE_REVISION, $events, $categories;
 
 // Load environment variables from the .env file
 loadEnv('.env');
@@ -37,6 +37,32 @@ require_once 'head.php';
                 <option value="en" <?= $i18n->getLanguage() === 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
             </select>
         </div>
+
+        <!-- category chooser bar -->
+        <div class="category-pill-container">
+        <?php if(empty($_GET["cat"])) { ?>
+            <?php foreach($categories ?? [] as $category) { ?>
+                <a class="category-pill"
+                    data-color-fg="<?=$category->color_fg?>"
+                    data-color-bg="<?=$category->color_bg?>"
+                    href="index.php?cat=<?=$category->link?>&lang=<?=$i18n->getLanguage()?>"
+                    >
+                        <?=$category->name?>
+                </a>
+            <?php } ?>
+        <?php } else { ?>
+                <a class="category-pill" 
+                    data-color-fg="<?=$categories[$_GET["cat"]]->color_fg?>"
+                    data-color-bg="<?=$categories[$_GET["cat"]]->color_bg?>">
+                    <?=$categories[$_GET["cat"]]->name?>
+                </a>
+                <a class="category-pill" href="index.php?lang=<?=$i18n->getLanguage()?>">Filter löschen</a>
+        <?php } ?>
+        </div>
+
+
+
+
     </div>
 
     <div class="container">
@@ -54,6 +80,17 @@ require_once 'head.php';
             return $a->getEventStartUTS() - $b->getEventStartUTS();
         });
 
+        // filter by category if set
+        if(!empty($_GET["cat"])) {
+            $sorted_events = array_filter(
+                $sorted_events,
+                fn($e) => count(array_filter(
+                    $e->categories,
+                    fn($cat) => ($cat->link ?? null) === $_GET["cat"]
+                )) > 0
+            );
+        }
+
         // Render the sorted events
         foreach ($sorted_events as $event) {
             ?>
@@ -63,6 +100,15 @@ require_once 'head.php';
                         <?= $event->getEventDateString(['compact' => true, 'no_time' => true]) ?>
                     </div>
                     <div class="event-pill event-info-pill">
+                        <div class="event-ribbons">
+                        <?php foreach($event->categories ?? [] as $category) { 
+                                if( ! $category->ribbon) continue ?>
+                            <span class="event-ribbon" 
+                                data-color-fg='<?=$category->color_fg?>' 
+                                data-color-bg='<?=$category->color_bg?>'>
+                            </span>
+                        <?php } ?>
+                        </div>
                         <span class="event-name"><?= htmlspecialchars($event->name) ?></span>
                         <?php
                         // Render icon using a span and the class from $event->icon ?>

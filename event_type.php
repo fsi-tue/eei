@@ -13,9 +13,11 @@
 // Import config because it needs $fp
 require_once "config.php";
 require_once "i18n/i18n.php";
+// This type instanciates Category
+require_once 'category_type.php';
 
 // Load the Spyc library
-require __DIR__ . '/lib/spyc/Spyc.php';
+require_once __DIR__ . '/lib/spyc/Spyc.php';
 
 // Metas contains email addresses of people who should be notified when someone registers for an event
 if (file_exists(__DIR__ . '/metas.php')) {
@@ -48,10 +50,11 @@ class Event
 	public string $csvPath;
 	public string $icon;
 	public array $metas;
+	public array $categories;
 
 	public function __construct(array $data)
 	{
-		global $i18n;
+		global $i18n, $categories;
 
 		$this->link = $data['link'];
 		// If the name is set, use it, otherwise use the translation
@@ -89,6 +92,10 @@ class Event
 			$this->csvPath = $data['csv_path'];
 		}
 		$this->metas = $data['metas'] ?? [];
+		// read categories from yaml
+		foreach($data['categories'] ?? [] as $category_name) {
+			$this->categories[] = $categories[$category_name];
+		}
 		$this->icon = $data['icon'];
 	}
 

@@ -114,5 +114,9 @@
   "dinos": "Dinos welcome!",
   "fsi_schnusi_name": "FSI Introductory Session",
   "fsi_schnusi_text": "Did you enjoy our freshmen events? Are you interested in what else we do? And most importantly: Would you like to get involved?<br/>Then come to our introductory session! There you'll get an overview of how we work and how a session works. Afterwards, there will be a pizza party with the student council's own pizza oven. We'll provide the dough and tomato sauce (hence the registration), but you'll need to bring your own toppings.<br/><br/>This is the introductory session of the Computer Science Student Council (FSI), i.e., for students of Computer Science (B.Sc. + B.Ed.), Bioinformatics, Media Informatics, Medical Informatics, and Machine Learning. Cognitive Science students, please see the Fachschaft Kognitionswissenschaft.",
-  "opentoall": "Registration is optional. Just come by!"
+  "opentoall": "Registration is optional. Just come by!",
+  "cat_ersti": "starters",
+  "cat_fsi": "computer science",
+  "cat_fsk": "cognitive science",
+  "cat_fbi": "cs department"
 }
