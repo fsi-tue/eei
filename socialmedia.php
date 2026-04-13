@@ -140,7 +140,9 @@ function drawEventPillLine($image, $pos_y, $date, $text, $icon) {
     if(file_exists($path)) {
         $icon_image = new Imagick();
         $icon_image->setFormat('SVG');
-        $icon_image->readImageBlob(str_replace("currentColor", $style["background-color"], file_get_contents($path))); // hehe
+        //$icon_image->readImageBlob(str_replace("currentColor", $style["background-color-light"], file_get_contents($path))); // hehe
+        $icon_image->readImageBlob(str_replace("currentColor", $style["background-color"], str_replace("#000000", $style["background-color"], file_get_contents($path)))); // hehe
+
         $icon_image->setImageAlphaChannel(imagick::ALPHACHANNEL_ACTIVATE);
         $icon_image->setBackgroundColor("transparent");
         $draw->composite(Imagick::COMPOSITE_COPY, $image_width - $space_to_borders - 100, $pos_y + $pill_height * 0.125, $pill_height * 0.75 * (130.0/150.0), $pill_height * 0.75, $icon_image);

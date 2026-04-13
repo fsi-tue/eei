@@ -143,7 +143,7 @@ foreach($events as $event) {
         $icon_image = new Imagick();
         $icon_image->setFormat('SVG');
         $icon_image->setBackgroundColor($style["background-color"]);
-        $icon_image->readImageBlob(str_replace("currentColor", $style["background-color-light"], file_get_contents($icon_path))); // hehe
+        $icon_image->readImageBlob(str_replace("currentColor", $style["background-color-light"], str_replace("#000000", $style["background-color-light"], file_get_contents($icon_path)))); // hehe
         $icon_image->setImageAlphaChannel(imagick::ALPHACHANNEL_ACTIVATE);
         $icon_image->setBackgroundColor($style["background-color"]);
         $draw->composite(Imagick::COMPOSITE_COPY, ($image_width - 300) / 2, 700, 300, 300, $icon_image);
