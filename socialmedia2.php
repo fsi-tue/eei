@@ -1,4 +1,5 @@
 <?php
+(PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die('cli only');
 require_once 'config.php';
 require_once 'utils.php';
 require_once 'event_type.php';
