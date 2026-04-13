@@ -179,7 +179,6 @@ events:
     dinos: false
     form:
       gender: true
-      no_alcohol: true
     metas:
       - "seb"
       - "luis"
@@ -190,7 +189,6 @@ events:
       google: "https://www.google.com/maps/search/?api=1&query=Neckarinsel+T%C3%BCbingen"
     opentoall : false
     max_participants: 120
-    cancelled: true
     event_date:
       start: "19.04.2026 10:30"
       onTime: true
@@ -211,7 +209,7 @@ events:
       start: "07.05.2026 18:30"
       onTime: true
     registration_date:
-      start: "15.10.2026 00:00"
+      start: "15.04.2026 00:00"
       end: "04.05.2026 14:00"
     csv_path: "schnusi.csv"
     icon: "cap"
