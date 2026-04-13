@@ -116,10 +116,10 @@ function renderPage($event, $registrationId)
 				<?php endif; ?>
             </div>
 
-				<?php renderCategories($event) ?>
+			<?php renderCategories($event) ?>
 			<?php
 			if ($event->isOpentoall()) {
-				renderOpentoallNotice($event);
+				//renderOpentoallNotice($event);
 			} ?>
 
         </div>
