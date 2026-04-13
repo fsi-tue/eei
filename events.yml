@@ -7,7 +7,7 @@ events:
     name: "Tübix 2026 - Tübinger Linuxtag"
     location: "Sand"
     location_maps:
-      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
+      osm: "https://osm.org/go/0DkqHnV_i?node=30991670"
     registration_enabled: false
     opentoall : true
     event_date:
