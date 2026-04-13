@@ -45,7 +45,7 @@ require_once 'head.php';
                 <div class="category-switcher">
                     <label for="category-selection" style="display: none;">Category</label> <!-- Hidden label for accessibility -->
                     <select id="category-selection" aria-label="Select category">
-                        <option selected disabled hidden>Events filtern</option>        
+                        <option selected disabled hidden><?=$i18n["category_filter_title"]?></option>        
                     <?php foreach($categories ?? [] as $category) { ?>
                         <option value="<?=$category->link?>">
                             <?=$category->name?>
@@ -70,7 +70,7 @@ require_once 'head.php';
                     data-color-bg="<?=$categories[$_GET["cat"]]->color_bg?>">
                     <?=$categories[$_GET["cat"]]->name?>
                 </a>
-                <a class="category-pill" href="index.php?lang=<?=$i18n->getLanguage()?>">Filter löschen</a>
+                <a class="category-pill" href="index.php?lang=<?=$i18n->getLanguage()?>"><?=$i18n["category_filter_reset"]?></a>
         <?php } ?>
         </div>
 

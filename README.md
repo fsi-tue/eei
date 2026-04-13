@@ -83,110 +83,159 @@ Usage of the `events.yml` file:
 Full Example:
 
 ```yaml
-# Dummy event
-# Instead of SP1, use a unique identifier for the event, e.g. WD1 for Wanderung 1 or SP2 for Spieleabend 2.
-SP1:
-  # Name of the event.
-  # Not required!
-  # IMPORTANT: If not set, it will look up the name in the i18n files.
-  name: "Spieleabend"
+events:
+  # Dummy event
+  # Instead of SP1, use a unique identifier for the event, e.g. WD1 for Wanderung 1 or SP2 for Spieleabend 2.
+  SP1:
+    # Name of the event.
+    # Not required!
+    # IMPORTANT: If not set, it will look up the name in the i18n files.
+    name: "Spieleabend"
 
-  # Boolean value indicating if the event was cancelled.
-  # Not required!
-  # IMPORTANT: If not set, it will be set to false.
-  cancelled: false
+    # Boolean value indicating if the event was cancelled.
+    # Not required!
+    # IMPORTANT: If not set, it will be set to false.
+    cancelled: false
 
-  # Text of the event
-  # Not required!
-  # IMPORTANT: If not set, it will look up the description in the i18n files.
-  # You can use HTML tags in the text.
-  # Example: "Ein <strong>gemütlicher Abend</strong> mit Spielen und Getränken."
-  text: "Ein gemütlicher Abend mit Spielen und Getränken."
+    # Text of the event
+    # Not required!
+    # IMPORTANT: If not set, it will look up the description in the i18n files.
+    # You can use HTML tags in the text.
+    # Example: "Ein <strong>gemütlicher Abend</strong> mit Spielen und Getränken."
+    text: "Ein gemütlicher Abend mit Spielen und Getränken."
 
-  # Additional information about the event.
-  # Not required!
-  # IMPORTANT: If not set, it will look up the info in the i18n files.
-  info: "Für die Veranstaltung gilt 3G."
+    # Additional information about the event.
+    # Not required!
+    # IMPORTANT: If not set, it will look up the info in the i18n files.
+    info: "Für die Veranstaltung gilt 3G."
 
-  # Location where the event will take place. Can be a specific address or a general area description.
-  location: "Sand 14, A301"
+    # Location where the event will take place. Can be a specific address or a general area description.
+    location: "Sand 14, A301"
 
-  # Optional map links for the location
-  # Not required!
-  # Allows users to get directions to the event location via different map providers.
-  # Only "google" and "osm" keys are allowed.
-  location_maps:
-    google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
-    osm: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
+    # Optional map links for the location
+    # Not required!
+    # Allows users to get directions to the event location via different map providers.
+    # Only "google" and "osm" keys are allowed.
+    location_maps:
+      google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
+      osm: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
 
-  # Boolean value indicating if the event offers a registration.
-  # Not required, default value is true
-  # Set this to false for pure informational entries like a Clubhausfest
-  registration_enabled: true
+    # Boolean value indicating if the event offers a registration.
+    # Not required, default value is true
+    # Set this to false for pure informational entries like a Clubhausfest
+    registration_enabled: true
 
-  # Maximum number of participants that can attend the event.
-  max_participants: 120
+    # Maximum number of participants that can attend the event.
+    max_participants: 120
 
-  # Boolean value indicating if the event is open for past members.
-  # Not required!
-  # IMPORTANT: If not set, it will be set to false.
-  dinos: false
+    # Boolean value indicating if the event is open for past members.
+    # Not required!
+    # IMPORTANT: If not set, it will be set to false.
+    dinos: false
 
 
-  # Event timing details.
-  event_date:
-    # Start date and time of the event, formatted as DD.MM.YYYY HH:MM.
-    start: "12.04.2024 20:00"
+    # Event timing details.
+    event_date:
+      # Start date and time of the event, formatted as DD.MM.YYYY HH:MM.
+      start: "12.04.2024 20:00"
 
-    # End date and time of the event, formatted as DD.MM.YYYY HH:MM.
-    # Not required
-    end: "12.04.2024 23:00"
+      # End date and time of the event, formatted as DD.MM.YYYY HH:MM.
+      # Not required
+      end: "12.04.2024 23:00"
 
-    # Boolean value indicating if the event is expected to start exactly on time.
-    onTime: true
+      # Boolean value indicating if the event is expected to start exactly on time.
+      onTime: true
 
-  # Registration period for the event.
-  registration_date:
-    # Start date and time for registration, formatted as DD.MM.YYYY HH:MM.
-    # Not required
-    start: "27.03.2024 00:00"
-    # End date and time for registration, ensuring it ends before the event starts.
-    end: "12.04.2024 19:00"
+    # Registration period for the event.
+    registration_date:
+      # Start date and time for registration, formatted as DD.MM.YYYY HH:MM.
+      # Not required
+      start: "27.03.2024 00:00"
+      # End date and time for registration, ensuring it ends before the event starts.
+      end: "12.04.2024 19:00"
 
-  # Additional information required for the event registration
-  # Isn't required! Below are the default values.
-  form:
-    # Ask for breakfast preferences
-    # By default, this is set to false
-    breakfast: false
-    # Ask for food preferences
-    # By default, this is set to false
-    food: false
-    # Ask for gender
-    # By default, this is set to false
-    gender: false    
-    # Ask for course information
-    # By default, this is set to true
-    course_required: true
-    # Ask if the participant drinks alcohol
-    # This is set to false by default
-    no_alcohol: false
+    # Additional information required for the event registration
+    # Isn't required! Below are the default values.
+    form:
+      # Ask for breakfast preferences
+      # By default, this is set to false
+      breakfast: false
+      # Ask for food preferences
+      # By default, this is set to false
+      food: false
+      # Ask for gender
+      # By default, this is set to false
+      gender: false    
+      # Ask for course information
+      # By default, this is set to true
+      course_required: true
+      # Ask if the participant drinks alcohol
+      # This is set to false by default
+      no_alcohol: false
 
-    # Path to the CSV file associated with the event. Include the file extension.
-    csv_path: "ersti-kneipentour1.csv"
+      # Path to the CSV file associated with the event. Include the file extension.
+      csv_path: "ersti-kneipentour1.csv"
 
-    # Icon representing the event, used in UI elements. Should match a file name or identifier.
-    # Available icons: beer, cap, clock, cocktail, dice, film, food, grill, hiking, home, marker, route, sings
-    icon: "route"
+      # Icon representing the event, used in UI elements. Should match a file name or identifier.
+      # Available icons: beer, cap, clock, cocktail, dice, film, food, grill, hiking, home, marker, route, sings
+      icon: "route"
 
-    # Metas for the event
-    metas:
-      # Email addresses to send registration to
-      # The mail_handles has to be modified in metas.php
-      # More information about this found in chapter "metas.php" down below
-      - "michi"
-      - "josef"
+      # Metas for the event
+      metas:
+        # Email addresses to send registration to
+        # The mail_handles has to be modified in metas.php
+        # More information about this found in chapter "metas.php" down below
+        - "michi"
+        - "josef"
 ```
+
+One can also supply a `categories` element at the root of the yaml structure. Categories are usable as a mixture of tags and filters.
+
+```yaml
+categories:
+  ERSTI:
+    name: i18n:cat_ersti
+    color_fg: "#000000"
+    color_bg: "#ffff00"
+    ribbon: false
+  FSI: 
+    name: i18n:cat_fsi
+    color_fg: "#ffffff"
+    color_bg: "#000080"
+    ribbon: false
+  FSK:
+    name: i18n:cat_fsk
+    color_fg: "#ffffff"
+    color_bg: "#008000"
+    ribbon: false
+  FBI:
+    name: i18n:cat_fbi
+    color_fg: "#000000"
+    color_bg: "#a51e37"
+    ribbon: true
+```
+
+These categories can be referenced at the events structure like this:
+
+```yaml
+  CHF:
+    location: "Clubhaus"
+    location_maps:
+      google: "https://maps.app.goo.gl/JJQ3JjY8SY6vm5em7"
+    registration_enabled: false
+    opentoall : true
+    event_date:
+      start: "30.04.2026 21:00"
+      onTime: false
+    icon: "party"
+    categories:
+      - FSI
+      - FSK
+      - ERSTI
+```
+
+It is possible to add any number of categories to an event. Zero categories are also allowed.
+
 
 ### `metas.php`
 

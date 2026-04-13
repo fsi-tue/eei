@@ -115,6 +115,8 @@
     "fsi_schnusi_name": "FSI Schnuppersitzung",
     "fsi_schnusi_text": "Du hast Spaß an unseren Ersti-Veranstaltungen gehabt? Du interessierst Dich dafür, was wir sonst noch machen? Und am Wichtigsten: Du möchtest gerne mit anpacken?<br/>Dann komm zu unserer Schnuppersitzung! Dort bekommst du einen Überblick, wie wir arbeiten und wie eine Sitzung funktioniert. Und im Anschluss gibt es eine Pizza-Party mit dem fachschaftseigenen Pizzaofen. Wir stellen den Teig und Tomatensauce (deshalb die Anmeldung), den Belag musst Du Dir selber mitbringen.<br/><br/>Das ist die Schnuppersitzung der Fachschaft Informatik (FSI), d.h. für Studierende der Studiengänge Informatik (B.Sc + B.Ed.), Bioinformatik, Medieninformatik, Medizininformatik und Machine Learning. Studierende der Kognitionswissenschaft schauen bitte bei der Fachschaft Kognitionswissenschaft.",
     "opentoall": "Die Anmeldung ist optional. Jeder ist willkommen!",
+    "category_filter_title": "Events filtern",
+    "category_filter_reset": "Filter löschen",
     "cat_ersti": "Erstis",
     "cat_fsi": "Info",
     "cat_fsk": "Kogni",
