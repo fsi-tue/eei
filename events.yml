@@ -1,20 +1,27 @@
 events:
+  ##########################
+  ###    Other Events    ###
+  ##########################
+
+  TUEBIX:
+    name: "Tübix 2026 - Tübinger Linuxtag"
+    location: "Sand"
+    location_maps:
+      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
+    registration_enabled: false
+    opentoall : true
+    event_date:
+      start: "04.07.2026 09:00"
+      onTime: false
+    icon: "information"
+    text: "Der Tübix is ein Linuxtag. Damit ist er eine kleine Konferenz inklusive Vorträgen, Workshops und Austausch rund um Open-Source Themen.<br><br>Seit 2015 (mit Pandemie-Unterbrechung) findet der Tübix im Informatikinstitut auf dem Sand statt.<br>Für mehr Informationen besuche den Tübix e.V. auf seiner Website <a href=\"https://tuebix.org\">tuebix.org</a>"
+    info: "Das Event wird vom Tübix e.V. organisiert und durchgeführt. Studierenden und Nicht-Studierende sind herzlich willkommen!"
+
   ##############################
   ###    FB  Ersti-Events    ###
   ##############################
 
   # Informational Events without Registration
-
-  CHF:
-    location: "Clubhaus"
-    location_maps:
-      google: "https://maps.app.goo.gl/JJQ3JjY8SY6vm5em7"
-    registration_enabled: false
-    opentoall : true
-    event_date:
-      start: "30.04.2026 21:00"
-      onTime: false
-    icon: "party"
 
   MASTERCAFE:
     location: "Maria-von-Linden-Straße 1"
@@ -50,6 +57,17 @@ events:
   ##############################
   ###    FSI Ersti-Events    ###
   ##############################
+  CHF:
+    location: "Clubhaus"
+    location_maps:
+      google: "https://maps.app.goo.gl/JJQ3JjY8SY6vm5em7"
+    registration_enabled: false
+    opentoall : true
+    event_date:
+      start: "30.04.2026 21:00"
+      onTime: false
+    icon: "party"
+
   GR1:
     location: "Terrasse Sand"
     location_maps:
@@ -555,3 +573,4 @@ events:
 #    info: "Dieser Workshop richtet sich NICHT an Bachelor Ersties. Alle anderen sind herzlichst eingeladen."
 #    metas:
 #      - "info"
+  
