@@ -41,10 +41,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if gh release view snapshot >/dev/null 2>&1; then
-            gh release upload snapshot socialmedia.zip --clobber
+          if gh release view socialmedia >/dev/null 2>&1; then
+            gh release upload socialmedia socialmedia.zip --clobber
           else
-            gh release create snapshot socialmedia.zip \
+            gh release create socialmedia socialmedia.zip \
               --title "Social Media Assets" \
-              --notes "automatisch durch GitHub Action erzeugt"
+              --notes "automatically created by GitHub Actions, optimized format for Instagram"
           fi
