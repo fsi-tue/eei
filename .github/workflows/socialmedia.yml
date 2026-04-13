@@ -45,6 +45,6 @@ jobs:
             gh release upload snapshot socialmedia.zip --clobber
           else
             gh release create snapshot socialmedia.zip \
-              --title "Snapshot" \
-              --notes "Automatisch erzeugt"
+              --title "Social Media Assets" \
+              --notes "automatisch durch GitHub Action erzeugt"
           fi
