@@ -42,9 +42,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if gh release view snapshot >/dev/null 2>&1; then
-            gh release upload snapshot tmp.zip --clobber
+            gh release upload snapshot socialmedia.zip --clobber
           else
-            gh release create snapshot tmp.zip \
+            gh release create snapshot socialmedia.zip \
               --title "Snapshot" \
               --notes "Automatisch erzeugt"
           fi
