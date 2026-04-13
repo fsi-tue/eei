@@ -1,0 +1,47 @@
+# .github/workflows/php-imagick.yml
+name: Run PHP scripts and keep tmp
+
+on:
+  push:
+    branches: 
+      -master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: imagick
+
+      - name: create tmp directory
+        run: mkdir -p tmp
+
+      - name: generate overview images
+        id: script1
+        continue-on-error: true
+        run: php socialmedia.php
+
+      - name: generate detail images
+        id: script2
+        continue-on-error: true
+        run: php socialmedia2.php
+
+      - name: upload artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: tmp
+          path: tmp/
+          retention-days: 14
+
+      - name: error handler
+        if: ${{ steps.script1.outcome != 'success' || steps.script2.outcome != 'success' }}
+        run: exit 1
