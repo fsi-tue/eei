@@ -1,0 +1,47 @@
+name: Generate Social Media images
+
+on:
+  push:
+    branches: 
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: setup PHP 
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: imagick
+
+      - name: create images
+        run: |
+          mkdir -p tmp
+          php socialmedia.php
+          php socialmedia2.php
+
+      - name: create zip folder
+        run: zip -r socialmedia.zip tmp
+
+      - name: keep tmp as artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: tmp
+          path: tmp/
+
+      - name: create release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete socialmedia --cleanup-tag -y || true
+          gh release create socialmedia socialmedia.zip \
+            --title "Social Media Assets" \
+            --notes "automatically created by GitHub Actions, optimized format for Instagram"
