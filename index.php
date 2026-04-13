@@ -41,14 +41,28 @@ require_once 'head.php';
         <!-- category chooser bar -->
         <div class="category-pill-container">
         <?php if(empty($_GET["cat"])) { ?>
-            <?php foreach($categories ?? [] as $category) { ?>
-                <a class="category-pill"
-                    data-color-fg="<?=$category->color_fg?>"
-                    data-color-bg="<?=$category->color_bg?>"
-                    href="index.php?cat=<?=$category->link?>&lang=<?=$i18n->getLanguage()?>"
-                    >
-                        <?=$category->name?>
-                </a>
+            <?php if(count($categories) > 4) { ?>
+                <div class="category-switcher">
+                    <label for="category-selection" style="display: none;">Category</label> <!-- Hidden label for accessibility -->
+                    <select id="category-selection" aria-label="Select category">
+                        <option selected disabled hidden>Events filtern</option>        
+                    <?php foreach($categories ?? [] as $category) { ?>
+                        <option value="<?=$category->link?>">
+                            <?=$category->name?>
+                        </option>
+                    <?php } ?>
+                    </select>
+                </div>
+            <?php } else { ?>
+                <?php foreach($categories ?? [] as $category) { ?>
+                    <a class="category-pill"
+                        data-color-fg="<?=$category->color_fg?>"
+                        data-color-bg="<?=$category->color_bg?>"
+                        href="index.php?cat=<?=$category->link?>&lang=<?=$i18n->getLanguage()?>"
+                        >
+                            <?=$category->name?>
+                    </a>
+                <?php } ?>
             <?php } ?>
         <?php } else { ?>
                 <a class="category-pill" 
@@ -165,6 +179,14 @@ require_once 'head.php';
         let baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
         // Add the new language parameter
         location.href = `${baseUrl}?lang=${this.value}`;
+    });
+
+    // Category change handler
+    document.getElementById('category-selection').addEventListener('change', function () {
+        // Construct URL without query string first
+        let baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        // Add the new category parameter
+        location.href = `${baseUrl}?lang=<?=$i18n->getLanguage()?>&cat=${this.value}`;
     });
 </script>
 <script src="js/calendarModal.js"></script>

@@ -530,8 +530,50 @@ form .text-block {
 
 
 
-.language-switcher {
+.category-switcher {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
 
+.category-switcher select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px 32px 8px 12px;
+    font-size: 16px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--pill-border-radius);
+    background-color: white;
+    cursor: pointer;
+    min-width: 140px;
+    transition: all 0.2s ease;
+}
+
+.category-switcher::after {
+    content: '▼';
+    font-size: 12px;
+    color: #666;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.category-switcher select:hover {
+    border-color: #999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-switcher select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+}
+
+
+.language-switcher {
     margin: 20px auto;
     text-align: center;
     position: relative;
