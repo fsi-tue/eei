@@ -185,7 +185,7 @@ events:
   KT1:
     location: "Various locations in the city"
     opentoall : false
-    max_participants: 50
+    max_participants: 40
     event_date:
       start: "17.04.2026 19:00"
       onTime: true
