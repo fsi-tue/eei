@@ -250,7 +250,10 @@ function renderCourseOptions($event): void
 	echo $i18n['form_study_programme'] . ':<br>';
 	$courses = [
 		['Informatik', 'form_cs'],
-		['Lehramt', 'form_cs_ed'],
+		['Lehramt – Hauptfach', 'form_cs_ed1'],
+		['Lehramt – Erweiterungsfach', 'form_cs_ed2'],
+		['Lehramt – Quereinstieg (1. Fach Info)', 'form_cs_ed3'],
+		['Lehramt – Quereinstieg (2. Fach Info)', 'form_cs_ed4'],
 		['Bioinformatik', 'form_cs_bio'],
 		['Medizininformatik', 'form_cs_med'],
 		['Medieninformatik', 'form_cs_media'],
