@@ -136,6 +136,9 @@ SP1:
   # IMPORTANT: If not set, it will be set to false.
   dinos: false
 
+  # Boolean value indicating if the event is taking place all day. (only used in .ics export!)
+  # Not required, default value is false
+  allDay: false
 
   # Event timing details.
   event_date:

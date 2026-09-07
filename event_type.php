@@ -42,6 +42,7 @@ class Event
 	public bool $cancelled;
 	public string $text;
 	public string $info;
+	public bool $allDay;
 	private array $eventDate;
 	private array $registrationDate;
 	public array $form;
@@ -70,6 +71,7 @@ class Event
 		$this->text = Event::i18n($data, 'text') ?? $i18n->translate(strtolower($this->link) . '_text') ?? '';
 		$this->info = Event::i18n($data, 'info') ?? $i18n->translate(strtolower($this->link) . '_info') ?? '';
 		// Date and time of the event
+		$this->allDay = $data['allDay'] ?? FALSE;
 		$this->eventDate = [
 			'onTime' => TRUE
 		];
