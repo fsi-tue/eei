@@ -62,7 +62,7 @@ class Event
 
 		$this->location = $data['location'];
 		$this->locationMaps = $data['location_maps'] ?? [];
-		$this->opentoall = $data['opentoall'];
+		$this->opentoall = $data['opentoall'] ?? FALSE;
 		$this->maxParticipants = $data['max_participants'] ?? FALSE;
 		$this->dinosAllowed = $data['dinos'] ?? FALSE;
 		$this->cancelled = $data['cancelled'] ?? FALSE;

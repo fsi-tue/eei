@@ -119,6 +119,10 @@ SP1:
     google: "https://www.google.com/maps/search/?api=1&query=Sand+14+T%C3%BCbingen"
     osm: "https://www.openstreetmap.org/search?query=Sand%2014%2C%20T%C3%BCbingen"
 
+  # Boolean value indicating if the event is open to all people without them being registered or a fresher
+  # Not required, default value is false
+  opentoall: false
+  
   # Boolean value indicating if the event offers a registration.
   # Not required, default value is true
   # Set this to false for pure informational entries like a Clubhausfest
