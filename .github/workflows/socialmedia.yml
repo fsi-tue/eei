@@ -32,7 +32,7 @@ jobs:
         run: zip -r socialmedia.zip tmp
 
       - name: keep tmp as artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: tmp
           path: tmp/
