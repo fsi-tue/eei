@@ -247,6 +247,7 @@ function renderCourseOptions($event): void
 
 	global $i18n;
 
+	// Program
 	echo $i18n['form_study_programme'] . ':<br>';
 	$courses = [
 		['Informatik', 'form_cs'],
@@ -261,15 +262,19 @@ function renderCourseOptions($event): void
 		['Kognitionswissenschaft', 'form_cog'],
 		['Nebenfach', 'form_subsidiary']
 	];
-	foreach ($courses as $course) {
-		?>
-        <label>
-            <input type="radio" class="form-studiengang" name="studiengang" value="<?= $course[0] ?>" required>
-			<?= $i18n[$course[1]] ?>
-        </label>
-        <br>
-		<?php
-	} ?>
+	?>
+		<select class="form-studiengang" name="studiengang" required>
+			<option value="" disabled selected></option>
+			<?php 
+			foreach ($courses as $course) {
+				?>
+				<option value="<?= $course[0] ?>">
+					<?= $i18n[$course[1]] ?>
+				</option>
+			<?php 
+			} ?>
+		</select>
+	<br>
 
     <br><?= $i18n['form_degree'] ?>:<br>
 	<?php
