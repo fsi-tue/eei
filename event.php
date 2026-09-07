@@ -263,17 +263,19 @@ function renderCourseOptions($event): void
 		['Nebenfach', 'form_subsidiary']
 	];
 	?>
-		<select class="form-studiengang" name="studiengang" required>
-			<option value="" disabled selected></option>
-			<?php 
-			foreach ($courses as $course) {
-				?>
-				<option value="<?= $course[0] ?>">
-					<?= $i18n[$course[1]] ?>
-				</option>
-			<?php 
-			} ?>
-		</select>
+		<div class="select-wrapper">
+			<select class="form-studiengang" name="studiengang" required>
+				<option value="" disabled selected></option>
+				<?php 
+				foreach ($courses as $course) {
+					?>
+					<option value="<?= $course[0] ?>">
+						<?= $i18n[$course[1]] ?>
+					</option>
+				<?php 
+				} ?>
+			</select>
+		</div>
 	<br>
 
     <br><?= $i18n['form_degree'] ?>:<br>
