@@ -55,24 +55,31 @@ class ICSGenerator
     
     private function generateEventBlock($event): string
     {
+        $eventStartUTS = $event->getEventStartUTS();
+		$eventEndUTS = $event->getEventEndUTS();
+        $isAllDay = $event->allDay;
+
         $eventData = [
 			'BEGIN:VEVENT',
 			'UID:' . $this->generateUID($event),
 			'DTSTAMP:' . $this->formatDateTime(new DateTimeImmutable()),
-			'DTSTART;TZID=Europe/Berlin:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($event->getEventStartUTS())),
+			'DTSTART;' . $this->formatDateTime($eventStartUTS, 'start', $isAllDay),
 		];
 		
-		$eventStartUTS = $event->getEventStartUTS();
-		$eventEndUTS = $event->getEventEndUTS();
 		
 		// Check if the event has an end
 		if ($eventEndUTS > 0) {
-			$eventData[] = 'DTEND;TZID=Europe/Berlin:' . $this->formatDateTime((new DateTimeImmutable())->setTimestamp($eventEndUTS));
+			$eventData[] = 'DTEND;' . $this->formatDateTime($eventEndUTS, 'end', $isAllDay);
 		} else {
-			// If there is no end, instead of using the 0 (which is kind of bad because this represents 1970-01-01)
+			// If there is no end and it's not allDay, instead of using the 0 (which is kind of bad because this represents 1970-01-01)
 			// we set the end to the end of the day
-			$endOfDay = (new DateTimeImmutable())->setTimestamp($eventStartUTS)->setTime(23, 59, 00);
-			$eventData[] = 'DTEND;TZID=Europe/Berlin:' . $this->formatDateTime($endOfDay);
+            // if it's allDay we don't set a time
+            if ($isAllDay) {
+                $eventData[] = 'DTEND;' . $this->formatDateTime($eventStartUTS, 'end', true);
+            } else {
+                $endOfDay = (new DateTimeImmutable())->setTimestamp($eventStartUTS)->setTimezone(new DateTimeZone('Europe/Berlin'))->setTime(23, 59, 0)->getTimestamp();
+			    $eventData[] = 'DTEND;' . $this->formatDateTime($endOfDay, 'end', false);
+            }
 		}
 		
 		$eventData[] = 'SUMMARY:' . $this->escapeString($event->name);
@@ -105,9 +112,26 @@ class ICSGenerator
         );
     }
     
-    private function formatDateTime(DateTimeInterface $dateTime): string
-    {
-        return $dateTime->format('Ymd\THis');
+    private function formatDateTime($input, string $type = 'start', bool $isAllDay = false): string
+    {   
+        $timezone = new DateTimeZone('Europe/Berlin');
+
+        if ($input instanceof DateTimeInterface) {
+            return $input->setTimezone($timezone)->format('Ymd\THis');
+        }
+
+        $timestamp = (int)$input;
+        $dt = (new DateTimeImmutable())->setTimestamp($timestamp)->setTimezone($timezone);
+
+        if ($isAllDay) {
+            if ($type === 'start') {
+                return 'VALUE=DATE:' . $dt->format('Ymd');
+            }
+        
+            return 'VALUE=DATE:' . $dt->modify('+1 day')->format('Ymd');
+        }
+
+        return 'TZID=Europe/Berlin:' . $dt->format('Ymd\THis');
     }
     
     private function escapeString(string $text): string

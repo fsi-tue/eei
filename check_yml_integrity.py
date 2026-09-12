@@ -104,6 +104,7 @@ REQUIRED_SCHEMA = Schema(And(
         Optional("opentoall"): bool,
         Optional("max_participants"): int,
         Optional("dinos"): bool,
+        Optional("allDay"): bool,
         "event_date": {
             "start": And(str, is_date),
             Optional("end"): And(str, is_date),
