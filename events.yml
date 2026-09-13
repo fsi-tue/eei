@@ -53,7 +53,8 @@ events:
     opentoall: true
     allDay: true
     event_date:
-      start: "09.10.2026 13:00"
+      start: "07.10.2026 18:00"
+      end: "13.10.2026 20:00"
       onTime: false
     icon: "information"
 
