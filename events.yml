@@ -23,17 +23,17 @@ events:
 
   # Informational Events without Registration
 
-  # MASTERCAFE:
-  #   location: "Maria-von-Linden-Straße 1"
-  #   location_maps:
-  #     osm: "https://www.openstreetmap.org/way/1281231872"
-  #   registration_enabled: false
-  #   opentoall: true
-  #   event_date:
-  #     start: "08.10.2026 14:30"
-  #     end: "08.10.2026 17:30"
-  #     onTime: false
-  #   icon: "information"
+  MASTERCAFE:
+    location: "Maria-von-Linden-Straße 1, Level 6"
+    location_maps:
+      osm: "https://www.openstreetmap.org/way/1281231872"
+    registration_enabled: false
+    opentoall: true
+    event_date:
+      start: "08.10.2026 14:30"
+      end: "08.10.2026 18:00"
+      onTime: false
+    icon: "information"
 
   TERMOPEN:
     location: "Maria-von-Linden-Straße 1"
