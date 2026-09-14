@@ -110,7 +110,7 @@ events:
     icon: "party"
   
   SP1:
-    location: "Sand 14, A104 & A301 & A302"
+    location: "Sand A104 & A301 & A302"
     location_maps:
       osm: "https://www.openstreetmap.org/node/30991670"
     opentoall : true
@@ -133,7 +133,7 @@ events:
       - "fsk.miriam"
 
   SP2:
-    location: "Sand 14, A104 & A301 & A302"
+    location: "Sand A104 & A301 & A302"
     location_maps:
       osm: "https://www.openstreetmap.org/node/30991670"
     opentoall : true
@@ -301,7 +301,7 @@ events:
       - "fsi.tize"
   
   FB:
-    location: "Terasse Sand"
+    location: "Terrasse Sand"
     location_maps:
       osm: "https://www.openstreetmap.org/node/30991670"
     opentoall : false
