@@ -3,19 +3,19 @@ events:
   ###    Other Events    ###
   ##########################
 
-  TUEBIX:
-    name: "Tübix 2026 - Tübinger Linuxtag"
-    location: "Sand"
-    location_maps:
-      osm: "https://osm.org/go/0DkqHnV_i?node=30991670"
-    registration_enabled: false
-    opentoall : true
-    event_date:
-      start: "04.07.2026 09:00"
-      onTime: false
-    icon: "information"
-    text: "Der Tübix is ein Linuxtag. Damit ist er eine kleine Konferenz inklusive Vorträgen, Workshops und Austausch rund um Open-Source Themen.<br><br>Seit 2015 (mit Pandemie-Unterbrechung) findet der Tübix im Informatikinstitut auf dem Sand statt.<br>Für mehr Informationen besuche den Tübix e.V. auf seiner Website <a href=\"https://tuebix.org\">tuebix.org</a>"
-    info: "Das Event wird vom Tübix e.V. organisiert und durchgeführt. Studierenden und Nicht-Studierende sind herzlich willkommen!"
+  # TUEBIX:
+  #   name: "Tübix 2026 - Tübinger Linuxtag"
+  #   location: "Sand"
+  #   location_maps:
+  #     osm: "https://osm.org/go/0DkqHnV_i?node=30991670"
+  #   registration_enabled: false
+  #   opentoall : true
+  #   event_date:
+  #     start: "04.07.2026 09:00"
+  #     onTime: false
+  #   icon: "information"
+  #   text: "Der Tübix is ein Linuxtag. Damit ist er eine kleine Konferenz inklusive Vorträgen, Workshops und Austausch rund um Open-Source Themen.<br><br>Seit 2015 (mit Pandemie-Unterbrechung) findet der Tübix im Informatikinstitut auf dem Sand statt.<br>Für mehr Informationen besuche den Tübix e.V. auf seiner Website <a href=\"https://tuebix.org\">tuebix.org</a>"
+  #   info: "Das Event wird vom Tübix e.V. organisiert und durchgeführt. Studierenden und Nicht-Studierende sind herzlich willkommen!"
 
   ##############################
   ###    FB  Ersti-Events    ###
@@ -24,216 +24,378 @@ events:
   # Informational Events without Registration
 
   MASTERCAFE:
-    location: "Maria-von-Linden-Straße 1"
+    location: "Maria-von-Linden-Straße 1, Level 6"
     location_maps:
-      google: "https://maps.app.goo.gl/bS3d63yJiZw9doTU6"
+      osm: "https://www.openstreetmap.org/way/1281231872"
     registration_enabled: false
-    opentoall : true
+    opentoall: true
     event_date:
-      start: "09.04.2026 14:30"
-      onTime: true
+      start: "08.10.2026 14:30"
+      end: "08.10.2026 18:00"
+      onTime: false
     icon: "information"
 
   TERMOPEN:
     location: "Maria-von-Linden-Straße 1"
     location_maps:
-      google: "https://maps.app.goo.gl/bS3d63yJiZw9doTU6"
+      osm: "https://www.openstreetmap.org/way/1281231872"
     registration_enabled: false
-    opentoall : true
+    opentoall: true
     event_date:
-      start: "10.04.2026 16:15"
+      start: "09.10.2026 16:00"
+      end: "09.10.2026 18:00"
       onTime: true
     icon: "information"
 
   SUBINTRO:
     location: "Various"
     registration_enabled: false
-    opentoall : true
+    opentoall: true
+    allDay: true
     event_date:
-      start: "09.04.2026 16:15"
+      start: "07.10.2026 18:00"
+      end: "13.10.2026 20:00"
       onTime: false
     icon: "information"
 
-  ##############################
-  ###    FSI Ersti-Events    ###
-  ##############################
+  PCMATH:
+    location: "Various"
+    registration_enabled: false
+    opentoall: false
+    allDay: true
+    event_date:
+      start: "01.10.2026 10:00"
+      end: "08.10.2026 17:00"
+      onTime: true
+    icon: "cap"
+
+  PCLIFE:
+    location: "Various"
+    registration_enabled: false
+    opentoall : false
+    allDay: true
+    event_date:
+      start: "28.09.2026 00:00"
+      end: "02.10.2026 23:59"
+      onTime: false
+    icon: "cap"
+
+  ################################
+  ###    FSI/K Ersti-Events    ###
+  ################################
+
+  PCMATHCOG:
+    location: "Sand C412"
+    location_maps:
+      osm: "https://www.openstreetmap.org/node/30991670"
+    registration_enabled: false
+    opentoall : false
+    allDay: true
+    event_date:
+      start: "05.10.2026 09:00"
+      end: "09.10.2026 17:00"
+      onTime: true
+    icon: "cap"
+  
   CHF:
     location: "Clubhaus"
     location_maps:
-      google: "https://maps.app.goo.gl/JJQ3JjY8SY6vm5em7"
+      osm: "https://www.openstreetmap.org/way/30272160"
     registration_enabled: false
     opentoall : true
     event_date:
-      start: "30.04.2026 21:00"
+      start: "29.10.2026 21:00"
+      end: "30.10.2026 03:00"
       onTime: false
     icon: "party"
+  
+  SP1:
+    location: "Sand A104 & A301 & A302"
+    location_maps:
+      osm: "https://www.openstreetmap.org/node/30991670"
+    opentoall : true
+    max_participants: 130
+    event_date:
+      start: "01.10.2026 19:00"
+      end: "01.10.2026 23:59"
+      onTime: false
+    registration_date:
+      start: "24.08.2026 19:00"
+      end: "01.10.2026 18:00"
+    csv_path: "ersti-spieleabend1.csv"
+    icon: "dice"
+    metas:
+      - "wildcard"
+      - "fsi.matti"
+      - "fsi.adrian"
+      - "fsi.luca"
+      - "fsk.finn"
+      - "fsk.miriam"
 
+  SP2:
+    location: "Sand A104 & A301 & A302"
+    location_maps:
+      osm: "https://www.openstreetmap.org/node/30991670"
+    opentoall : true
+    max_participants: 130
+    event_date:
+      start: "20.10.2026 19:00"
+      end: "20.10.2026 23:59"
+      onTime: false
+    registration_date:
+      start: "13.10.2026 19:00"
+      end: "20.10.2026 18:00"
+    csv_path: "ersti-spieleabend2.csv"
+    icon: "dice"
+    metas:
+      - "wildcard"
+      - "fsi.matti"
+      - "fsi.adrian"
+      - "fsi.luca"
+      - "fsk.finn"
+      - "fsk.miriam"
+  
   GR1:
     location: "Terrasse Sand"
     location_maps:
-      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
-    opentoall : false
+      osm: "https://www.openstreetmap.org/node/30991670"
+    opentoall : true
     max_participants: 150
     event_date:
-      start: "31.03.2026 18:30"
+      start: "09.10.2026 18:00"
+      end: "09.10.2026 23:59"
       onTime: false
     registration_date:
-      start: "24.03.2026 00:00"
-      end: "31.03.2026 17:00"
+      start: "02.10.2026 18:00"
+      end: "09.10.2026 17:00"
     csv_path: "ersti-grillen1.csv"
     icon: "grill"
-    dinos: true
     metas:
-      - "kai"
-
-  SP1:
-    name: i18n:sp1_name
-    text: i18n:sp1_text
-    location: "Sand 14, A104 & A301 & A302"
-    location_maps:
-      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
-    opentoall : false
-    max_participants: 130
-    event_date:
-      start: "01.04.2026 19:00"
-      onTime: false
-    registration_date:
-      start: "24.03.2026 19:00"
-      end: "01.04.2026 18:00"
-    csv_path: "ersti-spieleabend1.csv"
-    icon: "dice"
-    dinos: false
-    metas:
-      - "matti"
-
-  FRUEHSAND:
-    location: "Sand A104"
-    location_maps:
-      google: "https://maps.app.goo.gl/vYaBv64faQGcWp5D7"
-    opentoall : false
-    max_participants: 200
-    event_date:
-      start: "10.04.2026 10:00"
-      onTime: true
-    registration_date:
-      start: "03.04.2026 00:00"
-      end: "09.04.2026 23:59"
-    csv_path: "ersti-fruehstueck.csv"
-    icon: "food"
-    metas:
-      - "seb"
-      - "kai"
-
+      - "wildcard"
+      - "fsi.kai"
+      - "fsk.jan"
+      - "fsk.max"
+      - "fsk.tina"
+      - "fsk.teresa"
 
   GR2:
     location: "Terrasse Sand"
     location_maps:
-      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
-    opentoall : false
+      osm: "https://www.openstreetmap.org/node/30991670"
+    opentoall : true
     max_participants: 150
     event_date:
-      start: "10.04.2026 18:30"
+      start: "24.10.2026 15:00"
+      end: "24.10.2026 23:59"
       onTime: false
     registration_date:
-      start: "03.04.2026 00:00"
-      end: "10.04.2026 17:00"
+      start: "17.10.2026 15:00"
+      end: "24.10.2026 14:00"
     csv_path: "ersti-grillen2.csv"
     icon: "grill"
-    dinos: true
     metas:
-      - "kai"
-
-  WD1:
-    location: "Neckarinsel"
-    location_maps:
-      google: "https://www.google.com/maps/search/?api=1&query=Neckarinsel+T%C3%BCbingen"
-    opentoall : false
-    max_participants: 120
-    event_date:
-      start: "11.04.2026 10:30"
-      onTime: true
-    registration_date:
-      start: "04.04.2026 00:00"
-      end: "10.04.2026 20:00"
-    csv_path: "ersti-wanderung1.csv"
-    icon: "route"
-    dinos: true
-    metas:
-     - "kai"
-
-  SP2:
-    name: "i18n:sp2_name"
-    text: "i18n:sp2_text"
-    location: "Sand 14, A301 & A302"
-    location_maps:
-      google: "https://maps.app.goo.gl/zfistATzRefY2Uu78"
-    opentoall : false
-    max_participants: 80
-    event_date:
-      start: "14.04.2026 19:00"
-      onTime: false
-    registration_date:
-      start: "07.04.2026 00:00"
-      end: "14.04.2026 18:00"
-    csv_path: "ersti-spieleabend2.csv"
-    icon: "dice"
-    dinos: false
-    metas:
-      - "matti"
-
+      - "wildcard"
+      - "fsi.kai"
+      - "fsk.jan"
+      - "fsk.max"
+      - "fsk.tina"
+      - "fsk.teresa"
 
   KT1:
     location: "Various locations in the city"
     opentoall : false
-    max_participants: 40
+    max_participants: 50
     event_date:
-      start: "17.04.2026 19:00"
+      start: "08.10.2026 19:00"
+      end: "08.10.2026 23:59"
       onTime: true
     registration_date:
-      start: "10.04.2026 00:00"
-      end: "17.04.2026 12:00"
+      start: "01.10.2026 19:00"
+      end: "08.10.2026 13:00"
     csv_path: "ersti-kneipentour1.csv"
     icon: "route"
-    dinos: false
     form:
       gender: true
     metas:
-      - "seb"
-      - "luis"
+      - "wildcard"
+      - "fsi.nico"
+      - "fsi.luis"
+
+  KT2:
+    location: "Various locations in the city"
+    opentoall : false
+    max_participants: 50
+    event_date:
+      start: "17.10.2026 19:00"
+      end: "17.10.2026 23:59"
+      onTime: true
+    registration_date:
+      start: "10.10.2026 19:00"
+      end: "17.10.2026 13:00"
+    csv_path: "ersti-kneipentour2.csv"
+    icon: "route"
+    form:
+      gender: true
+    metas:
+      - "wildcard"
+      - "fsi.nico"
+      - "fsi.luis"
+
+  WD1:
+    location: "Neckarinsel"
+    location_maps:
+      osm: "https://www.openstreetmap.org/way/36694821"
+    opentoall : false
+    max_participants: 120
+    event_date:
+      start: "03.10.2026 10:30"
+      end: "03.10.2026 15:00"
+      onTime: true
+    registration_date:
+      start: "26.09.2026 10:30"
+      end: "02.10.2026 20:00"
+    csv_path: "ersti-wanderung1.csv"
+    icon: "hiking"
+    metas:
+      - "wildcard"
+      - "fsi.kai"
+      - "fsk.finn"
 
   WD2:
     location: "Neckarinsel"
     location_maps:
-      google: "https://www.google.com/maps/search/?api=1&query=Neckarinsel+T%C3%BCbingen"
+      osm: "https://www.openstreetmap.org/way/36694821"
     opentoall : false
     max_participants: 120
     event_date:
-      start: "19.04.2026 10:30"
+      start: "31.10.2026 10:30"
+      end: "31.10.2026 15:00"
       onTime: true
     registration_date:
-      start: "11.04.2026 00:00"
-      end: "18.04.2026 20:00"
+      start: "24.10.2026 10:30"
+      end: "23.10.2026 20:00"
     csv_path: "ersti-wanderung2.csv"
-    icon: "route"
-    dinos: true
+    icon: "hiking"
     metas:
-     - "kai"
+      - "wildcard"
+      - "fsi.kai"
+      - "fsk.finn"
 
+  FRUEH:
+    location: "Mensa Morgenstellee"
+    location_maps:
+      osm: "https://www.openstreetmap.org/way/260676992"
+    opentoall : false
+    max_participants: 150
+    event_date:
+      start: "09.10.2026 10:00"
+      end: "09.10.2026 13:00"
+      onTime: true
+    registration_date:
+      start: "02.10.2026 10:00"
+      end: "08.10.2026 23:59"
+    csv_path: "ersti-fruehstueck.csv"
+    icon: "food"
+    metas:
+      - "wildcard"
+      - "fsi.tize"
+  
+  FB:
+    location: "Terrasse Sand"
+    location_maps:
+      osm: "https://www.openstreetmap.org/node/30991670"
+    opentoall : false
+    max_participants: 100
+    event_date:
+      start: "07.10.2026 18:15"
+      end: "07.10.2026 23:59"
+      onTime: true
+    registration_date:
+      start: "30.09.2026 18:15"
+      end: "07.10.2026 14:00"
+    csv_path: "ersti-flunkyball.csv"
+    icon: "beer"
+    metas:
+      - "wildcard"
+      - "fsi.nico" 
+
+  RY:
+    location: "Various locations in the city"
+    opentoall : false
+    max_participants: 120
+    event_date:
+      start: "13.10.2026 16:30"
+      end: "13.10.2026 18:30"
+      onTime: true
+    registration_date:
+      start: "06.10.2026 16:30"
+      end: "13.10.2026 11:00"
+    csv_path: "ersti-rallye1.csv"
+    icon: "marker"
+    form:
+      gender: true
+    metas:
+      - "wildcard"
+      - "fsi.benedikt"
+      - "fsi.luis"
+  
   FSI_SCHNUSI:
     location: "Sand A104"
+    location_maps:
+      osm: "https://www.openstreetmap.org/node/30991670"
     opentoall : true
     max_participants: 30
     event_date:
-      start: "07.05.2026 18:30"
+      start: "05.11.2026 18:30"
+      end: "05.11.2026 22:30"
       onTime: true
     registration_date:
-      start: "15.04.2026 00:00"
-      end: "04.05.2026 14:00"
-    csv_path: "schnusi.csv"
+      start: "26.10.2026 18:30"
+      end: "02.11.2026 14:00"
+    csv_path: "ersti-schnusi-fsi.csv"
     icon: "cap"
     metas:
-      - "seb"
+      - "wildcard"
+      - "fsi.luis"
 
+  FSK_SCHNUSI:
+    location: "Sand A302"
+    location_maps:
+      osm: "https://www.openstreetmap.org/node/30991670"
+    opentoall : true
+    max_participants: 30
+    registration_enabled: true
+    event_date:
+      start: "05.11.2026 18:30"
+      end: "05.11.2026 20:30"
+      onTime: true
+    registration_date:
+      start: "26.10.2026 18:30"
+      end: "05.11.2026 16:30"
+    csv_path: "ersti-schnusi-fsk.csv"
+    icon: "cap"
+    metas:
+      - "wildcard"
+      - "fsk.finn"
+
+  # FRUEHSAND:
+  #   location: "Sand A104"
+  #   location_maps:
+  #     google: "https://maps.app.goo.gl/vYaBv64faQGcWp5D7"
+  #   opentoall : false
+  #   max_participants: 200
+  #   event_date:
+  #     start: "10.04.2026 10:00"
+  #     onTime: true
+  #   registration_date:
+  #     start: "03.04.2026 00:00"
+  #     end: "09.04.2026 23:59"
+  #   csv_path: "ersti-fruehstueck.csv"
+  #   icon: "food"
+  #   metas:
+  #     - "seb"
+  #     - "kai"
+  
   # FB:
   #   name: "Flunkyball"
   #   location: "Sand 14, A104"
@@ -268,8 +430,6 @@ events:
   #     no_alcohol: true
   #   metas:
   #     - "seb"  
-
-
 
   # KASTEN:
   #   location: "TBA"
