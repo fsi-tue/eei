@@ -224,7 +224,7 @@ events:
   KT2:
     location: "Various locations in the city"
     opentoall : false
-    max_participants: 50
+    max_participants: 65
     event_date:
       start: "17.10.2026 19:00"
       end: "17.10.2026 23:59"
