@@ -262,6 +262,7 @@ events:
       - "fsk.finn"
 
   WD2:
+    cancelled: true
     location: "Neckarinsel"
     location_maps:
       osm: "https://www.openstreetmap.org/way/36694821"
