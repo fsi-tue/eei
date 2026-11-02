@@ -352,7 +352,7 @@ events:
       onTime: true
     registration_date:
       start: "26.10.2026 18:30"
-      end: "02.11.2026 14:00"
+      end: "03.11.2026 14:00"
     csv_path: "ersti-schnusi-fsi.csv"
     icon: "cap"
     metas:
