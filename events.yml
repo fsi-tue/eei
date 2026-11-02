@@ -345,7 +345,7 @@ events:
     location_maps:
       osm: "https://www.openstreetmap.org/node/30991670"
     opentoall : true
-    max_participants: 30
+    max_participants: 40
     event_date:
       start: "05.11.2026 18:30"
       end: "05.11.2026 22:30"
